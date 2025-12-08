@@ -1,0 +1,11 @@
+{
+	"$schema": "https://raw.githubusercontent.com/untrustedmodders/plugify/refs/heads/main/schemas/language-module.schema.json",
+	"version": "${RUSTLM_VERSION}",
+	"name": "${RUSTLM_PACKAGE}",
+	"language": "rust",
+	"description": "Adds support for Rust plugins",
+	"author": "untrustedmodders",
+	"website": "https://github.com/untrustedmodders/",
+	"license": "MIT",
+	"platforms": []
+}

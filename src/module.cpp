@@ -1,0 +1,574 @@
+#include "module.hpp"
+
+#include <plugify/logger.hpp>
+#include <plugify/provider.hpp>
+#include <plugify/call.hpp>
+
+#include <plg/numerics.hpp>
+#include <plg/any.hpp>
+#include <plg/string.hpp>
+#include <plg/numerics.hpp>
+
+#include <plugify/assembly_loader.hpp>
+
+#if __has_include(<stacktrace>)
+#include <stacktrace>
+#define HAS_STACKTRACE 1
+#else
+#define HAS_STACKTRACE 0
+#endif
+
+#define LOG_PREFIX "[RUSTLM] "
+
+using namespace rustlm;
+using namespace plugify;
+
+namespace {
+	std::vector<std::string_view> Split(std::string_view strv, std::string_view delims) {
+		std::vector<std::string_view> output;
+		size_t first = 0;
+
+		while (first < strv.size()) {
+			const size_t second = strv.find_first_of(delims, first);
+
+			if (first != second)
+				output.emplace_back(strv.substr(first, second-first));
+
+			if (second == std::string_view::npos)
+				break;
+
+			first = second + 1;
+		}
+
+		return output;
+	}
+}
+
+Result<InitData> RustLanguageModule::Initialize(const Provider& provider, [[maybe_unused]] const Extension& module) {
+	_provider = std::make_unique<Provider>(provider);
+
+	_provider->Log(LOG_PREFIX "Inited!", Severity::Debug);
+
+	return InitData{{ .hasUpdate = false }};
+}
+
+void RustLanguageModule::Shutdown() {
+	for (MemAddr* addr : _addresses) {
+		*addr = nullptr;
+	}
+	_nativesMap.clear();
+	_addresses.clear();
+	_assemblies.clear();
+	_provider.reset();
+}
+
+void RustLanguageModule::OnUpdate([[maybe_unused]] std::chrono::milliseconds dt) {
+}
+
+bool RustLanguageModule::IsDebugBuild() {
+	return RUSTLM_IS_DEBUG;
+}
+
+void RustLanguageModule::OnMethodExport(const Extension& plugin) {
+	const auto& methods = plugin.GetMethodsData();
+	_nativesMap.reserve(_nativesMap.size() + methods.size());
+	for (const auto& [method, addr] :methods) {
+		_nativesMap.try_emplace(std::format("{}.{}", plugin.GetName(), method.GetName()), addr);
+	}
+}
+
+Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
+	fs::path assemblyPath(plugin.GetLocation());
+	assemblyPath /= std::format("{}" RUSTLM_LIBRARY_SUFFIX, plugin.GetEntry());
+
+	LoadFlag flags = LoadFlag::LazyBinding | LoadFlag::NoUnload;
+	auto assemblyResult = _provider->Resolve<IAssemblyLoader>()->Load(assemblyPath, flags);
+	if (!assemblyResult) {
+		return MakeError(std::move(assemblyResult.error()));
+	}
+
+	auto& assembly = *assemblyResult;
+
+	auto initResult = assembly->GetSymbol("plugify_init");
+	if (!initResult) {
+		return MakeError(std::move(initResult.error()));
+	}
+	auto startResult = assembly->GetSymbol("plugify_plugin_start");
+	if (!startResult) {
+		return MakeError(std::move(startResult.error()));
+	}
+	auto updateResult = assembly->GetSymbol("plugify_plugin_update");
+	if (!updateResult) {
+		return MakeError(std::move(updateResult.error()));
+	}
+	auto endResult = assembly->GetSymbol("plugify_plugin_end");
+	if (!endResult) {
+		return MakeError(std::move(endResult.error()));
+	}
+	auto contextResult = assembly->GetSymbol("plugify_plugin_context");
+	if (!contextResult) {
+		return MakeError(std::move(contextResult.error()));
+	}
+
+	auto* initFunc = initResult->RCast<InitFunc>();
+	auto* startFunc = startResult->RCast<StartFunc>();
+	auto* updateFunc = updateResult->RCast<UpdateFunc>();
+	auto* endFunc = endResult->RCast<EndFunc>();
+	auto* contextFunc = contextResult->RCast<ContextFunc>();
+
+	std::vector<std::string> errors;
+
+	const std::vector<Method>& exportedMethods = plugin.GetMethods();
+	std::vector<MethodData> methods;
+	methods.reserve(exportedMethods.size());
+
+	for (size_t i = 0; i < exportedMethods.size(); ++i) {
+		const auto& method = exportedMethods[i];
+		if (auto funcResult = assembly->GetSymbol(method.GetFuncName())) {
+			methods.emplace_back(method, *funcResult);
+		} else {
+			errors.emplace_back(std::format("{:>3}. {} {}", i + 1, method.GetName(), funcResult.error()));
+			if (constexpr size_t kMaxDisplay = 100; errors.size() >= kMaxDisplay) {
+				errors.emplace_back(std::format("... and {} more", exportedMethods.size() - kMaxDisplay));
+				break;
+			}
+		}
+	}
+	if (!errors.empty()) {
+		return MakeError("Invalid methods:\n{}", plg::join(errors, "\n"));
+	}
+
+	const int resultVersion = initFunc(_pluginApi.data(), _pluginApi.size(), kApiVersion, static_cast<const void *>(&plugin));
+	if (resultVersion != 0) {
+		return MakeError("Not supported plugin api {}, max supported {}", resultVersion, kApiVersion);
+	}
+
+	const auto& [hasUpdate, hasStart, hasEnd] = contextFunc ? *(contextFunc()) : PluginContext{};
+
+	auto data = _assemblies.emplace_back(std::make_unique<AssemblyHolder>(std::move(assembly), updateFunc, startFunc, endFunc, contextFunc)).get();
+	return LoadData{ std::move(methods), data, { hasUpdate, hasStart, hasEnd, !exportedMethods.empty() } };
+}
+
+void RustLanguageModule::OnPluginStart(const Extension& plugin) {
+	plugin.GetUserData().RCast<AssemblyHolder*>()->startFunc();
+}
+
+void RustLanguageModule::OnPluginUpdate(const Extension& plugin, std::chrono::milliseconds dt) {
+	plugin.GetUserData().RCast<AssemblyHolder*>()->updateFunc(std::chrono::duration<float>(dt).count());
+}
+
+void RustLanguageModule::OnPluginEnd(const Extension& plugin) {
+	plugin.GetUserData().RCast<AssemblyHolder*>()->endFunc();
+}
+
+MemAddr RustLanguageModule::GetNativeMethod(std::string_view methodName) const {
+	if (const auto it = _nativesMap.find(methodName); it != _nativesMap.end()) {
+		return std::get<MemAddr>(*it);
+	}
+	_provider->Log(std::format(LOG_PREFIX "GetNativeMethod failed to find: '{}'", methodName), Severity::Fatal);
+	return nullptr;
+}
+
+void RustLanguageModule::GetNativeMethod(std::string_view methodName, MemAddr* addressDest) {
+	if (const auto it = _nativesMap.find(methodName); it != _nativesMap.end()) {
+		*addressDest = std::get<MemAddr>(*it);
+		_addresses.emplace_back(addressDest);
+		return;
+	}
+	_provider->Log(std::format(LOG_PREFIX "GetNativeMethod failed to find: '{}'", methodName), Severity::Fatal);
+}
+
+namespace rustlm {
+	RustLanguageModule g_rustlm;
+}
+
+MemAddr GetMethodPtr(const char* mstr, size_t mlen) {
+	std::string_view name(mstr, mlen);
+	return g_rustlm.GetNativeMethod(name);
+}
+
+bool IsExtensionLoaded(const char* nstr, size_t nlen, const char* cstr, size_t clen) {
+	std::string_view name(nstr, nlen);
+	std::string_view constraint(cstr, clen);
+
+	if (constraint.empty()) {
+		return g_rustlm.GetProvider()->IsExtensionLoaded(name);
+	}
+
+	plg::range_set<> range;
+	plg::parse(constraint, range);
+	return g_rustlm.GetProvider()->IsExtensionLoaded(name, std::move(range));
+}
+
+plg::string GetBaseDir() {
+	return plg::as_string(g_rustlm.GetProvider()->GetBaseDir());
+}
+
+plg::string GetExtensionsDir() {
+	return plg::as_string(g_rustlm.GetProvider()->GetExtensionsDir());
+}
+
+plg::string GetConfigsDir() {
+	return plg::as_string(g_rustlm.GetProvider()->GetConfigsDir());
+}
+
+plg::string GetDataDir() {
+	return plg::as_string(g_rustlm.GetProvider()->GetDataDir());
+}
+
+plg::string GetLogsDir() {
+	return plg::as_string(g_rustlm.GetProvider()->GetLogsDir());
+}
+
+plg::string GetCacheDir() {
+	return plg::as_string(g_rustlm.GetProvider()->GetCacheDir());
+}
+
+size_t GetPluginId(const Extension& plugin) {
+	return static_cast<size_t>(plugin.GetId());
+}
+
+plg::string GetPluginName(const Extension& plugin) {
+	return plugin.GetName();
+}
+
+plg::string GetPluginDescription(const Extension& plugin) {
+	return plugin.GetDescription();
+}
+
+plg::string GetPluginVersion(const Extension& plugin) {
+	return plugin.GetVersionString();
+}
+
+plg::string GetPluginAuthor(const Extension& plugin) {
+	return plugin.GetAuthor();
+}
+
+plg::string GetPluginWebsite(const Extension& plugin) {
+	return plugin.GetWebsite();
+}
+
+plg::string GetPluginLicense(const Extension& plugin) {
+	return plugin.GetLicense();
+}
+
+plg::string GetPluginLocation(const Extension& plugin) {
+	return plg::as_string(plugin.GetLocation());
+}
+
+plg::vector<plg::string> GetPluginDependencies(const Extension& plugin) {
+	const std::vector<Dependency>& dependencies = plugin.GetDependencies();
+	plg::vector<plg::string> deps;
+	deps.reserve(dependencies.size());
+	for (const auto& dependency : dependencies) {
+		deps.emplace_back(dependency.GetName());
+	}
+	return deps;
+}
+
+// String Functions
+plg::string ConstructString(const char* str, size_t len) {
+	if (str == nullptr || len == 0) [[unlikely]]
+		return {};
+	else
+		return { str, len };
+}
+void DestroyString(plg::string* string) {
+	string->~basic_string();
+}
+const char* GetStringData(plg::string* string) {
+	return string->c_str();
+}
+size_t GetStringLength(plg::string* string) {
+	return string->length();
+}
+void AssignString(plg::string* string, const char* str, size_t len) {
+	if (str == nullptr || len) [[unlikely]]
+		string->clear();
+	else
+		string->assign(str, len);
+}
+
+// Variant Functions
+void DestroyVariant(plg::any* any) {
+	any->~variant();
+}
+
+namespace {
+	template<typename T>
+	PLUGIFY_FORCE_INLINE plg::vector<T> ConstructVector(T* arr, size_t len) {
+		if (arr == nullptr || len == 0) [[unlikely]]
+			if (len > 0)
+				return plg::vector<T>(len);
+			else
+				return {};
+		else
+			return plg::vector<T>(arr, arr + len);
+	}
+
+	template<typename T>
+	PLUGIFY_FORCE_INLINE void DestroyVector(plg::vector<T>* vector) {
+		vector->~vector();
+	}
+
+	template<typename T>
+	PLUGIFY_FORCE_INLINE size_t GetVectorSize(plg::vector<T>* vector) {
+		return vector->size();
+	}
+
+	template<typename T>
+	PLUGIFY_FORCE_INLINE void AssignVector(plg::vector<T>* vector, T* arr, size_t len) {
+		if (arr == nullptr || len == 0) [[unlikely]]
+			vector->clear();
+		else
+			vector->assign(arr, arr + len);
+	}
+
+	template<typename T>
+	PLUGIFY_FORCE_INLINE T* GetVectorData(plg::vector<T>* vector) {
+		return vector->data();
+	}
+}
+
+plg::vector<bool> ConstructVectorBool(bool* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<char> ConstructVectorChar8(char* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<char16_t> ConstructVectorChar16(char16_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<int8_t> ConstructVectorInt8(int8_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<int16_t> ConstructVectorInt16(int16_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<int32_t> ConstructVectorInt32(int32_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<int64_t> ConstructVectorInt64(int64_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<uint8_t> ConstructVectorUInt8(uint8_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<uint16_t> ConstructVectorUInt16(uint16_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<uint32_t> ConstructVectorUInt32(uint32_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<uint64_t> ConstructVectorUInt64(uint64_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<uintptr_t> ConstructVectorPointer(uintptr_t* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<float> ConstructVectorFloat(float* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<double> ConstructVectorDouble(double* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<plg::string> ConstructVectorString(plg::string* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<plg::any> ConstructVectorVariant(plg::any* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<plg::vec2> ConstructVectorVector2(plg::vec2* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<plg::vec3> ConstructVectorVector3(plg::vec3* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<plg::vec4> ConstructVectorVector4(plg::vec4* arr, size_t len) { return ConstructVector(arr, len); }
+plg::vector<plg::mat4x4> ConstructVectorMatrix4x4(plg::mat4x4* arr, size_t len) { return ConstructVector(arr, len); }
+
+void DestroyVectorBool(plg::vector<bool>* vec) { DestroyVector(vec); }
+void DestroyVectorChar8(plg::vector<char>* vec) { DestroyVector(vec); }
+void DestroyVectorChar16(plg::vector<char16_t>* vec) { DestroyVector(vec); }
+void DestroyVectorInt8(plg::vector<int8_t>* vec) { DestroyVector(vec); }
+void DestroyVectorInt16(plg::vector<int16_t>* vec) { DestroyVector(vec); }
+void DestroyVectorInt32(plg::vector<int32_t>* vec) { DestroyVector(vec); }
+void DestroyVectorInt64(plg::vector<int64_t>* vec) { DestroyVector(vec); }
+void DestroyVectorUInt8(plg::vector<uint8_t>* vec) { DestroyVector(vec); }
+void DestroyVectorUInt16(plg::vector<uint16_t>* vec) { DestroyVector(vec); }
+void DestroyVectorUInt32(plg::vector<uint32_t>* vec) { DestroyVector(vec); }
+void DestroyVectorUInt64(plg::vector<uint64_t>* vec) { DestroyVector(vec); }
+void DestroyVectorPointer(plg::vector<uintptr_t>* vec) { DestroyVector(vec); }
+void DestroyVectorFloat(plg::vector<float>* vec) { DestroyVector(vec); }
+void DestroyVectorDouble(plg::vector<double>* vec) { DestroyVector(vec); }
+void DestroyVectorString(plg::vector<plg::string>* vec) { DestroyVector(vec); }
+void DestroyVectorVariant(plg::vector<plg::any>* vector) { DestroyVector(vector); }
+void DestroyVectorVector2(plg::vector<plg::vec2>* vec) { DestroyVector(vec); }
+void DestroyVectorVector3(plg::vector<plg::vec3>* vec) { DestroyVector(vec); }
+void DestroyVectorVector4(plg::vector<plg::vec4>* vec) { DestroyVector(vec); }
+void DestroyVectorMatrix4x4(plg::vector<plg::mat4x4>* vec) { DestroyVector(vec); }
+
+size_t GetVectorSizeBool(plg::vector<bool>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeChar8(plg::vector<char>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeChar16(plg::vector<char16_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeInt8(plg::vector<int8_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeInt16(plg::vector<int16_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeInt32(plg::vector<int32_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeInt64(plg::vector<int64_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeUInt8(plg::vector<uint8_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeUInt16(plg::vector<uint16_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeUInt32(plg::vector<uint32_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeUInt64(plg::vector<uint64_t>* vec) { return GetVectorSize(vec); } 
+size_t GetVectorSizePointer(plg::vector<uintptr_t>* vec) { return GetVectorSize(vec); } 
+size_t GetVectorSizeFloat(plg::vector<float>* vec) { return GetVectorSize(vec); } 
+size_t GetVectorSizeDouble(plg::vector<double>* vec) { return GetVectorSize(vec); } 
+size_t GetVectorSizeString(plg::vector<plg::string>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeVariant(plg::vector<plg::any>* vector) { return GetVectorSize(vector); }
+size_t GetVectorSizeVector2(plg::vector<plg::vec2>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeVector3(plg::vector<plg::vec3>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeVector4(plg::vector<plg::vec4>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeMatrix4x4(plg::vector<plg::mat4x4>* vec) { return GetVectorSize(vec); }
+
+bool* GetVectorDataBool(plg::vector<bool>* vec) { return GetVectorData(vec); }
+char* GetVectorDataChar8(plg::vector<char>* vec) { return GetVectorData(vec); }
+char16_t* GetVectorDataChar16(plg::vector<char16_t>* vec) { return GetVectorData(vec); }
+int8_t* GetVectorDataInt8(plg::vector<int8_t>* vec) { return GetVectorData(vec); }
+int16_t* GetVectorDataInt16(plg::vector<int16_t>* vec) { return GetVectorData(vec); }
+int32_t* GetVectorDataInt32(plg::vector<int32_t>* vec) { return GetVectorData(vec); }
+int64_t* GetVectorDataInt64(plg::vector<int64_t>* vec) { return GetVectorData(vec); }
+uint8_t* GetVectorDataUInt8(plg::vector<uint8_t>* vec) { return GetVectorData(vec); }
+uint16_t* GetVectorDataUInt16(plg::vector<uint16_t>* vec) { return GetVectorData(vec); }
+uint32_t* GetVectorDataUInt32(plg::vector<uint32_t>* vec) { return GetVectorData(vec); }
+uint64_t* GetVectorDataUInt64(plg::vector<uint64_t>* vec) { return GetVectorData(vec); }
+uintptr_t* GetVectorDataPointer(plg::vector<uintptr_t>* vec) { return GetVectorData(vec); }
+float* GetVectorDataFloat(plg::vector<float>* vec) { return GetVectorData(vec); }
+double* GetVectorDataDouble(plg::vector<double>* vec) { return GetVectorData(vec); }
+plg::string* GetVectorDataString(plg::vector<plg::string>* vec) { return GetVectorData(vec); }
+plg::any* GetVectorDataVariant(plg::vector<plg::any>* vec) { return GetVectorData(vec); }
+plg::vec2* GetVectorDataVector2(plg::vector<plg::vec2>* vec) { return GetVectorData(vec); }
+plg::vec3* GetVectorDataVector3(plg::vector<plg::vec3>* vec) { return GetVectorData(vec); }
+plg::vec4* GetVectorDataVector4(plg::vector<plg::vec4>* vec) { return GetVectorData(vec); }
+plg::mat4x4* GetVectorDataMatrix4x4(plg::vector<plg::mat4x4>* vec) { return GetVectorData(vec); }
+
+void AssignVectorBool(plg::vector<bool>* ptr, bool* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorChar8(plg::vector<char>* ptr, char* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorChar16(plg::vector<char16_t>* ptr, char16_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorInt8(plg::vector<int8_t>* ptr, int8_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorInt16(plg::vector<int16_t>* ptr, int16_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorInt32(plg::vector<int32_t>* ptr, int32_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorInt64(plg::vector<int64_t>* ptr, int64_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorUInt8(plg::vector<uint8_t>* ptr, uint8_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorUInt16(plg::vector<uint16_t>* ptr, uint16_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorUInt32(plg::vector<uint32_t>* ptr, uint32_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorUInt64(plg::vector<uint64_t>* ptr, uint64_t * arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorPointer(plg::vector<uintptr_t>* ptr, uintptr_t* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorFloat(plg::vector<float>* ptr, float* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorDouble(plg::vector<double>* ptr, double* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorString(plg::vector<plg::string>* ptr, plg::string* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorVariant(plg::vector<plg::any>* ptr, plg::any* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorVector2(plg::vector<plg::vec2>* ptr, plg::vec2* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorVector3(plg::vector<plg::vec3>* ptr, plg::vec3* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorVector4(plg::vector<plg::vec4>* ptr, plg::vec4* arr, size_t len) { AssignVector(ptr, arr, len); }
+void AssignVectorMatrix4x4(plg::vector<plg::mat4x4>* ptr, plg::mat4x4* arr, size_t len) { AssignVector(ptr, arr, len); }
+
+const std::array<void*, 123> RustLanguageModule::_pluginApi = {
+		reinterpret_cast<void*>(&::GetMethodPtr),
+		reinterpret_cast<void*>(&::GetBaseDir),
+		reinterpret_cast<void*>(&::GetExtensionsDir),
+		reinterpret_cast<void*>(&::GetConfigsDir),
+		reinterpret_cast<void*>(&::GetDataDir),
+		reinterpret_cast<void*>(&::GetLogsDir),
+		reinterpret_cast<void*>(&::GetCacheDir),
+		reinterpret_cast<void*>(&::IsExtensionLoaded),
+
+		reinterpret_cast<void*>(&::GetPluginId),
+		reinterpret_cast<void*>(&::GetPluginName),
+		reinterpret_cast<void*>(&::GetPluginDescription),
+		reinterpret_cast<void*>(&::GetPluginVersion),
+		reinterpret_cast<void*>(&::GetPluginAuthor),
+		reinterpret_cast<void*>(&::GetPluginWebsite),
+		reinterpret_cast<void*>(&::GetPluginLicense),
+		reinterpret_cast<void*>(&::GetPluginLocation),
+		reinterpret_cast<void*>(&::GetPluginDependencies),
+
+		reinterpret_cast<void*>(&::ConstructString),
+		reinterpret_cast<void*>(&::DestroyString),
+		reinterpret_cast<void*>(&::GetStringData),
+		reinterpret_cast<void*>(&::GetStringLength),
+		reinterpret_cast<void*>(&::AssignString),
+
+		reinterpret_cast<void*>(&::DestroyVariant),
+
+		reinterpret_cast<void*>(&::ConstructVectorBool),
+		reinterpret_cast<void*>(&::ConstructVectorChar8),
+		reinterpret_cast<void*>(&::ConstructVectorChar16),
+		reinterpret_cast<void*>(&::ConstructVectorInt8),
+		reinterpret_cast<void*>(&::ConstructVectorInt16),
+		reinterpret_cast<void*>(&::ConstructVectorInt32),
+		reinterpret_cast<void*>(&::ConstructVectorInt64),
+		reinterpret_cast<void*>(&::ConstructVectorUInt8),
+		reinterpret_cast<void*>(&::ConstructVectorUInt16),
+		reinterpret_cast<void*>(&::ConstructVectorUInt32),
+		reinterpret_cast<void*>(&::ConstructVectorUInt64),
+		reinterpret_cast<void*>(&::ConstructVectorPointer),
+		reinterpret_cast<void*>(&::ConstructVectorFloat),
+		reinterpret_cast<void*>(&::ConstructVectorDouble),
+		reinterpret_cast<void*>(&::ConstructVectorString),
+		reinterpret_cast<void*>(&::ConstructVectorVariant),
+		reinterpret_cast<void*>(&::ConstructVectorVector2),
+		reinterpret_cast<void*>(&::ConstructVectorVector3),
+		reinterpret_cast<void*>(&::ConstructVectorVector4),
+		reinterpret_cast<void*>(&::ConstructVectorMatrix4x4),
+
+		reinterpret_cast<void*>(&::DestroyVectorBool),
+		reinterpret_cast<void*>(&::DestroyVectorChar8),
+		reinterpret_cast<void*>(&::DestroyVectorChar16),
+		reinterpret_cast<void*>(&::DestroyVectorInt8),
+		reinterpret_cast<void*>(&::DestroyVectorInt16),
+		reinterpret_cast<void*>(&::DestroyVectorInt32),
+		reinterpret_cast<void*>(&::DestroyVectorInt64),
+		reinterpret_cast<void*>(&::DestroyVectorUInt8),
+		reinterpret_cast<void*>(&::DestroyVectorUInt16),
+		reinterpret_cast<void*>(&::DestroyVectorUInt32),
+		reinterpret_cast<void*>(&::DestroyVectorUInt64),
+		reinterpret_cast<void*>(&::DestroyVectorPointer),
+		reinterpret_cast<void*>(&::DestroyVectorFloat),
+		reinterpret_cast<void*>(&::DestroyVectorDouble),
+		reinterpret_cast<void*>(&::DestroyVectorString),
+		reinterpret_cast<void*>(&::DestroyVectorVariant),
+		reinterpret_cast<void*>(&::DestroyVectorVector2),
+		reinterpret_cast<void*>(&::DestroyVectorVector3),
+		reinterpret_cast<void*>(&::DestroyVectorVector4),
+		reinterpret_cast<void*>(&::DestroyVectorMatrix4x4),
+
+		reinterpret_cast<void*>(&::GetVectorSizeBool),
+		reinterpret_cast<void*>(&::GetVectorSizeChar8),
+		reinterpret_cast<void*>(&::GetVectorSizeChar16),
+		reinterpret_cast<void*>(&::GetVectorSizeInt8),
+		reinterpret_cast<void*>(&::GetVectorSizeInt16),
+		reinterpret_cast<void*>(&::GetVectorSizeInt32),
+		reinterpret_cast<void*>(&::GetVectorSizeInt64),
+		reinterpret_cast<void*>(&::GetVectorSizeUInt8),
+		reinterpret_cast<void*>(&::GetVectorSizeUInt16),
+		reinterpret_cast<void*>(&::GetVectorSizeUInt32),
+		reinterpret_cast<void*>(&::GetVectorSizeUInt64),
+		reinterpret_cast<void*>(&::GetVectorSizePointer),
+		reinterpret_cast<void*>(&::GetVectorSizeFloat),
+		reinterpret_cast<void*>(&::GetVectorSizeDouble),
+		reinterpret_cast<void*>(&::GetVectorSizeString),
+		reinterpret_cast<void*>(&::GetVectorSizeVariant),
+		reinterpret_cast<void*>(&::GetVectorSizeVector2),
+		reinterpret_cast<void*>(&::GetVectorSizeVector3),
+		reinterpret_cast<void*>(&::GetVectorSizeVector4),
+		reinterpret_cast<void*>(&::GetVectorSizeMatrix4x4),
+
+		reinterpret_cast<void*>(&::GetVectorDataBool),
+		reinterpret_cast<void*>(&::GetVectorDataChar8),
+		reinterpret_cast<void*>(&::GetVectorDataChar16),
+		reinterpret_cast<void*>(&::GetVectorDataInt8),
+		reinterpret_cast<void*>(&::GetVectorDataInt16),
+		reinterpret_cast<void*>(&::GetVectorDataInt32),
+		reinterpret_cast<void*>(&::GetVectorDataInt64),
+		reinterpret_cast<void*>(&::GetVectorDataUInt8),
+		reinterpret_cast<void*>(&::GetVectorDataUInt16),
+		reinterpret_cast<void*>(&::GetVectorDataUInt32),
+		reinterpret_cast<void*>(&::GetVectorDataUInt64),
+		reinterpret_cast<void*>(&::GetVectorDataPointer),
+		reinterpret_cast<void*>(&::GetVectorDataFloat),
+		reinterpret_cast<void*>(&::GetVectorDataDouble),
+		reinterpret_cast<void*>(&::GetVectorDataString),
+		reinterpret_cast<void*>(&::GetVectorDataVariant),
+		reinterpret_cast<void*>(&::GetVectorDataVector2),
+		reinterpret_cast<void*>(&::GetVectorDataVector3),
+		reinterpret_cast<void*>(&::GetVectorDataVector4),
+		reinterpret_cast<void*>(&::GetVectorDataMatrix4x4),
+
+		reinterpret_cast<void*>(&::AssignVectorBool),
+		reinterpret_cast<void*>(&::AssignVectorChar8),
+		reinterpret_cast<void*>(&::AssignVectorChar16),
+		reinterpret_cast<void*>(&::AssignVectorInt8),
+		reinterpret_cast<void*>(&::AssignVectorInt16),
+		reinterpret_cast<void*>(&::AssignVectorInt32),
+		reinterpret_cast<void*>(&::AssignVectorInt64),
+		reinterpret_cast<void*>(&::AssignVectorUInt8),
+		reinterpret_cast<void*>(&::AssignVectorUInt16),
+		reinterpret_cast<void*>(&::AssignVectorUInt32),
+		reinterpret_cast<void*>(&::AssignVectorUInt64),
+		reinterpret_cast<void*>(&::AssignVectorPointer),
+		reinterpret_cast<void*>(&::AssignVectorFloat),
+		reinterpret_cast<void*>(&::AssignVectorDouble),
+		reinterpret_cast<void*>(&::AssignVectorString),
+		reinterpret_cast<void*>(&::AssignVectorVariant),
+		reinterpret_cast<void*>(&::AssignVectorVector2),
+		reinterpret_cast<void*>(&::AssignVectorVector3),
+		reinterpret_cast<void*>(&::AssignVectorVector4),
+		reinterpret_cast<void*>(&::AssignVectorMatrix4x4),
+};
+
+ILanguageModule* GetLanguageModule() {
+	return &rustlm::g_rustlm;
+}
