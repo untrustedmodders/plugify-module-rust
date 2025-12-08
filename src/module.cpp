@@ -283,7 +283,7 @@ size_t GetStringLength(plg::string* string) {
 	return string->length();
 }
 void AssignString(plg::string* string, const char* str, size_t len) {
-	if (str == nullptr || len) [[unlikely]]
+	if (str == nullptr || len == 0) [[unlikely]]
 		string->clear();
 	else
 		string->assign(str, len);
