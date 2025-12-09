@@ -18,6 +18,7 @@ namespace rustlm {
 		bool hasEnd{};
 	};
 
+	using MainFunc = void (*)();
 	using InitFunc = int (*)(void* const*, size_t, int, const void*);
 	using StartFunc = void (*)();
 	using UpdateFunc = void (*)(float);

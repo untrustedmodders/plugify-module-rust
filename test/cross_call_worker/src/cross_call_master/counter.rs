@@ -14,7 +14,6 @@ use plugify::{get_method_ptr, PlgString, PlgVector, PlgVariant, Vector2, Vector3
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCreate(initialValue: i64) -> usize {
     unsafe {
@@ -31,7 +30,6 @@ pub fn CounterCreate(initialValue: i64) -> usize {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCreateZero() -> usize {
     unsafe {
@@ -50,7 +48,6 @@ pub fn CounterCreateZero() -> usize {
 ///
 /// # Returns
 /// int64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterGetValue(counter: usize) -> i64 {
     unsafe {
@@ -68,7 +65,6 @@ pub fn CounterGetValue(counter: usize) -> i64 {
 /// * `counter` - (ptr64)
 /// # Arguments
 /// * `value` - (int64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterSetValue(counter: usize, value: i64) {
     unsafe {
@@ -84,7 +80,6 @@ pub fn CounterSetValue(counter: usize, value: i64) {
 
 /// # Arguments
 /// * `counter` - (ptr64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterIncrement(counter: usize) {
     unsafe {
@@ -100,7 +95,6 @@ pub fn CounterIncrement(counter: usize) {
 
 /// # Arguments
 /// * `counter` - (ptr64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterDecrement(counter: usize) {
     unsafe {
@@ -118,7 +112,6 @@ pub fn CounterDecrement(counter: usize) {
 /// * `counter` - (ptr64)
 /// # Arguments
 /// * `amount` - (int64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterAdd(counter: usize, amount: i64) {
     unsafe {
@@ -134,7 +127,6 @@ pub fn CounterAdd(counter: usize, amount: i64) {
 
 /// # Arguments
 /// * `counter` - (ptr64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterReset(counter: usize) {
     unsafe {
@@ -153,7 +145,6 @@ pub fn CounterReset(counter: usize) {
 ///
 /// # Returns
 /// bool
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterIsPositive(counter: usize) -> bool {
     unsafe {
@@ -174,7 +165,6 @@ pub fn CounterIsPositive(counter: usize) -> bool {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCompare(value1: i64, value2: i64) -> i32 {
     unsafe {
@@ -193,7 +183,6 @@ pub fn CounterCompare(value1: i64, value2: i64) -> i32 {
 ///
 /// # Returns
 /// int64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterSum(values: &PlgVector<i64>) -> i64 {
     unsafe {

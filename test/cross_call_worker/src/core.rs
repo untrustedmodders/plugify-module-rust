@@ -1,6 +1,120 @@
+use std::any::Any;
 use plugify::{*};
 use crate::cross_call_master::*;
 type MasterExample = crate::cross_call_master::Example;
+
+// ============================================================================
+// Formatting Helper Functions
+// ============================================================================
+
+fn format_bool(b: bool) -> &'static str {
+    if b { "true" } else { "false" }
+}
+
+fn format_vec2(v: &Vector2) -> String {
+    format!("{{{}, {}}}", v.x, v.y)
+}
+
+fn format_vec3(v: &Vector3) -> String {
+    format!("{{{}, {}, {}}}", v.x, v.y, v.z)
+}
+
+fn format_vec4(v: &Vector4) -> String {
+    format!("{{{}, {}, {}, {}}}", v.x, v.y, v.z, v.w)
+}
+
+fn format_mat(m: &Matrix4x4) -> String {
+    format!(
+        "{{{{{}, {}, {}, {}}}, {{{}, {}, {}, {}}}, {{{}, {}, {}, {}}}, {{{}, {}, {}, {}}}}}",
+        m[0][0], m[0][1], m[0][2], m[0][3],
+        m[1][0], m[1][1], m[1][2], m[1][3],
+        m[2][0], m[2][1], m[2][2], m[2][3],
+        m[3][0], m[3][1], m[3][2], m[3][3]
+    )
+}
+
+fn format_any(v: &PlgVariant) -> String {
+    match v.get() {
+        PlgAny::Invalid => String::from("Invalid"),
+        PlgAny::Bool(v) => format!("{}", v),
+        PlgAny::Char8(v) => format!("{}", v),
+        PlgAny::Char16(v) => format!("{}", v),
+        PlgAny::Int8(v) => format!("{}", v),
+        PlgAny::Int16(v) => format!("{}", v),
+        PlgAny::Int32(v) => format!("{}", v),
+        PlgAny::Int64(v) => format!("{}", v),
+        PlgAny::UInt8(v) => format!("{}", v),
+        PlgAny::UInt16(v) => format!("{}", v),
+        PlgAny::UInt32(v) => format!("{}", v),
+        PlgAny::UInt64(v) => format!("{}", v),
+        PlgAny::Pointer(v) => format!("{:p}", v as *const ()),
+        PlgAny::Float(v) => format!("{}", v),
+        PlgAny::Double(v) => format!("{}", v),
+        PlgAny::String(v) => format!("{}", v),
+        PlgAny::ArrayBool(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayChar8(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayChar16(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayInt8(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayInt16(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayInt32(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayInt64(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayUInt8(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayUInt16(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayUInt32(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayUInt64(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayPointer(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayFloat(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayDouble(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayString(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayVector2(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayVector3(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayVector4(v) => VecFormat::format_vector(&v),
+        PlgAny::ArrayMatrix4x4(v) => VecFormat::format_vector(&v),
+        PlgAny::Vector2(v) => format_vec2(&v),
+        PlgAny::Vector3(v) => format_vec3(&v),
+        PlgAny::Vector4(v) => format_vec4(&v),
+    }
+}
+
+trait VectorFormat<T> {
+    fn format_vector(&self) -> String;
+}
+
+impl<T: std::fmt::Display + PlgVectorOps + 'static> VectorFormat<T> for PlgVector<T> {
+    fn format_vector(&self) -> String {
+        let elements: Vec<String> = self.iter().map(|x| {
+            let any = x as &dyn Any;
+            if let Some(s) = any.downcast_ref::<PlgString>() {
+                format!("'{}'", s)
+            } else if let Some(v) = any.downcast_ref::<PlgVariant>() {
+                format!("{}", format_any(v))
+            } else if let Some(v) = any.downcast_ref::<Vector2>() {
+                format!("{}", format_vec2(v))
+            } else if let Some(v) = any.downcast_ref::<Vector3>() {
+                format!("{}", format_vec3(v))
+            } else if let Some(v) = any.downcast_ref::<Vector4>() {
+                format!("{}", format_vec4(v))
+            }  else if let Some(v) = any.downcast_ref::<Matrix4x4>() {
+                format!("{}", format_mat(v))
+            } else if let Some(u) = any.downcast_ref::<usize>() {
+                format!("0x{:x}", u)
+            } else {
+                x.to_string()
+            }
+        }).collect();
+        format!("{{{}}}", elements.join(", "))
+    }
+}
+trait VecFormat<T> {
+    fn format_vector(&self) -> String;
+}
+
+impl<T: std::fmt::Display> VecFormat<T> for Vec<T> {
+    fn format_vector(&self) -> String {
+        let elements: Vec<String> = self.iter().map(|x| x.to_string()).collect();
+        format!("{{{}}}", elements.join(", "))
+    }
+}
 
 // ============================================================================
 // Example Enum
@@ -16,6 +130,18 @@ pub enum Example {
 }
 vector_enum_traits!(Example, i32);
 
+use std::fmt;
+
+impl fmt::Display for Example {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Example::First => write!(f, "1"),
+            Example::Second => write!(f, "2"),
+            Example::Third => write!(f, "3"),
+            Example::Forth => write!(f, "4"),
+        }
+    }
+}
 
 // ============================================================================
 // NoParam Return Functions
@@ -413,7 +539,7 @@ pub extern "C" fn Param7(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>
         e.len(),
         if e.len() == 3 { e.get(2).copied().unwrap_or(0) } else { 0 },
         f as u8,
-        g.as_str()
+        g
     );
 }
 
@@ -430,7 +556,7 @@ pub extern "C" fn Param8(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>
         e.len(),
         if e.len() == 3 { e.get(2).copied().unwrap_or(0) } else { 0 },
         f as u8,
-        g.as_str(),
+        g,
         h
     );
 }
@@ -448,7 +574,7 @@ pub extern "C" fn Param9(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>
         e.len(),
         if e.len() == 3 { e.get(2).copied().unwrap_or(0) } else { 0 },
         f as u8,
-        g.as_str(),
+        g,
         h,
         k
     );
@@ -467,7 +593,7 @@ pub extern "C" fn Param10(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64
         e.len(),
         if e.len() == 3 { e.get(2).copied().unwrap_or(0) } else { 0 },
         f as u8,
-        g.as_str(),
+        g,
         h,
         k,
         l
@@ -496,7 +622,7 @@ pub extern "C" fn ParamRef2(a: &mut i32, b: &mut f32) {
 pub extern "C" fn ParamRef3(a: &mut i32, b: &mut f32, c: &mut f64) {
     *a = -20;
     *b = 2.718;
-    *c = std::f64::consts::PI;
+    *c = 3.14159;
 }
 
 #[unsafe(no_mangle)]
@@ -513,7 +639,7 @@ pub extern "C" fn ParamRef4(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vecto
 pub extern "C" fn ParamRef5(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>) {
     *a = 500;
     *b = -10.5;
-    *c = std::f64::consts::E;
+    *c = 2.71828;
     *d = Vector4 { x: -1.0, y: -2.0, z: -3.0, w: -4.0 };
     e.set(&[-6, -5, -4, -3, -2, -1, 0, 1]);
 }
@@ -767,10 +893,12 @@ type Func7 = extern "C" fn(&PlgVector<i8>, u16, u16, &PlgVector<u32>, &Vector4, 
 type Func8 = extern "C" fn(&Vector3, &PlgVector<u32>, i16, bool, &Vector4, &PlgVector<u16>, u16, i32) -> Matrix4x4;
 type Func9 = extern "C" fn(f32, &Vector2, &PlgVector<i8>, u64, bool, &PlgString, &Vector4, i16, usize);
 type Func10 = extern "C" fn(&Vector4, &Matrix4x4, &PlgVector<u32>, u64, &PlgVector<i8>, i32, bool, &Vector2, i64, f64) -> u32;
+type Func11 = unsafe extern "C" fn(&PlgVector<bool>, u16, u8, f64, &Vector3, &PlgVector<i8>, i64, u16, f32, &Vector2, u32) -> usize;
 type Func12 = extern "C" fn(usize, &PlgVector<f64>, u32, f64, bool, i32, i8, u64, f32, &PlgVector<usize>, i64, i8) -> bool;
 type Func13 = extern "C" fn(i64, &PlgVector<i8>, u16, f32, &PlgVector<bool>, &Vector4, &PlgString, i32, &Vector3, usize, &Vector2, &PlgVector<u8>, i16) -> PlgString;
 type Func14 = extern "C" fn(&PlgVector<i8>, &PlgVector<u32>, &Matrix4x4, bool, u16, i32, &PlgVector<f32>, u16, &PlgVector<u8>, i8, &Vector3, &Vector4, f64, usize) -> PlgVector<PlgString>;
 type Func15 = extern "C" fn(&PlgVector<i16>, &Matrix4x4, &Vector4, usize, u64, &PlgVector<u32>, bool, f32, &PlgVector<u16>, u8, i32, &Vector2, u16, f64, &PlgVector<u8>) -> i16;
+type Func16 = unsafe extern "C" fn(&PlgVector<bool>, i16, &PlgVector<i8>, &Vector4, &Matrix4x4, &Vector2, &PlgVector<u64>, &PlgVector<i8>, &PlgString, i64, &PlgVector<u32>, &Vector3, f32, f64, i8, u16) -> usize;
 type Func17 = extern "C" fn(&mut i32);
 type Func18 = extern "C" fn(&mut i8, &mut i16) -> Vector2;
 type Func19 = extern "C" fn(&mut u32, &mut Vector3, &mut PlgVector<u32>);
@@ -880,6 +1008,12 @@ pub extern "C" fn CallFuncDouble(func: FuncDouble) -> f64 {
 
 #[unsafe(no_mangle)]
 #[allow(non_snake_case)]
+pub extern "C" fn CallFuncPtr(func: FuncPtr) -> usize {
+    unsafe { func() }
+}
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
 pub extern "C" fn CallFuncString(func: FuncString) -> PlgString {
     func()
 }
@@ -888,6 +1022,12 @@ pub extern "C" fn CallFuncString(func: FuncString) -> PlgString {
 #[allow(non_snake_case)]
 pub extern "C" fn CallFuncAny(func: FuncAny) -> PlgVariant {
     func()
+}
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncFunction(func: FuncFunction) -> usize {
+    unsafe { func() }
 }
 
 #[unsafe(no_mangle)]
@@ -1155,6 +1295,24 @@ pub extern "C" fn CallFunc10(func: Func10) -> u32 {
 
 #[unsafe(no_mangle)]
 #[allow(non_snake_case)]
+pub extern "C" fn CallFunc11(func: Func11) -> usize {
+    let vec_b = PlgVector::from(vec![false, true, false]);
+    let ch16 = 'C' as u16;
+    let u8_val: u8 = 10;
+    let d: f64 = 2.71;
+    let vec3 = Vector3 { x: 4.0, y: 5.0, z: 6.0 };
+    let vec_i8 = PlgVector::from(vec![3, 4, 5]);
+    let i64_val: i64 = 150;
+    let u16_val: u16 = 20;
+    let f: f32 = 2.0;
+    let vec2 = Vector2 { x: 4.5, y: 6.7 };
+    let u32_val: u32 = 30;
+
+    unsafe { func(&vec_b, ch16, u8_val, d, &vec3, &vec_i8, i64_val, u16_val, f, &vec2, u32_val) }
+}
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
 pub extern "C" fn CallFunc12(func: Func12) -> bool {
     let ptr = 98765usize;
     let vec_d = PlgVector::from(vec![4.0f64, 5.0, 6.0]);
@@ -1233,6 +1391,34 @@ pub extern "C" fn CallFunc15(func: Func15) -> i16 {
 
 #[unsafe(no_mangle)]
 #[allow(non_snake_case)]
+pub extern "C" fn CallFunc16(func: Func16) -> usize {
+    let vec_b = PlgVector::from(vec![true, true, false]);
+    let i16_val: i16 = 20;
+    let vec_i8 = PlgVector::from(vec![2, 3, 4]);
+    let vec4 = Vector4 { x: 7.8, y: 8.9, z: 9.0, w: 10.1 };
+    let mat = Matrix4x4 { m: [[0.0; 4]; 4] };
+    let vec2 = Vector2 { x: 5.6, y: 7.8 };
+    let vec_u64 = PlgVector::from(vec![5, 6, 7]);
+    let vec_c = PlgVector::from(vec!['D' as i8, 'E' as i8, 'F' as i8]);
+    let str_val = PlgString::from("DifferentString");
+    let i64_val: i64 = 300;
+    let vec_u32 = PlgVector::from(vec![6, 7, 8]);
+    let vec3 = Vector3 { x: 5.0, y: 6.0, z: 7.0 };
+    let f: f32 = 3.14;
+    let d: f64 = 2.718;
+    let i8_val: i8 = 6;
+    let u16_val: u16 = 30;
+
+    unsafe {
+        func(
+            &vec_b, i16_val, &vec_i8, &vec4, &mat, &vec2, &vec_u64, &vec_c,
+            &str_val, i64_val, &vec_u32, &vec3, f, d, i8_val, u16_val
+        )
+    }
+}
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
 pub extern "C" fn CallFunc17(func: Func17) -> PlgString {
     let mut i32 = 42i32;
     func(&mut i32);
@@ -1245,7 +1431,7 @@ pub extern "C" fn CallFunc18(func: Func18) -> PlgString {
     let mut i8 = 9i8;
     let mut i16 = 25i16;
     let ret = func(&mut i8, &mut i16);
-    PlgString::from(format!("{}|{}|{}", format!("{},{}", ret.x, ret.y), i8, i16))
+    PlgString::from(format!("{}|{}|{}", format_vec2(&ret), i8, i16))
 }
 
 #[unsafe(no_mangle)]
@@ -1255,7 +1441,7 @@ pub extern "C" fn CallFunc19(func: Func19) -> PlgString {
     let mut vec3 = Vector3 { x: 4.0, y: 5.0, z: 6.0 };
     let mut vec_u32 = PlgVector::from(vec![4u32, 5, 6]);
     func(&mut u32, &mut vec3, &mut vec_u32);
-    PlgString::from(format!("{}|{}|{}", u32, format!("{},{},{}", vec3.x, vec3.y, vec3.z), vec_u32.len()))
+    PlgString::from(format!("{}|{}|{}", u32, format_vec3(&vec3), VectorFormat::format_vector(&vec_u32)))
 }
 
 #[unsafe(no_mangle)]
@@ -1266,7 +1452,7 @@ pub extern "C" fn CallFunc20(func: Func20) -> PlgString {
     let mut vec_u64 = PlgVector::from(vec![4u64, 5, 6]);
     let mut ch = b'X' as i8;
     let ret = func(&mut ch16, &mut vec4, &mut vec_u64, &mut ch);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret, ch16, format!("{},{},{},{}", vec4.x, vec4.y, vec4.z, vec4.w), vec_u64.len(), ch as u8))
+    PlgString::from(format!("{}|{}|{}|{}|{}", ret, ch16, format_vec4(&vec4), VectorFormat::format_vector(&vec_u64), ch as u8 as char))
 }
 
 #[unsafe(no_mangle)]
@@ -1278,7 +1464,15 @@ pub extern "C" fn CallFunc21(func: Func21) -> PlgString {
     let mut b = false;
     let mut d = 6.28f64;
     let ret = func(&mut mat, &mut vec_i32, &mut vec2, &mut b, &mut d);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret, "mat", vec_i32.len(), format!("{},{}", vec2.x, vec2.y), if b { "true" } else { "false" }))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}",
+        ret,
+        format_mat(&mat),
+        VectorFormat::format_vector(&vec_i32),
+        format_vec2(&vec2),
+        format_bool(b),
+        d
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1291,7 +1485,16 @@ pub extern "C" fn CallFunc22(func: Func22) -> PlgString {
     let mut str = PlgString::from("Updated Test");
     let mut vec4 = Vector4 { x: 5.0, y: 6.0, z: 7.0, w: 8.0 };
     let ret = func(&mut ptr, &mut u32, &mut vec_d, &mut i16, &mut str, &mut vec4);
-    PlgString::from(format!("{}|{}|{}|{}|{}|{}", ret, ptr, u32, vec_d.len(), i16, str.as_str()))
+    PlgString::from(format!(
+        "{}|{:p}|{}|{}|{}|{}|{}",
+        ret,
+        ptr as *const(),
+        u32,
+        VectorFormat::format_vector(&vec_d),
+        i16,
+        str.to_string(),
+        format_vec4(&vec4)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1305,7 +1508,16 @@ pub extern "C" fn CallFunc23(func: Func23) -> PlgString {
     let mut i8 = 10i8;
     let mut vec_u8 = PlgVector::from(vec![3u8, 4, 5]);
     func(&mut u64, &mut vec2, &mut vec_i16, &mut ch16, &mut f, &mut i8, &mut vec_u8);
-    PlgString::from(format!("{}|{}|{}|{}|{}|{}", u64, format!("{},{}", vec2.x, vec2.y), vec_i16.len(), ch16, f, i8))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}",
+        u64,
+        format_vec2(&vec2),
+        VectorFormat::format_vector(&vec_i16),
+        (ch16),
+        f,
+        i8,
+        VectorFormat::format_vector(&vec_u8)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1319,8 +1531,19 @@ pub extern "C" fn CallFunc24(func: Func24) -> PlgString {
     let mut vec_ptr = PlgVector::from(vec![3usize, 4usize, 5usize]);
     let mut d = 6.28f64;
     let mut vec_v2 = PlgVector::from(vec![4usize, 5usize, 6usize, 7usize]);
-    let _ret = func(&mut vec_c, &mut i64, &mut vec_u8, &mut vec4, &mut u64, &mut vec_ptr, &mut d, &mut vec_v2);
-    PlgString::from(format!("{}|{}|{}|{}|{}|{}|{}", "mat", vec_c.len(), i64, vec_u8.len(), format!("{},{},{},{}", vec4.x, vec4.y, vec4.z, vec4.w), u64, vec_ptr.len()))
+    let ret = func(&mut vec_c, &mut i64, &mut vec_u8, &mut vec4, &mut u64, &mut vec_ptr, &mut d, &mut vec_v2);
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        format_mat(&ret),
+        VectorFormat::format_vector(&vec_c),
+        i64,
+        VectorFormat::format_vector(&vec_u8),
+        format_vec4(&vec4),
+        u64,
+        VectorFormat::format_vector(&vec_ptr),
+        d,
+        VectorFormat::format_vector(&vec_v2)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1336,7 +1559,19 @@ pub extern "C" fn CallFunc25(func: Func25) -> PlgString {
     let mut vec4 = Vector4 { x: 5.0, y: 6.0, z: 7.0, w: 8.0 };
     let mut u16 = 20u16;
     let ret = func(&mut i32, &mut vec_ptr, &mut b, &mut u8, &mut str, &mut vec3, &mut i64, &mut vec4, &mut u16);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret, i32, vec_ptr.len(), if b { "true" } else { "false" }, u8))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        ret,
+        i32,
+        VectorFormat::format_vector(&vec_ptr),
+        format_bool(b),
+        u8,
+        str.to_string(),
+        format_vec3(&vec3),
+        i64,
+        format_vec4(&vec4),
+        u16
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1353,7 +1588,19 @@ pub extern "C" fn CallFunc26(func: Func26) -> PlgString {
     let mut ptr = 0xDEADBEAFDEADBEAFusize;
     let mut b = false;
     let ret = func(&mut ch16, &mut vec2, &mut mat, &mut vec_f, &mut i16, &mut u64, &mut u32, &mut vec_u16, &mut ptr, &mut b);
-    PlgString::from(format!("{}|{}|{}|{}|{}|{}", ret as u8, ch16, format!("{},{}", vec2.x, vec2.y), "mat", vec_f.len(), u64))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{:p}|{}",
+        ret as u8 as char,
+        ch16,
+        format_vec2(&vec2),
+        format_mat(&mat),
+        VectorFormat::format_vector(&vec_f),
+        u64,
+        u32,
+        VectorFormat::format_vector(&vec_u16),
+        ptr as *const(),
+        format_bool(b)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1371,7 +1618,21 @@ pub extern "C" fn CallFunc27(func: Func27) -> PlgString {
     let mut i32 = 40i32;
     let mut vec_u8 = PlgVector::from(vec![3u8, 4, 5]);
     let ret = func(&mut f, &mut vec3, &mut ptr, &mut vec2, &mut vec_i16, &mut mat, &mut b, &mut vec4, &mut i8, &mut i32, &mut vec_u8);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret, f, format!("{},{},{}", vec3.x, vec3.y, vec3.z), ptr, format!("{},{}", vec2.x, vec2.y)))
+    PlgString::from(format!(
+        "{}|{}|{}|{:p}|{}|{}|{}|{}|{}|{}|{}|{}",
+        ret,
+        f,
+        format_vec3(&vec3),
+        ptr as *const(),
+        format_vec2(&vec2),
+        VectorFormat::format_vector(&vec_i16),
+        format_mat(&mat),
+        format_bool(b),
+        format_vec4(&vec4),
+        i8,
+        i32,
+        VectorFormat::format_vector(&vec_u8)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1390,7 +1651,22 @@ pub extern "C" fn CallFunc28(func: Func28) -> PlgString {
     let mut vec3 = Vector3 { x: 4.0, y: 5.0, z: 6.0 };
     let mut vec_f = PlgVector::from(vec![4.0f32, 5.0, 6.0]);
     let ret = func(&mut ptr, &mut u16, &mut vec_u32, &mut mat, &mut f, &mut vec4, &mut str, &mut vec_u64, &mut i64, &mut b, &mut vec3, &mut vec_f);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret.as_str(), ptr, u16, vec_u32.len(), "mat"))
+    PlgString::from(format!(
+        "{}|{:p}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        ret,
+        ptr as *const(),
+        u16,
+        VectorFormat::format_vector(&vec_u32),
+        format_mat(&mat),
+        f,
+        format_vec4(&vec4),
+        str.to_string(),
+        VectorFormat::format_vector(&vec_u64),
+        i64,
+        format_bool(b),
+        format_vec3(&vec3),
+        VectorFormat::format_vector(&vec_f)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1410,7 +1686,23 @@ pub extern "C" fn CallFunc29(func: Func29) -> PlgString {
     let mut vec3 = Vector3 { x: 5.0, y: 6.0, z: 7.0 };
     let mut vec_i64 = PlgVector::from(vec![2000i64, 3000, 4000]);
     let ret = func(&mut vec4, &mut i32, &mut vec_i8, &mut d, &mut b, &mut i8, &mut vec_u16, &mut f, &mut str, &mut mat, &mut u64, &mut vec3, &mut vec_i64);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret.len(), format!("{},{},{},{}", vec4.x, vec4.y, vec4.z, vec4.w), i32, vec_i8.len(), d))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        VectorFormat::format_vector(&ret),
+        format_vec4(&vec4),
+        i32,
+        VectorFormat::format_vector(&vec_i8),
+        d,
+        format_bool(b),
+        i8,
+        VectorFormat::format_vector(&vec_u16),
+        f,
+        str.to_string(),
+        format_mat(&mat),
+        u64,
+        format_vec3(&vec3),
+        VectorFormat::format_vector(&vec_i64)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1431,7 +1723,24 @@ pub extern "C" fn CallFunc30(func: Func30) -> PlgString {
     let mut vec_f = PlgVector::from(vec![4.0f32, 5.0, 6.0]);
     let mut d = 8.90f64;
     let ret = func(&mut ptr, &mut vec4, &mut i64, &mut vec_u32, &mut b, &mut str, &mut vec3, &mut vec_u8, &mut f, &mut vec2, &mut mat, &mut i8, &mut vec_f, &mut d);
-    PlgString::from(format!("{}|{}|{}|{}|{}", ret, ptr, format!("{},{},{},{}", vec4.x, vec4.y, vec4.z, vec4.w), i64, vec_u32.len()))
+    PlgString::from(format!(
+        "{}|{:p}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        ret,
+        ptr as *const(),
+        format_vec4(&vec4),
+        i64,
+        VectorFormat::format_vector(&vec_u32),
+        format_bool(b),
+        str.to_string(),
+        format_vec3(&vec3),
+        VectorFormat::format_vector(&vec_u8),
+        f,
+        format_vec2(&vec2),
+        format_mat(&mat),
+        i8,
+        VectorFormat::format_vector(&vec_f),
+        d
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1453,7 +1762,25 @@ pub extern "C" fn CallFunc31(func: Func31) -> PlgString {
     let mut f = 5.67f32;
     let mut vec_d = PlgVector::from(vec![4.0f64, 5.0, 6.0]);
     let ret = func(&mut ch, &mut u32, &mut vec_u64, &mut vec4, &mut str, &mut b, &mut i64, &mut vec2, &mut i8, &mut u16, &mut vec_i16, &mut mat, &mut vec3, &mut f, &mut vec_d);
-    PlgString::from(format!("{}|{}|{}|{}|{}", format!("{},{},{}", ret.x, ret.y, ret.z), ch as u8, u32, vec_u64.len(), format!("{},{},{},{}", vec4.x, vec4.y, vec4.z, vec4.w)))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        format_vec3(&ret),
+        ch as u8 as char,
+        u32,
+        VectorFormat::format_vector(&vec_u64),
+        format_vec4(&vec4),
+        str.to_string(),
+        format_bool(b),
+        i64,
+        format_vec2(&vec2),
+        i8,
+        u16,
+        VectorFormat::format_vector(&vec_i16),
+        format_mat(&mat),
+        format_vec3(&vec3),
+        f,
+        VectorFormat::format_vector(&vec_d)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1476,7 +1803,25 @@ pub extern "C" fn CallFunc32(func: Func32) -> PlgString {
     let mut u8 = 128u8;
     let mut vec_c16 = PlgVector::from(vec!['D' as u16, 'E' as u16, 'F' as u16]);
     let _ret = func(&mut i32, &mut u16, &mut vec_i8, &mut vec4, &mut ptr, &mut vec_u32, &mut mat, &mut u64, &mut str, &mut i64, &mut vec2, &mut vec_i8_2, &mut b, &mut vec3, &mut u8, &mut vec_c16);
-    PlgString::from(format!("{}|{}|{}|{}|{}", i32, u16, vec_i8.len(), format!("{},{},{},{}", vec4.x, vec4.y, vec4.z, vec4.w), ptr))
+    PlgString::from(format!(
+        "{}|{}|{}|{}|{:p}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        i32,
+        u16,
+        VectorFormat::format_vector(&vec_i8),
+        format_vec4(&vec4),
+        ptr as *const(),
+        VectorFormat::format_vector(&vec_u32),
+        format_mat(&mat),
+        u64,
+        str.to_string(),
+        i64,
+        format_vec2(&vec2),
+        VectorFormat::format_vector(&vec_i8_2),
+        format_bool(b),
+        format_vec3(&vec3),
+        u8,
+        VectorFormat::format_vector(&vec_c16)
+    ))
 }
 
 #[unsafe(no_mangle)]
@@ -1484,7 +1829,10 @@ pub extern "C" fn CallFunc32(func: Func32) -> PlgString {
 pub extern "C" fn CallFunc33(func: Func33) -> PlgString {
     let mut variant = PlgVariant::new(&PlgAny::Int32(30));
     func(&mut variant);
-    PlgString::from(format!("{:?}", variant.get()))
+    match variant.get() {
+        PlgAny::String(v) => PlgString::from(v),
+        _ => PlgString::from("NA"),
+    }
 }
 
 #[unsafe(no_mangle)]
@@ -1493,7 +1841,7 @@ pub extern "C" fn CallFuncEnum(func: FuncEnum) -> PlgString {
     let p1 = Example::Forth;
     let mut p2 = PlgVector::from_slice(&[Example::Forth, Example::Forth, Example::Forth]);
     let ret = func(p1, &mut p2);
-    PlgString::from(format!("{}|{}", ret.len(), p2.len()))
+    PlgString::from(format!("{}|{}", VectorFormat::format_vector(&ret), VectorFormat::format_vector(&p2)))
 }
 
 
@@ -1963,6 +2311,291 @@ extern "C" fn mock_func_enum(p1: MasterExample, p2: &mut PlgVector<MasterExample
     PlgVector::from_slice(&[p1, MasterExample::Forth])
 }
 
+#[cfg(feature = "verbose")]
+fn log(message: &str) {
+    println!("{}", message);
+}
+#[cfg(not(feature = "verbose"))]
+fn log(_message: &str) {}
+
+pub fn basic_lifecycle() -> PlgString {
+    log("TEST 1: Basic Lifecycle");
+    log("_______________________");
+
+    let initial_alive = ResourceHandle::GetAliveCount();
+    let initial_created = ResourceHandle::GetTotalCreated();
+
+    {
+        let resource = match ResourceHandle::new_ResourceHandleCreate(1, &PlgString::from("Test1")) {
+            Ok(r) => r,
+            Err(_) => return PlgString::from("false"),
+        };
+
+        log(&format!("v Created ResourceHandle ID: {}", resource.GetId().unwrap()));
+        log(&format!(
+            "v Alive count increased: {}",
+            ResourceHandle::GetAliveCount()
+        ));
+    }
+
+    let final_alive = ResourceHandle::GetAliveCount();
+    let final_created = ResourceHandle::GetTotalCreated();
+    let final_destroyed = ResourceHandle::GetTotalDestroyed();
+
+    log(&format!("v Destructor called, alive count: {}", final_alive));
+    log(&format!("v Total created: {}", final_created - initial_created));
+    log(&format!("v Total destroyed: {}", final_destroyed));
+
+    if final_alive == initial_alive && final_created == final_destroyed {
+        log("v TEST 1 PASSED: Lifecycle working correctly\n");
+        PlgString::from("true")
+    } else {
+        log("x TEST 1 FAILED: Lifecycle mismatch!\n");
+        PlgString::from("false")
+    }
+}
+
+pub fn state_management() -> PlgString {
+    log("TEST 2: State Management");
+    log("________________________");
+
+    let resource = match ResourceHandle::new_ResourceHandleCreate(2, &PlgString::from("StateTest")) {
+        Ok(r) => r,
+        Err(_) => return PlgString::from("false"),
+    };
+
+    if resource.IncrementCounter().is_err() { return PlgString::from("false"); }
+    if resource.IncrementCounter().is_err() { return PlgString::from("false"); }
+    if resource.IncrementCounter().is_err() { return PlgString::from("false"); }
+
+    let counter = resource.GetCounter().unwrap_or_default();
+    log(&format!("v Counter incremented 3 times: {}", counter));
+
+    if resource.SetName(&PlgString::from("StateTestModified")).is_err() { return PlgString::from("false"); }
+    let new_name = resource.GetName().unwrap_or_else(|_| PlgString::from(""));
+
+    log(&format!("v Name changed to: {}", new_name));
+
+    if resource.AddData(1.1f32).is_err() { return PlgString::from("false"); }
+    if resource.AddData(2.2f32).is_err() { return PlgString::from("false"); }
+    if resource.AddData(3.3f32).is_err() { return PlgString::from("false"); }
+
+    let data = resource.GetData().unwrap_or_else(|_| PlgVector::new());
+    log(&format!("v Added {} data points", data.len()));
+
+    if counter == 3 && new_name == "StateTestModified" && data.len() == 3 {
+        log("v TEST 2 PASSED: State management working\n");
+        PlgString::from("true")
+    } else {
+        log("x TEST 2 FAILED: State not preserved!\n");
+        PlgString::from("false")
+    }
+}
+
+pub fn multiple_instances() -> PlgString {
+    log("TEST 3: Multiple Instances");
+    log("__________________________");
+
+    let before_alive = ResourceHandle::GetAliveCount();
+
+    {
+        let r1 = ResourceHandle::new_ResourceHandleCreate(10, &PlgString::from("Instance1"));
+        let r2 = ResourceHandle::new_ResourceHandleCreate(20, &PlgString::from("Instance2"));
+        let r3 = ResourceHandle::new_ResourceHandleCreateDefault();
+
+        let r1 = match r1 { Ok(v) => v, Err(_) => return PlgString::from("false") };
+        let r2 = match r2 { Ok(v) => v, Err(_) => return PlgString::from("false") };
+        let r3 = match r3 { Ok(v) => v, Err(_) => return PlgString::from("false") };
+
+        let during_alive = ResourceHandle::GetAliveCount();
+        log(&format!("v Created 3 instances, alive: {}", during_alive));
+        log(&format!(
+            "v R1 ID: {}, R2 ID: {}, R3 ID: {}",
+            r1.GetId().unwrap_or_default(),
+            r2.GetId().unwrap_or_default(),
+            r3.GetId().unwrap_or_default()
+        ));
+
+        if during_alive - before_alive == 3 {
+            log("v All 3 instances tracked correctly");
+        }
+    }
+
+    let after_alive = ResourceHandle::GetAliveCount();
+
+    if after_alive == before_alive {
+        log("v TEST 3 PASSED: All instances destroyed properly\n");
+        PlgString::from("true")
+    } else {
+        log(&format!("x TEST 3 FAILED: Leak detected! Before: {}, After: {}\n", before_alive, after_alive));
+        PlgString::from("false")
+    }
+}
+
+pub fn counter_without_destructor() -> PlgString {
+    log("TEST 4: Counter (No Destructor)");
+    log("________________________________");
+
+    let counter = match Counter::new_CounterCreate(100) {
+        Ok(c) => c,
+        Err(_) => return PlgString::from("false"),
+    };
+
+    log(&format!("v Created Counter with value: {}", counter.GetValue().unwrap_or_default()));
+
+    counter.Increment().ok();
+    counter.Increment().ok();
+    counter.Add(50).ok();
+
+    let value = counter.GetValue().unwrap_or_default();
+    log(&format!("v After operations, value: {}", value));
+
+    let is_positive = counter.IsPositive().unwrap_or(false);
+    log(&format!("v Is positive: {}", is_positive));
+
+    if value == 152 && is_positive {
+        log("v TEST 4 PASSED: Counter operations working\n");
+        PlgString::from("true")
+    } else {
+        log("x TEST 4 FAILED: Counter operations incorrect\n");
+        PlgString::from("false")
+    }
+}
+
+pub fn static_methods() -> PlgString {
+    log("TEST 5: Static Methods");
+    log("______________________");
+
+    let alive = ResourceHandle::GetAliveCount();
+    let created = ResourceHandle::GetTotalCreated();
+    let destroyed = ResourceHandle::GetTotalDestroyed();
+    log(&format!(
+        "v ResourceHandle stats - Alive: {}, Created: {}, Destroyed: {}",
+        alive, created, destroyed
+    ));
+
+    let cmp1 = Counter::Compare(100, 50);
+    let cmp2 = Counter::Compare(50, 100);
+    let cmp3 = Counter::Compare(50, 50);
+    log(&format!("v Counter.Compare(100, 50) = {} (expected 1)", cmp1));
+    log(&format!("v Counter.Compare(50, 100) = {} (expected -1)", cmp2));
+    log(&format!("v Counter.Compare(50, 50) = {} (expected 0)", cmp3));
+
+    let values = PlgVector::from_slice(&[1i64, 2, 3, 4, 5]);
+    let sum = Counter::Sum(&values);
+    log(&format!("v Counter.Sum([1,2,3,4,5]) = {} (expected 15)", sum));
+
+    if cmp1 == 1 && cmp2 == -1 && cmp3 == 0 && sum == 15 {
+        log("v TEST 5 PASSED: Static methods working\n");
+        PlgString::from("true")
+    } else {
+        log("x TEST 5 FAILED: Static methods incorrect\n");
+        PlgString::from("false")
+    }
+}
+
+pub fn memory_leak_detection() -> PlgString {
+    log("TEST 6: Memory Leak Detection");
+    log("______________________________");
+
+    let before_alive = ResourceHandle::GetAliveCount();
+
+    {
+        let leaked = match ResourceHandle::new_ResourceHandleCreate(999, &PlgString::from("IntentionalLeak")) {
+            Ok(r) => r,
+            Err(_) => return PlgString::from("false"),
+        };
+        log(&format!("v Created resource ID: {}", leaked.GetId().unwrap_or_default()));
+        // leaked goes out of scope here
+    }
+
+    let after_alive = ResourceHandle::GetAliveCount();
+
+    log(&format!("v Before leak test: {} alive", before_alive));
+    log(&format!("v After release: {} alive", after_alive));
+
+    if after_alive == before_alive {
+        log("v TEST 6 PASSED: Destructor cleaned up leaked resource\n");
+        PlgString::from("true")
+    } else {
+        log("x TEST 6 FAILED: Resource still alive (FATAL)\n");
+        PlgString::from("false")
+    }
+}
+
+pub fn exception_handling() -> PlgString {
+    log("TEST 7: Exception Handling");
+    log("__________________________");
+
+    let mut resource = match ResourceHandle::new_ResourceHandleCreate(777, &PlgString::from("ExceptionTest")) {
+        Ok(r) => r,
+        Err(_) => return PlgString::from("false"),
+    };
+
+    resource.reset();
+
+    match resource.GetId() {
+        Ok(_) => {
+            log("x TEST 7 FAILED: No exception thrown!\n");
+            PlgString::from("false")
+        }
+        Err(_) => {
+            log("v Caught expected error from GetId on reset resource");
+            log("v TEST 7 PASSED: Exception handling working\n");
+            PlgString::from("true")
+        }
+    }
+}
+
+pub fn ownership_transfer() -> PlgString {
+    log("TEST 8: Ownership Transfer (get + release)");
+    log("─────────────────────────────────────────");
+
+    let initial_alive = ResourceHandle::GetAliveCount();
+    let _initial_created = ResourceHandle::GetTotalCreated();
+
+    let mut resource = match ResourceHandle::new_ResourceHandleCreate(42, &PlgString::from("OwnershipTest")) {
+        Ok(r) => r,
+        Err(_) => return PlgString::from("false"),
+    };
+
+    log(&format!("v Created ResourceHandle ID: {}", resource.GetId().unwrap_or_default()));
+
+    let wrapper = resource.get();
+    log(&format!("v get() returned internal wrapper: {}", wrapper));
+
+    let handle = resource.release();
+    log(&format!("v release() returned handle: {}", handle));
+
+    if wrapper != handle {
+        log("x TEST 8 FAILED: get() did not return internal wrapper");
+        return PlgString::from("false");
+    }
+
+    if resource.GetId().is_ok() {
+        log("x TEST 8 FAILED: ResourceHandle still accessible after release()");
+        return PlgString::from("false");
+    } else {
+        log("v ResourceHandle is invalid after release()");
+    }
+
+    let alive_after_release = ResourceHandle::GetAliveCount();
+    if alive_after_release != initial_alive + 1 {
+        log(&format!(
+            "x TEST 8 FAILED: Alive count mismatch after release. Expected {}, got {}",
+            initial_alive + 1,
+            alive_after_release
+        ));
+        return PlgString::from("false");
+    }
+
+    // Destroy external handle
+    ResourceHandleDestroy(handle);
+
+    log("v TEST 8 PASSED: Ownership transfer working correctly\n");
+    PlgString::from("true")
+}
+
 // ============================================================================
 // ReverseCall Function
 // ============================================================================
@@ -1978,12 +2611,12 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "NoParamReturnBool" => {
             let result = NoParamReturnBoolCallback();
-            let result_str = if result { "true" } else { "false" };
+            let result_str = format_bool(result);
             ReverseReturn(&PlgString::from(result_str));
         }
         "NoParamReturnChar8" => {
             let result = NoParamReturnChar8Callback();
-            ReverseReturn(&PlgString::from(format!("{}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", result as u8 as char)));
         }
         "NoParamReturnChar16" => {
             let result = NoParamReturnChar16Callback();
@@ -2023,7 +2656,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "NoParamReturnPointer" => {
             let result = NoParamReturnPointerCallback();
-            ReverseReturn(&PlgString::from(format!("{}", result)));
+            ReverseReturn(&PlgString::from(format!("{:p}", result as *const ())));
         }
         "NoParamReturnFloat" => {
             let result = NoParamReturnFloatCallback();
@@ -2049,101 +2682,99 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "NoParamReturnArrayBool" => {
             let result = NoParamReturnArrayBoolCallback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayChar8" => {
             let result = NoParamReturnArrayChar8Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayChar16" => {
             let result = NoParamReturnArrayChar16Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayInt8" => {
             let result = NoParamReturnArrayInt8Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayInt16" => {
             let result = NoParamReturnArrayInt16Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayInt32" => {
             let result = NoParamReturnArrayInt32Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayInt64" => {
             let result = NoParamReturnArrayInt64Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayUInt8" => {
             let result = NoParamReturnArrayUInt8Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayUInt16" => {
             let result = NoParamReturnArrayUInt16Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayUInt32" => {
             let result = NoParamReturnArrayUInt32Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayUInt64" => {
             let result = NoParamReturnArrayUInt64Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayPointer" => {
             let result = NoParamReturnArrayPointerCallback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayFloat" => {
             let result = NoParamReturnArrayFloatCallback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayDouble" => {
             let result = NoParamReturnArrayDoubleCallback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayString" => {
             let result = NoParamReturnArrayStringCallback();
-            let strings: Vec<String> = result.iter().map(|s| s.as_str().to_string()).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}", strings)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayAny" => {
             let result = NoParamReturnArrayAnyCallback();
-            let anys: Vec<String> = result.iter().map(|a| format!("{:?}", a.get())).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}", anys)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayVector2" => {
             let result = NoParamReturnArrayVector2Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayVector3" => {
             let result = NoParamReturnArrayVector3Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayVector4" => {
             let result = NoParamReturnArrayVector4Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnArrayMatrix4x4" => {
             let result = NoParamReturnArrayMatrix4x4Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "NoParamReturnVector2" => {
             let result = NoParamReturnVector2Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_vec2(&result))));
         }
         "NoParamReturnVector3" => {
             let result = NoParamReturnVector3Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_vec3(&result))));
         }
         "NoParamReturnVector4" => {
             let result = NoParamReturnVector4Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_vec4(&result))));
         }
         "NoParamReturnMatrix4x4" => {
             let result = NoParamReturnMatrix4x4Callback();
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_mat(&result))));
         }
         "Param1" => {
             Param1Callback(999);
@@ -2199,7 +2830,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut c = 0f64;
             let mut d = Vector4 { x: 0.0, y: 0.0, z: 0.0, w: 0.0 };
             ParamRef4Callback(&mut a, &mut b, &mut c, &mut d);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}", a, b, c, d)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}", a, b, c, format_vec4(&d))));
         }
         "ParamRef5" => {
             let mut a = 0i32;
@@ -2208,7 +2839,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut d = Vector4 { x: 0.0, y: 0.0, z: 0.0, w: 0.0 };
             let mut e = PlgVector::new();
             ParamRef5Callback(&mut a, &mut b, &mut c, &mut d, &mut e);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}|{:?}", a, b, c, d, e)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}", a, b, c, format_vec4(&d), VectorFormat::format_vector(&e))));
         }
         "ParamRef6" => {
             let mut a = 0i32;
@@ -2218,7 +2849,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut e = PlgVector::new();
             let mut f = 0i8;
             ParamRef6Callback(&mut a, &mut b, &mut c, &mut d, &mut e, &mut f);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}|{:?}|{}", a, b, c, d, e, f as u8)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}|{}", a, b, c, format_vec4(&d), VectorFormat::format_vector(&e), f as u8)));
         }
         "ParamRef7" => {
             let mut a = 0i32;
@@ -2229,7 +2860,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut f = 0i8;
             let mut g = PlgString::new();
             ParamRef7Callback(&mut a, &mut b, &mut c, &mut d, &mut e, &mut f, &mut g);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}|{:?}|{}|{}", a, b, c, d, e, f as u8, g.as_str())));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}|{}|{}", a, b, c, format_vec4(&d), VectorFormat::format_vector(&e), f, g)));
         }
         "ParamRef8" => {
             let mut a = 0i32;
@@ -2241,7 +2872,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut g = PlgString::new();
             let mut h = 0u16;
             ParamRef8Callback(&mut a, &mut b, &mut c, &mut d, &mut e, &mut f, &mut g, &mut h);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}|{:?}|{}|{}|{}", a, b, c, d, e, f as u8, g.as_str(), h)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}|{}|{}|{}", a, b, c, format_vec4(&d), VectorFormat::format_vector(&e), f, g, h)));
         }
         "ParamRef9" => {
             let mut a = 0i32;
@@ -2254,7 +2885,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut h = 0u16;
             let mut k = 0i16;
             ParamRef9Callback(&mut a, &mut b, &mut c, &mut d, &mut e, &mut f, &mut g, &mut h, &mut k);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}|{:?}|{}|{}|{}|{}", a, b, c, d, e, f as u8, g.as_str(), h, k)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}|{}|{}|{}|{}", a, b, c, format_vec4(&d), VectorFormat::format_vector(&e), f, g, h, k)));
         }
         "ParamRef10" => {
             let mut a = 0i32;
@@ -2268,7 +2899,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut k = 0i16;
             let mut l = 0usize;
             ParamRef10Callback(&mut a, &mut b, &mut c, &mut d, &mut e, &mut f, &mut g, &mut h, &mut k, &mut l);
-            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{:?}|{:?}|{}|{}|{}|{}|{}", a, b, c, d, e, f as u8, g.as_str(), h, k, l)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}|{}|{}|{}|{}|{:p}", a, b, c, format_vec4(&d), VectorFormat::format_vector(&e), f, g, h, k, l as *const ())));
         }
         "ParamRefArrays" => {
             let mut p1 = PlgVector::from(vec![true]);
@@ -2287,9 +2918,22 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
             let mut p14 = PlgVector::from(vec![1.0f64]);
             let mut p15 = PlgVector::from(vec![PlgString::from("Hi")]);
             ParamRefVectorsCallback(&mut p1, &mut p2, &mut p3, &mut p4, &mut p5, &mut p6, &mut p7, &mut p8, &mut p9, &mut p10, &mut p11, &mut p12, &mut p13, &mut p14, &mut p15);
-            let p15_strings: Vec<String> = p15.iter().map(|s| s.as_str().to_string()).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}|{:?}",
-                                                   p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15_strings)));
+            ReverseReturn(&PlgString::from(format!("{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+                VectorFormat::format_vector(&p1),
+                VectorFormat::format_vector(&p2),
+                VectorFormat::format_vector(&p3),
+                VectorFormat::format_vector(&p4),
+                VectorFormat::format_vector(&p5),
+                VectorFormat::format_vector(&p6),
+                VectorFormat::format_vector(&p7),
+                VectorFormat::format_vector(&p8),
+                VectorFormat::format_vector(&p9),
+                VectorFormat::format_vector(&p10),
+                VectorFormat::format_vector(&p11),
+                VectorFormat::format_vector(&p12),
+                VectorFormat::format_vector(&p13),
+                VectorFormat::format_vector(&p14),
+                VectorFormat::format_vector(&p15))));
         }
         "ParamAllPrimitives" => {
             let result = ParamAllPrimitivesCallback(true, b'%' as i8, 0x2622, -1, -1000, -1000000, -1000000000000, 200, 50000, 3000000000, 9999999999, 0xfedcbaabcdef, 0.001, 987654.456789);
@@ -2344,8 +2988,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
                 PlgVariant::new(&PlgAny::Double(987654.456789)),
             ]);
             ParamVariantRefCallback(&mut p1, &mut p2);
-            let p2_str: Vec<String> = p2.iter().map(|v| format!("{:?}", v.get())).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}|{:?}", p1.get(), p2_str)));
+            ReverseReturn(&PlgString::from(format!("{}|{}", format_any(&p1), VectorFormat::format_vector(&p2))));
         }
         "CallFuncVoid" => {
             CallFuncVoidCallback(mock_void);
@@ -2356,11 +2999,11 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFuncChar8" => {
             let result = CallFuncChar8Callback(mock_char8);
-            ReverseReturn(&PlgString::from(format!("{}", result as u8)));
+            ReverseReturn(&PlgString::from(format!("{}", result as u8 as char)));
         }
         "CallFuncChar16" => {
             let result = CallFuncChar16Callback(mock_char16);
-            ReverseReturn(&PlgString::from(format!("{}", result as i16)));
+            ReverseReturn(&PlgString::from(format!("{}", result)));
         }
         "CallFuncInt8" => {
             let result = CallFuncInt8Callback(mock_int8);
@@ -2396,7 +3039,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFuncPtr" => {
             let result = CallFuncPtrCallback(mock_ptr);
-            ReverseReturn(&PlgString::from(format!("{}", result)));
+            ReverseReturn(&PlgString::from(format!("{:p}", result as *const())));
         }
         "CallFuncFloat" => {
             let result = CallFuncFloatCallback(mock_float);
@@ -2412,105 +3055,103 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFuncAny" => {
             let result = CallFuncAnyCallback(mock_any);
-            ReverseReturn(&PlgString::from(format!("{:?}", result.get())));
+            ReverseReturn(&PlgString::from(format!("{}", format_any(&result))));
         }
         "CallFuncBoolVector" => {
             let result = CallFuncBoolVectorCallback(mock_bool_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncChar8Vector" => {
             let result = CallFuncChar8VectorCallback(mock_char8_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncChar16Vector" => {
             let result = CallFuncChar16VectorCallback(mock_char16_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncInt8Vector" => {
             let result = CallFuncInt8VectorCallback(mock_int8_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncInt16Vector" => {
             let result = CallFuncInt16VectorCallback(mock_int16_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncInt32Vector" => {
             let result = CallFuncInt32VectorCallback(mock_int32_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncInt64Vector" => {
             let result = CallFuncInt64VectorCallback(mock_int64_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncUInt8Vector" => {
             let result = CallFuncUInt8VectorCallback(mock_uint8_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncUInt16Vector" => {
             let result = CallFuncUInt16VectorCallback(mock_uint16_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncUInt32Vector" => {
             let result = CallFuncUInt32VectorCallback(mock_uint32_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncUInt64Vector" => {
             let result = CallFuncUInt64VectorCallback(mock_uint64_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncPtrVector" => {
             let result = CallFuncPtrVectorCallback(mock_ptr_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncFloatVector" => {
             let result = CallFuncFloatVectorCallback(mock_float_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncDoubleVector" => {
             let result = CallFuncDoubleVectorCallback(mock_double_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncStringVector" => {
             let result = CallFuncStringVectorCallback(mock_string_vector);
-            let strings: Vec<String> = result.iter().map(|s| s.as_str().to_string()).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}", strings)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncAnyVector" => {
             let result = CallFuncAnyVectorCallback(mock_any_vector);
-            let anys: Vec<String> = result.iter().map(|a| format!("{:?}", a.get())).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}", anys)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncVec2Vector" => {
             let result = CallFuncVec2VectorCallback(mock_vec2_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncVec3Vector" => {
             let result = CallFuncVec3VectorCallback(mock_vec3_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncVec4Vector" => {
             let result = CallFuncVec4VectorCallback(mock_vec4_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncMat4x4Vector" => {
             let result = CallFuncMat4x4VectorCallback(mock_mat4x4_vector);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", VectorFormat::format_vector(&result))));
         }
         "CallFuncVec2" => {
             let result = CallFuncVec2Callback(mock_vec2);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}",format_vec2(&result))));
         }
         "CallFuncVec3" => {
             let result = CallFuncVec3Callback(mock_vec3);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_vec3(&result))));
         }
         "CallFuncVec4" => {
             let result = CallFuncVec4Callback(mock_vec4);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_vec4(&result))));
         }
         "CallFuncMat4x4" => {
             let result = CallFuncMat4x4Callback(mock_mat4x4);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_mat(&result))));
         }
         "CallFunc1" => {
             let result = CallFunc1Callback(mock_func1);
@@ -2518,14 +3159,14 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFunc2" => {
             let result = CallFunc2Callback(mock_func2);
-            ReverseReturn(&PlgString::from(format!("{}", result as u8)));
+            ReverseReturn(&PlgString::from(format!("{}", result as u8 as char)));
         }
         "CallFunc3" => {
             CallFunc3Callback(mock_func3);
         }
         "CallFunc4" => {
             let result = CallFunc4Callback(mock_func4);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_vec4(&result))));
         }
         "CallFunc5" => {
             let result = CallFunc5Callback(mock_func5);
@@ -2541,7 +3182,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFunc8" => {
             let result = CallFunc8Callback(mock_func8);
-            ReverseReturn(&PlgString::from(format!("{:?}", result)));
+            ReverseReturn(&PlgString::from(format!("{}", format_mat(&result))));
         }
         "CallFunc9" => {
             CallFunc9Callback(mock_func9);
@@ -2552,7 +3193,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFunc11" => {
             let result = CallFunc11Callback(mock_func11);
-            ReverseReturn(&PlgString::from(format!("{}", result)));
+            ReverseReturn(&PlgString::from(format!("{:p}", result as *const ())));
         }
         "CallFunc12" => {
             let result = CallFunc12Callback(mock_func12);
@@ -2564,8 +3205,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFunc14" => {
             let result = CallFunc14Callback(mock_func14);
-            let strings: Vec<String> = result.iter().map(|s| s.as_str().to_string()).collect();
-            ReverseReturn(&PlgString::from(format!("{:?}", strings)));
+            ReverseReturn(&PlgString::from(format!("{}", PlgVector::format_vector(&result))));
         }
         "CallFunc15" => {
             let result = CallFunc15Callback(mock_func15);
@@ -2573,7 +3213,7 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFunc16" => {
             let result = CallFunc16Callback(mock_func16);
-            ReverseReturn(&PlgString::from(format!("{}", result)));
+            ReverseReturn(&PlgString::from(format!("{:p}", result as *const ())));
         }
         "CallFunc17" => {
             let result = CallFunc17Callback(mock_func17);
@@ -2645,6 +3285,38 @@ pub extern "C" fn ReverseCall(test: &PlgString) {
         }
         "CallFuncEnum" => {
             let result = CallFuncEnumCallback(mock_func_enum);
+            ReverseReturn(&result);
+        }
+        "ClassBasicLifecycle" => {
+            let result = basic_lifecycle();
+            ReverseReturn(&result);
+        }
+        "ClassStateManagement" => {
+            let result = state_management();
+            ReverseReturn(&result);
+        }
+        "ClassMultipleInstances" => {
+            let result = multiple_instances();
+            ReverseReturn(&result);
+        }
+        "ClassCounterWithoutDestructor" => {
+            let result = counter_without_destructor();
+            ReverseReturn(&result);
+        }
+        "ClassStaticMethods" => {
+            let result = static_methods();
+            ReverseReturn(&result);
+        }
+        "ClassMemoryLeakDetection" => {
+            let result = memory_leak_detection();
+            ReverseReturn(&result);
+        }
+        "ClassExceptionHandling" => {
+            let result = exception_handling();
+            ReverseReturn(&result);
+        }
+        "ClassOwnershipTransfer" => {
+            let result = ownership_transfer();
             ReverseReturn(&result);
         }
         _ => {

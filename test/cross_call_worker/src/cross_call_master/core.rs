@@ -11,7 +11,6 @@ use plugify::{get_method_ptr, PlgString, PlgVector, PlgVariant, Vector2, Vector3
 
 /// # Arguments
 /// * `returnString` - (string)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ReverseReturn(returnString: &PlgString) {
     unsafe {
@@ -25,7 +24,6 @@ pub fn ReverseReturn(returnString: &PlgString) {
     }
 }
 
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVoidCallback() {
     unsafe {
@@ -42,7 +40,6 @@ pub fn NoParamReturnVoidCallback() {
 ///
 /// # Returns
 /// bool
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnBoolCallback() -> bool {
     unsafe {
@@ -59,7 +56,6 @@ pub fn NoParamReturnBoolCallback() -> bool {
 ///
 /// # Returns
 /// char8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar8Callback() -> i8 {
     unsafe {
@@ -76,7 +72,6 @@ pub fn NoParamReturnChar8Callback() -> i8 {
 ///
 /// # Returns
 /// char16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar16Callback() -> u16 {
     unsafe {
@@ -93,7 +88,6 @@ pub fn NoParamReturnChar16Callback() -> u16 {
 ///
 /// # Returns
 /// int8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt8Callback() -> i8 {
     unsafe {
@@ -110,7 +104,6 @@ pub fn NoParamReturnInt8Callback() -> i8 {
 ///
 /// # Returns
 /// int16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt16Callback() -> i16 {
     unsafe {
@@ -127,7 +120,6 @@ pub fn NoParamReturnInt16Callback() -> i16 {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt32Callback() -> i32 {
     unsafe {
@@ -144,7 +136,6 @@ pub fn NoParamReturnInt32Callback() -> i32 {
 ///
 /// # Returns
 /// int64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt64Callback() -> i64 {
     unsafe {
@@ -161,7 +152,6 @@ pub fn NoParamReturnInt64Callback() -> i64 {
 ///
 /// # Returns
 /// uint8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt8Callback() -> u8 {
     unsafe {
@@ -178,7 +168,6 @@ pub fn NoParamReturnUInt8Callback() -> u8 {
 ///
 /// # Returns
 /// uint16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt16Callback() -> u16 {
     unsafe {
@@ -195,7 +184,6 @@ pub fn NoParamReturnUInt16Callback() -> u16 {
 ///
 /// # Returns
 /// uint32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt32Callback() -> u32 {
     unsafe {
@@ -212,7 +200,6 @@ pub fn NoParamReturnUInt32Callback() -> u32 {
 ///
 /// # Returns
 /// uint64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt64Callback() -> u64 {
     unsafe {
@@ -229,7 +216,6 @@ pub fn NoParamReturnUInt64Callback() -> u64 {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnPointerCallback() -> usize {
     unsafe {
@@ -246,7 +232,6 @@ pub fn NoParamReturnPointerCallback() -> usize {
 ///
 /// # Returns
 /// float
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFloatCallback() -> f32 {
     unsafe {
@@ -263,7 +248,6 @@ pub fn NoParamReturnFloatCallback() -> f32 {
 ///
 /// # Returns
 /// double
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnDoubleCallback() -> f64 {
     unsafe {
@@ -280,7 +264,6 @@ pub fn NoParamReturnDoubleCallback() -> f64 {
 ///
 /// # Returns
 /// function
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFunctionCallback() -> NoParamReturnFunctionCallbackFunc {
     unsafe {
@@ -297,7 +280,6 @@ pub fn NoParamReturnFunctionCallback() -> NoParamReturnFunctionCallbackFunc {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnStringCallback() -> PlgString {
     unsafe {
@@ -314,7 +296,6 @@ pub fn NoParamReturnStringCallback() -> PlgString {
 ///
 /// # Returns
 /// any
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnAnyCallback() -> PlgVariant {
     unsafe {
@@ -331,7 +312,6 @@ pub fn NoParamReturnAnyCallback() -> PlgVariant {
 ///
 /// # Returns
 /// bool[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayBoolCallback() -> PlgVector<bool> {
     unsafe {
@@ -348,7 +328,6 @@ pub fn NoParamReturnArrayBoolCallback() -> PlgVector<bool> {
 ///
 /// # Returns
 /// char8[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar8Callback() -> PlgVector<i8> {
     unsafe {
@@ -365,7 +344,6 @@ pub fn NoParamReturnArrayChar8Callback() -> PlgVector<i8> {
 ///
 /// # Returns
 /// char16[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar16Callback() -> PlgVector<u16> {
     unsafe {
@@ -382,7 +360,6 @@ pub fn NoParamReturnArrayChar16Callback() -> PlgVector<u16> {
 ///
 /// # Returns
 /// int8[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt8Callback() -> PlgVector<i8> {
     unsafe {
@@ -399,7 +376,6 @@ pub fn NoParamReturnArrayInt8Callback() -> PlgVector<i8> {
 ///
 /// # Returns
 /// int16[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt16Callback() -> PlgVector<i16> {
     unsafe {
@@ -416,7 +392,6 @@ pub fn NoParamReturnArrayInt16Callback() -> PlgVector<i16> {
 ///
 /// # Returns
 /// int32[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt32Callback() -> PlgVector<i32> {
     unsafe {
@@ -433,7 +408,6 @@ pub fn NoParamReturnArrayInt32Callback() -> PlgVector<i32> {
 ///
 /// # Returns
 /// int64[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt64Callback() -> PlgVector<i64> {
     unsafe {
@@ -450,7 +424,6 @@ pub fn NoParamReturnArrayInt64Callback() -> PlgVector<i64> {
 ///
 /// # Returns
 /// uint8[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt8Callback() -> PlgVector<u8> {
     unsafe {
@@ -467,7 +440,6 @@ pub fn NoParamReturnArrayUInt8Callback() -> PlgVector<u8> {
 ///
 /// # Returns
 /// uint16[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt16Callback() -> PlgVector<u16> {
     unsafe {
@@ -484,7 +456,6 @@ pub fn NoParamReturnArrayUInt16Callback() -> PlgVector<u16> {
 ///
 /// # Returns
 /// uint32[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt32Callback() -> PlgVector<u32> {
     unsafe {
@@ -501,7 +472,6 @@ pub fn NoParamReturnArrayUInt32Callback() -> PlgVector<u32> {
 ///
 /// # Returns
 /// uint64[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt64Callback() -> PlgVector<u64> {
     unsafe {
@@ -518,7 +488,6 @@ pub fn NoParamReturnArrayUInt64Callback() -> PlgVector<u64> {
 ///
 /// # Returns
 /// ptr64[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayPointerCallback() -> PlgVector<usize> {
     unsafe {
@@ -535,7 +504,6 @@ pub fn NoParamReturnArrayPointerCallback() -> PlgVector<usize> {
 ///
 /// # Returns
 /// float[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayFloatCallback() -> PlgVector<f32> {
     unsafe {
@@ -552,7 +520,6 @@ pub fn NoParamReturnArrayFloatCallback() -> PlgVector<f32> {
 ///
 /// # Returns
 /// double[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayDoubleCallback() -> PlgVector<f64> {
     unsafe {
@@ -569,7 +536,6 @@ pub fn NoParamReturnArrayDoubleCallback() -> PlgVector<f64> {
 ///
 /// # Returns
 /// string[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayStringCallback() -> PlgVector<PlgString> {
     unsafe {
@@ -586,7 +552,6 @@ pub fn NoParamReturnArrayStringCallback() -> PlgVector<PlgString> {
 ///
 /// # Returns
 /// any[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayAnyCallback() -> PlgVector<PlgVariant> {
     unsafe {
@@ -603,7 +568,6 @@ pub fn NoParamReturnArrayAnyCallback() -> PlgVector<PlgVariant> {
 ///
 /// # Returns
 /// vec2[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector2Callback() -> PlgVector<Vector2> {
     unsafe {
@@ -620,7 +584,6 @@ pub fn NoParamReturnArrayVector2Callback() -> PlgVector<Vector2> {
 ///
 /// # Returns
 /// vec3[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector3Callback() -> PlgVector<Vector3> {
     unsafe {
@@ -637,7 +600,6 @@ pub fn NoParamReturnArrayVector3Callback() -> PlgVector<Vector3> {
 ///
 /// # Returns
 /// vec4[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector4Callback() -> PlgVector<Vector4> {
     unsafe {
@@ -654,7 +616,6 @@ pub fn NoParamReturnArrayVector4Callback() -> PlgVector<Vector4> {
 ///
 /// # Returns
 /// mat4x4[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayMatrix4x4Callback() -> PlgVector<Matrix4x4> {
     unsafe {
@@ -671,7 +632,6 @@ pub fn NoParamReturnArrayMatrix4x4Callback() -> PlgVector<Matrix4x4> {
 ///
 /// # Returns
 /// vec2
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector2Callback() -> Vector2 {
     unsafe {
@@ -688,7 +648,6 @@ pub fn NoParamReturnVector2Callback() -> Vector2 {
 ///
 /// # Returns
 /// vec3
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector3Callback() -> Vector3 {
     unsafe {
@@ -705,7 +664,6 @@ pub fn NoParamReturnVector3Callback() -> Vector3 {
 ///
 /// # Returns
 /// vec4
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector4Callback() -> Vector4 {
     unsafe {
@@ -722,7 +680,6 @@ pub fn NoParamReturnVector4Callback() -> Vector4 {
 ///
 /// # Returns
 /// mat4x4
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnMatrix4x4Callback() -> Matrix4x4 {
     unsafe {
@@ -738,7 +695,6 @@ pub fn NoParamReturnMatrix4x4Callback() -> Matrix4x4 {
 
 /// # Arguments
 /// * `a` - (int32)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param1Callback(a: i32) {
     unsafe {
@@ -756,7 +712,6 @@ pub fn Param1Callback(a: i32) {
 /// * `a` - (int32)
 /// # Arguments
 /// * `b` - (float)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param2Callback(a: i32, b: f32) {
     unsafe {
@@ -776,7 +731,6 @@ pub fn Param2Callback(a: i32, b: f32) {
 /// * `b` - (float)
 /// # Arguments
 /// * `c` - (double)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param3Callback(a: i32, b: f32, c: f64) {
     unsafe {
@@ -798,7 +752,6 @@ pub fn Param3Callback(a: i32, b: f32, c: f64) {
 /// * `c` - (double)
 /// # Arguments
 /// * `d` - (vec4)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param4Callback(a: i32, b: f32, c: f64, d: &Vector4) {
     unsafe {
@@ -822,7 +775,6 @@ pub fn Param4Callback(a: i32, b: f32, c: f64, d: &Vector4) {
 /// * `d` - (vec4)
 /// # Arguments
 /// * `e` - (int64[])
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param5Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>) {
     unsafe {
@@ -848,7 +800,6 @@ pub fn Param5Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>) {
 /// * `e` - (int64[])
 /// # Arguments
 /// * `f` - (char8)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param6Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8) {
     unsafe {
@@ -876,7 +827,6 @@ pub fn Param6Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `f` - (char8)
 /// # Arguments
 /// * `g` - (string)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param7Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString) {
     unsafe {
@@ -906,7 +856,6 @@ pub fn Param7Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `g` - (string)
 /// # Arguments
 /// * `h` - (char16)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param8Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString, h: u16) {
     unsafe {
@@ -938,7 +887,6 @@ pub fn Param8Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `h` - (char16)
 /// # Arguments
 /// * `k` - (int16)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param9Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString, h: u16, k: i16) {
     unsafe {
@@ -972,7 +920,6 @@ pub fn Param9Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `k` - (int16)
 /// # Arguments
 /// * `l` - (ptr64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn Param10Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString, h: u16, k: i16, l: usize) {
     unsafe {
@@ -988,7 +935,6 @@ pub fn Param10Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, 
 
 /// # Arguments
 /// * `a` - (int32&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef1Callback(a: &mut i32) {
     unsafe {
@@ -1006,7 +952,6 @@ pub fn ParamRef1Callback(a: &mut i32) {
 /// * `a` - (int32&)
 /// # Arguments
 /// * `b` - (float&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef2Callback(a: &mut i32, b: &mut f32) {
     unsafe {
@@ -1026,7 +971,6 @@ pub fn ParamRef2Callback(a: &mut i32, b: &mut f32) {
 /// * `b` - (float&)
 /// # Arguments
 /// * `c` - (double&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef3Callback(a: &mut i32, b: &mut f32, c: &mut f64) {
     unsafe {
@@ -1048,7 +992,6 @@ pub fn ParamRef3Callback(a: &mut i32, b: &mut f32, c: &mut f64) {
 /// * `c` - (double&)
 /// # Arguments
 /// * `d` - (vec4&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef4Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4) {
     unsafe {
@@ -1072,7 +1015,6 @@ pub fn ParamRef4Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4)
 /// * `d` - (vec4&)
 /// # Arguments
 /// * `e` - (int64[]&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef5Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>) {
     unsafe {
@@ -1098,7 +1040,6 @@ pub fn ParamRef5Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `e` - (int64[]&)
 /// # Arguments
 /// * `f` - (char8&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef6Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8) {
     unsafe {
@@ -1126,7 +1067,6 @@ pub fn ParamRef6Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `f` - (char8&)
 /// # Arguments
 /// * `g` - (string&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef7Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString) {
     unsafe {
@@ -1156,7 +1096,6 @@ pub fn ParamRef7Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `g` - (string&)
 /// # Arguments
 /// * `h` - (char16&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef8Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString, h: &mut u16) {
     unsafe {
@@ -1188,7 +1127,6 @@ pub fn ParamRef8Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `h` - (char16&)
 /// # Arguments
 /// * `k` - (int16&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef9Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString, h: &mut u16, k: &mut i16) {
     unsafe {
@@ -1222,7 +1160,6 @@ pub fn ParamRef9Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `k` - (int16&)
 /// # Arguments
 /// * `l` - (ptr64&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef10Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString, h: &mut u16, k: &mut i16, l: &mut usize) {
     unsafe {
@@ -1266,7 +1203,6 @@ pub fn ParamRef10Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4
 /// * `p14` - (double[]&)
 /// # Arguments
 /// * `p15` - (string[]&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRefVectorsCallback(p1: &mut PlgVector<bool>, p2: &mut PlgVector<i8>, p3: &mut PlgVector<u16>, p4: &mut PlgVector<i8>, p5: &mut PlgVector<i16>, p6: &mut PlgVector<i32>, p7: &mut PlgVector<i64>, p8: &mut PlgVector<u8>, p9: &mut PlgVector<u16>, p10: &mut PlgVector<u32>, p11: &mut PlgVector<u64>, p12: &mut PlgVector<usize>, p13: &mut PlgVector<f32>, p14: &mut PlgVector<f64>, p15: &mut PlgVector<PlgString>) {
     unsafe {
@@ -1311,7 +1247,6 @@ pub fn ParamRefVectorsCallback(p1: &mut PlgVector<bool>, p2: &mut PlgVector<i8>,
 ///
 /// # Returns
 /// int64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamAllPrimitivesCallback(p1: bool, p2: i8, p3: u16, p4: i8, p5: i16, p6: i32, p7: i64, p8: u8, p9: u16, p10: u32, p11: u64, p12: usize, p13: f32, p14: f64) -> i64 {
     unsafe {
@@ -1332,7 +1267,6 @@ pub fn ParamAllPrimitivesCallback(p1: bool, p2: i8, p3: u16, p4: i8, p5: i16, p6
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumCallback(p1: Example, p2: &PlgVector<Example>) -> i32 {
     unsafe {
@@ -1353,7 +1287,6 @@ pub fn ParamEnumCallback(p1: Example, p2: &PlgVector<Example>) -> i32 {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumRefCallback(p1: &mut Example, p2: &mut PlgVector<Example>) -> i32 {
     unsafe {
@@ -1371,7 +1304,6 @@ pub fn ParamEnumRefCallback(p1: &mut Example, p2: &mut PlgVector<Example>) -> i3
 /// * `p1` - (any)
 /// # Arguments
 /// * `p2` - (any[])
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamVariantCallback(p1: &PlgVariant, p2: &PlgVector<PlgVariant>) {
     unsafe {
@@ -1389,7 +1321,6 @@ pub fn ParamVariantCallback(p1: &PlgVariant, p2: &PlgVector<PlgVariant>) {
 /// * `p1` - (any&)
 /// # Arguments
 /// * `p2` - (any[]&)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamVariantRefCallback(p1: &mut PlgVariant, p2: &mut PlgVector<PlgVariant>) {
     unsafe {
@@ -1405,7 +1336,6 @@ pub fn ParamVariantRefCallback(p1: &mut PlgVariant, p2: &mut PlgVector<PlgVarian
 
 /// # Arguments
 /// * `func` - (function)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVoidCallback(func: FuncVoid) {
     unsafe {
@@ -1424,7 +1354,6 @@ pub fn CallFuncVoidCallback(func: FuncVoid) {
 ///
 /// # Returns
 /// bool
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolCallback(func: FuncBool) -> bool {
     unsafe {
@@ -1443,7 +1372,6 @@ pub fn CallFuncBoolCallback(func: FuncBool) -> bool {
 ///
 /// # Returns
 /// char8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8Callback(func: FuncChar8) -> i8 {
     unsafe {
@@ -1462,7 +1390,6 @@ pub fn CallFuncChar8Callback(func: FuncChar8) -> i8 {
 ///
 /// # Returns
 /// char16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16Callback(func: FuncChar16) -> u16 {
     unsafe {
@@ -1481,7 +1408,6 @@ pub fn CallFuncChar16Callback(func: FuncChar16) -> u16 {
 ///
 /// # Returns
 /// int8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8Callback(func: FuncInt8) -> i8 {
     unsafe {
@@ -1500,7 +1426,6 @@ pub fn CallFuncInt8Callback(func: FuncInt8) -> i8 {
 ///
 /// # Returns
 /// int16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16Callback(func: FuncInt16) -> i16 {
     unsafe {
@@ -1519,7 +1444,6 @@ pub fn CallFuncInt16Callback(func: FuncInt16) -> i16 {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32Callback(func: FuncInt32) -> i32 {
     unsafe {
@@ -1538,7 +1462,6 @@ pub fn CallFuncInt32Callback(func: FuncInt32) -> i32 {
 ///
 /// # Returns
 /// int64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64Callback(func: FuncInt64) -> i64 {
     unsafe {
@@ -1557,7 +1480,6 @@ pub fn CallFuncInt64Callback(func: FuncInt64) -> i64 {
 ///
 /// # Returns
 /// uint8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8Callback(func: FuncUInt8) -> u8 {
     unsafe {
@@ -1576,7 +1498,6 @@ pub fn CallFuncUInt8Callback(func: FuncUInt8) -> u8 {
 ///
 /// # Returns
 /// uint16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16Callback(func: FuncUInt16) -> u16 {
     unsafe {
@@ -1595,7 +1516,6 @@ pub fn CallFuncUInt16Callback(func: FuncUInt16) -> u16 {
 ///
 /// # Returns
 /// uint32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32Callback(func: FuncUInt32) -> u32 {
     unsafe {
@@ -1614,7 +1534,6 @@ pub fn CallFuncUInt32Callback(func: FuncUInt32) -> u32 {
 ///
 /// # Returns
 /// uint64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64Callback(func: FuncUInt64) -> u64 {
     unsafe {
@@ -1633,7 +1552,6 @@ pub fn CallFuncUInt64Callback(func: FuncUInt64) -> u64 {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrCallback(func: FuncPtr) -> usize {
     unsafe {
@@ -1652,7 +1570,6 @@ pub fn CallFuncPtrCallback(func: FuncPtr) -> usize {
 ///
 /// # Returns
 /// float
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatCallback(func: FuncFloat) -> f32 {
     unsafe {
@@ -1671,7 +1588,6 @@ pub fn CallFuncFloatCallback(func: FuncFloat) -> f32 {
 ///
 /// # Returns
 /// double
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleCallback(func: FuncDouble) -> f64 {
     unsafe {
@@ -1690,7 +1606,6 @@ pub fn CallFuncDoubleCallback(func: FuncDouble) -> f64 {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringCallback(func: FuncString) -> PlgString {
     unsafe {
@@ -1709,7 +1624,6 @@ pub fn CallFuncStringCallback(func: FuncString) -> PlgString {
 ///
 /// # Returns
 /// any
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyCallback(func: FuncAny) -> PlgVariant {
     unsafe {
@@ -1728,7 +1642,6 @@ pub fn CallFuncAnyCallback(func: FuncAny) -> PlgVariant {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFunctionCallback(func: FuncFunction) -> usize {
     unsafe {
@@ -1747,7 +1660,6 @@ pub fn CallFuncFunctionCallback(func: FuncFunction) -> usize {
 ///
 /// # Returns
 /// bool[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolVectorCallback(func: FuncBoolVector) -> PlgVector<bool> {
     unsafe {
@@ -1766,7 +1678,6 @@ pub fn CallFuncBoolVectorCallback(func: FuncBoolVector) -> PlgVector<bool> {
 ///
 /// # Returns
 /// char8[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8VectorCallback(func: FuncChar8Vector) -> PlgVector<i8> {
     unsafe {
@@ -1785,7 +1696,6 @@ pub fn CallFuncChar8VectorCallback(func: FuncChar8Vector) -> PlgVector<i8> {
 ///
 /// # Returns
 /// char16[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16VectorCallback(func: FuncChar16Vector) -> PlgVector<u16> {
     unsafe {
@@ -1804,7 +1714,6 @@ pub fn CallFuncChar16VectorCallback(func: FuncChar16Vector) -> PlgVector<u16> {
 ///
 /// # Returns
 /// int8[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8VectorCallback(func: FuncInt8Vector) -> PlgVector<i8> {
     unsafe {
@@ -1823,7 +1732,6 @@ pub fn CallFuncInt8VectorCallback(func: FuncInt8Vector) -> PlgVector<i8> {
 ///
 /// # Returns
 /// int16[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16VectorCallback(func: FuncInt16Vector) -> PlgVector<i16> {
     unsafe {
@@ -1842,7 +1750,6 @@ pub fn CallFuncInt16VectorCallback(func: FuncInt16Vector) -> PlgVector<i16> {
 ///
 /// # Returns
 /// int32[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32VectorCallback(func: FuncInt32Vector) -> PlgVector<i32> {
     unsafe {
@@ -1861,7 +1768,6 @@ pub fn CallFuncInt32VectorCallback(func: FuncInt32Vector) -> PlgVector<i32> {
 ///
 /// # Returns
 /// int64[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64VectorCallback(func: FuncInt64Vector) -> PlgVector<i64> {
     unsafe {
@@ -1880,7 +1786,6 @@ pub fn CallFuncInt64VectorCallback(func: FuncInt64Vector) -> PlgVector<i64> {
 ///
 /// # Returns
 /// uint8[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8VectorCallback(func: FuncUInt8Vector) -> PlgVector<u8> {
     unsafe {
@@ -1899,7 +1804,6 @@ pub fn CallFuncUInt8VectorCallback(func: FuncUInt8Vector) -> PlgVector<u8> {
 ///
 /// # Returns
 /// uint16[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16VectorCallback(func: FuncUInt16Vector) -> PlgVector<u16> {
     unsafe {
@@ -1918,7 +1822,6 @@ pub fn CallFuncUInt16VectorCallback(func: FuncUInt16Vector) -> PlgVector<u16> {
 ///
 /// # Returns
 /// uint32[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32VectorCallback(func: FuncUInt32Vector) -> PlgVector<u32> {
     unsafe {
@@ -1937,7 +1840,6 @@ pub fn CallFuncUInt32VectorCallback(func: FuncUInt32Vector) -> PlgVector<u32> {
 ///
 /// # Returns
 /// uint64[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64VectorCallback(func: FuncUInt64Vector) -> PlgVector<u64> {
     unsafe {
@@ -1956,7 +1858,6 @@ pub fn CallFuncUInt64VectorCallback(func: FuncUInt64Vector) -> PlgVector<u64> {
 ///
 /// # Returns
 /// ptr64[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrVectorCallback(func: FuncPtrVector) -> PlgVector<usize> {
     unsafe {
@@ -1975,7 +1876,6 @@ pub fn CallFuncPtrVectorCallback(func: FuncPtrVector) -> PlgVector<usize> {
 ///
 /// # Returns
 /// float[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatVectorCallback(func: FuncFloatVector) -> PlgVector<f32> {
     unsafe {
@@ -1994,7 +1894,6 @@ pub fn CallFuncFloatVectorCallback(func: FuncFloatVector) -> PlgVector<f32> {
 ///
 /// # Returns
 /// double[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleVectorCallback(func: FuncDoubleVector) -> PlgVector<f64> {
     unsafe {
@@ -2013,7 +1912,6 @@ pub fn CallFuncDoubleVectorCallback(func: FuncDoubleVector) -> PlgVector<f64> {
 ///
 /// # Returns
 /// string[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringVectorCallback(func: FuncStringVector) -> PlgVector<PlgString> {
     unsafe {
@@ -2032,7 +1930,6 @@ pub fn CallFuncStringVectorCallback(func: FuncStringVector) -> PlgVector<PlgStri
 ///
 /// # Returns
 /// any[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyVectorCallback(func: FuncAnyVector) -> PlgVector<PlgVariant> {
     unsafe {
@@ -2051,7 +1948,6 @@ pub fn CallFuncAnyVectorCallback(func: FuncAnyVector) -> PlgVector<PlgVariant> {
 ///
 /// # Returns
 /// vec2[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2VectorCallback(func: FuncVec2Vector) -> PlgVector<Vector2> {
     unsafe {
@@ -2070,7 +1966,6 @@ pub fn CallFuncVec2VectorCallback(func: FuncVec2Vector) -> PlgVector<Vector2> {
 ///
 /// # Returns
 /// vec3[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3VectorCallback(func: FuncVec3Vector) -> PlgVector<Vector3> {
     unsafe {
@@ -2089,7 +1984,6 @@ pub fn CallFuncVec3VectorCallback(func: FuncVec3Vector) -> PlgVector<Vector3> {
 ///
 /// # Returns
 /// vec4[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4VectorCallback(func: FuncVec4Vector) -> PlgVector<Vector4> {
     unsafe {
@@ -2108,7 +2002,6 @@ pub fn CallFuncVec4VectorCallback(func: FuncVec4Vector) -> PlgVector<Vector4> {
 ///
 /// # Returns
 /// mat4x4[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4VectorCallback(func: FuncMat4x4Vector) -> PlgVector<Matrix4x4> {
     unsafe {
@@ -2127,7 +2020,6 @@ pub fn CallFuncMat4x4VectorCallback(func: FuncMat4x4Vector) -> PlgVector<Matrix4
 ///
 /// # Returns
 /// vec2
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2Callback(func: FuncVec2) -> Vector2 {
     unsafe {
@@ -2146,7 +2038,6 @@ pub fn CallFuncVec2Callback(func: FuncVec2) -> Vector2 {
 ///
 /// # Returns
 /// vec3
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3Callback(func: FuncVec3) -> Vector3 {
     unsafe {
@@ -2165,7 +2056,6 @@ pub fn CallFuncVec3Callback(func: FuncVec3) -> Vector3 {
 ///
 /// # Returns
 /// vec4
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4Callback(func: FuncVec4) -> Vector4 {
     unsafe {
@@ -2184,7 +2074,6 @@ pub fn CallFuncVec4Callback(func: FuncVec4) -> Vector4 {
 ///
 /// # Returns
 /// mat4x4
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4Callback(func: FuncMat4x4) -> Matrix4x4 {
     unsafe {
@@ -2203,7 +2092,6 @@ pub fn CallFuncMat4x4Callback(func: FuncMat4x4) -> Matrix4x4 {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc1Callback(func: Func1) -> i32 {
     unsafe {
@@ -2222,7 +2110,6 @@ pub fn CallFunc1Callback(func: Func1) -> i32 {
 ///
 /// # Returns
 /// char8
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc2Callback(func: Func2) -> i8 {
     unsafe {
@@ -2238,7 +2125,6 @@ pub fn CallFunc2Callback(func: Func2) -> i8 {
 
 /// # Arguments
 /// * `func` - (function)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc3Callback(func: Func3) {
     unsafe {
@@ -2257,7 +2143,6 @@ pub fn CallFunc3Callback(func: Func3) {
 ///
 /// # Returns
 /// vec4
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc4Callback(func: Func4) -> Vector4 {
     unsafe {
@@ -2276,7 +2161,6 @@ pub fn CallFunc4Callback(func: Func4) -> Vector4 {
 ///
 /// # Returns
 /// bool
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc5Callback(func: Func5) -> bool {
     unsafe {
@@ -2295,7 +2179,6 @@ pub fn CallFunc5Callback(func: Func5) -> bool {
 ///
 /// # Returns
 /// int64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc6Callback(func: Func6) -> i64 {
     unsafe {
@@ -2314,7 +2197,6 @@ pub fn CallFunc6Callback(func: Func6) -> i64 {
 ///
 /// # Returns
 /// double
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc7Callback(func: Func7) -> f64 {
     unsafe {
@@ -2333,7 +2215,6 @@ pub fn CallFunc7Callback(func: Func7) -> f64 {
 ///
 /// # Returns
 /// mat4x4
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc8Callback(func: Func8) -> Matrix4x4 {
     unsafe {
@@ -2349,7 +2230,6 @@ pub fn CallFunc8Callback(func: Func8) -> Matrix4x4 {
 
 /// # Arguments
 /// * `func` - (function)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc9Callback(func: Func9) {
     unsafe {
@@ -2368,7 +2248,6 @@ pub fn CallFunc9Callback(func: Func9) {
 ///
 /// # Returns
 /// uint32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc10Callback(func: Func10) -> u32 {
     unsafe {
@@ -2387,7 +2266,6 @@ pub fn CallFunc10Callback(func: Func10) -> u32 {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc11Callback(func: Func11) -> usize {
     unsafe {
@@ -2406,7 +2284,6 @@ pub fn CallFunc11Callback(func: Func11) -> usize {
 ///
 /// # Returns
 /// bool
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc12Callback(func: Func12) -> bool {
     unsafe {
@@ -2425,7 +2302,6 @@ pub fn CallFunc12Callback(func: Func12) -> bool {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc13Callback(func: Func13) -> PlgString {
     unsafe {
@@ -2444,7 +2320,6 @@ pub fn CallFunc13Callback(func: Func13) -> PlgString {
 ///
 /// # Returns
 /// string[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc14Callback(func: Func14) -> PlgVector<PlgString> {
     unsafe {
@@ -2463,7 +2338,6 @@ pub fn CallFunc14Callback(func: Func14) -> PlgVector<PlgString> {
 ///
 /// # Returns
 /// int16
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc15Callback(func: Func15) -> i16 {
     unsafe {
@@ -2482,7 +2356,6 @@ pub fn CallFunc15Callback(func: Func15) -> i16 {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc16Callback(func: Func16) -> usize {
     unsafe {
@@ -2501,7 +2374,6 @@ pub fn CallFunc16Callback(func: Func16) -> usize {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc17Callback(func: Func17) -> PlgString {
     unsafe {
@@ -2520,7 +2392,6 @@ pub fn CallFunc17Callback(func: Func17) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc18Callback(func: Func18) -> PlgString {
     unsafe {
@@ -2539,7 +2410,6 @@ pub fn CallFunc18Callback(func: Func18) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc19Callback(func: Func19) -> PlgString {
     unsafe {
@@ -2558,7 +2428,6 @@ pub fn CallFunc19Callback(func: Func19) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc20Callback(func: Func20) -> PlgString {
     unsafe {
@@ -2577,7 +2446,6 @@ pub fn CallFunc20Callback(func: Func20) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc21Callback(func: Func21) -> PlgString {
     unsafe {
@@ -2596,7 +2464,6 @@ pub fn CallFunc21Callback(func: Func21) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc22Callback(func: Func22) -> PlgString {
     unsafe {
@@ -2615,7 +2482,6 @@ pub fn CallFunc22Callback(func: Func22) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc23Callback(func: Func23) -> PlgString {
     unsafe {
@@ -2634,7 +2500,6 @@ pub fn CallFunc23Callback(func: Func23) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc24Callback(func: Func24) -> PlgString {
     unsafe {
@@ -2653,7 +2518,6 @@ pub fn CallFunc24Callback(func: Func24) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc25Callback(func: Func25) -> PlgString {
     unsafe {
@@ -2672,7 +2536,6 @@ pub fn CallFunc25Callback(func: Func25) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc26Callback(func: Func26) -> PlgString {
     unsafe {
@@ -2691,7 +2554,6 @@ pub fn CallFunc26Callback(func: Func26) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc27Callback(func: Func27) -> PlgString {
     unsafe {
@@ -2710,7 +2572,6 @@ pub fn CallFunc27Callback(func: Func27) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc28Callback(func: Func28) -> PlgString {
     unsafe {
@@ -2729,7 +2590,6 @@ pub fn CallFunc28Callback(func: Func28) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc29Callback(func: Func29) -> PlgString {
     unsafe {
@@ -2748,7 +2608,6 @@ pub fn CallFunc29Callback(func: Func29) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc30Callback(func: Func30) -> PlgString {
     unsafe {
@@ -2767,7 +2626,6 @@ pub fn CallFunc30Callback(func: Func30) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc31Callback(func: Func31) -> PlgString {
     unsafe {
@@ -2786,7 +2644,6 @@ pub fn CallFunc31Callback(func: Func31) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc32Callback(func: Func32) -> PlgString {
     unsafe {
@@ -2805,7 +2662,6 @@ pub fn CallFunc32Callback(func: Func32) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc33Callback(func: Func33) -> PlgString {
     unsafe {
@@ -2824,7 +2680,6 @@ pub fn CallFunc33Callback(func: Func33) -> PlgString {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncEnumCallback(func: FuncEnum) -> PlgString {
     unsafe {
@@ -2837,4 +2692,369 @@ pub fn CallFuncEnumCallback(func: FuncEnum) -> PlgString {
         __func(func)
     }
 }
+
+#[derive(Debug)]
+pub enum ResourceHandleError {
+    EmptyHandle,
+}
+
+impl std::fmt::Display for ResourceHandleError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            ResourceHandleError::EmptyHandle => write!(f, "empty handle"),
+        }
+    }
+}
+
+impl std::error::Error for ResourceHandleError {}
+
+/// RAII wrapper for ResourceHandle pointer
+#[derive(Debug)]
+pub struct ResourceHandle {
+    handle: usize,
+    ownership: Ownership,
+}
+
+impl ResourceHandle {
+    #[allow(dead_code, non_snake_case)]
+    pub fn new_ResourceHandleCreate(id: i32, name: &PlgString) -> Result<Self, ResourceHandleError> {
+        let h = crate::cross_call_master::ResourceHandleCreate(id, name);
+        if h == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        Ok(Self {
+            handle: h,
+            ownership: Ownership::Owned,
+        })
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn new_ResourceHandleCreateDefault() -> Result<Self, ResourceHandleError> {
+        let h = crate::cross_call_master::ResourceHandleCreateDefault();
+        if h == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        Ok(Self {
+            handle: h,
+            ownership: Ownership::Owned,
+        })
+    }
+
+    /// Construct from raw handle with specified ownership
+    #[allow(dead_code)]
+    pub unsafe fn from_raw(handle: usize, ownership: Ownership) -> Self {
+        Self { handle, ownership }
+    }
+
+    /// Returns the underlying handle
+    #[allow(dead_code)]
+    pub fn get(&self) -> usize {
+        self.handle
+    }
+
+    /// Release ownership and return the handle. Wrapper becomes empty & borrowed.
+    #[allow(dead_code)]
+    pub fn release(&mut self) -> usize {
+        let h = self.handle;
+        self.handle = Default::default();
+        self.ownership = Ownership::Borrowed;
+        h
+    }
+
+    /// Destroys and resets the handle
+    #[allow(dead_code)]
+    pub fn reset(&mut self) {
+        if self.handle != Default::default() && self.ownership == Ownership::Owned {
+            crate::cross_call_master::ResourceHandleDestroy(self.handle);
+        }
+        self.handle = Default::default();
+        self.ownership = Ownership::Borrowed;
+    }
+
+    /// Swaps two ResourceHandle instances
+    #[allow(dead_code)]
+    pub fn swap(&mut self, other: &mut ResourceHandle) {
+        std::mem::swap(&mut self.handle, &mut other.handle);
+        std::mem::swap(&mut self.ownership, &mut other.ownership);
+    }
+
+    /// Returns true if handle is valid (not empty)
+    #[allow(dead_code)]
+    pub fn is_valid(&self) -> bool {
+        self.handle != Default::default()
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetId(&self) -> Result<i32, ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        Ok(crate::cross_call_master::ResourceHandleGetId(self.handle))
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetName(&self) -> Result<PlgString, ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        Ok(crate::cross_call_master::ResourceHandleGetName(self.handle))
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn SetName(&self, name: &PlgString) -> Result<(), ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        crate::cross_call_master::ResourceHandleSetName(self.handle, name);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn IncrementCounter(&self) -> Result<(), ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        crate::cross_call_master::ResourceHandleIncrementCounter(self.handle);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetCounter(&self) -> Result<i32, ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        Ok(crate::cross_call_master::ResourceHandleGetCounter(self.handle))
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn AddData(&self, value: f32) -> Result<(), ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        crate::cross_call_master::ResourceHandleAddData(self.handle, value);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetData(&self) -> Result<PlgVector<f32>, ResourceHandleError> {
+        if self.handle == Default::default() {
+            return Err(ResourceHandleError::EmptyHandle);
+        }
+        Ok(crate::cross_call_master::ResourceHandleGetData(self.handle))
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetAliveCount() -> i32 {
+        crate::cross_call_master::ResourceHandleGetAliveCount()
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetTotalCreated() -> i32 {
+        crate::cross_call_master::ResourceHandleGetTotalCreated()
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetTotalDestroyed() -> i32 {
+        crate::cross_call_master::ResourceHandleGetTotalDestroyed()
+    }
+
+}
+
+impl Drop for ResourceHandle {
+    fn drop(&mut self) {
+        if self.handle != Default::default() && self.ownership == Ownership::Owned {
+            crate::cross_call_master::ResourceHandleDestroy(self.handle);
+        }
+    }
+}
+
+impl std::cmp::PartialEq for ResourceHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.handle == other.handle
+    }
+}
+impl std::cmp::Eq for ResourceHandle {}
+impl std::cmp::PartialOrd for ResourceHandle {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        (self.handle).partial_cmp(&(other.handle))
+    }
+}
+impl std::cmp::Ord for ResourceHandle {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (self.handle).cmp(&(other.handle))
+    }
+}
+
+
+#[derive(Debug)]
+pub enum CounterError {
+    EmptyHandle,
+}
+
+impl std::fmt::Display for CounterError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            CounterError::EmptyHandle => write!(f, "empty handle"),
+        }
+    }
+}
+
+impl std::error::Error for CounterError {}
+
+#[derive(Debug, Clone, Copy)]
+pub struct Counter {
+    handle: usize,
+}
+
+impl Counter {
+    #[allow(dead_code, non_snake_case)]
+    pub fn new_CounterCreate(initialValue: i64) -> Result<Self, CounterError> {
+        let h = crate::cross_call_master::CounterCreate(initialValue);
+        if h == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        Ok(Self {
+            handle: h,
+        })
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn new_CounterCreateZero() -> Result<Self, CounterError> {
+        let h = crate::cross_call_master::CounterCreateZero();
+        if h == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        Ok(Self {
+            handle: h,
+        })
+    }
+
+    /// Construct from raw handle (does not assume ownership)rlying handle
+    #[allow(dead_code)]
+    pub unsafe fn from_raw(handle: usize) -> Self {
+        Self { handle }
+    }
+
+    /// Returns the underlying handle
+    #[allow(dead_code)]
+    pub fn get(&self) -> usize {
+        self.handle
+    }
+
+    /// Release ownership and return the handle. Wrapper becomes empty & borrowed.
+    #[allow(dead_code)]
+    pub fn release(&mut self) -> usize {
+        let h = self.handle;
+        self.handle = Default::default();
+        h
+    }
+
+    /// Destroys and resets the handle
+    #[allow(dead_code)]
+    pub fn reset(&mut self) {
+        self.handle = Default::default();
+    }
+
+    /// Swaps two Counter instances
+    #[allow(dead_code)]
+    pub fn swap(&mut self, other: &mut Counter) {
+        std::mem::swap(&mut self.handle, &mut other.handle);
+    }
+
+    /// Returns true if handle is valid (not empty)
+    #[allow(dead_code)]
+    pub fn is_valid(&self) -> bool {
+        self.handle != Default::default()
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn GetValue(&self) -> Result<i64, CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        Ok(crate::cross_call_master::CounterGetValue(self.handle))
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn SetValue(&self, value: i64) -> Result<(), CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        crate::cross_call_master::CounterSetValue(self.handle, value);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn Increment(&self) -> Result<(), CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        crate::cross_call_master::CounterIncrement(self.handle);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn Decrement(&self) -> Result<(), CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        crate::cross_call_master::CounterDecrement(self.handle);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn Add(&self, amount: i64) -> Result<(), CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        crate::cross_call_master::CounterAdd(self.handle, amount);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn Reset(&self) -> Result<(), CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        crate::cross_call_master::CounterReset(self.handle);
+        Ok(())
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn IsPositive(&self) -> Result<bool, CounterError> {
+        if self.handle == Default::default() {
+            return Err(CounterError::EmptyHandle);
+        }
+        Ok(crate::cross_call_master::CounterIsPositive(self.handle))
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn Compare(value1: i64, value2: i64) -> i32 {
+        crate::cross_call_master::CounterCompare(value1, value2)
+    }
+
+    #[allow(dead_code, non_snake_case)]
+    pub fn Sum(values: &PlgVector<i64>) -> i64 {
+        crate::cross_call_master::CounterSum(values)
+    }
+
+}
+
+impl std::cmp::PartialEq for Counter {
+    fn eq(&self, other: &Self) -> bool {
+        self.handle == other.handle
+    }
+}
+impl std::cmp::Eq for Counter {}
+impl std::cmp::PartialOrd for Counter {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        (self.handle).partial_cmp(&(other.handle))
+    }
+}
+impl std::cmp::Ord for Counter {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (self.handle).cmp(&(other.handle))
+    }
+}
+
 

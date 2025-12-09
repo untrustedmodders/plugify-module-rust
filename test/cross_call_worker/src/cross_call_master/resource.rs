@@ -16,7 +16,6 @@ use plugify::{get_method_ptr, PlgString, PlgVector, PlgVariant, Vector2, Vector3
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleCreate(id: i32, name: &PlgString) -> usize {
     unsafe {
@@ -33,7 +32,6 @@ pub fn ResourceHandleCreate(id: i32, name: &PlgString) -> usize {
 ///
 /// # Returns
 /// ptr64
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleCreateDefault() -> usize {
     unsafe {
@@ -49,7 +47,6 @@ pub fn ResourceHandleCreateDefault() -> usize {
 
 /// # Arguments
 /// * `handle` - (ptr64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleDestroy(handle: usize) {
     unsafe {
@@ -68,7 +65,6 @@ pub fn ResourceHandleDestroy(handle: usize) {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetId(handle: usize) -> i32 {
     unsafe {
@@ -87,7 +83,6 @@ pub fn ResourceHandleGetId(handle: usize) -> i32 {
 ///
 /// # Returns
 /// string
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetName(handle: usize) -> PlgString {
     unsafe {
@@ -105,7 +100,6 @@ pub fn ResourceHandleGetName(handle: usize) -> PlgString {
 /// * `handle` - (ptr64)
 /// # Arguments
 /// * `name` - (string)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleSetName(handle: usize, name: &PlgString) {
     unsafe {
@@ -121,7 +115,6 @@ pub fn ResourceHandleSetName(handle: usize, name: &PlgString) {
 
 /// # Arguments
 /// * `handle` - (ptr64)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleIncrementCounter(handle: usize) {
     unsafe {
@@ -140,7 +133,6 @@ pub fn ResourceHandleIncrementCounter(handle: usize) {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetCounter(handle: usize) -> i32 {
     unsafe {
@@ -158,7 +150,6 @@ pub fn ResourceHandleGetCounter(handle: usize) -> i32 {
 /// * `handle` - (ptr64)
 /// # Arguments
 /// * `value` - (float)
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleAddData(handle: usize, value: f32) {
     unsafe {
@@ -177,7 +168,6 @@ pub fn ResourceHandleAddData(handle: usize, value: f32) {
 ///
 /// # Returns
 /// float[]
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetData(handle: usize) -> PlgVector<f32> {
     unsafe {
@@ -194,7 +184,6 @@ pub fn ResourceHandleGetData(handle: usize) -> PlgVector<f32> {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetAliveCount() -> i32 {
     unsafe {
@@ -211,7 +200,6 @@ pub fn ResourceHandleGetAliveCount() -> i32 {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetTotalCreated() -> i32 {
     unsafe {
@@ -228,7 +216,6 @@ pub fn ResourceHandleGetTotalCreated() -> i32 {
 ///
 /// # Returns
 /// int32
-#[inline]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetTotalDestroyed() -> i32 {
     unsafe {

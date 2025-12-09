@@ -89,6 +89,8 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 
 	auto& assembly = *assemblyResult;
 
+	auto mainResult = assembly->GetSymbol("plugify_main");
+
 	auto initResult = assembly->GetSymbol("plugify_init");
 	if (!initResult) {
 		return MakeError(std::move(initResult.error()));
@@ -110,6 +112,7 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 		return MakeError(std::move(contextResult.error()));
 	}
 
+	auto* mainFunc = mainResult ? mainResult->RCast<MainFunc>() : nullptr;
 	auto* initFunc = initResult->RCast<InitFunc>();
 	auto* startFunc = startResult->RCast<StartFunc>();
 	auto* updateFunc = updateResult->RCast<UpdateFunc>();
@@ -136,6 +139,10 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 	}
 	if (!errors.empty()) {
 		return MakeError("Invalid methods:\n{}", plg::join(errors, "\n"));
+	}
+
+	if (mainFunc) {
+		mainFunc();
 	}
 
 	const int resultVersion = initFunc(_pluginApi.data(), _pluginApi.size(), kApiVersion, static_cast<const void *>(&plugin));
@@ -182,9 +189,9 @@ namespace rustlm {
 	RustLanguageModule g_rustlm;
 }
 
-MemAddr GetMethodPtr(const char* mstr, size_t mlen) {
-	std::string_view name(mstr, mlen);
-	return g_rustlm.GetNativeMethod(name);
+
+void* GetMethodPtr(const char* mstr, size_t mlen) {
+	return g_rustlm.GetNativeMethod(std::string_view(mstr, mlen));
 }
 
 bool IsExtensionLoaded(const char* nstr, size_t nlen, const char* cstr, size_t clen) {
@@ -224,8 +231,8 @@ plg::string GetCacheDir() {
 	return plg::as_string(g_rustlm.GetProvider()->GetCacheDir());
 }
 
-size_t GetPluginId(const Extension& plugin) {
-	return static_cast<size_t>(plugin.GetId());
+ptrdiff_t GetPluginId(const Extension& plugin) {
+	return plugin.GetId();
 }
 
 plg::string GetPluginName(const Extension& plugin) {
