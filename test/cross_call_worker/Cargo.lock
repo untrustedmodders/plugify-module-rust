@@ -11,5 +11,5 @@ dependencies = [
 
 [[package]]
 name = "plugify"
-version = "1.1.7"
-source = "git+https://github.com/untrustedmodders/rust-plugify?tag=plugify-v1.1.7#6a1cd881235eb00d83d5d2081f832e5e1ba6b0d5"
+version = "1.2.0"
+source = "git+https://github.com/untrustedmodders/rust-plugify?tag=plugify-v1.2.0#25fbc955106fe1dee6a2f61c6b3763a200b1cc14"

@@ -1,7 +1,7 @@
 // Generated from cross_call_master.pplugin (group: core)
 
 #[allow(unused_imports)]
-use std::sync::OnceLock;
+use std::sync::RwLock;
 #[allow(unused_imports)]
 use super::enums::*;
 #[allow(unused_imports)]
@@ -13,700 +13,524 @@ use plugify::{get_method_ptr, PlgString, PlgVector, PlgVariant, Vector2, Vector3
 /// * `returnString` - (string)
 #[allow(dead_code, non_snake_case)]
 pub fn ReverseReturn(returnString: &PlgString) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&PlgString)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ReverseReturn";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(returnString);
-    }
+    unsafe { __cross_call_master_ReverseReturn.expect("ReverseReturn function was not found")(returnString) }
 }
+pub type _ReverseReturn = unsafe extern "C" fn(&PlgString);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ReverseReturn: Option<_ReverseReturn> = None;
 
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVoidCallback() {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn()> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnVoidCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func();
-    }
+    unsafe { __cross_call_master_NoParamReturnVoidCallback.expect("NoParamReturnVoidCallback function was not found")() }
 }
+pub type _NoParamReturnVoidCallback = unsafe extern "C" fn();
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnVoidCallback: Option<_NoParamReturnVoidCallback> = None;
 
 ///
 /// # Returns
 /// bool
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnBoolCallback() -> bool {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> bool> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnBoolCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnBoolCallback.expect("NoParamReturnBoolCallback function was not found")() }
 }
+pub type _NoParamReturnBoolCallback = unsafe extern "C" fn() -> bool;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnBoolCallback: Option<_NoParamReturnBoolCallback> = None;
 
 ///
 /// # Returns
 /// char8
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar8Callback() -> i8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> i8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnChar8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnChar8Callback.expect("NoParamReturnChar8Callback function was not found")() }
 }
+pub type _NoParamReturnChar8Callback = unsafe extern "C" fn() -> i8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnChar8Callback: Option<_NoParamReturnChar8Callback> = None;
 
 ///
 /// # Returns
 /// char16
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar16Callback() -> u16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> u16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnChar16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnChar16Callback.expect("NoParamReturnChar16Callback function was not found")() }
 }
+pub type _NoParamReturnChar16Callback = unsafe extern "C" fn() -> u16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnChar16Callback: Option<_NoParamReturnChar16Callback> = None;
 
 ///
 /// # Returns
 /// int8
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt8Callback() -> i8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> i8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnInt8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnInt8Callback.expect("NoParamReturnInt8Callback function was not found")() }
 }
+pub type _NoParamReturnInt8Callback = unsafe extern "C" fn() -> i8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnInt8Callback: Option<_NoParamReturnInt8Callback> = None;
 
 ///
 /// # Returns
 /// int16
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt16Callback() -> i16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> i16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnInt16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnInt16Callback.expect("NoParamReturnInt16Callback function was not found")() }
 }
+pub type _NoParamReturnInt16Callback = unsafe extern "C" fn() -> i16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnInt16Callback: Option<_NoParamReturnInt16Callback> = None;
 
 ///
 /// # Returns
 /// int32
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt32Callback() -> i32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> i32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnInt32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnInt32Callback.expect("NoParamReturnInt32Callback function was not found")() }
 }
+pub type _NoParamReturnInt32Callback = unsafe extern "C" fn() -> i32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnInt32Callback: Option<_NoParamReturnInt32Callback> = None;
 
 ///
 /// # Returns
 /// int64
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt64Callback() -> i64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> i64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnInt64Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnInt64Callback.expect("NoParamReturnInt64Callback function was not found")() }
 }
+pub type _NoParamReturnInt64Callback = unsafe extern "C" fn() -> i64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnInt64Callback: Option<_NoParamReturnInt64Callback> = None;
 
 ///
 /// # Returns
 /// uint8
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt8Callback() -> u8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> u8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnUInt8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnUInt8Callback.expect("NoParamReturnUInt8Callback function was not found")() }
 }
+pub type _NoParamReturnUInt8Callback = unsafe extern "C" fn() -> u8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnUInt8Callback: Option<_NoParamReturnUInt8Callback> = None;
 
 ///
 /// # Returns
 /// uint16
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt16Callback() -> u16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> u16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnUInt16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnUInt16Callback.expect("NoParamReturnUInt16Callback function was not found")() }
 }
+pub type _NoParamReturnUInt16Callback = unsafe extern "C" fn() -> u16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnUInt16Callback: Option<_NoParamReturnUInt16Callback> = None;
 
 ///
 /// # Returns
 /// uint32
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt32Callback() -> u32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> u32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnUInt32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnUInt32Callback.expect("NoParamReturnUInt32Callback function was not found")() }
 }
+pub type _NoParamReturnUInt32Callback = unsafe extern "C" fn() -> u32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnUInt32Callback: Option<_NoParamReturnUInt32Callback> = None;
 
 ///
 /// # Returns
 /// uint64
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt64Callback() -> u64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> u64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnUInt64Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnUInt64Callback.expect("NoParamReturnUInt64Callback function was not found")() }
 }
+pub type _NoParamReturnUInt64Callback = unsafe extern "C" fn() -> u64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnUInt64Callback: Option<_NoParamReturnUInt64Callback> = None;
 
 ///
 /// # Returns
 /// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnPointerCallback() -> usize {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> usize> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnPointerCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnPointerCallback.expect("NoParamReturnPointerCallback function was not found")() }
 }
+pub type _NoParamReturnPointerCallback = unsafe extern "C" fn() -> usize;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnPointerCallback: Option<_NoParamReturnPointerCallback> = None;
 
 ///
 /// # Returns
 /// float
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFloatCallback() -> f32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> f32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnFloatCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnFloatCallback.expect("NoParamReturnFloatCallback function was not found")() }
 }
+pub type _NoParamReturnFloatCallback = unsafe extern "C" fn() -> f32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnFloatCallback: Option<_NoParamReturnFloatCallback> = None;
 
 ///
 /// # Returns
 /// double
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnDoubleCallback() -> f64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> f64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnDoubleCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnDoubleCallback.expect("NoParamReturnDoubleCallback function was not found")() }
 }
+pub type _NoParamReturnDoubleCallback = unsafe extern "C" fn() -> f64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnDoubleCallback: Option<_NoParamReturnDoubleCallback> = None;
 
 ///
 /// # Returns
 /// function
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFunctionCallback() -> NoParamReturnFunctionCallbackFunc {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> NoParamReturnFunctionCallbackFunc> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnFunctionCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnFunctionCallback.expect("NoParamReturnFunctionCallback function was not found")() }
 }
+pub type _NoParamReturnFunctionCallback = unsafe extern "C" fn() -> NoParamReturnFunctionCallbackFunc;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnFunctionCallback: Option<_NoParamReturnFunctionCallback> = None;
 
 ///
 /// # Returns
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnStringCallback() -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnStringCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnStringCallback.expect("NoParamReturnStringCallback function was not found")() }
 }
+pub type _NoParamReturnStringCallback = unsafe extern "C" fn() -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnStringCallback: Option<_NoParamReturnStringCallback> = None;
 
 ///
 /// # Returns
 /// any
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnAnyCallback() -> PlgVariant {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVariant> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnAnyCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnAnyCallback.expect("NoParamReturnAnyCallback function was not found")() }
 }
+pub type _NoParamReturnAnyCallback = unsafe extern "C" fn() -> PlgVariant;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnAnyCallback: Option<_NoParamReturnAnyCallback> = None;
 
 ///
 /// # Returns
 /// bool[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayBoolCallback() -> PlgVector<bool> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<bool>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayBoolCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayBoolCallback.expect("NoParamReturnArrayBoolCallback function was not found")() }
 }
+pub type _NoParamReturnArrayBoolCallback = unsafe extern "C" fn() -> PlgVector<bool>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayBoolCallback: Option<_NoParamReturnArrayBoolCallback> = None;
 
 ///
 /// # Returns
 /// char8[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar8Callback() -> PlgVector<i8> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<i8>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayChar8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayChar8Callback.expect("NoParamReturnArrayChar8Callback function was not found")() }
 }
+pub type _NoParamReturnArrayChar8Callback = unsafe extern "C" fn() -> PlgVector<i8>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayChar8Callback: Option<_NoParamReturnArrayChar8Callback> = None;
 
 ///
 /// # Returns
 /// char16[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar16Callback() -> PlgVector<u16> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<u16>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayChar16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayChar16Callback.expect("NoParamReturnArrayChar16Callback function was not found")() }
 }
+pub type _NoParamReturnArrayChar16Callback = unsafe extern "C" fn() -> PlgVector<u16>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayChar16Callback: Option<_NoParamReturnArrayChar16Callback> = None;
 
 ///
 /// # Returns
 /// int8[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt8Callback() -> PlgVector<i8> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<i8>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayInt8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayInt8Callback.expect("NoParamReturnArrayInt8Callback function was not found")() }
 }
+pub type _NoParamReturnArrayInt8Callback = unsafe extern "C" fn() -> PlgVector<i8>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayInt8Callback: Option<_NoParamReturnArrayInt8Callback> = None;
 
 ///
 /// # Returns
 /// int16[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt16Callback() -> PlgVector<i16> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<i16>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayInt16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayInt16Callback.expect("NoParamReturnArrayInt16Callback function was not found")() }
 }
+pub type _NoParamReturnArrayInt16Callback = unsafe extern "C" fn() -> PlgVector<i16>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayInt16Callback: Option<_NoParamReturnArrayInt16Callback> = None;
 
 ///
 /// # Returns
 /// int32[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt32Callback() -> PlgVector<i32> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<i32>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayInt32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayInt32Callback.expect("NoParamReturnArrayInt32Callback function was not found")() }
 }
+pub type _NoParamReturnArrayInt32Callback = unsafe extern "C" fn() -> PlgVector<i32>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayInt32Callback: Option<_NoParamReturnArrayInt32Callback> = None;
 
 ///
 /// # Returns
 /// int64[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt64Callback() -> PlgVector<i64> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<i64>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayInt64Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayInt64Callback.expect("NoParamReturnArrayInt64Callback function was not found")() }
 }
+pub type _NoParamReturnArrayInt64Callback = unsafe extern "C" fn() -> PlgVector<i64>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayInt64Callback: Option<_NoParamReturnArrayInt64Callback> = None;
 
 ///
 /// # Returns
 /// uint8[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt8Callback() -> PlgVector<u8> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<u8>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayUInt8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayUInt8Callback.expect("NoParamReturnArrayUInt8Callback function was not found")() }
 }
+pub type _NoParamReturnArrayUInt8Callback = unsafe extern "C" fn() -> PlgVector<u8>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayUInt8Callback: Option<_NoParamReturnArrayUInt8Callback> = None;
 
 ///
 /// # Returns
 /// uint16[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt16Callback() -> PlgVector<u16> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<u16>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayUInt16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayUInt16Callback.expect("NoParamReturnArrayUInt16Callback function was not found")() }
 }
+pub type _NoParamReturnArrayUInt16Callback = unsafe extern "C" fn() -> PlgVector<u16>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayUInt16Callback: Option<_NoParamReturnArrayUInt16Callback> = None;
 
 ///
 /// # Returns
 /// uint32[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt32Callback() -> PlgVector<u32> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<u32>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayUInt32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayUInt32Callback.expect("NoParamReturnArrayUInt32Callback function was not found")() }
 }
+pub type _NoParamReturnArrayUInt32Callback = unsafe extern "C" fn() -> PlgVector<u32>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayUInt32Callback: Option<_NoParamReturnArrayUInt32Callback> = None;
 
 ///
 /// # Returns
 /// uint64[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt64Callback() -> PlgVector<u64> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<u64>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayUInt64Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayUInt64Callback.expect("NoParamReturnArrayUInt64Callback function was not found")() }
 }
+pub type _NoParamReturnArrayUInt64Callback = unsafe extern "C" fn() -> PlgVector<u64>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayUInt64Callback: Option<_NoParamReturnArrayUInt64Callback> = None;
 
 ///
 /// # Returns
 /// ptr64[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayPointerCallback() -> PlgVector<usize> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<usize>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayPointerCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayPointerCallback.expect("NoParamReturnArrayPointerCallback function was not found")() }
 }
+pub type _NoParamReturnArrayPointerCallback = unsafe extern "C" fn() -> PlgVector<usize>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayPointerCallback: Option<_NoParamReturnArrayPointerCallback> = None;
 
 ///
 /// # Returns
 /// float[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayFloatCallback() -> PlgVector<f32> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<f32>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayFloatCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayFloatCallback.expect("NoParamReturnArrayFloatCallback function was not found")() }
 }
+pub type _NoParamReturnArrayFloatCallback = unsafe extern "C" fn() -> PlgVector<f32>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayFloatCallback: Option<_NoParamReturnArrayFloatCallback> = None;
 
 ///
 /// # Returns
 /// double[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayDoubleCallback() -> PlgVector<f64> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<f64>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayDoubleCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayDoubleCallback.expect("NoParamReturnArrayDoubleCallback function was not found")() }
 }
+pub type _NoParamReturnArrayDoubleCallback = unsafe extern "C" fn() -> PlgVector<f64>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayDoubleCallback: Option<_NoParamReturnArrayDoubleCallback> = None;
 
 ///
 /// # Returns
 /// string[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayStringCallback() -> PlgVector<PlgString> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<PlgString>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayStringCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayStringCallback.expect("NoParamReturnArrayStringCallback function was not found")() }
 }
+pub type _NoParamReturnArrayStringCallback = unsafe extern "C" fn() -> PlgVector<PlgString>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayStringCallback: Option<_NoParamReturnArrayStringCallback> = None;
 
 ///
 /// # Returns
 /// any[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayAnyCallback() -> PlgVector<PlgVariant> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<PlgVariant>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayAnyCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayAnyCallback.expect("NoParamReturnArrayAnyCallback function was not found")() }
 }
+pub type _NoParamReturnArrayAnyCallback = unsafe extern "C" fn() -> PlgVector<PlgVariant>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayAnyCallback: Option<_NoParamReturnArrayAnyCallback> = None;
 
 ///
 /// # Returns
 /// vec2[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector2Callback() -> PlgVector<Vector2> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<Vector2>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayVector2Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayVector2Callback.expect("NoParamReturnArrayVector2Callback function was not found")() }
 }
+pub type _NoParamReturnArrayVector2Callback = unsafe extern "C" fn() -> PlgVector<Vector2>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayVector2Callback: Option<_NoParamReturnArrayVector2Callback> = None;
 
 ///
 /// # Returns
 /// vec3[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector3Callback() -> PlgVector<Vector3> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<Vector3>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayVector3Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayVector3Callback.expect("NoParamReturnArrayVector3Callback function was not found")() }
 }
+pub type _NoParamReturnArrayVector3Callback = unsafe extern "C" fn() -> PlgVector<Vector3>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayVector3Callback: Option<_NoParamReturnArrayVector3Callback> = None;
 
 ///
 /// # Returns
 /// vec4[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector4Callback() -> PlgVector<Vector4> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<Vector4>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayVector4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayVector4Callback.expect("NoParamReturnArrayVector4Callback function was not found")() }
 }
+pub type _NoParamReturnArrayVector4Callback = unsafe extern "C" fn() -> PlgVector<Vector4>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayVector4Callback: Option<_NoParamReturnArrayVector4Callback> = None;
 
 ///
 /// # Returns
 /// mat4x4[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayMatrix4x4Callback() -> PlgVector<Matrix4x4> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> PlgVector<Matrix4x4>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnArrayMatrix4x4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnArrayMatrix4x4Callback.expect("NoParamReturnArrayMatrix4x4Callback function was not found")() }
 }
+pub type _NoParamReturnArrayMatrix4x4Callback = unsafe extern "C" fn() -> PlgVector<Matrix4x4>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnArrayMatrix4x4Callback: Option<_NoParamReturnArrayMatrix4x4Callback> = None;
 
 ///
 /// # Returns
 /// vec2
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector2Callback() -> Vector2 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> Vector2> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnVector2Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnVector2Callback.expect("NoParamReturnVector2Callback function was not found")() }
 }
+pub type _NoParamReturnVector2Callback = unsafe extern "C" fn() -> Vector2;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnVector2Callback: Option<_NoParamReturnVector2Callback> = None;
 
 ///
 /// # Returns
 /// vec3
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector3Callback() -> Vector3 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> Vector3> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnVector3Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnVector3Callback.expect("NoParamReturnVector3Callback function was not found")() }
 }
+pub type _NoParamReturnVector3Callback = unsafe extern "C" fn() -> Vector3;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnVector3Callback: Option<_NoParamReturnVector3Callback> = None;
 
 ///
 /// # Returns
 /// vec4
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector4Callback() -> Vector4 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> Vector4> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnVector4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnVector4Callback.expect("NoParamReturnVector4Callback function was not found")() }
 }
+pub type _NoParamReturnVector4Callback = unsafe extern "C" fn() -> Vector4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnVector4Callback: Option<_NoParamReturnVector4Callback> = None;
 
 ///
 /// # Returns
 /// mat4x4
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnMatrix4x4Callback() -> Matrix4x4 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn() -> Matrix4x4> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.NoParamReturnMatrix4x4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func()
-    }
+    unsafe { __cross_call_master_NoParamReturnMatrix4x4Callback.expect("NoParamReturnMatrix4x4Callback function was not found")() }
 }
+pub type _NoParamReturnMatrix4x4Callback = unsafe extern "C" fn() -> Matrix4x4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_NoParamReturnMatrix4x4Callback: Option<_NoParamReturnMatrix4x4Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
 #[allow(dead_code, non_snake_case)]
 pub fn Param1Callback(a: i32) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param1Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a);
-    }
+    unsafe { __cross_call_master_Param1Callback.expect("Param1Callback function was not found")(a) }
 }
+pub type _Param1Callback = unsafe extern "C" fn(i32);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param1Callback: Option<_Param1Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -714,16 +538,12 @@ pub fn Param1Callback(a: i32) {
 /// * `b` - (float)
 #[allow(dead_code, non_snake_case)]
 pub fn Param2Callback(a: i32, b: f32) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param2Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b);
-    }
+    unsafe { __cross_call_master_Param2Callback.expect("Param2Callback function was not found")(a, b) }
 }
+pub type _Param2Callback = unsafe extern "C" fn(i32, f32);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param2Callback: Option<_Param2Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -733,16 +553,12 @@ pub fn Param2Callback(a: i32, b: f32) {
 /// * `c` - (double)
 #[allow(dead_code, non_snake_case)]
 pub fn Param3Callback(a: i32, b: f32, c: f64) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param3Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c);
-    }
+    unsafe { __cross_call_master_Param3Callback.expect("Param3Callback function was not found")(a, b, c) }
 }
+pub type _Param3Callback = unsafe extern "C" fn(i32, f32, f64);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param3Callback: Option<_Param3Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -754,16 +570,12 @@ pub fn Param3Callback(a: i32, b: f32, c: f64) {
 /// * `d` - (vec4)
 #[allow(dead_code, non_snake_case)]
 pub fn Param4Callback(a: i32, b: f32, c: f64, d: &Vector4) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d);
-    }
+    unsafe { __cross_call_master_Param4Callback.expect("Param4Callback function was not found")(a, b, c, d) }
 }
+pub type _Param4Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param4Callback: Option<_Param4Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -777,16 +589,12 @@ pub fn Param4Callback(a: i32, b: f32, c: f64, d: &Vector4) {
 /// * `e` - (int64[])
 #[allow(dead_code, non_snake_case)]
 pub fn Param5Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param5Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e);
-    }
+    unsafe { __cross_call_master_Param5Callback.expect("Param5Callback function was not found")(a, b, c, d, e) }
 }
+pub type _Param5Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param5Callback: Option<_Param5Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -802,16 +610,12 @@ pub fn Param5Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>) {
 /// * `f` - (char8)
 #[allow(dead_code, non_snake_case)]
 pub fn Param6Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param6Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f);
-    }
+    unsafe { __cross_call_master_Param6Callback.expect("Param6Callback function was not found")(a, b, c, d, e, f) }
 }
+pub type _Param6Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param6Callback: Option<_Param6Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -829,16 +633,12 @@ pub fn Param6Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `g` - (string)
 #[allow(dead_code, non_snake_case)]
 pub fn Param7Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param7Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g);
-    }
+    unsafe { __cross_call_master_Param7Callback.expect("Param7Callback function was not found")(a, b, c, d, e, f, g) }
 }
+pub type _Param7Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param7Callback: Option<_Param7Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -858,16 +658,12 @@ pub fn Param7Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `h` - (char16)
 #[allow(dead_code, non_snake_case)]
 pub fn Param8Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString, h: u16) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString, u16)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g, h);
-    }
+    unsafe { __cross_call_master_Param8Callback.expect("Param8Callback function was not found")(a, b, c, d, e, f, g, h) }
 }
+pub type _Param8Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString, u16);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param8Callback: Option<_Param8Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -889,16 +685,12 @@ pub fn Param8Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `k` - (int16)
 #[allow(dead_code, non_snake_case)]
 pub fn Param9Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString, h: u16, k: i16) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString, u16, i16)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param9Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g, h, k);
-    }
+    unsafe { __cross_call_master_Param9Callback.expect("Param9Callback function was not found")(a, b, c, d, e, f, g, h, k) }
 }
+pub type _Param9Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString, u16, i16);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param9Callback: Option<_Param9Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32)
@@ -922,31 +714,23 @@ pub fn Param9Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f
 /// * `l` - (ptr64)
 #[allow(dead_code, non_snake_case)]
 pub fn Param10Callback(a: i32, b: f32, c: f64, d: &Vector4, e: &PlgVector<i64>, f: i8, g: &PlgString, h: u16, k: i16, l: usize) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString, u16, i16, usize)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.Param10Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g, h, k, l);
-    }
+    unsafe { __cross_call_master_Param10Callback.expect("Param10Callback function was not found")(a, b, c, d, e, f, g, h, k, l) }
 }
+pub type _Param10Callback = unsafe extern "C" fn(i32, f32, f64, &Vector4, &PlgVector<i64>, i8, &PlgString, u16, i16, usize);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_Param10Callback: Option<_Param10Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef1Callback(a: &mut i32) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef1Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a);
-    }
+    unsafe { __cross_call_master_ParamRef1Callback.expect("ParamRef1Callback function was not found")(a) }
 }
+pub type _ParamRef1Callback = unsafe extern "C" fn(&mut i32);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef1Callback: Option<_ParamRef1Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -954,16 +738,12 @@ pub fn ParamRef1Callback(a: &mut i32) {
 /// * `b` - (float&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef2Callback(a: &mut i32, b: &mut f32) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef2Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b);
-    }
+    unsafe { __cross_call_master_ParamRef2Callback.expect("ParamRef2Callback function was not found")(a, b) }
 }
+pub type _ParamRef2Callback = unsafe extern "C" fn(&mut i32, &mut f32);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef2Callback: Option<_ParamRef2Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -973,16 +753,12 @@ pub fn ParamRef2Callback(a: &mut i32, b: &mut f32) {
 /// * `c` - (double&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef3Callback(a: &mut i32, b: &mut f32, c: &mut f64) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef3Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c);
-    }
+    unsafe { __cross_call_master_ParamRef3Callback.expect("ParamRef3Callback function was not found")(a, b, c) }
 }
+pub type _ParamRef3Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef3Callback: Option<_ParamRef3Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -994,16 +770,12 @@ pub fn ParamRef3Callback(a: &mut i32, b: &mut f32, c: &mut f64) {
 /// * `d` - (vec4&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef4Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d);
-    }
+    unsafe { __cross_call_master_ParamRef4Callback.expect("ParamRef4Callback function was not found")(a, b, c, d) }
 }
+pub type _ParamRef4Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef4Callback: Option<_ParamRef4Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -1017,16 +789,12 @@ pub fn ParamRef4Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4)
 /// * `e` - (int64[]&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef5Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef5Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e);
-    }
+    unsafe { __cross_call_master_ParamRef5Callback.expect("ParamRef5Callback function was not found")(a, b, c, d, e) }
 }
+pub type _ParamRef5Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef5Callback: Option<_ParamRef5Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -1042,16 +810,12 @@ pub fn ParamRef5Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `f` - (char8&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef6Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef6Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f);
-    }
+    unsafe { __cross_call_master_ParamRef6Callback.expect("ParamRef6Callback function was not found")(a, b, c, d, e, f) }
 }
+pub type _ParamRef6Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef6Callback: Option<_ParamRef6Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -1069,16 +833,12 @@ pub fn ParamRef6Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `g` - (string&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef7Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef7Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g);
-    }
+    unsafe { __cross_call_master_ParamRef7Callback.expect("ParamRef7Callback function was not found")(a, b, c, d, e, f, g) }
 }
+pub type _ParamRef7Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef7Callback: Option<_ParamRef7Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -1098,16 +858,12 @@ pub fn ParamRef7Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `h` - (char16&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef8Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString, h: &mut u16) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString, &mut u16)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g, h);
-    }
+    unsafe { __cross_call_master_ParamRef8Callback.expect("ParamRef8Callback function was not found")(a, b, c, d, e, f, g, h) }
 }
+pub type _ParamRef8Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString, &mut u16);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef8Callback: Option<_ParamRef8Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -1129,16 +885,12 @@ pub fn ParamRef8Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `k` - (int16&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef9Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString, h: &mut u16, k: &mut i16) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString, &mut u16, &mut i16)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef9Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g, h, k);
-    }
+    unsafe { __cross_call_master_ParamRef9Callback.expect("ParamRef9Callback function was not found")(a, b, c, d, e, f, g, h, k) }
 }
+pub type _ParamRef9Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString, &mut u16, &mut i16);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef9Callback: Option<_ParamRef9Callback> = None;
 
 /// # Arguments
 /// * `a` - (int32&)
@@ -1162,16 +914,12 @@ pub fn ParamRef9Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4,
 /// * `l` - (ptr64&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef10Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4, e: &mut PlgVector<i64>, f: &mut i8, g: &mut PlgString, h: &mut u16, k: &mut i16, l: &mut usize) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString, &mut u16, &mut i16, &mut usize)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRef10Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(a, b, c, d, e, f, g, h, k, l);
-    }
+    unsafe { __cross_call_master_ParamRef10Callback.expect("ParamRef10Callback function was not found")(a, b, c, d, e, f, g, h, k, l) }
 }
+pub type _ParamRef10Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vector4, &mut PlgVector<i64>, &mut i8, &mut PlgString, &mut u16, &mut i16, &mut usize);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRef10Callback: Option<_ParamRef10Callback> = None;
 
 /// # Arguments
 /// * `p1` - (bool[]&)
@@ -1205,16 +953,12 @@ pub fn ParamRef10Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vector4
 /// * `p15` - (string[]&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRefVectorsCallback(p1: &mut PlgVector<bool>, p2: &mut PlgVector<i8>, p3: &mut PlgVector<u16>, p4: &mut PlgVector<i8>, p5: &mut PlgVector<i16>, p6: &mut PlgVector<i32>, p7: &mut PlgVector<i64>, p8: &mut PlgVector<u8>, p9: &mut PlgVector<u16>, p10: &mut PlgVector<u32>, p11: &mut PlgVector<u64>, p12: &mut PlgVector<usize>, p13: &mut PlgVector<f32>, p14: &mut PlgVector<f64>, p15: &mut PlgVector<PlgString>) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut PlgVector<bool>, &mut PlgVector<i8>, &mut PlgVector<u16>, &mut PlgVector<i8>, &mut PlgVector<i16>, &mut PlgVector<i32>, &mut PlgVector<i64>, &mut PlgVector<u8>, &mut PlgVector<u16>, &mut PlgVector<u32>, &mut PlgVector<u64>, &mut PlgVector<usize>, &mut PlgVector<f32>, &mut PlgVector<f64>, &mut PlgVector<PlgString>)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamRefVectorsCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
-    }
+    unsafe { __cross_call_master_ParamRefVectorsCallback.expect("ParamRefVectorsCallback function was not found")(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15) }
 }
+pub type _ParamRefVectorsCallback = unsafe extern "C" fn(&mut PlgVector<bool>, &mut PlgVector<i8>, &mut PlgVector<u16>, &mut PlgVector<i8>, &mut PlgVector<i16>, &mut PlgVector<i32>, &mut PlgVector<i64>, &mut PlgVector<u8>, &mut PlgVector<u16>, &mut PlgVector<u32>, &mut PlgVector<u64>, &mut PlgVector<usize>, &mut PlgVector<f32>, &mut PlgVector<f64>, &mut PlgVector<PlgString>);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamRefVectorsCallback: Option<_ParamRefVectorsCallback> = None;
 
 /// # Arguments
 /// * `p1` - (bool)
@@ -1249,16 +993,12 @@ pub fn ParamRefVectorsCallback(p1: &mut PlgVector<bool>, p2: &mut PlgVector<i8>,
 /// int64
 #[allow(dead_code, non_snake_case)]
 pub fn ParamAllPrimitivesCallback(p1: bool, p2: i8, p3: u16, p4: i8, p5: i16, p6: i32, p7: i64, p8: u8, p9: u16, p10: u32, p11: u64, p12: usize, p13: f32, p14: f64) -> i64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(bool, i8, u16, i8, i16, i32, i64, u8, u16, u32, u64, usize, f32, f64) -> i64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamAllPrimitivesCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14)
-    }
+    unsafe { __cross_call_master_ParamAllPrimitivesCallback.expect("ParamAllPrimitivesCallback function was not found")(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14) }
 }
+pub type _ParamAllPrimitivesCallback = unsafe extern "C" fn(bool, i8, u16, i8, i16, i32, i64, u8, u16, u32, u64, usize, f32, f64) -> i64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamAllPrimitivesCallback: Option<_ParamAllPrimitivesCallback> = None;
 
 /// # Arguments
 /// * `p1` - (int32)
@@ -1269,16 +1009,12 @@ pub fn ParamAllPrimitivesCallback(p1: bool, p2: i8, p3: u16, p4: i8, p5: i16, p6
 /// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumCallback(p1: Example, p2: &PlgVector<Example>) -> i32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Example, &PlgVector<Example>) -> i32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamEnumCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(p1, p2)
-    }
+    unsafe { __cross_call_master_ParamEnumCallback.expect("ParamEnumCallback function was not found")(p1, p2) }
 }
+pub type _ParamEnumCallback = unsafe extern "C" fn(Example, &PlgVector<Example>) -> i32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamEnumCallback: Option<_ParamEnumCallback> = None;
 
 /// # Arguments
 /// * `p1` - (int32&)
@@ -1289,16 +1025,12 @@ pub fn ParamEnumCallback(p1: Example, p2: &PlgVector<Example>) -> i32 {
 /// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumRefCallback(p1: &mut Example, p2: &mut PlgVector<Example>) -> i32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut Example, &mut PlgVector<Example>) -> i32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamEnumRefCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(p1, p2)
-    }
+    unsafe { __cross_call_master_ParamEnumRefCallback.expect("ParamEnumRefCallback function was not found")(p1, p2) }
 }
+pub type _ParamEnumRefCallback = unsafe extern "C" fn(&mut Example, &mut PlgVector<Example>) -> i32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamEnumRefCallback: Option<_ParamEnumRefCallback> = None;
 
 /// # Arguments
 /// * `p1` - (any)
@@ -1306,16 +1038,12 @@ pub fn ParamEnumRefCallback(p1: &mut Example, p2: &mut PlgVector<Example>) -> i3
 /// * `p2` - (any[])
 #[allow(dead_code, non_snake_case)]
 pub fn ParamVariantCallback(p1: &PlgVariant, p2: &PlgVector<PlgVariant>) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&PlgVariant, &PlgVector<PlgVariant>)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamVariantCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(p1, p2);
-    }
+    unsafe { __cross_call_master_ParamVariantCallback.expect("ParamVariantCallback function was not found")(p1, p2) }
 }
+pub type _ParamVariantCallback = unsafe extern "C" fn(&PlgVariant, &PlgVector<PlgVariant>);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamVariantCallback: Option<_ParamVariantCallback> = None;
 
 /// # Arguments
 /// * `p1` - (any&)
@@ -1323,31 +1051,23 @@ pub fn ParamVariantCallback(p1: &PlgVariant, p2: &PlgVector<PlgVariant>) {
 /// * `p2` - (any[]&)
 #[allow(dead_code, non_snake_case)]
 pub fn ParamVariantRefCallback(p1: &mut PlgVariant, p2: &mut PlgVector<PlgVariant>) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(&mut PlgVariant, &mut PlgVector<PlgVariant>)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.ParamVariantRefCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(p1, p2);
-    }
+    unsafe { __cross_call_master_ParamVariantRefCallback.expect("ParamVariantRefCallback function was not found")(p1, p2) }
 }
+pub type _ParamVariantRefCallback = unsafe extern "C" fn(&mut PlgVariant, &mut PlgVector<PlgVariant>);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamVariantRefCallback: Option<_ParamVariantRefCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVoidCallback(func: FuncVoid) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVoid)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVoidCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func);
-    }
+    unsafe { __cross_call_master_CallFuncVoidCallback.expect("CallFuncVoidCallback function was not found")(func) }
 }
+pub type _CallFuncVoidCallback = unsafe extern "C" fn(FuncVoid);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVoidCallback: Option<_CallFuncVoidCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1356,16 +1076,12 @@ pub fn CallFuncVoidCallback(func: FuncVoid) {
 /// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolCallback(func: FuncBool) -> bool {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncBool) -> bool> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncBoolCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncBoolCallback.expect("CallFuncBoolCallback function was not found")(func) }
 }
+pub type _CallFuncBoolCallback = unsafe extern "C" fn(FuncBool) -> bool;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncBoolCallback: Option<_CallFuncBoolCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1374,16 +1090,12 @@ pub fn CallFuncBoolCallback(func: FuncBool) -> bool {
 /// char8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8Callback(func: FuncChar8) -> i8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncChar8) -> i8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncChar8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncChar8Callback.expect("CallFuncChar8Callback function was not found")(func) }
 }
+pub type _CallFuncChar8Callback = unsafe extern "C" fn(FuncChar8) -> i8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncChar8Callback: Option<_CallFuncChar8Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1392,16 +1104,12 @@ pub fn CallFuncChar8Callback(func: FuncChar8) -> i8 {
 /// char16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16Callback(func: FuncChar16) -> u16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncChar16) -> u16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncChar16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncChar16Callback.expect("CallFuncChar16Callback function was not found")(func) }
 }
+pub type _CallFuncChar16Callback = unsafe extern "C" fn(FuncChar16) -> u16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncChar16Callback: Option<_CallFuncChar16Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1410,16 +1118,12 @@ pub fn CallFuncChar16Callback(func: FuncChar16) -> u16 {
 /// int8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8Callback(func: FuncInt8) -> i8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt8) -> i8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt8Callback.expect("CallFuncInt8Callback function was not found")(func) }
 }
+pub type _CallFuncInt8Callback = unsafe extern "C" fn(FuncInt8) -> i8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt8Callback: Option<_CallFuncInt8Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1428,16 +1132,12 @@ pub fn CallFuncInt8Callback(func: FuncInt8) -> i8 {
 /// int16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16Callback(func: FuncInt16) -> i16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt16) -> i16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt16Callback.expect("CallFuncInt16Callback function was not found")(func) }
 }
+pub type _CallFuncInt16Callback = unsafe extern "C" fn(FuncInt16) -> i16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt16Callback: Option<_CallFuncInt16Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1446,16 +1146,12 @@ pub fn CallFuncInt16Callback(func: FuncInt16) -> i16 {
 /// int32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32Callback(func: FuncInt32) -> i32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt32) -> i32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt32Callback.expect("CallFuncInt32Callback function was not found")(func) }
 }
+pub type _CallFuncInt32Callback = unsafe extern "C" fn(FuncInt32) -> i32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt32Callback: Option<_CallFuncInt32Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1464,16 +1160,12 @@ pub fn CallFuncInt32Callback(func: FuncInt32) -> i32 {
 /// int64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64Callback(func: FuncInt64) -> i64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt64) -> i64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt64Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt64Callback.expect("CallFuncInt64Callback function was not found")(func) }
 }
+pub type _CallFuncInt64Callback = unsafe extern "C" fn(FuncInt64) -> i64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt64Callback: Option<_CallFuncInt64Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1482,16 +1174,12 @@ pub fn CallFuncInt64Callback(func: FuncInt64) -> i64 {
 /// uint8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8Callback(func: FuncUInt8) -> u8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt8) -> u8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt8Callback.expect("CallFuncUInt8Callback function was not found")(func) }
 }
+pub type _CallFuncUInt8Callback = unsafe extern "C" fn(FuncUInt8) -> u8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt8Callback: Option<_CallFuncUInt8Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1500,16 +1188,12 @@ pub fn CallFuncUInt8Callback(func: FuncUInt8) -> u8 {
 /// uint16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16Callback(func: FuncUInt16) -> u16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt16) -> u16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt16Callback.expect("CallFuncUInt16Callback function was not found")(func) }
 }
+pub type _CallFuncUInt16Callback = unsafe extern "C" fn(FuncUInt16) -> u16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt16Callback: Option<_CallFuncUInt16Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1518,16 +1202,12 @@ pub fn CallFuncUInt16Callback(func: FuncUInt16) -> u16 {
 /// uint32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32Callback(func: FuncUInt32) -> u32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt32) -> u32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt32Callback.expect("CallFuncUInt32Callback function was not found")(func) }
 }
+pub type _CallFuncUInt32Callback = unsafe extern "C" fn(FuncUInt32) -> u32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt32Callback: Option<_CallFuncUInt32Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1536,16 +1216,12 @@ pub fn CallFuncUInt32Callback(func: FuncUInt32) -> u32 {
 /// uint64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64Callback(func: FuncUInt64) -> u64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt64) -> u64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt64Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt64Callback.expect("CallFuncUInt64Callback function was not found")(func) }
 }
+pub type _CallFuncUInt64Callback = unsafe extern "C" fn(FuncUInt64) -> u64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt64Callback: Option<_CallFuncUInt64Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1554,16 +1230,12 @@ pub fn CallFuncUInt64Callback(func: FuncUInt64) -> u64 {
 /// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrCallback(func: FuncPtr) -> usize {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncPtr) -> usize> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncPtrCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncPtrCallback.expect("CallFuncPtrCallback function was not found")(func) }
 }
+pub type _CallFuncPtrCallback = unsafe extern "C" fn(FuncPtr) -> usize;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncPtrCallback: Option<_CallFuncPtrCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1572,16 +1244,12 @@ pub fn CallFuncPtrCallback(func: FuncPtr) -> usize {
 /// float
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatCallback(func: FuncFloat) -> f32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncFloat) -> f32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncFloatCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncFloatCallback.expect("CallFuncFloatCallback function was not found")(func) }
 }
+pub type _CallFuncFloatCallback = unsafe extern "C" fn(FuncFloat) -> f32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncFloatCallback: Option<_CallFuncFloatCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1590,16 +1258,12 @@ pub fn CallFuncFloatCallback(func: FuncFloat) -> f32 {
 /// double
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleCallback(func: FuncDouble) -> f64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncDouble) -> f64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncDoubleCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncDoubleCallback.expect("CallFuncDoubleCallback function was not found")(func) }
 }
+pub type _CallFuncDoubleCallback = unsafe extern "C" fn(FuncDouble) -> f64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncDoubleCallback: Option<_CallFuncDoubleCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1608,16 +1272,12 @@ pub fn CallFuncDoubleCallback(func: FuncDouble) -> f64 {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringCallback(func: FuncString) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncString) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncStringCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncStringCallback.expect("CallFuncStringCallback function was not found")(func) }
 }
+pub type _CallFuncStringCallback = unsafe extern "C" fn(FuncString) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncStringCallback: Option<_CallFuncStringCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1626,16 +1286,12 @@ pub fn CallFuncStringCallback(func: FuncString) -> PlgString {
 /// any
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyCallback(func: FuncAny) -> PlgVariant {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncAny) -> PlgVariant> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncAnyCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncAnyCallback.expect("CallFuncAnyCallback function was not found")(func) }
 }
+pub type _CallFuncAnyCallback = unsafe extern "C" fn(FuncAny) -> PlgVariant;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAnyCallback: Option<_CallFuncAnyCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1644,16 +1300,12 @@ pub fn CallFuncAnyCallback(func: FuncAny) -> PlgVariant {
 /// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFunctionCallback(func: FuncFunction) -> usize {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncFunction) -> usize> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncFunctionCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncFunctionCallback.expect("CallFuncFunctionCallback function was not found")(func) }
 }
+pub type _CallFuncFunctionCallback = unsafe extern "C" fn(FuncFunction) -> usize;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncFunctionCallback: Option<_CallFuncFunctionCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1662,16 +1314,12 @@ pub fn CallFuncFunctionCallback(func: FuncFunction) -> usize {
 /// bool[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolVectorCallback(func: FuncBoolVector) -> PlgVector<bool> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncBoolVector) -> PlgVector<bool>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncBoolVectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncBoolVectorCallback.expect("CallFuncBoolVectorCallback function was not found")(func) }
 }
+pub type _CallFuncBoolVectorCallback = unsafe extern "C" fn(FuncBoolVector) -> PlgVector<bool>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncBoolVectorCallback: Option<_CallFuncBoolVectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1680,16 +1328,12 @@ pub fn CallFuncBoolVectorCallback(func: FuncBoolVector) -> PlgVector<bool> {
 /// char8[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8VectorCallback(func: FuncChar8Vector) -> PlgVector<i8> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncChar8Vector) -> PlgVector<i8>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncChar8VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncChar8VectorCallback.expect("CallFuncChar8VectorCallback function was not found")(func) }
 }
+pub type _CallFuncChar8VectorCallback = unsafe extern "C" fn(FuncChar8Vector) -> PlgVector<i8>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncChar8VectorCallback: Option<_CallFuncChar8VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1698,16 +1342,12 @@ pub fn CallFuncChar8VectorCallback(func: FuncChar8Vector) -> PlgVector<i8> {
 /// char16[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16VectorCallback(func: FuncChar16Vector) -> PlgVector<u16> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncChar16Vector) -> PlgVector<u16>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncChar16VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncChar16VectorCallback.expect("CallFuncChar16VectorCallback function was not found")(func) }
 }
+pub type _CallFuncChar16VectorCallback = unsafe extern "C" fn(FuncChar16Vector) -> PlgVector<u16>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncChar16VectorCallback: Option<_CallFuncChar16VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1716,16 +1356,12 @@ pub fn CallFuncChar16VectorCallback(func: FuncChar16Vector) -> PlgVector<u16> {
 /// int8[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8VectorCallback(func: FuncInt8Vector) -> PlgVector<i8> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt8Vector) -> PlgVector<i8>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt8VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt8VectorCallback.expect("CallFuncInt8VectorCallback function was not found")(func) }
 }
+pub type _CallFuncInt8VectorCallback = unsafe extern "C" fn(FuncInt8Vector) -> PlgVector<i8>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt8VectorCallback: Option<_CallFuncInt8VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1734,16 +1370,12 @@ pub fn CallFuncInt8VectorCallback(func: FuncInt8Vector) -> PlgVector<i8> {
 /// int16[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16VectorCallback(func: FuncInt16Vector) -> PlgVector<i16> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt16Vector) -> PlgVector<i16>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt16VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt16VectorCallback.expect("CallFuncInt16VectorCallback function was not found")(func) }
 }
+pub type _CallFuncInt16VectorCallback = unsafe extern "C" fn(FuncInt16Vector) -> PlgVector<i16>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt16VectorCallback: Option<_CallFuncInt16VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1752,16 +1384,12 @@ pub fn CallFuncInt16VectorCallback(func: FuncInt16Vector) -> PlgVector<i16> {
 /// int32[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32VectorCallback(func: FuncInt32Vector) -> PlgVector<i32> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt32Vector) -> PlgVector<i32>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt32VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt32VectorCallback.expect("CallFuncInt32VectorCallback function was not found")(func) }
 }
+pub type _CallFuncInt32VectorCallback = unsafe extern "C" fn(FuncInt32Vector) -> PlgVector<i32>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt32VectorCallback: Option<_CallFuncInt32VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1770,16 +1398,12 @@ pub fn CallFuncInt32VectorCallback(func: FuncInt32Vector) -> PlgVector<i32> {
 /// int64[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64VectorCallback(func: FuncInt64Vector) -> PlgVector<i64> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncInt64Vector) -> PlgVector<i64>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncInt64VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncInt64VectorCallback.expect("CallFuncInt64VectorCallback function was not found")(func) }
 }
+pub type _CallFuncInt64VectorCallback = unsafe extern "C" fn(FuncInt64Vector) -> PlgVector<i64>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncInt64VectorCallback: Option<_CallFuncInt64VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1788,16 +1412,12 @@ pub fn CallFuncInt64VectorCallback(func: FuncInt64Vector) -> PlgVector<i64> {
 /// uint8[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8VectorCallback(func: FuncUInt8Vector) -> PlgVector<u8> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt8Vector) -> PlgVector<u8>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt8VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt8VectorCallback.expect("CallFuncUInt8VectorCallback function was not found")(func) }
 }
+pub type _CallFuncUInt8VectorCallback = unsafe extern "C" fn(FuncUInt8Vector) -> PlgVector<u8>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt8VectorCallback: Option<_CallFuncUInt8VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1806,16 +1426,12 @@ pub fn CallFuncUInt8VectorCallback(func: FuncUInt8Vector) -> PlgVector<u8> {
 /// uint16[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16VectorCallback(func: FuncUInt16Vector) -> PlgVector<u16> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt16Vector) -> PlgVector<u16>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt16VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt16VectorCallback.expect("CallFuncUInt16VectorCallback function was not found")(func) }
 }
+pub type _CallFuncUInt16VectorCallback = unsafe extern "C" fn(FuncUInt16Vector) -> PlgVector<u16>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt16VectorCallback: Option<_CallFuncUInt16VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1824,16 +1440,12 @@ pub fn CallFuncUInt16VectorCallback(func: FuncUInt16Vector) -> PlgVector<u16> {
 /// uint32[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32VectorCallback(func: FuncUInt32Vector) -> PlgVector<u32> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt32Vector) -> PlgVector<u32>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt32VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt32VectorCallback.expect("CallFuncUInt32VectorCallback function was not found")(func) }
 }
+pub type _CallFuncUInt32VectorCallback = unsafe extern "C" fn(FuncUInt32Vector) -> PlgVector<u32>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt32VectorCallback: Option<_CallFuncUInt32VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1842,16 +1454,12 @@ pub fn CallFuncUInt32VectorCallback(func: FuncUInt32Vector) -> PlgVector<u32> {
 /// uint64[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64VectorCallback(func: FuncUInt64Vector) -> PlgVector<u64> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncUInt64Vector) -> PlgVector<u64>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncUInt64VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncUInt64VectorCallback.expect("CallFuncUInt64VectorCallback function was not found")(func) }
 }
+pub type _CallFuncUInt64VectorCallback = unsafe extern "C" fn(FuncUInt64Vector) -> PlgVector<u64>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncUInt64VectorCallback: Option<_CallFuncUInt64VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1860,16 +1468,12 @@ pub fn CallFuncUInt64VectorCallback(func: FuncUInt64Vector) -> PlgVector<u64> {
 /// ptr64[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrVectorCallback(func: FuncPtrVector) -> PlgVector<usize> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncPtrVector) -> PlgVector<usize>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncPtrVectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncPtrVectorCallback.expect("CallFuncPtrVectorCallback function was not found")(func) }
 }
+pub type _CallFuncPtrVectorCallback = unsafe extern "C" fn(FuncPtrVector) -> PlgVector<usize>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncPtrVectorCallback: Option<_CallFuncPtrVectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1878,16 +1482,12 @@ pub fn CallFuncPtrVectorCallback(func: FuncPtrVector) -> PlgVector<usize> {
 /// float[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatVectorCallback(func: FuncFloatVector) -> PlgVector<f32> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncFloatVector) -> PlgVector<f32>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncFloatVectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncFloatVectorCallback.expect("CallFuncFloatVectorCallback function was not found")(func) }
 }
+pub type _CallFuncFloatVectorCallback = unsafe extern "C" fn(FuncFloatVector) -> PlgVector<f32>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncFloatVectorCallback: Option<_CallFuncFloatVectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1896,16 +1496,12 @@ pub fn CallFuncFloatVectorCallback(func: FuncFloatVector) -> PlgVector<f32> {
 /// double[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleVectorCallback(func: FuncDoubleVector) -> PlgVector<f64> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncDoubleVector) -> PlgVector<f64>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncDoubleVectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncDoubleVectorCallback.expect("CallFuncDoubleVectorCallback function was not found")(func) }
 }
+pub type _CallFuncDoubleVectorCallback = unsafe extern "C" fn(FuncDoubleVector) -> PlgVector<f64>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncDoubleVectorCallback: Option<_CallFuncDoubleVectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1914,16 +1510,12 @@ pub fn CallFuncDoubleVectorCallback(func: FuncDoubleVector) -> PlgVector<f64> {
 /// string[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringVectorCallback(func: FuncStringVector) -> PlgVector<PlgString> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncStringVector) -> PlgVector<PlgString>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncStringVectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncStringVectorCallback.expect("CallFuncStringVectorCallback function was not found")(func) }
 }
+pub type _CallFuncStringVectorCallback = unsafe extern "C" fn(FuncStringVector) -> PlgVector<PlgString>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncStringVectorCallback: Option<_CallFuncStringVectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1932,16 +1524,12 @@ pub fn CallFuncStringVectorCallback(func: FuncStringVector) -> PlgVector<PlgStri
 /// any[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyVectorCallback(func: FuncAnyVector) -> PlgVector<PlgVariant> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncAnyVector) -> PlgVector<PlgVariant>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncAnyVectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncAnyVectorCallback.expect("CallFuncAnyVectorCallback function was not found")(func) }
 }
+pub type _CallFuncAnyVectorCallback = unsafe extern "C" fn(FuncAnyVector) -> PlgVector<PlgVariant>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAnyVectorCallback: Option<_CallFuncAnyVectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1950,16 +1538,12 @@ pub fn CallFuncAnyVectorCallback(func: FuncAnyVector) -> PlgVector<PlgVariant> {
 /// vec2[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2VectorCallback(func: FuncVec2Vector) -> PlgVector<Vector2> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVec2Vector) -> PlgVector<Vector2>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVec2VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncVec2VectorCallback.expect("CallFuncVec2VectorCallback function was not found")(func) }
 }
+pub type _CallFuncVec2VectorCallback = unsafe extern "C" fn(FuncVec2Vector) -> PlgVector<Vector2>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVec2VectorCallback: Option<_CallFuncVec2VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1968,16 +1552,12 @@ pub fn CallFuncVec2VectorCallback(func: FuncVec2Vector) -> PlgVector<Vector2> {
 /// vec3[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3VectorCallback(func: FuncVec3Vector) -> PlgVector<Vector3> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVec3Vector) -> PlgVector<Vector3>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVec3VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncVec3VectorCallback.expect("CallFuncVec3VectorCallback function was not found")(func) }
 }
+pub type _CallFuncVec3VectorCallback = unsafe extern "C" fn(FuncVec3Vector) -> PlgVector<Vector3>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVec3VectorCallback: Option<_CallFuncVec3VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -1986,16 +1566,12 @@ pub fn CallFuncVec3VectorCallback(func: FuncVec3Vector) -> PlgVector<Vector3> {
 /// vec4[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4VectorCallback(func: FuncVec4Vector) -> PlgVector<Vector4> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVec4Vector) -> PlgVector<Vector4>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVec4VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncVec4VectorCallback.expect("CallFuncVec4VectorCallback function was not found")(func) }
 }
+pub type _CallFuncVec4VectorCallback = unsafe extern "C" fn(FuncVec4Vector) -> PlgVector<Vector4>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVec4VectorCallback: Option<_CallFuncVec4VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2004,16 +1580,12 @@ pub fn CallFuncVec4VectorCallback(func: FuncVec4Vector) -> PlgVector<Vector4> {
 /// mat4x4[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4VectorCallback(func: FuncMat4x4Vector) -> PlgVector<Matrix4x4> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncMat4x4Vector) -> PlgVector<Matrix4x4>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncMat4x4VectorCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncMat4x4VectorCallback.expect("CallFuncMat4x4VectorCallback function was not found")(func) }
 }
+pub type _CallFuncMat4x4VectorCallback = unsafe extern "C" fn(FuncMat4x4Vector) -> PlgVector<Matrix4x4>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncMat4x4VectorCallback: Option<_CallFuncMat4x4VectorCallback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2022,16 +1594,12 @@ pub fn CallFuncMat4x4VectorCallback(func: FuncMat4x4Vector) -> PlgVector<Matrix4
 /// vec2
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2Callback(func: FuncVec2) -> Vector2 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVec2) -> Vector2> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVec2Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncVec2Callback.expect("CallFuncVec2Callback function was not found")(func) }
 }
+pub type _CallFuncVec2Callback = unsafe extern "C" fn(FuncVec2) -> Vector2;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVec2Callback: Option<_CallFuncVec2Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2040,16 +1608,12 @@ pub fn CallFuncVec2Callback(func: FuncVec2) -> Vector2 {
 /// vec3
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3Callback(func: FuncVec3) -> Vector3 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVec3) -> Vector3> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVec3Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncVec3Callback.expect("CallFuncVec3Callback function was not found")(func) }
 }
+pub type _CallFuncVec3Callback = unsafe extern "C" fn(FuncVec3) -> Vector3;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVec3Callback: Option<_CallFuncVec3Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2058,16 +1622,12 @@ pub fn CallFuncVec3Callback(func: FuncVec3) -> Vector3 {
 /// vec4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4Callback(func: FuncVec4) -> Vector4 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncVec4) -> Vector4> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncVec4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncVec4Callback.expect("CallFuncVec4Callback function was not found")(func) }
 }
+pub type _CallFuncVec4Callback = unsafe extern "C" fn(FuncVec4) -> Vector4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncVec4Callback: Option<_CallFuncVec4Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2076,16 +1636,12 @@ pub fn CallFuncVec4Callback(func: FuncVec4) -> Vector4 {
 /// mat4x4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4Callback(func: FuncMat4x4) -> Matrix4x4 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncMat4x4) -> Matrix4x4> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncMat4x4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncMat4x4Callback.expect("CallFuncMat4x4Callback function was not found")(func) }
 }
+pub type _CallFuncMat4x4Callback = unsafe extern "C" fn(FuncMat4x4) -> Matrix4x4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncMat4x4Callback: Option<_CallFuncMat4x4Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2094,16 +1650,12 @@ pub fn CallFuncMat4x4Callback(func: FuncMat4x4) -> Matrix4x4 {
 /// int32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc1Callback(func: Func1) -> i32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func1) -> i32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc1Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc1Callback.expect("CallFunc1Callback function was not found")(func) }
 }
+pub type _CallFunc1Callback = unsafe extern "C" fn(Func1) -> i32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc1Callback: Option<_CallFunc1Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2112,31 +1664,23 @@ pub fn CallFunc1Callback(func: Func1) -> i32 {
 /// char8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc2Callback(func: Func2) -> i8 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func2) -> i8> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc2Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc2Callback.expect("CallFunc2Callback function was not found")(func) }
 }
+pub type _CallFunc2Callback = unsafe extern "C" fn(Func2) -> i8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc2Callback: Option<_CallFunc2Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc3Callback(func: Func3) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func3)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc3Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func);
-    }
+    unsafe { __cross_call_master_CallFunc3Callback.expect("CallFunc3Callback function was not found")(func) }
 }
+pub type _CallFunc3Callback = unsafe extern "C" fn(Func3);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc3Callback: Option<_CallFunc3Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2145,16 +1689,12 @@ pub fn CallFunc3Callback(func: Func3) {
 /// vec4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc4Callback(func: Func4) -> Vector4 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func4) -> Vector4> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc4Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc4Callback.expect("CallFunc4Callback function was not found")(func) }
 }
+pub type _CallFunc4Callback = unsafe extern "C" fn(Func4) -> Vector4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc4Callback: Option<_CallFunc4Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2163,16 +1703,12 @@ pub fn CallFunc4Callback(func: Func4) -> Vector4 {
 /// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc5Callback(func: Func5) -> bool {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func5) -> bool> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc5Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc5Callback.expect("CallFunc5Callback function was not found")(func) }
 }
+pub type _CallFunc5Callback = unsafe extern "C" fn(Func5) -> bool;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc5Callback: Option<_CallFunc5Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2181,16 +1717,12 @@ pub fn CallFunc5Callback(func: Func5) -> bool {
 /// int64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc6Callback(func: Func6) -> i64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func6) -> i64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc6Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc6Callback.expect("CallFunc6Callback function was not found")(func) }
 }
+pub type _CallFunc6Callback = unsafe extern "C" fn(Func6) -> i64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc6Callback: Option<_CallFunc6Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2199,16 +1731,12 @@ pub fn CallFunc6Callback(func: Func6) -> i64 {
 /// double
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc7Callback(func: Func7) -> f64 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func7) -> f64> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc7Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc7Callback.expect("CallFunc7Callback function was not found")(func) }
 }
+pub type _CallFunc7Callback = unsafe extern "C" fn(Func7) -> f64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc7Callback: Option<_CallFunc7Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2217,31 +1745,23 @@ pub fn CallFunc7Callback(func: Func7) -> f64 {
 /// mat4x4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc8Callback(func: Func8) -> Matrix4x4 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func8) -> Matrix4x4> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc8Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc8Callback.expect("CallFunc8Callback function was not found")(func) }
 }
+pub type _CallFunc8Callback = unsafe extern "C" fn(Func8) -> Matrix4x4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc8Callback: Option<_CallFunc8Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc9Callback(func: Func9) {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func9)> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc9Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func);
-    }
+    unsafe { __cross_call_master_CallFunc9Callback.expect("CallFunc9Callback function was not found")(func) }
 }
+pub type _CallFunc9Callback = unsafe extern "C" fn(Func9);
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc9Callback: Option<_CallFunc9Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2250,16 +1770,12 @@ pub fn CallFunc9Callback(func: Func9) {
 /// uint32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc10Callback(func: Func10) -> u32 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func10) -> u32> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc10Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc10Callback.expect("CallFunc10Callback function was not found")(func) }
 }
+pub type _CallFunc10Callback = unsafe extern "C" fn(Func10) -> u32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc10Callback: Option<_CallFunc10Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2268,16 +1784,12 @@ pub fn CallFunc10Callback(func: Func10) -> u32 {
 /// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc11Callback(func: Func11) -> usize {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func11) -> usize> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc11Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc11Callback.expect("CallFunc11Callback function was not found")(func) }
 }
+pub type _CallFunc11Callback = unsafe extern "C" fn(Func11) -> usize;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc11Callback: Option<_CallFunc11Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2286,16 +1798,12 @@ pub fn CallFunc11Callback(func: Func11) -> usize {
 /// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc12Callback(func: Func12) -> bool {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func12) -> bool> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc12Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc12Callback.expect("CallFunc12Callback function was not found")(func) }
 }
+pub type _CallFunc12Callback = unsafe extern "C" fn(Func12) -> bool;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc12Callback: Option<_CallFunc12Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2304,16 +1812,12 @@ pub fn CallFunc12Callback(func: Func12) -> bool {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc13Callback(func: Func13) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func13) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc13Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc13Callback.expect("CallFunc13Callback function was not found")(func) }
 }
+pub type _CallFunc13Callback = unsafe extern "C" fn(Func13) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc13Callback: Option<_CallFunc13Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2322,16 +1826,12 @@ pub fn CallFunc13Callback(func: Func13) -> PlgString {
 /// string[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc14Callback(func: Func14) -> PlgVector<PlgString> {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func14) -> PlgVector<PlgString>> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc14Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc14Callback.expect("CallFunc14Callback function was not found")(func) }
 }
+pub type _CallFunc14Callback = unsafe extern "C" fn(Func14) -> PlgVector<PlgString>;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc14Callback: Option<_CallFunc14Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2340,16 +1840,12 @@ pub fn CallFunc14Callback(func: Func14) -> PlgVector<PlgString> {
 /// int16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc15Callback(func: Func15) -> i16 {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func15) -> i16> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc15Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc15Callback.expect("CallFunc15Callback function was not found")(func) }
 }
+pub type _CallFunc15Callback = unsafe extern "C" fn(Func15) -> i16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc15Callback: Option<_CallFunc15Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2358,16 +1854,12 @@ pub fn CallFunc15Callback(func: Func15) -> i16 {
 /// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc16Callback(func: Func16) -> usize {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func16) -> usize> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc16Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc16Callback.expect("CallFunc16Callback function was not found")(func) }
 }
+pub type _CallFunc16Callback = unsafe extern "C" fn(Func16) -> usize;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc16Callback: Option<_CallFunc16Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2376,16 +1868,12 @@ pub fn CallFunc16Callback(func: Func16) -> usize {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc17Callback(func: Func17) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func17) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc17Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc17Callback.expect("CallFunc17Callback function was not found")(func) }
 }
+pub type _CallFunc17Callback = unsafe extern "C" fn(Func17) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc17Callback: Option<_CallFunc17Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2394,16 +1882,12 @@ pub fn CallFunc17Callback(func: Func17) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc18Callback(func: Func18) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func18) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc18Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc18Callback.expect("CallFunc18Callback function was not found")(func) }
 }
+pub type _CallFunc18Callback = unsafe extern "C" fn(Func18) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc18Callback: Option<_CallFunc18Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2412,16 +1896,12 @@ pub fn CallFunc18Callback(func: Func18) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc19Callback(func: Func19) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func19) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc19Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc19Callback.expect("CallFunc19Callback function was not found")(func) }
 }
+pub type _CallFunc19Callback = unsafe extern "C" fn(Func19) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc19Callback: Option<_CallFunc19Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2430,16 +1910,12 @@ pub fn CallFunc19Callback(func: Func19) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc20Callback(func: Func20) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func20) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc20Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc20Callback.expect("CallFunc20Callback function was not found")(func) }
 }
+pub type _CallFunc20Callback = unsafe extern "C" fn(Func20) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc20Callback: Option<_CallFunc20Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2448,16 +1924,12 @@ pub fn CallFunc20Callback(func: Func20) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc21Callback(func: Func21) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func21) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc21Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc21Callback.expect("CallFunc21Callback function was not found")(func) }
 }
+pub type _CallFunc21Callback = unsafe extern "C" fn(Func21) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc21Callback: Option<_CallFunc21Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2466,16 +1938,12 @@ pub fn CallFunc21Callback(func: Func21) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc22Callback(func: Func22) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func22) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc22Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc22Callback.expect("CallFunc22Callback function was not found")(func) }
 }
+pub type _CallFunc22Callback = unsafe extern "C" fn(Func22) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc22Callback: Option<_CallFunc22Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2484,16 +1952,12 @@ pub fn CallFunc22Callback(func: Func22) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc23Callback(func: Func23) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func23) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc23Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc23Callback.expect("CallFunc23Callback function was not found")(func) }
 }
+pub type _CallFunc23Callback = unsafe extern "C" fn(Func23) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc23Callback: Option<_CallFunc23Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2502,16 +1966,12 @@ pub fn CallFunc23Callback(func: Func23) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc24Callback(func: Func24) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func24) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc24Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc24Callback.expect("CallFunc24Callback function was not found")(func) }
 }
+pub type _CallFunc24Callback = unsafe extern "C" fn(Func24) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc24Callback: Option<_CallFunc24Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2520,16 +1980,12 @@ pub fn CallFunc24Callback(func: Func24) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc25Callback(func: Func25) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func25) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc25Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc25Callback.expect("CallFunc25Callback function was not found")(func) }
 }
+pub type _CallFunc25Callback = unsafe extern "C" fn(Func25) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc25Callback: Option<_CallFunc25Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2538,16 +1994,12 @@ pub fn CallFunc25Callback(func: Func25) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc26Callback(func: Func26) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func26) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc26Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc26Callback.expect("CallFunc26Callback function was not found")(func) }
 }
+pub type _CallFunc26Callback = unsafe extern "C" fn(Func26) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc26Callback: Option<_CallFunc26Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2556,16 +2008,12 @@ pub fn CallFunc26Callback(func: Func26) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc27Callback(func: Func27) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func27) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc27Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc27Callback.expect("CallFunc27Callback function was not found")(func) }
 }
+pub type _CallFunc27Callback = unsafe extern "C" fn(Func27) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc27Callback: Option<_CallFunc27Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2574,16 +2022,12 @@ pub fn CallFunc27Callback(func: Func27) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc28Callback(func: Func28) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func28) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc28Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc28Callback.expect("CallFunc28Callback function was not found")(func) }
 }
+pub type _CallFunc28Callback = unsafe extern "C" fn(Func28) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc28Callback: Option<_CallFunc28Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2592,16 +2036,12 @@ pub fn CallFunc28Callback(func: Func28) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc29Callback(func: Func29) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func29) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc29Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc29Callback.expect("CallFunc29Callback function was not found")(func) }
 }
+pub type _CallFunc29Callback = unsafe extern "C" fn(Func29) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc29Callback: Option<_CallFunc29Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2610,16 +2050,12 @@ pub fn CallFunc29Callback(func: Func29) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc30Callback(func: Func30) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func30) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc30Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc30Callback.expect("CallFunc30Callback function was not found")(func) }
 }
+pub type _CallFunc30Callback = unsafe extern "C" fn(Func30) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc30Callback: Option<_CallFunc30Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2628,16 +2064,12 @@ pub fn CallFunc30Callback(func: Func30) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc31Callback(func: Func31) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func31) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc31Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc31Callback.expect("CallFunc31Callback function was not found")(func) }
 }
+pub type _CallFunc31Callback = unsafe extern "C" fn(Func31) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc31Callback: Option<_CallFunc31Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2646,16 +2078,12 @@ pub fn CallFunc31Callback(func: Func31) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc32Callback(func: Func32) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func32) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc32Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc32Callback.expect("CallFunc32Callback function was not found")(func) }
 }
+pub type _CallFunc32Callback = unsafe extern "C" fn(Func32) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc32Callback: Option<_CallFunc32Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2664,16 +2092,12 @@ pub fn CallFunc32Callback(func: Func32) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc33Callback(func: Func33) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(Func33) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFunc33Callback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFunc33Callback.expect("CallFunc33Callback function was not found")(func) }
 }
+pub type _CallFunc33Callback = unsafe extern "C" fn(Func33) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFunc33Callback: Option<_CallFunc33Callback> = None;
 
 /// # Arguments
 /// * `func` - (function)
@@ -2682,16 +2106,12 @@ pub fn CallFunc33Callback(func: Func33) -> PlgString {
 /// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncEnumCallback(func: FuncEnum) -> PlgString {
-    unsafe {
-        static FUNC: OnceLock<unsafe extern "C" fn(FuncEnum) -> PlgString> = OnceLock::new();
-        let __func = FUNC.get_or_init(|| {
-            let name = "cross_call_master.CallFuncEnumCallback";
-            let ptr = get_method_ptr(name.as_ptr(), name.len());
-            std::mem::transmute(ptr)
-        });
-        __func(func)
-    }
+    unsafe { __cross_call_master_CallFuncEnumCallback.expect("CallFuncEnumCallback function was not found")(func) }
 }
+pub type _CallFuncEnumCallback = unsafe extern "C" fn(FuncEnum) -> PlgString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncEnumCallback: Option<_CallFuncEnumCallback> = None;
 
 #[derive(Debug)]
 pub enum ResourceHandleError {
@@ -2719,7 +2139,7 @@ impl ResourceHandle {
     #[allow(dead_code, non_snake_case)]
     pub fn new_ResourceHandleCreate(id: i32, name: &PlgString) -> Result<Self, ResourceHandleError> {
         let h = crate::cross_call_master::ResourceHandleCreate(id, name);
-        if h == Default::default() {
+        if h == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         Ok(Self {
@@ -2731,7 +2151,7 @@ impl ResourceHandle {
     #[allow(dead_code, non_snake_case)]
     pub fn new_ResourceHandleCreateDefault() -> Result<Self, ResourceHandleError> {
         let h = crate::cross_call_master::ResourceHandleCreateDefault();
-        if h == Default::default() {
+        if h == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         Ok(Self {
@@ -2756,7 +2176,7 @@ impl ResourceHandle {
     #[allow(dead_code)]
     pub fn release(&mut self) -> usize {
         let h = self.handle;
-        self.handle = Default::default();
+        self.handle = 0;
         self.ownership = Ownership::Borrowed;
         h
     }
@@ -2764,10 +2184,10 @@ impl ResourceHandle {
     /// Destroys and resets the handle
     #[allow(dead_code)]
     pub fn reset(&mut self) {
-        if self.handle != Default::default() && self.ownership == Ownership::Owned {
+        if self.handle != 0 && self.ownership == Ownership::Owned {
             crate::cross_call_master::ResourceHandleDestroy(self.handle);
         }
-        self.handle = Default::default();
+        self.handle = 0;
         self.ownership = Ownership::Borrowed;
     }
 
@@ -2781,12 +2201,12 @@ impl ResourceHandle {
     /// Returns true if handle is valid (not empty)
     #[allow(dead_code)]
     pub fn is_valid(&self) -> bool {
-        self.handle != Default::default()
+        self.handle != 0
     }
 
     #[allow(dead_code, non_snake_case)]
     pub fn GetId(&self) -> Result<i32, ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         Ok(crate::cross_call_master::ResourceHandleGetId(self.handle))
@@ -2794,7 +2214,7 @@ impl ResourceHandle {
 
     #[allow(dead_code, non_snake_case)]
     pub fn GetName(&self) -> Result<PlgString, ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         Ok(crate::cross_call_master::ResourceHandleGetName(self.handle))
@@ -2802,7 +2222,7 @@ impl ResourceHandle {
 
     #[allow(dead_code, non_snake_case)]
     pub fn SetName(&self, name: &PlgString) -> Result<(), ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         crate::cross_call_master::ResourceHandleSetName(self.handle, name);
@@ -2811,7 +2231,7 @@ impl ResourceHandle {
 
     #[allow(dead_code, non_snake_case)]
     pub fn IncrementCounter(&self) -> Result<(), ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         crate::cross_call_master::ResourceHandleIncrementCounter(self.handle);
@@ -2820,7 +2240,7 @@ impl ResourceHandle {
 
     #[allow(dead_code, non_snake_case)]
     pub fn GetCounter(&self) -> Result<i32, ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         Ok(crate::cross_call_master::ResourceHandleGetCounter(self.handle))
@@ -2828,7 +2248,7 @@ impl ResourceHandle {
 
     #[allow(dead_code, non_snake_case)]
     pub fn AddData(&self, value: f32) -> Result<(), ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         crate::cross_call_master::ResourceHandleAddData(self.handle, value);
@@ -2837,7 +2257,7 @@ impl ResourceHandle {
 
     #[allow(dead_code, non_snake_case)]
     pub fn GetData(&self) -> Result<PlgVector<f32>, ResourceHandleError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(ResourceHandleError::EmptyHandle);
         }
         Ok(crate::cross_call_master::ResourceHandleGetData(self.handle))
@@ -2862,7 +2282,7 @@ impl ResourceHandle {
 
 impl Drop for ResourceHandle {
     fn drop(&mut self) {
-        if self.handle != Default::default() && self.ownership == Ownership::Owned {
+        if self.handle != 0 && self.ownership == Ownership::Owned {
             crate::cross_call_master::ResourceHandleDestroy(self.handle);
         }
     }
@@ -2910,7 +2330,7 @@ impl Counter {
     #[allow(dead_code, non_snake_case)]
     pub fn new_CounterCreate(initialValue: i64) -> Result<Self, CounterError> {
         let h = crate::cross_call_master::CounterCreate(initialValue);
-        if h == Default::default() {
+        if h == 0 {
             return Err(CounterError::EmptyHandle);
         }
         Ok(Self {
@@ -2921,7 +2341,7 @@ impl Counter {
     #[allow(dead_code, non_snake_case)]
     pub fn new_CounterCreateZero() -> Result<Self, CounterError> {
         let h = crate::cross_call_master::CounterCreateZero();
-        if h == Default::default() {
+        if h == 0 {
             return Err(CounterError::EmptyHandle);
         }
         Ok(Self {
@@ -2929,7 +2349,7 @@ impl Counter {
         })
     }
 
-    /// Construct from raw handle (does not assume ownership)rlying handle
+    /// Construct from raw handle (does not assume ownership)
     #[allow(dead_code)]
     pub unsafe fn from_raw(handle: usize) -> Self {
         Self { handle }
@@ -2945,14 +2365,14 @@ impl Counter {
     #[allow(dead_code)]
     pub fn release(&mut self) -> usize {
         let h = self.handle;
-        self.handle = Default::default();
+        self.handle = 0;
         h
     }
 
     /// Destroys and resets the handle
     #[allow(dead_code)]
     pub fn reset(&mut self) {
-        self.handle = Default::default();
+        self.handle = 0;
     }
 
     /// Swaps two Counter instances
@@ -2964,12 +2384,12 @@ impl Counter {
     /// Returns true if handle is valid (not empty)
     #[allow(dead_code)]
     pub fn is_valid(&self) -> bool {
-        self.handle != Default::default()
+        self.handle != 0
     }
 
     #[allow(dead_code, non_snake_case)]
     pub fn GetValue(&self) -> Result<i64, CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         Ok(crate::cross_call_master::CounterGetValue(self.handle))
@@ -2977,7 +2397,7 @@ impl Counter {
 
     #[allow(dead_code, non_snake_case)]
     pub fn SetValue(&self, value: i64) -> Result<(), CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         crate::cross_call_master::CounterSetValue(self.handle, value);
@@ -2986,7 +2406,7 @@ impl Counter {
 
     #[allow(dead_code, non_snake_case)]
     pub fn Increment(&self) -> Result<(), CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         crate::cross_call_master::CounterIncrement(self.handle);
@@ -2995,7 +2415,7 @@ impl Counter {
 
     #[allow(dead_code, non_snake_case)]
     pub fn Decrement(&self) -> Result<(), CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         crate::cross_call_master::CounterDecrement(self.handle);
@@ -3004,7 +2424,7 @@ impl Counter {
 
     #[allow(dead_code, non_snake_case)]
     pub fn Add(&self, amount: i64) -> Result<(), CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         crate::cross_call_master::CounterAdd(self.handle, amount);
@@ -3013,7 +2433,7 @@ impl Counter {
 
     #[allow(dead_code, non_snake_case)]
     pub fn Reset(&self) -> Result<(), CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         crate::cross_call_master::CounterReset(self.handle);
@@ -3022,7 +2442,7 @@ impl Counter {
 
     #[allow(dead_code, non_snake_case)]
     pub fn IsPositive(&self) -> Result<bool, CounterError> {
-        if self.handle == Default::default() {
+        if self.handle == 0 {
             return Err(CounterError::EmptyHandle);
         }
         Ok(crate::cross_call_master::CounterIsPositive(self.handle))
