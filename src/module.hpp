@@ -51,19 +51,11 @@ namespace rustlm {
 
 		const std::unique_ptr<Provider>& GetProvider() { return _provider; }
 
-		MemAddr GetNativeMethod(std::string_view methodName) const;
-		void GetNativeMethod(std::string_view methodName, MemAddr* addressDest);
-		std::shared_ptr<Method> FindMethod(std::string_view name);
-
 	private:
 		std::unique_ptr<Provider> _provider;
-
 		std::vector<std::unique_ptr<AssemblyHolder>> _assemblies;
-		std::unordered_map<std::string, MemAddr, plg::string_hash, std::equal_to<>> _nativesMap;
 
-		std::vector<MemAddr*> _addresses;
-
-		static const std::array<void*, 123> _pluginApi;
+		static const std::array<void*, 122> _pluginApi;
 	};
 
 	extern RustLanguageModule g_golm;

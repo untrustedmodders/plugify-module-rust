@@ -53,11 +53,6 @@ Result<InitData> RustLanguageModule::Initialize(const Provider& provider, [[mayb
 }
 
 void RustLanguageModule::Shutdown() {
-	for (MemAddr* addr : _addresses) {
-		*addr = nullptr;
-	}
-	_nativesMap.clear();
-	_addresses.clear();
 	_assemblies.clear();
 	_provider.reset();
 }
@@ -70,10 +65,13 @@ bool RustLanguageModule::IsDebugBuild() {
 }
 
 void RustLanguageModule::OnMethodExport(const Extension& plugin) {
-	const auto& methods = plugin.GetMethodsData();
-	_nativesMap.reserve(_nativesMap.size() + methods.size());
-	for (const auto& [method, addr] :methods) {
-		_nativesMap.try_emplace(std::format("{}.{}", plugin.GetName(), method.GetName()), addr);
+	for (const auto& [method, addr] : plugin.GetMethodsData()) {
+		auto variableName = std::format("__{}_{}", plugin.GetName(), method.GetName());
+		for (const auto& assembly : _assemblies) {
+			if (auto function = assembly->assembly->GetSymbol(variableName)) {
+				*function->RCast<MemAddr*>() = addr;
+			}
+		}
 	}
 }
 
@@ -168,30 +166,8 @@ void RustLanguageModule::OnPluginEnd(const Extension& plugin) {
 	plugin.GetUserData().RCast<AssemblyHolder*>()->endFunc();
 }
 
-MemAddr RustLanguageModule::GetNativeMethod(std::string_view methodName) const {
-	if (const auto it = _nativesMap.find(methodName); it != _nativesMap.end()) {
-		return std::get<MemAddr>(*it);
-	}
-	_provider->Log(std::format(LOG_PREFIX "GetNativeMethod failed to find: '{}'", methodName), Severity::Fatal);
-	return nullptr;
-}
-
-void RustLanguageModule::GetNativeMethod(std::string_view methodName, MemAddr* addressDest) {
-	if (const auto it = _nativesMap.find(methodName); it != _nativesMap.end()) {
-		*addressDest = std::get<MemAddr>(*it);
-		_addresses.emplace_back(addressDest);
-		return;
-	}
-	_provider->Log(std::format(LOG_PREFIX "GetNativeMethod failed to find: '{}'", methodName), Severity::Fatal);
-}
-
 namespace rustlm {
 	RustLanguageModule g_rustlm;
-}
-
-
-void* GetMethodPtr(const char* mstr, size_t mlen) {
-	return g_rustlm.GetNativeMethod(std::string_view(mstr, mlen));
 }
 
 bool IsExtensionLoaded(const char* nstr, size_t nlen, const char* cstr, size_t clen) {
@@ -442,8 +418,7 @@ void AssignVectorVector3(plg::vector<plg::vec3>* ptr, plg::vec3* arr, size_t len
 void AssignVectorVector4(plg::vector<plg::vec4>* ptr, plg::vec4* arr, size_t len) { AssignVector(ptr, arr, len); }
 void AssignVectorMatrix4x4(plg::vector<plg::mat4x4>* ptr, plg::mat4x4* arr, size_t len) { AssignVector(ptr, arr, len); }
 
-const std::array<void*, 123> RustLanguageModule::_pluginApi = {
-		reinterpret_cast<void*>(&::GetMethodPtr),
+const std::array<void*, 122> RustLanguageModule::_pluginApi = {
 		reinterpret_cast<void*>(&::GetBaseDir),
 		reinterpret_cast<void*>(&::GetExtensionsDir),
 		reinterpret_cast<void*>(&::GetConfigsDir),
