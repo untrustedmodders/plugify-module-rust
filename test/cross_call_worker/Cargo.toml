@@ -7,7 +7,7 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [dependencies]
-plugify = { git = "https://github.com/untrustedmodders/rust-plugify", tag = "plugify-v1.2.0" }
+plugify = { git = "https://github.com/untrustedmodders/rust-plugify", tag = "plugify-v1.2.1" }
 
 [features]
 verbose = []

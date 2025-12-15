@@ -7,7 +7,7 @@ use super::enums::*;
 #[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
-use plugify::{get_method_ptr, PlgString, PlgVector, PlgVariant, Vector2, Vector3, Vector4, Matrix4x4};
+use plugify::{get_method_ptr, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
 
 /// # Arguments
 /// * `initialValue` - (int64)
@@ -51,7 +51,6 @@ pub static mut __cross_call_master_CounterGetValue: Option<_CounterGetValue> = N
 
 /// # Arguments
 /// * `counter` - (ptr64)
-/// # Arguments
 /// * `value` - (int64)
 #[allow(dead_code, non_snake_case)]
 pub fn CounterSetValue(counter: usize, value: i64) {
@@ -86,7 +85,6 @@ pub static mut __cross_call_master_CounterDecrement: Option<_CounterDecrement> =
 
 /// # Arguments
 /// * `counter` - (ptr64)
-/// # Arguments
 /// * `amount` - (int64)
 #[allow(dead_code, non_snake_case)]
 pub fn CounterAdd(counter: usize, amount: i64) {
@@ -124,7 +122,6 @@ pub static mut __cross_call_master_CounterIsPositive: Option<_CounterIsPositive>
 
 /// # Arguments
 /// * `value1` - (int64)
-/// # Arguments
 /// * `value2` - (int64)
 ///
 /// # Returns
@@ -144,10 +141,10 @@ pub static mut __cross_call_master_CounterCompare: Option<_CounterCompare> = Non
 /// # Returns
 /// int64
 #[allow(dead_code, non_snake_case)]
-pub fn CounterSum(values: &PlgVector<i64>) -> i64 {
+pub fn CounterSum(values: &Arr<i64>) -> i64 {
     unsafe { __cross_call_master_CounterSum.expect("CounterSum function was not found")(values) }
 }
-pub type _CounterSum = unsafe extern "C" fn(&PlgVector<i64>) -> i64;
+pub type _CounterSum = unsafe extern "C" fn(&Arr<i64>) -> i64;
 #[allow(dead_code, non_upper_case_globals)]
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_CounterSum: Option<_CounterSum> = None;

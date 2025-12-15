@@ -3,9 +3,9 @@
 
 pub mod enums;
 pub mod delegates;
+pub mod core;
 pub mod resource;
 pub mod counter;
-pub mod core;
 
 #[allow(unused_imports)]
 pub use enums::*;

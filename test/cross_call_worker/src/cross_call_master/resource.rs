@@ -7,20 +7,19 @@ use super::enums::*;
 #[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
-use plugify::{get_method_ptr, PlgString, PlgVector, PlgVariant, Vector2, Vector3, Vector4, Matrix4x4};
+use plugify::{get_method_ptr, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
 
 /// # Arguments
 /// * `id` - (int32)
-/// # Arguments
 /// * `name` - (string)
 ///
 /// # Returns
 /// ptr64
 #[allow(dead_code, non_snake_case)]
-pub fn ResourceHandleCreate(id: i32, name: &PlgString) -> usize {
+pub fn ResourceHandleCreate(id: i32, name: &Str) -> usize {
     unsafe { __cross_call_master_ResourceHandleCreate.expect("ResourceHandleCreate function was not found")(id, name) }
 }
-pub type _ResourceHandleCreate = unsafe extern "C" fn(i32, &PlgString) -> usize;
+pub type _ResourceHandleCreate = unsafe extern "C" fn(i32, &Str) -> usize;
 #[allow(dead_code, non_upper_case_globals)]
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleCreate: Option<_ResourceHandleCreate> = None;
@@ -68,23 +67,22 @@ pub static mut __cross_call_master_ResourceHandleGetId: Option<_ResourceHandleGe
 /// # Returns
 /// string
 #[allow(dead_code, non_snake_case)]
-pub fn ResourceHandleGetName(handle: usize) -> PlgString {
+pub fn ResourceHandleGetName(handle: usize) -> Str {
     unsafe { __cross_call_master_ResourceHandleGetName.expect("ResourceHandleGetName function was not found")(handle) }
 }
-pub type _ResourceHandleGetName = unsafe extern "C" fn(usize) -> PlgString;
+pub type _ResourceHandleGetName = unsafe extern "C" fn(usize) -> Str;
 #[allow(dead_code, non_upper_case_globals)]
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleGetName: Option<_ResourceHandleGetName> = None;
 
 /// # Arguments
 /// * `handle` - (ptr64)
-/// # Arguments
 /// * `name` - (string)
 #[allow(dead_code, non_snake_case)]
-pub fn ResourceHandleSetName(handle: usize, name: &PlgString) {
+pub fn ResourceHandleSetName(handle: usize, name: &Str) {
     unsafe { __cross_call_master_ResourceHandleSetName.expect("ResourceHandleSetName function was not found")(handle, name) }
 }
-pub type _ResourceHandleSetName = unsafe extern "C" fn(usize, &PlgString);
+pub type _ResourceHandleSetName = unsafe extern "C" fn(usize, &Str);
 #[allow(dead_code, non_upper_case_globals)]
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleSetName: Option<_ResourceHandleSetName> = None;
@@ -116,7 +114,6 @@ pub static mut __cross_call_master_ResourceHandleGetCounter: Option<_ResourceHan
 
 /// # Arguments
 /// * `handle` - (ptr64)
-/// # Arguments
 /// * `value` - (float)
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleAddData(handle: usize, value: f32) {
@@ -133,10 +130,10 @@ pub static mut __cross_call_master_ResourceHandleAddData: Option<_ResourceHandle
 /// # Returns
 /// float[]
 #[allow(dead_code, non_snake_case)]
-pub fn ResourceHandleGetData(handle: usize) -> PlgVector<f32> {
+pub fn ResourceHandleGetData(handle: usize) -> Arr<f32> {
     unsafe { __cross_call_master_ResourceHandleGetData.expect("ResourceHandleGetData function was not found")(handle) }
 }
-pub type _ResourceHandleGetData = unsafe extern "C" fn(usize) -> PlgVector<f32>;
+pub type _ResourceHandleGetData = unsafe extern "C" fn(usize) -> Arr<f32>;
 #[allow(dead_code, non_upper_case_globals)]
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleGetData: Option<_ResourceHandleGetData> = None;
