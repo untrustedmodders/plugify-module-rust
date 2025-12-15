@@ -11,38 +11,10 @@
 
 #include <plugify/assembly_loader.hpp>
 
-#if __has_include(<stacktrace>)
-#include <stacktrace>
-#define HAS_STACKTRACE 1
-#else
-#define HAS_STACKTRACE 0
-#endif
-
 #define LOG_PREFIX "[RUSTLM] "
 
 using namespace rustlm;
 using namespace plugify;
-
-namespace {
-	std::vector<std::string_view> Split(std::string_view strv, std::string_view delims) {
-		std::vector<std::string_view> output;
-		size_t first = 0;
-
-		while (first < strv.size()) {
-			const size_t second = strv.find_first_of(delims, first);
-
-			if (first != second)
-				output.emplace_back(strv.substr(first, second-first));
-
-			if (second == std::string_view::npos)
-				break;
-
-			first = second + 1;
-		}
-
-		return output;
-	}
-}
 
 Result<InitData> RustLanguageModule::Initialize(const Provider& provider, [[maybe_unused]] const Extension& module) {
 	_provider = std::make_unique<Provider>(provider);
