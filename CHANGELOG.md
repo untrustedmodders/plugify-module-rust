@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.0.1...v1.0.2) (2025-12-15)
+
+
+### Bug Fixes
+
+* remove unused ([99f97b5](https://github.com/untrustedmodders/plugify-module-rust/commit/99f97b5c790a1e74c2bfe7fad813b9fb01877a5f))
+* update module ([a193d37](https://github.com/untrustedmodders/plugify-module-rust/commit/a193d378f86de7197fc94b4af26fb25ff2e8d8c5))
+
 ## [1.0.1](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.0.0...v1.0.1) (2025-12-13)
 
 
