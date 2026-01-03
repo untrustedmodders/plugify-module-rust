@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.0.2...v1.0.3) (2026-01-03)
+
+
+### Bug Fixes
+
+* add build type to configure step ([28f7a5c](https://github.com/untrustedmodders/plugify-module-rust/commit/28f7a5c22b6cd47e0c6a7a11a2564b44d72aeed2))
+
 ## [1.0.2](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.0.1...v1.0.2) (2025-12-15)
 
 
