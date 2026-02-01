@@ -53,7 +53,6 @@ add_subdirectory(external/plugify)
 # Go Language Module for Plugify
 #
 file(GLOB_RECURSE RUSTLM_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
-set(RUSTLM_PCH_FILE "src/pch.hpp")
 
 add_library(${PROJECT_NAME} SHARED ${RUSTLM_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -65,7 +64,6 @@ if(NOT COMPILER_SUPPORTS_FORMAT)
 endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${RUSTLM_LINK_LIBRARIES})
-target_precompile_headers(${PROJECT_NAME} PRIVATE ${RUSTLM_PCH_FILE})
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4 /WX /Zc:preprocessor $<$<CONFIG:Release>:/Zi>)

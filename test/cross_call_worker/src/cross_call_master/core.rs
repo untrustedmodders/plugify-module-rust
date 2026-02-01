@@ -5,6 +5,8 @@ use std::sync::RwLock;
 #[allow(unused_imports)]
 use super::enums::*;
 #[allow(unused_imports)]
+use super::aliases::*;
+#[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
 use plugify::{get_method_ptr, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
@@ -29,9 +31,6 @@ pub type _NoParamReturnVoidCallback = unsafe extern "C" fn();
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnVoidCallback: Option<_NoParamReturnVoidCallback> = None;
 
-///
-/// # Returns
-/// bool
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnBoolCallback() -> bool {
     unsafe { __cross_call_master_NoParamReturnBoolCallback.expect("NoParamReturnBoolCallback function was not found")() }
@@ -41,9 +40,6 @@ pub type _NoParamReturnBoolCallback = unsafe extern "C" fn() -> bool;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnBoolCallback: Option<_NoParamReturnBoolCallback> = None;
 
-///
-/// # Returns
-/// char8
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar8Callback() -> i8 {
     unsafe { __cross_call_master_NoParamReturnChar8Callback.expect("NoParamReturnChar8Callback function was not found")() }
@@ -53,9 +49,6 @@ pub type _NoParamReturnChar8Callback = unsafe extern "C" fn() -> i8;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnChar8Callback: Option<_NoParamReturnChar8Callback> = None;
 
-///
-/// # Returns
-/// char16
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar16Callback() -> u16 {
     unsafe { __cross_call_master_NoParamReturnChar16Callback.expect("NoParamReturnChar16Callback function was not found")() }
@@ -65,9 +58,6 @@ pub type _NoParamReturnChar16Callback = unsafe extern "C" fn() -> u16;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnChar16Callback: Option<_NoParamReturnChar16Callback> = None;
 
-///
-/// # Returns
-/// int8
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt8Callback() -> i8 {
     unsafe { __cross_call_master_NoParamReturnInt8Callback.expect("NoParamReturnInt8Callback function was not found")() }
@@ -77,9 +67,6 @@ pub type _NoParamReturnInt8Callback = unsafe extern "C" fn() -> i8;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnInt8Callback: Option<_NoParamReturnInt8Callback> = None;
 
-///
-/// # Returns
-/// int16
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt16Callback() -> i16 {
     unsafe { __cross_call_master_NoParamReturnInt16Callback.expect("NoParamReturnInt16Callback function was not found")() }
@@ -89,9 +76,6 @@ pub type _NoParamReturnInt16Callback = unsafe extern "C" fn() -> i16;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnInt16Callback: Option<_NoParamReturnInt16Callback> = None;
 
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt32Callback() -> i32 {
     unsafe { __cross_call_master_NoParamReturnInt32Callback.expect("NoParamReturnInt32Callback function was not found")() }
@@ -101,9 +85,6 @@ pub type _NoParamReturnInt32Callback = unsafe extern "C" fn() -> i32;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnInt32Callback: Option<_NoParamReturnInt32Callback> = None;
 
-///
-/// # Returns
-/// int64
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt64Callback() -> i64 {
     unsafe { __cross_call_master_NoParamReturnInt64Callback.expect("NoParamReturnInt64Callback function was not found")() }
@@ -113,9 +94,6 @@ pub type _NoParamReturnInt64Callback = unsafe extern "C" fn() -> i64;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnInt64Callback: Option<_NoParamReturnInt64Callback> = None;
 
-///
-/// # Returns
-/// uint8
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt8Callback() -> u8 {
     unsafe { __cross_call_master_NoParamReturnUInt8Callback.expect("NoParamReturnUInt8Callback function was not found")() }
@@ -125,9 +103,6 @@ pub type _NoParamReturnUInt8Callback = unsafe extern "C" fn() -> u8;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnUInt8Callback: Option<_NoParamReturnUInt8Callback> = None;
 
-///
-/// # Returns
-/// uint16
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt16Callback() -> u16 {
     unsafe { __cross_call_master_NoParamReturnUInt16Callback.expect("NoParamReturnUInt16Callback function was not found")() }
@@ -137,9 +112,6 @@ pub type _NoParamReturnUInt16Callback = unsafe extern "C" fn() -> u16;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnUInt16Callback: Option<_NoParamReturnUInt16Callback> = None;
 
-///
-/// # Returns
-/// uint32
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt32Callback() -> u32 {
     unsafe { __cross_call_master_NoParamReturnUInt32Callback.expect("NoParamReturnUInt32Callback function was not found")() }
@@ -149,9 +121,6 @@ pub type _NoParamReturnUInt32Callback = unsafe extern "C" fn() -> u32;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnUInt32Callback: Option<_NoParamReturnUInt32Callback> = None;
 
-///
-/// # Returns
-/// uint64
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt64Callback() -> u64 {
     unsafe { __cross_call_master_NoParamReturnUInt64Callback.expect("NoParamReturnUInt64Callback function was not found")() }
@@ -161,9 +130,6 @@ pub type _NoParamReturnUInt64Callback = unsafe extern "C" fn() -> u64;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnUInt64Callback: Option<_NoParamReturnUInt64Callback> = None;
 
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnPointerCallback() -> usize {
     unsafe { __cross_call_master_NoParamReturnPointerCallback.expect("NoParamReturnPointerCallback function was not found")() }
@@ -173,9 +139,6 @@ pub type _NoParamReturnPointerCallback = unsafe extern "C" fn() -> usize;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnPointerCallback: Option<_NoParamReturnPointerCallback> = None;
 
-///
-/// # Returns
-/// float
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFloatCallback() -> f32 {
     unsafe { __cross_call_master_NoParamReturnFloatCallback.expect("NoParamReturnFloatCallback function was not found")() }
@@ -185,9 +148,6 @@ pub type _NoParamReturnFloatCallback = unsafe extern "C" fn() -> f32;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnFloatCallback: Option<_NoParamReturnFloatCallback> = None;
 
-///
-/// # Returns
-/// double
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnDoubleCallback() -> f64 {
     unsafe { __cross_call_master_NoParamReturnDoubleCallback.expect("NoParamReturnDoubleCallback function was not found")() }
@@ -197,9 +157,6 @@ pub type _NoParamReturnDoubleCallback = unsafe extern "C" fn() -> f64;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnDoubleCallback: Option<_NoParamReturnDoubleCallback> = None;
 
-///
-/// # Returns
-/// function
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFunctionCallback() -> NoParamReturnFunctionCallbackFunc {
     unsafe { __cross_call_master_NoParamReturnFunctionCallback.expect("NoParamReturnFunctionCallback function was not found")() }
@@ -209,9 +166,6 @@ pub type _NoParamReturnFunctionCallback = unsafe extern "C" fn() -> NoParamRetur
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnFunctionCallback: Option<_NoParamReturnFunctionCallback> = None;
 
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnStringCallback() -> Str {
     unsafe { __cross_call_master_NoParamReturnStringCallback.expect("NoParamReturnStringCallback function was not found")() }
@@ -221,9 +175,6 @@ pub type _NoParamReturnStringCallback = unsafe extern "C" fn() -> Str;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnStringCallback: Option<_NoParamReturnStringCallback> = None;
 
-///
-/// # Returns
-/// any
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnAnyCallback() -> Var {
     unsafe { __cross_call_master_NoParamReturnAnyCallback.expect("NoParamReturnAnyCallback function was not found")() }
@@ -233,9 +184,6 @@ pub type _NoParamReturnAnyCallback = unsafe extern "C" fn() -> Var;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnAnyCallback: Option<_NoParamReturnAnyCallback> = None;
 
-///
-/// # Returns
-/// bool[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayBoolCallback() -> Arr<bool> {
     unsafe { __cross_call_master_NoParamReturnArrayBoolCallback.expect("NoParamReturnArrayBoolCallback function was not found")() }
@@ -245,9 +193,6 @@ pub type _NoParamReturnArrayBoolCallback = unsafe extern "C" fn() -> Arr<bool>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayBoolCallback: Option<_NoParamReturnArrayBoolCallback> = None;
 
-///
-/// # Returns
-/// char8[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar8Callback() -> Arr<i8> {
     unsafe { __cross_call_master_NoParamReturnArrayChar8Callback.expect("NoParamReturnArrayChar8Callback function was not found")() }
@@ -257,9 +202,6 @@ pub type _NoParamReturnArrayChar8Callback = unsafe extern "C" fn() -> Arr<i8>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayChar8Callback: Option<_NoParamReturnArrayChar8Callback> = None;
 
-///
-/// # Returns
-/// char16[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar16Callback() -> Arr<u16> {
     unsafe { __cross_call_master_NoParamReturnArrayChar16Callback.expect("NoParamReturnArrayChar16Callback function was not found")() }
@@ -269,9 +211,6 @@ pub type _NoParamReturnArrayChar16Callback = unsafe extern "C" fn() -> Arr<u16>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayChar16Callback: Option<_NoParamReturnArrayChar16Callback> = None;
 
-///
-/// # Returns
-/// int8[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt8Callback() -> Arr<i8> {
     unsafe { __cross_call_master_NoParamReturnArrayInt8Callback.expect("NoParamReturnArrayInt8Callback function was not found")() }
@@ -281,9 +220,6 @@ pub type _NoParamReturnArrayInt8Callback = unsafe extern "C" fn() -> Arr<i8>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayInt8Callback: Option<_NoParamReturnArrayInt8Callback> = None;
 
-///
-/// # Returns
-/// int16[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt16Callback() -> Arr<i16> {
     unsafe { __cross_call_master_NoParamReturnArrayInt16Callback.expect("NoParamReturnArrayInt16Callback function was not found")() }
@@ -293,9 +229,6 @@ pub type _NoParamReturnArrayInt16Callback = unsafe extern "C" fn() -> Arr<i16>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayInt16Callback: Option<_NoParamReturnArrayInt16Callback> = None;
 
-///
-/// # Returns
-/// int32[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt32Callback() -> Arr<i32> {
     unsafe { __cross_call_master_NoParamReturnArrayInt32Callback.expect("NoParamReturnArrayInt32Callback function was not found")() }
@@ -305,9 +238,6 @@ pub type _NoParamReturnArrayInt32Callback = unsafe extern "C" fn() -> Arr<i32>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayInt32Callback: Option<_NoParamReturnArrayInt32Callback> = None;
 
-///
-/// # Returns
-/// int64[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt64Callback() -> Arr<i64> {
     unsafe { __cross_call_master_NoParamReturnArrayInt64Callback.expect("NoParamReturnArrayInt64Callback function was not found")() }
@@ -317,9 +247,6 @@ pub type _NoParamReturnArrayInt64Callback = unsafe extern "C" fn() -> Arr<i64>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayInt64Callback: Option<_NoParamReturnArrayInt64Callback> = None;
 
-///
-/// # Returns
-/// uint8[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt8Callback() -> Arr<u8> {
     unsafe { __cross_call_master_NoParamReturnArrayUInt8Callback.expect("NoParamReturnArrayUInt8Callback function was not found")() }
@@ -329,9 +256,6 @@ pub type _NoParamReturnArrayUInt8Callback = unsafe extern "C" fn() -> Arr<u8>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayUInt8Callback: Option<_NoParamReturnArrayUInt8Callback> = None;
 
-///
-/// # Returns
-/// uint16[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt16Callback() -> Arr<u16> {
     unsafe { __cross_call_master_NoParamReturnArrayUInt16Callback.expect("NoParamReturnArrayUInt16Callback function was not found")() }
@@ -341,9 +265,6 @@ pub type _NoParamReturnArrayUInt16Callback = unsafe extern "C" fn() -> Arr<u16>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayUInt16Callback: Option<_NoParamReturnArrayUInt16Callback> = None;
 
-///
-/// # Returns
-/// uint32[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt32Callback() -> Arr<u32> {
     unsafe { __cross_call_master_NoParamReturnArrayUInt32Callback.expect("NoParamReturnArrayUInt32Callback function was not found")() }
@@ -353,9 +274,6 @@ pub type _NoParamReturnArrayUInt32Callback = unsafe extern "C" fn() -> Arr<u32>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayUInt32Callback: Option<_NoParamReturnArrayUInt32Callback> = None;
 
-///
-/// # Returns
-/// uint64[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt64Callback() -> Arr<u64> {
     unsafe { __cross_call_master_NoParamReturnArrayUInt64Callback.expect("NoParamReturnArrayUInt64Callback function was not found")() }
@@ -365,9 +283,6 @@ pub type _NoParamReturnArrayUInt64Callback = unsafe extern "C" fn() -> Arr<u64>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayUInt64Callback: Option<_NoParamReturnArrayUInt64Callback> = None;
 
-///
-/// # Returns
-/// ptr64[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayPointerCallback() -> Arr<usize> {
     unsafe { __cross_call_master_NoParamReturnArrayPointerCallback.expect("NoParamReturnArrayPointerCallback function was not found")() }
@@ -377,9 +292,6 @@ pub type _NoParamReturnArrayPointerCallback = unsafe extern "C" fn() -> Arr<usiz
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayPointerCallback: Option<_NoParamReturnArrayPointerCallback> = None;
 
-///
-/// # Returns
-/// float[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayFloatCallback() -> Arr<f32> {
     unsafe { __cross_call_master_NoParamReturnArrayFloatCallback.expect("NoParamReturnArrayFloatCallback function was not found")() }
@@ -389,9 +301,6 @@ pub type _NoParamReturnArrayFloatCallback = unsafe extern "C" fn() -> Arr<f32>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayFloatCallback: Option<_NoParamReturnArrayFloatCallback> = None;
 
-///
-/// # Returns
-/// double[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayDoubleCallback() -> Arr<f64> {
     unsafe { __cross_call_master_NoParamReturnArrayDoubleCallback.expect("NoParamReturnArrayDoubleCallback function was not found")() }
@@ -401,9 +310,6 @@ pub type _NoParamReturnArrayDoubleCallback = unsafe extern "C" fn() -> Arr<f64>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayDoubleCallback: Option<_NoParamReturnArrayDoubleCallback> = None;
 
-///
-/// # Returns
-/// string[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayStringCallback() -> Arr<Str> {
     unsafe { __cross_call_master_NoParamReturnArrayStringCallback.expect("NoParamReturnArrayStringCallback function was not found")() }
@@ -413,9 +319,6 @@ pub type _NoParamReturnArrayStringCallback = unsafe extern "C" fn() -> Arr<Str>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayStringCallback: Option<_NoParamReturnArrayStringCallback> = None;
 
-///
-/// # Returns
-/// any[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayAnyCallback() -> Arr<Var> {
     unsafe { __cross_call_master_NoParamReturnArrayAnyCallback.expect("NoParamReturnArrayAnyCallback function was not found")() }
@@ -425,9 +328,6 @@ pub type _NoParamReturnArrayAnyCallback = unsafe extern "C" fn() -> Arr<Var>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayAnyCallback: Option<_NoParamReturnArrayAnyCallback> = None;
 
-///
-/// # Returns
-/// vec2[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector2Callback() -> Arr<Vec2> {
     unsafe { __cross_call_master_NoParamReturnArrayVector2Callback.expect("NoParamReturnArrayVector2Callback function was not found")() }
@@ -437,9 +337,6 @@ pub type _NoParamReturnArrayVector2Callback = unsafe extern "C" fn() -> Arr<Vec2
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayVector2Callback: Option<_NoParamReturnArrayVector2Callback> = None;
 
-///
-/// # Returns
-/// vec3[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector3Callback() -> Arr<Vec3> {
     unsafe { __cross_call_master_NoParamReturnArrayVector3Callback.expect("NoParamReturnArrayVector3Callback function was not found")() }
@@ -449,9 +346,6 @@ pub type _NoParamReturnArrayVector3Callback = unsafe extern "C" fn() -> Arr<Vec3
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayVector3Callback: Option<_NoParamReturnArrayVector3Callback> = None;
 
-///
-/// # Returns
-/// vec4[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector4Callback() -> Arr<Vec4> {
     unsafe { __cross_call_master_NoParamReturnArrayVector4Callback.expect("NoParamReturnArrayVector4Callback function was not found")() }
@@ -461,9 +355,6 @@ pub type _NoParamReturnArrayVector4Callback = unsafe extern "C" fn() -> Arr<Vec4
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayVector4Callback: Option<_NoParamReturnArrayVector4Callback> = None;
 
-///
-/// # Returns
-/// mat4x4[]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayMatrix4x4Callback() -> Arr<Mat4x4> {
     unsafe { __cross_call_master_NoParamReturnArrayMatrix4x4Callback.expect("NoParamReturnArrayMatrix4x4Callback function was not found")() }
@@ -473,9 +364,6 @@ pub type _NoParamReturnArrayMatrix4x4Callback = unsafe extern "C" fn() -> Arr<Ma
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnArrayMatrix4x4Callback: Option<_NoParamReturnArrayMatrix4x4Callback> = None;
 
-///
-/// # Returns
-/// vec2
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector2Callback() -> Vec2 {
     unsafe { __cross_call_master_NoParamReturnVector2Callback.expect("NoParamReturnVector2Callback function was not found")() }
@@ -485,9 +373,6 @@ pub type _NoParamReturnVector2Callback = unsafe extern "C" fn() -> Vec2;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnVector2Callback: Option<_NoParamReturnVector2Callback> = None;
 
-///
-/// # Returns
-/// vec3
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector3Callback() -> Vec3 {
     unsafe { __cross_call_master_NoParamReturnVector3Callback.expect("NoParamReturnVector3Callback function was not found")() }
@@ -497,9 +382,6 @@ pub type _NoParamReturnVector3Callback = unsafe extern "C" fn() -> Vec3;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnVector3Callback: Option<_NoParamReturnVector3Callback> = None;
 
-///
-/// # Returns
-/// vec4
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector4Callback() -> Vec4 {
     unsafe { __cross_call_master_NoParamReturnVector4Callback.expect("NoParamReturnVector4Callback function was not found")() }
@@ -509,9 +391,6 @@ pub type _NoParamReturnVector4Callback = unsafe extern "C" fn() -> Vec4;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_NoParamReturnVector4Callback: Option<_NoParamReturnVector4Callback> = None;
 
-///
-/// # Returns
-/// mat4x4
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnMatrix4x4Callback() -> Mat4x4 {
     unsafe { __cross_call_master_NoParamReturnMatrix4x4Callback.expect("NoParamReturnMatrix4x4Callback function was not found")() }
@@ -871,9 +750,6 @@ pub static mut __cross_call_master_ParamRefVectorsCallback: Option<_ParamRefVect
 /// * `p12` - (ptr64)
 /// * `p13` - (float)
 /// * `p14` - (double)
-///
-/// # Returns
-/// int64
 #[allow(dead_code, non_snake_case)]
 pub fn ParamAllPrimitivesCallback(p1: bool, p2: i8, p3: u16, p4: i8, p5: i16, p6: i32, p7: i64, p8: u8, p9: u16, p10: u32, p11: u64, p12: usize, p13: f32, p14: f64) -> i64 {
     unsafe { __cross_call_master_ParamAllPrimitivesCallback.expect("ParamAllPrimitivesCallback function was not found")(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14) }
@@ -884,11 +760,90 @@ pub type _ParamAllPrimitivesCallback = unsafe extern "C" fn(bool, i8, u16, i8, i
 pub static mut __cross_call_master_ParamAllPrimitivesCallback: Option<_ParamAllPrimitivesCallback> = None;
 
 /// # Arguments
+/// * `aBool` - (bool)
+/// * `aChar8` - (char8)
+/// * `aChar16` - (char16)
+/// * `aInt8` - (int8)
+/// * `aInt16` - (int16)
+/// * `aInt32` - (int32)
+/// * `aInt64` - (int64)
+/// * `aPtr` - (ptr64)
+/// * `aFloat` - (float)
+/// * `aDouble` - (double)
+/// * `aString` - (string)
+/// * `aAny` - (any)
+/// * `aVec2` - (vec2)
+/// * `aVec3` - (vec3)
+/// * `aVec4` - (vec4)
+/// * `aMat4x4` - (mat4x4)
+/// * `aBoolVec` - (bool[])
+/// * `aChar8Vec` - (char8[])
+/// * `aChar16Vec` - (char16[])
+/// * `aInt8Vec` - (int8[])
+/// * `aInt16Vec` - (int16[])
+/// * `aInt32Vec` - (int32[])
+/// * `aInt64Vec` - (int64[])
+/// * `aPtrVec` - (ptr64[])
+/// * `aFloatVec` - (float[])
+/// * `aDoubleVec` - (double[])
+/// * `aStringVec` - (string[])
+/// * `aAnyVec` - (any[])
+/// * `aVec2Vec` - (vec2[])
+/// * `aVec3Vec` - (vec3[])
+/// * `aVec4Vec` - (vec4[])
+#[allow(dead_code, non_snake_case)]
+pub fn ParamAllAliasesCallback(aBool: AliasBool, aChar8: AliasChar8, aChar16: AliasChar16, aInt8: AliasInt8, aInt16: AliasInt16, aInt32: AliasInt32, aInt64: AliasInt64, aPtr: AliasPtr, aFloat: AliasFloat, aDouble: AliasDouble, aString: &AliasString, aAny: &AliasAny, aVec2: &AliasVec2, aVec3: &AliasVec3, aVec4: &AliasVec4, aMat4x4: &AliasMat4x4, aBoolVec: &AliasBoolVector, aChar8Vec: &AliasChar8Vector, aChar16Vec: &AliasChar16Vector, aInt8Vec: &AliasInt8Vector, aInt16Vec: &AliasInt16Vector, aInt32Vec: &AliasInt32Vector, aInt64Vec: &AliasInt64Vector, aPtrVec: &AliasPtrVector, aFloatVec: &AliasFloatVector, aDoubleVec: &AliasDoubleVector, aStringVec: &AliasStringVector, aAnyVec: &AliasAnyVector, aVec2Vec: &AliasVec2Vector, aVec3Vec: &AliasVec3Vector, aVec4Vec: &AliasVec4Vector) -> i32 {
+    unsafe { __cross_call_master_ParamAllAliasesCallback.expect("ParamAllAliasesCallback function was not found")(aBool, aChar8, aChar16, aInt8, aInt16, aInt32, aInt64, aPtr, aFloat, aDouble, aString, aAny, aVec2, aVec3, aVec4, aMat4x4, aBoolVec, aChar8Vec, aChar16Vec, aInt8Vec, aInt16Vec, aInt32Vec, aInt64Vec, aPtrVec, aFloatVec, aDoubleVec, aStringVec, aAnyVec, aVec2Vec, aVec3Vec, aVec4Vec) }
+}
+pub type _ParamAllAliasesCallback = unsafe extern "C" fn(AliasBool, AliasChar8, AliasChar16, AliasInt8, AliasInt16, AliasInt32, AliasInt64, AliasPtr, AliasFloat, AliasDouble, &AliasString, &AliasAny, &AliasVec2, &AliasVec3, &AliasVec4, &AliasMat4x4, &AliasBoolVector, &AliasChar8Vector, &AliasChar16Vector, &AliasInt8Vector, &AliasInt16Vector, &AliasInt32Vector, &AliasInt64Vector, &AliasPtrVector, &AliasFloatVector, &AliasDoubleVector, &AliasStringVector, &AliasAnyVector, &AliasVec2Vector, &AliasVec3Vector, &AliasVec4Vector) -> i32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamAllAliasesCallback: Option<_ParamAllAliasesCallback> = None;
+
+/// # Arguments
+/// * `aBool` - (bool&)
+/// * `aChar8` - (char8&)
+/// * `aChar16` - (char16&)
+/// * `aInt8` - (int8&)
+/// * `aInt16` - (int16&)
+/// * `aInt32` - (int32&)
+/// * `aInt64` - (int64&)
+/// * `aPtr` - (ptr64&)
+/// * `aFloat` - (float&)
+/// * `aDouble` - (double&)
+/// * `aString` - (string&)
+/// * `aAny` - (any&)
+/// * `aVec2` - (vec2&)
+/// * `aVec3` - (vec3&)
+/// * `aVec4` - (vec4&)
+/// * `aMat4x4` - (mat4x4&)
+/// * `aBoolVec` - (bool[]&)
+/// * `aChar8Vec` - (char8[]&)
+/// * `aChar16Vec` - (char16[]&)
+/// * `aInt8Vec` - (int8[]&)
+/// * `aInt16Vec` - (int16[]&)
+/// * `aInt32Vec` - (int32[]&)
+/// * `aInt64Vec` - (int64[]&)
+/// * `aPtrVec` - (ptr64[]&)
+/// * `aFloatVec` - (float[]&)
+/// * `aDoubleVec` - (double[]&)
+/// * `aStringVec` - (string[]&)
+/// * `aAnyVec` - (any[]&)
+/// * `aVec2Vec` - (vec2[]&)
+/// * `aVec3Vec` - (vec3[]&)
+/// * `aVec4Vec` - (vec4[]&)
+#[allow(dead_code, non_snake_case)]
+pub fn ParamAllRefAliasesCallback(aBool: &mut AliasBool, aChar8: &mut AliasChar8, aChar16: &mut AliasChar16, aInt8: &mut AliasInt8, aInt16: &mut AliasInt16, aInt32: &mut AliasInt32, aInt64: &mut AliasInt64, aPtr: &mut AliasPtr, aFloat: &mut AliasFloat, aDouble: &mut AliasDouble, aString: &mut AliasString, aAny: &mut AliasAny, aVec2: &mut AliasVec2, aVec3: &mut AliasVec3, aVec4: &mut AliasVec4, aMat4x4: &mut AliasMat4x4, aBoolVec: &mut AliasBoolVector, aChar8Vec: &mut AliasChar8Vector, aChar16Vec: &mut AliasChar16Vector, aInt8Vec: &mut AliasInt8Vector, aInt16Vec: &mut AliasInt16Vector, aInt32Vec: &mut AliasInt32Vector, aInt64Vec: &mut AliasInt64Vector, aPtrVec: &mut AliasPtrVector, aFloatVec: &mut AliasFloatVector, aDoubleVec: &mut AliasDoubleVector, aStringVec: &mut AliasStringVector, aAnyVec: &mut AliasAnyVector, aVec2Vec: &mut AliasVec2Vector, aVec3Vec: &mut AliasVec3Vector, aVec4Vec: &mut AliasVec4Vector) -> i64 {
+    unsafe { __cross_call_master_ParamAllRefAliasesCallback.expect("ParamAllRefAliasesCallback function was not found")(aBool, aChar8, aChar16, aInt8, aInt16, aInt32, aInt64, aPtr, aFloat, aDouble, aString, aAny, aVec2, aVec3, aVec4, aMat4x4, aBoolVec, aChar8Vec, aChar16Vec, aInt8Vec, aInt16Vec, aInt32Vec, aInt64Vec, aPtrVec, aFloatVec, aDoubleVec, aStringVec, aAnyVec, aVec2Vec, aVec3Vec, aVec4Vec) }
+}
+pub type _ParamAllRefAliasesCallback = unsafe extern "C" fn(&mut AliasBool, &mut AliasChar8, &mut AliasChar16, &mut AliasInt8, &mut AliasInt16, &mut AliasInt32, &mut AliasInt64, &mut AliasPtr, &mut AliasFloat, &mut AliasDouble, &mut AliasString, &mut AliasAny, &mut AliasVec2, &mut AliasVec3, &mut AliasVec4, &mut AliasMat4x4, &mut AliasBoolVector, &mut AliasChar8Vector, &mut AliasChar16Vector, &mut AliasInt8Vector, &mut AliasInt16Vector, &mut AliasInt32Vector, &mut AliasInt64Vector, &mut AliasPtrVector, &mut AliasFloatVector, &mut AliasDoubleVector, &mut AliasStringVector, &mut AliasAnyVector, &mut AliasVec2Vector, &mut AliasVec3Vector, &mut AliasVec4Vector) -> i64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_ParamAllRefAliasesCallback: Option<_ParamAllRefAliasesCallback> = None;
+
+/// # Arguments
 /// * `p1` - (int32)
 /// * `p2` - (int32[])
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumCallback(p1: Example, p2: &Arr<Example>) -> i32 {
     unsafe { __cross_call_master_ParamEnumCallback.expect("ParamEnumCallback function was not found")(p1, p2) }
@@ -901,9 +856,6 @@ pub static mut __cross_call_master_ParamEnumCallback: Option<_ParamEnumCallback>
 /// # Arguments
 /// * `p1` - (int32&)
 /// * `p2` - (int32[]&)
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumRefCallback(p1: &mut Example, p2: &mut Arr<Example>) -> i32 {
     unsafe { __cross_call_master_ParamEnumRefCallback.expect("ParamEnumRefCallback function was not found")(p1, p2) }
@@ -950,9 +902,6 @@ pub static mut __cross_call_master_CallFuncVoidCallback: Option<_CallFuncVoidCal
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolCallback(func: FuncBool) -> bool {
     unsafe { __cross_call_master_CallFuncBoolCallback.expect("CallFuncBoolCallback function was not found")(func) }
@@ -964,9 +913,6 @@ pub static mut __cross_call_master_CallFuncBoolCallback: Option<_CallFuncBoolCal
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// char8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8Callback(func: FuncChar8) -> i8 {
     unsafe { __cross_call_master_CallFuncChar8Callback.expect("CallFuncChar8Callback function was not found")(func) }
@@ -978,9 +924,6 @@ pub static mut __cross_call_master_CallFuncChar8Callback: Option<_CallFuncChar8C
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// char16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16Callback(func: FuncChar16) -> u16 {
     unsafe { __cross_call_master_CallFuncChar16Callback.expect("CallFuncChar16Callback function was not found")(func) }
@@ -992,9 +935,6 @@ pub static mut __cross_call_master_CallFuncChar16Callback: Option<_CallFuncChar1
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8Callback(func: FuncInt8) -> i8 {
     unsafe { __cross_call_master_CallFuncInt8Callback.expect("CallFuncInt8Callback function was not found")(func) }
@@ -1006,9 +946,6 @@ pub static mut __cross_call_master_CallFuncInt8Callback: Option<_CallFuncInt8Cal
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16Callback(func: FuncInt16) -> i16 {
     unsafe { __cross_call_master_CallFuncInt16Callback.expect("CallFuncInt16Callback function was not found")(func) }
@@ -1020,9 +957,6 @@ pub static mut __cross_call_master_CallFuncInt16Callback: Option<_CallFuncInt16C
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32Callback(func: FuncInt32) -> i32 {
     unsafe { __cross_call_master_CallFuncInt32Callback.expect("CallFuncInt32Callback function was not found")(func) }
@@ -1034,9 +968,6 @@ pub static mut __cross_call_master_CallFuncInt32Callback: Option<_CallFuncInt32C
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64Callback(func: FuncInt64) -> i64 {
     unsafe { __cross_call_master_CallFuncInt64Callback.expect("CallFuncInt64Callback function was not found")(func) }
@@ -1048,9 +979,6 @@ pub static mut __cross_call_master_CallFuncInt64Callback: Option<_CallFuncInt64C
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8Callback(func: FuncUInt8) -> u8 {
     unsafe { __cross_call_master_CallFuncUInt8Callback.expect("CallFuncUInt8Callback function was not found")(func) }
@@ -1062,9 +990,6 @@ pub static mut __cross_call_master_CallFuncUInt8Callback: Option<_CallFuncUInt8C
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16Callback(func: FuncUInt16) -> u16 {
     unsafe { __cross_call_master_CallFuncUInt16Callback.expect("CallFuncUInt16Callback function was not found")(func) }
@@ -1076,9 +1001,6 @@ pub static mut __cross_call_master_CallFuncUInt16Callback: Option<_CallFuncUInt1
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32Callback(func: FuncUInt32) -> u32 {
     unsafe { __cross_call_master_CallFuncUInt32Callback.expect("CallFuncUInt32Callback function was not found")(func) }
@@ -1090,9 +1012,6 @@ pub static mut __cross_call_master_CallFuncUInt32Callback: Option<_CallFuncUInt3
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64Callback(func: FuncUInt64) -> u64 {
     unsafe { __cross_call_master_CallFuncUInt64Callback.expect("CallFuncUInt64Callback function was not found")(func) }
@@ -1104,9 +1023,6 @@ pub static mut __cross_call_master_CallFuncUInt64Callback: Option<_CallFuncUInt6
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrCallback(func: FuncPtr) -> usize {
     unsafe { __cross_call_master_CallFuncPtrCallback.expect("CallFuncPtrCallback function was not found")(func) }
@@ -1118,9 +1034,6 @@ pub static mut __cross_call_master_CallFuncPtrCallback: Option<_CallFuncPtrCallb
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// float
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatCallback(func: FuncFloat) -> f32 {
     unsafe { __cross_call_master_CallFuncFloatCallback.expect("CallFuncFloatCallback function was not found")(func) }
@@ -1132,9 +1045,6 @@ pub static mut __cross_call_master_CallFuncFloatCallback: Option<_CallFuncFloatC
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// double
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleCallback(func: FuncDouble) -> f64 {
     unsafe { __cross_call_master_CallFuncDoubleCallback.expect("CallFuncDoubleCallback function was not found")(func) }
@@ -1146,9 +1056,6 @@ pub static mut __cross_call_master_CallFuncDoubleCallback: Option<_CallFuncDoubl
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringCallback(func: FuncString) -> Str {
     unsafe { __cross_call_master_CallFuncStringCallback.expect("CallFuncStringCallback function was not found")(func) }
@@ -1160,9 +1067,6 @@ pub static mut __cross_call_master_CallFuncStringCallback: Option<_CallFuncStrin
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// any
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyCallback(func: FuncAny) -> Var {
     unsafe { __cross_call_master_CallFuncAnyCallback.expect("CallFuncAnyCallback function was not found")(func) }
@@ -1174,9 +1078,6 @@ pub static mut __cross_call_master_CallFuncAnyCallback: Option<_CallFuncAnyCallb
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFunctionCallback(func: FuncFunction) -> usize {
     unsafe { __cross_call_master_CallFuncFunctionCallback.expect("CallFuncFunctionCallback function was not found")(func) }
@@ -1188,9 +1089,6 @@ pub static mut __cross_call_master_CallFuncFunctionCallback: Option<_CallFuncFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// bool[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolVectorCallback(func: FuncBoolVector) -> Arr<bool> {
     unsafe { __cross_call_master_CallFuncBoolVectorCallback.expect("CallFuncBoolVectorCallback function was not found")(func) }
@@ -1202,9 +1100,6 @@ pub static mut __cross_call_master_CallFuncBoolVectorCallback: Option<_CallFuncB
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// char8[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8VectorCallback(func: FuncChar8Vector) -> Arr<i8> {
     unsafe { __cross_call_master_CallFuncChar8VectorCallback.expect("CallFuncChar8VectorCallback function was not found")(func) }
@@ -1216,9 +1111,6 @@ pub static mut __cross_call_master_CallFuncChar8VectorCallback: Option<_CallFunc
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// char16[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16VectorCallback(func: FuncChar16Vector) -> Arr<u16> {
     unsafe { __cross_call_master_CallFuncChar16VectorCallback.expect("CallFuncChar16VectorCallback function was not found")(func) }
@@ -1230,9 +1122,6 @@ pub static mut __cross_call_master_CallFuncChar16VectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int8[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8VectorCallback(func: FuncInt8Vector) -> Arr<i8> {
     unsafe { __cross_call_master_CallFuncInt8VectorCallback.expect("CallFuncInt8VectorCallback function was not found")(func) }
@@ -1244,9 +1133,6 @@ pub static mut __cross_call_master_CallFuncInt8VectorCallback: Option<_CallFuncI
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int16[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16VectorCallback(func: FuncInt16Vector) -> Arr<i16> {
     unsafe { __cross_call_master_CallFuncInt16VectorCallback.expect("CallFuncInt16VectorCallback function was not found")(func) }
@@ -1258,9 +1144,6 @@ pub static mut __cross_call_master_CallFuncInt16VectorCallback: Option<_CallFunc
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int32[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32VectorCallback(func: FuncInt32Vector) -> Arr<i32> {
     unsafe { __cross_call_master_CallFuncInt32VectorCallback.expect("CallFuncInt32VectorCallback function was not found")(func) }
@@ -1272,9 +1155,6 @@ pub static mut __cross_call_master_CallFuncInt32VectorCallback: Option<_CallFunc
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int64[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64VectorCallback(func: FuncInt64Vector) -> Arr<i64> {
     unsafe { __cross_call_master_CallFuncInt64VectorCallback.expect("CallFuncInt64VectorCallback function was not found")(func) }
@@ -1286,9 +1166,6 @@ pub static mut __cross_call_master_CallFuncInt64VectorCallback: Option<_CallFunc
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint8[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8VectorCallback(func: FuncUInt8Vector) -> Arr<u8> {
     unsafe { __cross_call_master_CallFuncUInt8VectorCallback.expect("CallFuncUInt8VectorCallback function was not found")(func) }
@@ -1300,9 +1177,6 @@ pub static mut __cross_call_master_CallFuncUInt8VectorCallback: Option<_CallFunc
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint16[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16VectorCallback(func: FuncUInt16Vector) -> Arr<u16> {
     unsafe { __cross_call_master_CallFuncUInt16VectorCallback.expect("CallFuncUInt16VectorCallback function was not found")(func) }
@@ -1314,9 +1188,6 @@ pub static mut __cross_call_master_CallFuncUInt16VectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint32[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32VectorCallback(func: FuncUInt32Vector) -> Arr<u32> {
     unsafe { __cross_call_master_CallFuncUInt32VectorCallback.expect("CallFuncUInt32VectorCallback function was not found")(func) }
@@ -1328,9 +1199,6 @@ pub static mut __cross_call_master_CallFuncUInt32VectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint64[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64VectorCallback(func: FuncUInt64Vector) -> Arr<u64> {
     unsafe { __cross_call_master_CallFuncUInt64VectorCallback.expect("CallFuncUInt64VectorCallback function was not found")(func) }
@@ -1342,9 +1210,6 @@ pub static mut __cross_call_master_CallFuncUInt64VectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// ptr64[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrVectorCallback(func: FuncPtrVector) -> Arr<usize> {
     unsafe { __cross_call_master_CallFuncPtrVectorCallback.expect("CallFuncPtrVectorCallback function was not found")(func) }
@@ -1356,9 +1221,6 @@ pub static mut __cross_call_master_CallFuncPtrVectorCallback: Option<_CallFuncPt
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// float[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatVectorCallback(func: FuncFloatVector) -> Arr<f32> {
     unsafe { __cross_call_master_CallFuncFloatVectorCallback.expect("CallFuncFloatVectorCallback function was not found")(func) }
@@ -1370,9 +1232,6 @@ pub static mut __cross_call_master_CallFuncFloatVectorCallback: Option<_CallFunc
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// double[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleVectorCallback(func: FuncDoubleVector) -> Arr<f64> {
     unsafe { __cross_call_master_CallFuncDoubleVectorCallback.expect("CallFuncDoubleVectorCallback function was not found")(func) }
@@ -1384,9 +1243,6 @@ pub static mut __cross_call_master_CallFuncDoubleVectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringVectorCallback(func: FuncStringVector) -> Arr<Str> {
     unsafe { __cross_call_master_CallFuncStringVectorCallback.expect("CallFuncStringVectorCallback function was not found")(func) }
@@ -1398,9 +1254,6 @@ pub static mut __cross_call_master_CallFuncStringVectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// any[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyVectorCallback(func: FuncAnyVector) -> Arr<Var> {
     unsafe { __cross_call_master_CallFuncAnyVectorCallback.expect("CallFuncAnyVectorCallback function was not found")(func) }
@@ -1412,9 +1265,6 @@ pub static mut __cross_call_master_CallFuncAnyVectorCallback: Option<_CallFuncAn
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec2[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2VectorCallback(func: FuncVec2Vector) -> Arr<Vec2> {
     unsafe { __cross_call_master_CallFuncVec2VectorCallback.expect("CallFuncVec2VectorCallback function was not found")(func) }
@@ -1426,9 +1276,6 @@ pub static mut __cross_call_master_CallFuncVec2VectorCallback: Option<_CallFuncV
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec3[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3VectorCallback(func: FuncVec3Vector) -> Arr<Vec3> {
     unsafe { __cross_call_master_CallFuncVec3VectorCallback.expect("CallFuncVec3VectorCallback function was not found")(func) }
@@ -1440,9 +1287,6 @@ pub static mut __cross_call_master_CallFuncVec3VectorCallback: Option<_CallFuncV
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec4[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4VectorCallback(func: FuncVec4Vector) -> Arr<Vec4> {
     unsafe { __cross_call_master_CallFuncVec4VectorCallback.expect("CallFuncVec4VectorCallback function was not found")(func) }
@@ -1454,9 +1298,6 @@ pub static mut __cross_call_master_CallFuncVec4VectorCallback: Option<_CallFuncV
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// mat4x4[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4VectorCallback(func: FuncMat4x4Vector) -> Arr<Mat4x4> {
     unsafe { __cross_call_master_CallFuncMat4x4VectorCallback.expect("CallFuncMat4x4VectorCallback function was not found")(func) }
@@ -1468,9 +1309,6 @@ pub static mut __cross_call_master_CallFuncMat4x4VectorCallback: Option<_CallFun
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec2
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2Callback(func: FuncVec2) -> Vec2 {
     unsafe { __cross_call_master_CallFuncVec2Callback.expect("CallFuncVec2Callback function was not found")(func) }
@@ -1482,9 +1320,6 @@ pub static mut __cross_call_master_CallFuncVec2Callback: Option<_CallFuncVec2Cal
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec3
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3Callback(func: FuncVec3) -> Vec3 {
     unsafe { __cross_call_master_CallFuncVec3Callback.expect("CallFuncVec3Callback function was not found")(func) }
@@ -1496,9 +1331,6 @@ pub static mut __cross_call_master_CallFuncVec3Callback: Option<_CallFuncVec3Cal
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4Callback(func: FuncVec4) -> Vec4 {
     unsafe { __cross_call_master_CallFuncVec4Callback.expect("CallFuncVec4Callback function was not found")(func) }
@@ -1510,9 +1342,6 @@ pub static mut __cross_call_master_CallFuncVec4Callback: Option<_CallFuncVec4Cal
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// mat4x4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4Callback(func: FuncMat4x4) -> Mat4x4 {
     unsafe { __cross_call_master_CallFuncMat4x4Callback.expect("CallFuncMat4x4Callback function was not found")(func) }
@@ -1524,9 +1353,468 @@ pub static mut __cross_call_master_CallFuncMat4x4Callback: Option<_CallFuncMat4x
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int32
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasBoolCallback(func: FuncAliasBool) -> AliasBool {
+    unsafe { __cross_call_master_CallFuncAliasBoolCallback.expect("CallFuncAliasBoolCallback function was not found")(func) }
+}
+pub type _CallFuncAliasBoolCallback = unsafe extern "C" fn(FuncAliasBool) -> AliasBool;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasBoolCallback: Option<_CallFuncAliasBoolCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasChar8Callback(func: FuncAliasChar8) -> AliasChar8 {
+    unsafe { __cross_call_master_CallFuncAliasChar8Callback.expect("CallFuncAliasChar8Callback function was not found")(func) }
+}
+pub type _CallFuncAliasChar8Callback = unsafe extern "C" fn(FuncAliasChar8) -> AliasChar8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasChar8Callback: Option<_CallFuncAliasChar8Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasChar16Callback(func: FuncAliasChar16) -> AliasChar16 {
+    unsafe { __cross_call_master_CallFuncAliasChar16Callback.expect("CallFuncAliasChar16Callback function was not found")(func) }
+}
+pub type _CallFuncAliasChar16Callback = unsafe extern "C" fn(FuncAliasChar16) -> AliasChar16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasChar16Callback: Option<_CallFuncAliasChar16Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt8Callback(func: FuncAliasInt8) -> AliasInt8 {
+    unsafe { __cross_call_master_CallFuncAliasInt8Callback.expect("CallFuncAliasInt8Callback function was not found")(func) }
+}
+pub type _CallFuncAliasInt8Callback = unsafe extern "C" fn(FuncAliasInt8) -> AliasInt8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt8Callback: Option<_CallFuncAliasInt8Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt16Callback(func: FuncAliasInt16) -> AliasInt16 {
+    unsafe { __cross_call_master_CallFuncAliasInt16Callback.expect("CallFuncAliasInt16Callback function was not found")(func) }
+}
+pub type _CallFuncAliasInt16Callback = unsafe extern "C" fn(FuncAliasInt16) -> AliasInt16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt16Callback: Option<_CallFuncAliasInt16Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt32Callback(func: FuncAliasInt32) -> AliasInt32 {
+    unsafe { __cross_call_master_CallFuncAliasInt32Callback.expect("CallFuncAliasInt32Callback function was not found")(func) }
+}
+pub type _CallFuncAliasInt32Callback = unsafe extern "C" fn(FuncAliasInt32) -> AliasInt32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt32Callback: Option<_CallFuncAliasInt32Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt64Callback(func: FuncAliasInt64) -> AliasInt64 {
+    unsafe { __cross_call_master_CallFuncAliasInt64Callback.expect("CallFuncAliasInt64Callback function was not found")(func) }
+}
+pub type _CallFuncAliasInt64Callback = unsafe extern "C" fn(FuncAliasInt64) -> AliasInt64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt64Callback: Option<_CallFuncAliasInt64Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt8Callback(func: FuncAliasUInt8) -> AliasUInt8 {
+    unsafe { __cross_call_master_CallFuncAliasUInt8Callback.expect("CallFuncAliasUInt8Callback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt8Callback = unsafe extern "C" fn(FuncAliasUInt8) -> AliasUInt8;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt8Callback: Option<_CallFuncAliasUInt8Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt16Callback(func: FuncAliasUInt16) -> AliasUInt16 {
+    unsafe { __cross_call_master_CallFuncAliasUInt16Callback.expect("CallFuncAliasUInt16Callback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt16Callback = unsafe extern "C" fn(FuncAliasUInt16) -> AliasUInt16;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt16Callback: Option<_CallFuncAliasUInt16Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt32Callback(func: FuncAliasUInt32) -> AliasUInt32 {
+    unsafe { __cross_call_master_CallFuncAliasUInt32Callback.expect("CallFuncAliasUInt32Callback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt32Callback = unsafe extern "C" fn(FuncAliasUInt32) -> AliasUInt32;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt32Callback: Option<_CallFuncAliasUInt32Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt64Callback(func: FuncAliasUInt64) -> AliasUInt64 {
+    unsafe { __cross_call_master_CallFuncAliasUInt64Callback.expect("CallFuncAliasUInt64Callback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt64Callback = unsafe extern "C" fn(FuncAliasUInt64) -> AliasUInt64;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt64Callback: Option<_CallFuncAliasUInt64Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasPtrCallback(func: FuncAliasPtr) -> AliasPtr {
+    unsafe { __cross_call_master_CallFuncAliasPtrCallback.expect("CallFuncAliasPtrCallback function was not found")(func) }
+}
+pub type _CallFuncAliasPtrCallback = unsafe extern "C" fn(FuncAliasPtr) -> AliasPtr;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasPtrCallback: Option<_CallFuncAliasPtrCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasFloatCallback(func: FuncAliasFloat) -> AliasFloat {
+    unsafe { __cross_call_master_CallFuncAliasFloatCallback.expect("CallFuncAliasFloatCallback function was not found")(func) }
+}
+pub type _CallFuncAliasFloatCallback = unsafe extern "C" fn(FuncAliasFloat) -> AliasFloat;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasFloatCallback: Option<_CallFuncAliasFloatCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasDoubleCallback(func: FuncAliasDouble) -> AliasDouble {
+    unsafe { __cross_call_master_CallFuncAliasDoubleCallback.expect("CallFuncAliasDoubleCallback function was not found")(func) }
+}
+pub type _CallFuncAliasDoubleCallback = unsafe extern "C" fn(FuncAliasDouble) -> AliasDouble;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasDoubleCallback: Option<_CallFuncAliasDoubleCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasStringCallback(func: FuncAliasString) -> AliasString {
+    unsafe { __cross_call_master_CallFuncAliasStringCallback.expect("CallFuncAliasStringCallback function was not found")(func) }
+}
+pub type _CallFuncAliasStringCallback = unsafe extern "C" fn(FuncAliasString) -> AliasString;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasStringCallback: Option<_CallFuncAliasStringCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasAnyCallback(func: FuncAliasAny) -> AliasAny {
+    unsafe { __cross_call_master_CallFuncAliasAnyCallback.expect("CallFuncAliasAnyCallback function was not found")(func) }
+}
+pub type _CallFuncAliasAnyCallback = unsafe extern "C" fn(FuncAliasAny) -> AliasAny;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasAnyCallback: Option<_CallFuncAliasAnyCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasFunctionCallback(func: FuncAliasFunction) -> AliasFunction {
+    unsafe { __cross_call_master_CallFuncAliasFunctionCallback.expect("CallFuncAliasFunctionCallback function was not found")(func) }
+}
+pub type _CallFuncAliasFunctionCallback = unsafe extern "C" fn(FuncAliasFunction) -> AliasFunction;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasFunctionCallback: Option<_CallFuncAliasFunctionCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasBoolVectorCallback(func: FuncAliasBoolVector) -> AliasBoolVector {
+    unsafe { __cross_call_master_CallFuncAliasBoolVectorCallback.expect("CallFuncAliasBoolVectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasBoolVectorCallback = unsafe extern "C" fn(FuncAliasBoolVector) -> AliasBoolVector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasBoolVectorCallback: Option<_CallFuncAliasBoolVectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasChar8VectorCallback(func: FuncAliasChar8Vector) -> AliasChar8Vector {
+    unsafe { __cross_call_master_CallFuncAliasChar8VectorCallback.expect("CallFuncAliasChar8VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasChar8VectorCallback = unsafe extern "C" fn(FuncAliasChar8Vector) -> AliasChar8Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasChar8VectorCallback: Option<_CallFuncAliasChar8VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasChar16VectorCallback(func: FuncAliasChar16Vector) -> AliasChar16Vector {
+    unsafe { __cross_call_master_CallFuncAliasChar16VectorCallback.expect("CallFuncAliasChar16VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasChar16VectorCallback = unsafe extern "C" fn(FuncAliasChar16Vector) -> AliasChar16Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasChar16VectorCallback: Option<_CallFuncAliasChar16VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt8VectorCallback(func: FuncAliasInt8Vector) -> AliasInt8Vector {
+    unsafe { __cross_call_master_CallFuncAliasInt8VectorCallback.expect("CallFuncAliasInt8VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasInt8VectorCallback = unsafe extern "C" fn(FuncAliasInt8Vector) -> AliasInt8Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt8VectorCallback: Option<_CallFuncAliasInt8VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt16VectorCallback(func: FuncAliasInt16Vector) -> AliasInt16Vector {
+    unsafe { __cross_call_master_CallFuncAliasInt16VectorCallback.expect("CallFuncAliasInt16VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasInt16VectorCallback = unsafe extern "C" fn(FuncAliasInt16Vector) -> AliasInt16Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt16VectorCallback: Option<_CallFuncAliasInt16VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt32VectorCallback(func: FuncAliasInt32Vector) -> AliasInt32Vector {
+    unsafe { __cross_call_master_CallFuncAliasInt32VectorCallback.expect("CallFuncAliasInt32VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasInt32VectorCallback = unsafe extern "C" fn(FuncAliasInt32Vector) -> AliasInt32Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt32VectorCallback: Option<_CallFuncAliasInt32VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasInt64VectorCallback(func: FuncAliasInt64Vector) -> AliasInt64Vector {
+    unsafe { __cross_call_master_CallFuncAliasInt64VectorCallback.expect("CallFuncAliasInt64VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasInt64VectorCallback = unsafe extern "C" fn(FuncAliasInt64Vector) -> AliasInt64Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasInt64VectorCallback: Option<_CallFuncAliasInt64VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt8VectorCallback(func: FuncAliasUInt8Vector) -> AliasUInt8Vector {
+    unsafe { __cross_call_master_CallFuncAliasUInt8VectorCallback.expect("CallFuncAliasUInt8VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt8VectorCallback = unsafe extern "C" fn(FuncAliasUInt8Vector) -> AliasUInt8Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt8VectorCallback: Option<_CallFuncAliasUInt8VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt16VectorCallback(func: FuncAliasUInt16Vector) -> AliasUInt16Vector {
+    unsafe { __cross_call_master_CallFuncAliasUInt16VectorCallback.expect("CallFuncAliasUInt16VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt16VectorCallback = unsafe extern "C" fn(FuncAliasUInt16Vector) -> AliasUInt16Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt16VectorCallback: Option<_CallFuncAliasUInt16VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt32VectorCallback(func: FuncAliasUInt32Vector) -> AliasUInt32Vector {
+    unsafe { __cross_call_master_CallFuncAliasUInt32VectorCallback.expect("CallFuncAliasUInt32VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt32VectorCallback = unsafe extern "C" fn(FuncAliasUInt32Vector) -> AliasUInt32Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt32VectorCallback: Option<_CallFuncAliasUInt32VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasUInt64VectorCallback(func: FuncAliasUInt64Vector) -> AliasUInt64Vector {
+    unsafe { __cross_call_master_CallFuncAliasUInt64VectorCallback.expect("CallFuncAliasUInt64VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasUInt64VectorCallback = unsafe extern "C" fn(FuncAliasUInt64Vector) -> AliasUInt64Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasUInt64VectorCallback: Option<_CallFuncAliasUInt64VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasPtrVectorCallback(func: FuncAliasPtrVector) -> AliasPtrVector {
+    unsafe { __cross_call_master_CallFuncAliasPtrVectorCallback.expect("CallFuncAliasPtrVectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasPtrVectorCallback = unsafe extern "C" fn(FuncAliasPtrVector) -> AliasPtrVector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasPtrVectorCallback: Option<_CallFuncAliasPtrVectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasFloatVectorCallback(func: FuncAliasFloatVector) -> AliasFloatVector {
+    unsafe { __cross_call_master_CallFuncAliasFloatVectorCallback.expect("CallFuncAliasFloatVectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasFloatVectorCallback = unsafe extern "C" fn(FuncAliasFloatVector) -> AliasFloatVector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasFloatVectorCallback: Option<_CallFuncAliasFloatVectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasDoubleVectorCallback(func: FuncAliasDoubleVector) -> AliasDoubleVector {
+    unsafe { __cross_call_master_CallFuncAliasDoubleVectorCallback.expect("CallFuncAliasDoubleVectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasDoubleVectorCallback = unsafe extern "C" fn(FuncAliasDoubleVector) -> AliasDoubleVector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasDoubleVectorCallback: Option<_CallFuncAliasDoubleVectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasStringVectorCallback(func: FuncAliasStringVector) -> AliasStringVector {
+    unsafe { __cross_call_master_CallFuncAliasStringVectorCallback.expect("CallFuncAliasStringVectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasStringVectorCallback = unsafe extern "C" fn(FuncAliasStringVector) -> AliasStringVector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasStringVectorCallback: Option<_CallFuncAliasStringVectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasAnyVectorCallback(func: FuncAliasAnyVector) -> AliasAnyVector {
+    unsafe { __cross_call_master_CallFuncAliasAnyVectorCallback.expect("CallFuncAliasAnyVectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasAnyVectorCallback = unsafe extern "C" fn(FuncAliasAnyVector) -> AliasAnyVector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasAnyVectorCallback: Option<_CallFuncAliasAnyVectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasVec2VectorCallback(func: FuncAliasVec2Vector) -> AliasVec2Vector {
+    unsafe { __cross_call_master_CallFuncAliasVec2VectorCallback.expect("CallFuncAliasVec2VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasVec2VectorCallback = unsafe extern "C" fn(FuncAliasVec2Vector) -> AliasVec2Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasVec2VectorCallback: Option<_CallFuncAliasVec2VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasVec3VectorCallback(func: FuncAliasVec3Vector) -> AliasVec3Vector {
+    unsafe { __cross_call_master_CallFuncAliasVec3VectorCallback.expect("CallFuncAliasVec3VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasVec3VectorCallback = unsafe extern "C" fn(FuncAliasVec3Vector) -> AliasVec3Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasVec3VectorCallback: Option<_CallFuncAliasVec3VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasVec4VectorCallback(func: FuncAliasVec4Vector) -> AliasVec4Vector {
+    unsafe { __cross_call_master_CallFuncAliasVec4VectorCallback.expect("CallFuncAliasVec4VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasVec4VectorCallback = unsafe extern "C" fn(FuncAliasVec4Vector) -> AliasVec4Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasVec4VectorCallback: Option<_CallFuncAliasVec4VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasMat4x4VectorCallback(func: FuncAliasMat4x4Vector) -> AliasMat4x4Vector {
+    unsafe { __cross_call_master_CallFuncAliasMat4x4VectorCallback.expect("CallFuncAliasMat4x4VectorCallback function was not found")(func) }
+}
+pub type _CallFuncAliasMat4x4VectorCallback = unsafe extern "C" fn(FuncAliasMat4x4Vector) -> AliasMat4x4Vector;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasMat4x4VectorCallback: Option<_CallFuncAliasMat4x4VectorCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasVec2Callback(func: FuncAliasVec2) -> AliasVec2 {
+    unsafe { __cross_call_master_CallFuncAliasVec2Callback.expect("CallFuncAliasVec2Callback function was not found")(func) }
+}
+pub type _CallFuncAliasVec2Callback = unsafe extern "C" fn(FuncAliasVec2) -> AliasVec2;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasVec2Callback: Option<_CallFuncAliasVec2Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasVec3Callback(func: FuncAliasVec3) -> AliasVec3 {
+    unsafe { __cross_call_master_CallFuncAliasVec3Callback.expect("CallFuncAliasVec3Callback function was not found")(func) }
+}
+pub type _CallFuncAliasVec3Callback = unsafe extern "C" fn(FuncAliasVec3) -> AliasVec3;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasVec3Callback: Option<_CallFuncAliasVec3Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasVec4Callback(func: FuncAliasVec4) -> AliasVec4 {
+    unsafe { __cross_call_master_CallFuncAliasVec4Callback.expect("CallFuncAliasVec4Callback function was not found")(func) }
+}
+pub type _CallFuncAliasVec4Callback = unsafe extern "C" fn(FuncAliasVec4) -> AliasVec4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasVec4Callback: Option<_CallFuncAliasVec4Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasMat4x4Callback(func: FuncAliasMat4x4) -> AliasMat4x4 {
+    unsafe { __cross_call_master_CallFuncAliasMat4x4Callback.expect("CallFuncAliasMat4x4Callback function was not found")(func) }
+}
+pub type _CallFuncAliasMat4x4Callback = unsafe extern "C" fn(FuncAliasMat4x4) -> AliasMat4x4;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasMat4x4Callback: Option<_CallFuncAliasMat4x4Callback> = None;
+
+/// # Arguments
+/// * `func` - (function)
+#[allow(dead_code, non_snake_case)]
+pub fn CallFuncAliasAllCallback(func: FuncAliasAll) -> Str {
+    unsafe { __cross_call_master_CallFuncAliasAllCallback.expect("CallFuncAliasAllCallback function was not found")(func) }
+}
+pub type _CallFuncAliasAllCallback = unsafe extern "C" fn(FuncAliasAll) -> Str;
+#[allow(dead_code, non_upper_case_globals)]
+#[unsafe(no_mangle)]
+pub static mut __cross_call_master_CallFuncAliasAllCallback: Option<_CallFuncAliasAllCallback> = None;
+
+/// # Arguments
+/// * `func` - (function)
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc1Callback(func: Func1) -> i32 {
     unsafe { __cross_call_master_CallFunc1Callback.expect("CallFunc1Callback function was not found")(func) }
@@ -1538,9 +1826,6 @@ pub static mut __cross_call_master_CallFunc1Callback: Option<_CallFunc1Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// char8
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc2Callback(func: Func2) -> i8 {
     unsafe { __cross_call_master_CallFunc2Callback.expect("CallFunc2Callback function was not found")(func) }
@@ -1563,9 +1848,6 @@ pub static mut __cross_call_master_CallFunc3Callback: Option<_CallFunc3Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// vec4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc4Callback(func: Func4) -> Vec4 {
     unsafe { __cross_call_master_CallFunc4Callback.expect("CallFunc4Callback function was not found")(func) }
@@ -1577,9 +1859,6 @@ pub static mut __cross_call_master_CallFunc4Callback: Option<_CallFunc4Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc5Callback(func: Func5) -> bool {
     unsafe { __cross_call_master_CallFunc5Callback.expect("CallFunc5Callback function was not found")(func) }
@@ -1591,9 +1870,6 @@ pub static mut __cross_call_master_CallFunc5Callback: Option<_CallFunc5Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc6Callback(func: Func6) -> i64 {
     unsafe { __cross_call_master_CallFunc6Callback.expect("CallFunc6Callback function was not found")(func) }
@@ -1605,9 +1881,6 @@ pub static mut __cross_call_master_CallFunc6Callback: Option<_CallFunc6Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// double
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc7Callback(func: Func7) -> f64 {
     unsafe { __cross_call_master_CallFunc7Callback.expect("CallFunc7Callback function was not found")(func) }
@@ -1619,9 +1892,6 @@ pub static mut __cross_call_master_CallFunc7Callback: Option<_CallFunc7Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// mat4x4
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc8Callback(func: Func8) -> Mat4x4 {
     unsafe { __cross_call_master_CallFunc8Callback.expect("CallFunc8Callback function was not found")(func) }
@@ -1644,9 +1914,6 @@ pub static mut __cross_call_master_CallFunc9Callback: Option<_CallFunc9Callback>
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// uint32
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc10Callback(func: Func10) -> u32 {
     unsafe { __cross_call_master_CallFunc10Callback.expect("CallFunc10Callback function was not found")(func) }
@@ -1658,9 +1925,6 @@ pub static mut __cross_call_master_CallFunc10Callback: Option<_CallFunc10Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc11Callback(func: Func11) -> usize {
     unsafe { __cross_call_master_CallFunc11Callback.expect("CallFunc11Callback function was not found")(func) }
@@ -1672,9 +1936,6 @@ pub static mut __cross_call_master_CallFunc11Callback: Option<_CallFunc11Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc12Callback(func: Func12) -> bool {
     unsafe { __cross_call_master_CallFunc12Callback.expect("CallFunc12Callback function was not found")(func) }
@@ -1686,9 +1947,6 @@ pub static mut __cross_call_master_CallFunc12Callback: Option<_CallFunc12Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc13Callback(func: Func13) -> Str {
     unsafe { __cross_call_master_CallFunc13Callback.expect("CallFunc13Callback function was not found")(func) }
@@ -1700,9 +1958,6 @@ pub static mut __cross_call_master_CallFunc13Callback: Option<_CallFunc13Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string[]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc14Callback(func: Func14) -> Arr<Str> {
     unsafe { __cross_call_master_CallFunc14Callback.expect("CallFunc14Callback function was not found")(func) }
@@ -1714,9 +1969,6 @@ pub static mut __cross_call_master_CallFunc14Callback: Option<_CallFunc14Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// int16
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc15Callback(func: Func15) -> i16 {
     unsafe { __cross_call_master_CallFunc15Callback.expect("CallFunc15Callback function was not found")(func) }
@@ -1728,9 +1980,6 @@ pub static mut __cross_call_master_CallFunc15Callback: Option<_CallFunc15Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc16Callback(func: Func16) -> usize {
     unsafe { __cross_call_master_CallFunc16Callback.expect("CallFunc16Callback function was not found")(func) }
@@ -1742,9 +1991,6 @@ pub static mut __cross_call_master_CallFunc16Callback: Option<_CallFunc16Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc17Callback(func: Func17) -> Str {
     unsafe { __cross_call_master_CallFunc17Callback.expect("CallFunc17Callback function was not found")(func) }
@@ -1756,9 +2002,6 @@ pub static mut __cross_call_master_CallFunc17Callback: Option<_CallFunc17Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc18Callback(func: Func18) -> Str {
     unsafe { __cross_call_master_CallFunc18Callback.expect("CallFunc18Callback function was not found")(func) }
@@ -1770,9 +2013,6 @@ pub static mut __cross_call_master_CallFunc18Callback: Option<_CallFunc18Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc19Callback(func: Func19) -> Str {
     unsafe { __cross_call_master_CallFunc19Callback.expect("CallFunc19Callback function was not found")(func) }
@@ -1784,9 +2024,6 @@ pub static mut __cross_call_master_CallFunc19Callback: Option<_CallFunc19Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc20Callback(func: Func20) -> Str {
     unsafe { __cross_call_master_CallFunc20Callback.expect("CallFunc20Callback function was not found")(func) }
@@ -1798,9 +2035,6 @@ pub static mut __cross_call_master_CallFunc20Callback: Option<_CallFunc20Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc21Callback(func: Func21) -> Str {
     unsafe { __cross_call_master_CallFunc21Callback.expect("CallFunc21Callback function was not found")(func) }
@@ -1812,9 +2046,6 @@ pub static mut __cross_call_master_CallFunc21Callback: Option<_CallFunc21Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc22Callback(func: Func22) -> Str {
     unsafe { __cross_call_master_CallFunc22Callback.expect("CallFunc22Callback function was not found")(func) }
@@ -1826,9 +2057,6 @@ pub static mut __cross_call_master_CallFunc22Callback: Option<_CallFunc22Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc23Callback(func: Func23) -> Str {
     unsafe { __cross_call_master_CallFunc23Callback.expect("CallFunc23Callback function was not found")(func) }
@@ -1840,9 +2068,6 @@ pub static mut __cross_call_master_CallFunc23Callback: Option<_CallFunc23Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc24Callback(func: Func24) -> Str {
     unsafe { __cross_call_master_CallFunc24Callback.expect("CallFunc24Callback function was not found")(func) }
@@ -1854,9 +2079,6 @@ pub static mut __cross_call_master_CallFunc24Callback: Option<_CallFunc24Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc25Callback(func: Func25) -> Str {
     unsafe { __cross_call_master_CallFunc25Callback.expect("CallFunc25Callback function was not found")(func) }
@@ -1868,9 +2090,6 @@ pub static mut __cross_call_master_CallFunc25Callback: Option<_CallFunc25Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc26Callback(func: Func26) -> Str {
     unsafe { __cross_call_master_CallFunc26Callback.expect("CallFunc26Callback function was not found")(func) }
@@ -1882,9 +2101,6 @@ pub static mut __cross_call_master_CallFunc26Callback: Option<_CallFunc26Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc27Callback(func: Func27) -> Str {
     unsafe { __cross_call_master_CallFunc27Callback.expect("CallFunc27Callback function was not found")(func) }
@@ -1896,9 +2112,6 @@ pub static mut __cross_call_master_CallFunc27Callback: Option<_CallFunc27Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc28Callback(func: Func28) -> Str {
     unsafe { __cross_call_master_CallFunc28Callback.expect("CallFunc28Callback function was not found")(func) }
@@ -1910,9 +2123,6 @@ pub static mut __cross_call_master_CallFunc28Callback: Option<_CallFunc28Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc29Callback(func: Func29) -> Str {
     unsafe { __cross_call_master_CallFunc29Callback.expect("CallFunc29Callback function was not found")(func) }
@@ -1924,9 +2134,6 @@ pub static mut __cross_call_master_CallFunc29Callback: Option<_CallFunc29Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc30Callback(func: Func30) -> Str {
     unsafe { __cross_call_master_CallFunc30Callback.expect("CallFunc30Callback function was not found")(func) }
@@ -1938,9 +2145,6 @@ pub static mut __cross_call_master_CallFunc30Callback: Option<_CallFunc30Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc31Callback(func: Func31) -> Str {
     unsafe { __cross_call_master_CallFunc31Callback.expect("CallFunc31Callback function was not found")(func) }
@@ -1952,9 +2156,6 @@ pub static mut __cross_call_master_CallFunc31Callback: Option<_CallFunc31Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc32Callback(func: Func32) -> Str {
     unsafe { __cross_call_master_CallFunc32Callback.expect("CallFunc32Callback function was not found")(func) }
@@ -1966,9 +2167,6 @@ pub static mut __cross_call_master_CallFunc32Callback: Option<_CallFunc32Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc33Callback(func: Func33) -> Str {
     unsafe { __cross_call_master_CallFunc33Callback.expect("CallFunc33Callback function was not found")(func) }
@@ -1980,9 +2178,6 @@ pub static mut __cross_call_master_CallFunc33Callback: Option<_CallFunc33Callbac
 
 /// # Arguments
 /// * `func` - (function)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncEnumCallback(func: FuncEnum) -> Str {
     unsafe { __cross_call_master_CallFuncEnumCallback.expect("CallFuncEnumCallback function was not found")(func) }

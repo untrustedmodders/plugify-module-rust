@@ -5,15 +5,14 @@ use std::sync::RwLock;
 #[allow(unused_imports)]
 use super::enums::*;
 #[allow(unused_imports)]
+use super::aliases::*;
+#[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
 use plugify::{get_method_ptr, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
 
 /// # Arguments
 /// * `initialValue` - (int64)
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCreate(initialValue: i64) -> usize {
     unsafe { __cross_call_master_CounterCreate.expect("CounterCreate function was not found")(initialValue) }
@@ -23,9 +22,6 @@ pub type _CounterCreate = unsafe extern "C" fn(i64) -> usize;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_CounterCreate: Option<_CounterCreate> = None;
 
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCreateZero() -> usize {
     unsafe { __cross_call_master_CounterCreateZero.expect("CounterCreateZero function was not found")() }
@@ -37,9 +33,6 @@ pub static mut __cross_call_master_CounterCreateZero: Option<_CounterCreateZero>
 
 /// # Arguments
 /// * `counter` - (ptr64)
-///
-/// # Returns
-/// int64
 #[allow(dead_code, non_snake_case)]
 pub fn CounterGetValue(counter: usize) -> i64 {
     unsafe { __cross_call_master_CounterGetValue.expect("CounterGetValue function was not found")(counter) }
@@ -108,9 +101,6 @@ pub static mut __cross_call_master_CounterReset: Option<_CounterReset> = None;
 
 /// # Arguments
 /// * `counter` - (ptr64)
-///
-/// # Returns
-/// bool
 #[allow(dead_code, non_snake_case)]
 pub fn CounterIsPositive(counter: usize) -> bool {
     unsafe { __cross_call_master_CounterIsPositive.expect("CounterIsPositive function was not found")(counter) }
@@ -123,9 +113,6 @@ pub static mut __cross_call_master_CounterIsPositive: Option<_CounterIsPositive>
 /// # Arguments
 /// * `value1` - (int64)
 /// * `value2` - (int64)
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCompare(value1: i64, value2: i64) -> i32 {
     unsafe { __cross_call_master_CounterCompare.expect("CounterCompare function was not found")(value1, value2) }
@@ -137,9 +124,6 @@ pub static mut __cross_call_master_CounterCompare: Option<_CounterCompare> = Non
 
 /// # Arguments
 /// * `values` - (int64[])
-///
-/// # Returns
-/// int64
 #[allow(dead_code, non_snake_case)]
 pub fn CounterSum(values: &Arr<i64>) -> i64 {
     unsafe { __cross_call_master_CounterSum.expect("CounterSum function was not found")(values) }

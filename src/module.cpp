@@ -48,7 +48,7 @@ void RustLanguageModule::OnMethodExport(const Extension& plugin) {
 }
 
 Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
-	fs::path assemblyPath(plugin.GetLocation());
+	std::filesystem::path assemblyPath(plugin.GetLocation());
 	assemblyPath /= std::format("{}" RUSTLM_LIBRARY_SUFFIX, plugin.GetEntry());
 
 	LoadFlag flags = LoadFlag::LazyBinding | LoadFlag::NoUnload;

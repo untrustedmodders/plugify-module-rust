@@ -797,6 +797,147 @@ pub extern "C" fn ParamAllPrimitives(
 
 #[unsafe(no_mangle)]
 #[allow(non_snake_case)]
+pub extern "C" fn ParamAllAliases(
+    aBool: AliasBool,
+    aChar8: AliasChar8,
+    aChar16: AliasChar16,
+    aInt8: AliasInt8,
+    aInt16: AliasInt16,
+    aInt32: AliasInt32,
+    aInt64: AliasInt64,
+    aPtr: AliasPtr,
+    aFloat: AliasFloat,
+    aDouble: AliasDouble,
+    aString: &AliasString,
+    aAny: &AliasAny,
+    aVec2: &AliasVec2,
+    aVec3: &AliasVec3,
+    aVec4: &AliasVec4,
+    aMat4x4: &AliasMat4x4,
+    aBoolVec: &AliasBoolVector,
+    aChar8Vec: &AliasChar8Vector,
+    aChar16Vec: &AliasChar16Vector,
+    aInt8Vec: &AliasInt8Vector,
+    aInt16Vec: &AliasInt16Vector,
+    aInt32Vec: &AliasInt32Vector,
+    aInt64Vec: &AliasInt64Vector,
+    aPtrVec: &AliasPtrVector,
+    aFloatVec: &AliasFloatVector,
+    aDoubleVec: &AliasDoubleVector,
+    aStringVec: &AliasStringVector,
+    aAnyVec: &AliasAnyVector,
+    aVec2Vec: &AliasVec2Vector,
+    aVec3Vec: &AliasVec3Vector,
+    aVec4Vec: &AliasVec4Vector
+) -> i32 {
+    let _ = format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        aBool,
+        aChar8,
+        aChar16,
+        aInt8,
+        aInt16,
+        aInt32,
+        aInt64,
+        aPtr,
+        aFloat,
+        aDouble,
+        aString,
+        aAny,
+        aVec2,
+        aVec3,
+        aVec4,
+        aMat4x4,
+        aBoolVec,
+        aChar8Vec,
+        aChar16Vec,
+        aInt8Vec,
+        aInt16Vec,
+        aInt32Vec,
+        aInt64Vec,
+        aPtrVec,
+        aFloatVec,
+        aDoubleVec,
+        aStringVec,
+        aAnyVec,
+        aVec2Vec,
+        aVec3Vec,
+        aVec4Vec
+    );
+    -1
+}
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn ParamAllRefAliases(
+    aBool: &mut AliasBool,
+    aChar8: &mut AliasChar8,
+    aChar16: &mut AliasChar16,
+    aInt8: &mut AliasInt8,
+    aInt16: &mut AliasInt16,
+    aInt32: &mut AliasInt32,
+    aInt64: &mut AliasInt64,
+    aPtr: &mut AliasPtr,
+    aFloat: &mut AliasFloat,
+    aDouble: &mut AliasDouble,
+    aString: &mut AliasString,
+    aAny: &mut AliasAny,
+    aVec2: &mut AliasVec2,
+    aVec3: &mut AliasVec3,
+    aVec4: &mut AliasVec4,
+    aMat4x4: &mut AliasMat4x4,
+    aBoolVec: &mut AliasBoolVector,
+    aChar8Vec: &mut AliasChar8Vector,
+    aChar16Vec: &mut AliasChar16Vector,
+    aInt8Vec: &mut AliasInt8Vector,
+    aInt16Vec: &mut AliasInt16Vector,
+    aInt32Vec: &mut AliasInt32Vector,
+    aInt64Vec: &mut AliasInt64Vector,
+    aPtrVec: &mut AliasPtrVector,
+    aFloatVec: &mut AliasFloatVector,
+    aDoubleVec: &mut AliasDoubleVector,
+    aStringVec: &mut AliasStringVector,
+    aAnyVec: &mut AliasAnyVector,
+    aVec2Vec: &mut AliasVec2Vector,
+    aVec3Vec: &mut AliasVec3Vector,
+    aVec4Vec: &mut AliasVec4Vector
+) -> i64 {
+    *aBool = true;
+    *aChar8 = b'A' as i8;
+    *aChar16 = b'0' as u16;
+    *aInt8 = 1;
+    *aInt16 = 2;
+    *aInt32 = 3;
+    *aInt64 = 4;
+    *aPtr = 0;
+    *aFloat = 5.0;
+    *aDouble = 5.0;
+    *aString = Str::from("seven");
+    aAny.set(&Any::from("six"));
+    *aVec2 = Vec2 { x: 0.1, y: 0.2 };
+    *aVec3 = Vec3 { x: 0.3, y: 0.4, z: 0.5 };
+    *aVec4 = Vec4 { x: 0.6, y: 0.7, z: 0.8, w: 0.9 };
+    *aMat4x4 = Mat4x4 { m: [[1.4, 1.1, 1.2, 1.3], [2.4, 2.1, 2.2, 2.3], [3.4, 3.1, 3.2, 3.3], [4.4, 4.1, 4.2, 4.3]] };
+    aBoolVec.set(&vec![*aBool]);
+    aChar8Vec.set(&vec![*aChar8]);
+    aChar16Vec.set(&vec![*aChar16]);
+    aInt8Vec.set(&vec![*aInt8]);
+    aInt16Vec.set(&vec![*aInt16]);
+    aInt32Vec.set(&vec![*aInt32]);
+    aInt64Vec.set(&vec![*aInt64]);
+    aPtrVec.set(&vec![*aPtr]);
+    aFloatVec.set(&vec![*aFloat]);
+    aDoubleVec.set(&vec![*aDouble]);
+    aStringVec.set(&vec![aString.clone()]);
+    aAnyVec.set(vec![aAny.clone()].as_slice());
+    aVec2Vec.set(&vec![*aVec2]);
+    aVec3Vec.set(&vec![*aVec3]);
+    aVec4Vec.set(&vec![*aVec4]);
+    24
+}
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
 pub extern "C" fn ParamEnum(p1: Example, p2: &Arr<Example>) -> i32 {
     let sum: i32 = p2.iter().map(|e| *e as i32).sum();
     (p1 as i32) + sum
@@ -1025,7 +1166,7 @@ pub extern "C" fn CallFuncAny(func: FuncAny) -> Var {
 
 #[unsafe(no_mangle)]
 #[allow(non_snake_case)]
-pub extern "C" fn CallFuncFunction(func: FuncFunction) -> usize {
+pub extern "C" fn CallFuncFunction(func: FuncFunction) -> FuncFunctionInner {
     unsafe { func() }
 }
 
@@ -1843,6 +1984,177 @@ pub extern "C" fn CallFuncEnum(func: FuncEnum) -> Str {
     Str::from(format!("{}|{}", ArrFormat::format(&ret), ArrFormat::format(&p2)))
 }
 
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasBool(func: FuncAliasBool) -> AliasBool { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasChar8(func: FuncAliasChar8) -> AliasChar8 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasChar16(func: FuncAliasChar16) -> AliasChar16 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt8(func: FuncAliasInt8) -> AliasInt8 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt16(func: FuncAliasInt16) -> AliasInt16 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt32(func: FuncAliasInt32) -> AliasInt32 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt64(func: FuncAliasInt64) -> AliasInt64 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt8(func: FuncAliasUInt8) -> AliasUInt8 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt16(func: FuncAliasUInt16) -> AliasUInt16 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt32(func: FuncAliasUInt32) -> AliasUInt32 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt64(func: FuncAliasUInt64) -> AliasUInt64 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasPtr(func: FuncAliasPtr) -> AliasPtr { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasFloat(func: FuncAliasFloat) -> AliasFloat { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasDouble(func: FuncAliasDouble) -> AliasDouble { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasFunction(func: FuncAliasFunction) -> AliasFunction { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasString(func: FuncAliasString) -> AliasString { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasAny(func: FuncAliasAny) -> AliasAny { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasBoolVector(func: FuncAliasBoolVector) -> AliasBoolVector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasChar8Vector(func: FuncAliasChar8Vector) -> AliasChar8Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasChar16Vector(func: FuncAliasChar16Vector) -> AliasChar16Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt8Vector(func: FuncAliasInt8Vector) -> AliasInt8Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt16Vector(func: FuncAliasInt16Vector) -> AliasInt16Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt32Vector(func: FuncAliasInt32Vector) -> AliasInt32Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasInt64Vector(func: FuncAliasInt64Vector) -> AliasInt64Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt8Vector(func: FuncAliasUInt8Vector) -> AliasUInt8Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt16Vector(func: FuncAliasUInt16Vector) -> AliasUInt16Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt32Vector(func: FuncAliasUInt32Vector) -> AliasUInt32Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasUInt64Vector(func: FuncAliasUInt64Vector) -> AliasUInt64Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasPtrVector(func: FuncAliasPtrVector) -> AliasPtrVector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasFloatVector(func: FuncAliasFloatVector) -> AliasFloatVector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasDoubleVector(func: FuncAliasDoubleVector) -> AliasDoubleVector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasStringVector(func: FuncAliasStringVector) -> AliasStringVector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasAnyVector(func: FuncAliasAnyVector) -> AliasAnyVector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasVec2Vector(func: FuncAliasVec2Vector) -> AliasVec2Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasVec3Vector(func: FuncAliasVec3Vector) -> AliasVec3Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasVec4Vector(func: FuncAliasVec4Vector) -> AliasVec4Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasMat4x4Vector(func: FuncAliasMat4x4Vector) -> AliasMat4x4Vector { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasVec2(func: FuncAliasVec2) -> AliasVec2 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasVec3(func: FuncAliasVec3) -> AliasVec3 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasVec4(func: FuncAliasVec4) -> AliasVec4 { unsafe { func() } }
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasMat4x4(func: FuncAliasMat4x4) -> AliasMat4x4 { unsafe { func() } }
+
+#[unsafe(no_mangle)]
+#[allow(non_snake_case)]
+pub extern "C" fn CallFuncAliasAll(func: FuncAliasAll) -> Str {
+    let aBool: AliasBool = true;
+    let aChar8: AliasChar8  = b'A' as i8;
+    let aChar16: AliasChar16 = b'0' as u16;
+    let aInt8: AliasInt8 = 1;
+    let aInt16: AliasInt16 = 2;
+    let aInt32: AliasInt32 = 3;
+    let aInt64: AliasInt64 = 4;
+    let aPtr: AliasPtr = 0;
+    let aFloat: AliasFloat  = 5.5;
+    let aDouble: AliasDouble = 6.6;
+    let aString: AliasString = Str::from("seven");
+    let aAny: AliasAny = Var::new(&Any::from("six"));
+    let aVec2 = AliasVec2 { x: 0.1, y: 0.2 };
+    let aVec3 = AliasVec3 { x: 0.3, y: 0.4, z: 0.5 };
+    let aVec4 = AliasVec4 { x: 0.6, y: 0.7, z: 0.8, w: 0.9 };
+    let aMat4x4 = AliasMat4x4 {
+        m: [
+            [1.4, 1.1, 1.2, 1.3],
+            [2.4, 2.1, 2.2, 2.3],
+            [3.4, 3.1, 3.2, 3.3],
+            [4.4, 4.1, 4.2, 4.3],
+        ],
+    };
+    let aBoolVec:   AliasBoolVector = Arr::from(vec![aBool]);
+    let aChar8Vec:  AliasChar8Vector = Arr::from(vec![aChar8]);
+    let aChar16Vec: AliasChar16Vector = Arr::from(vec![aChar16]);
+    let aInt8Vec:   AliasInt8Vector  = Arr::from(vec![aInt8]);
+    let aInt16Vec:  AliasInt16Vector = Arr::from(vec![aInt16]);
+    let aInt32Vec:  AliasInt32Vector = Arr::from(vec![aInt32]);
+    let aInt64Vec:  AliasInt64Vector = Arr::from(vec![aInt64]);
+    let aPtrVec:    AliasPtrVector = Arr::from(vec![aPtr]);
+    let aFloatVec:  AliasFloatVector = Arr::from(vec![aFloat]);
+    let aDoubleVec: AliasDoubleVector = Arr::from(vec![aDouble]);
+    let aStringVec: AliasStringVector = Arr::from(vec![aString.clone()]);
+    let aAnyVec:    AliasAnyVector = Arr::from(vec![aAny.clone()]);
+    let aVec2Vec:   AliasVec2Vector = Arr::from(vec![aVec2]);
+    let aVec3Vec:   AliasVec3Vector = Arr::from(vec![aVec3]);
+    let aVec4Vec:   AliasVec4Vector = Arr::from(vec![aVec4]);
+
+    unsafe {
+        let result = func(aBool, aChar8, aChar16, aInt8, aInt16, aInt32, aInt64, aPtr, aFloat, aDouble, &aString, &aAny, &aVec2, &aVec3, &aVec4, &aMat4x4, &aBoolVec, &aChar8Vec, &aChar16Vec, &aInt8Vec, &aInt16Vec, &aInt32Vec, &aInt64Vec, &aPtrVec, &aFloatVec, &aDoubleVec, &aStringVec, &aAnyVec, &aVec2Vec, &aVec3Vec, &aVec4Vec);
+        result
+    }
+}
 
 // ============================================================================
 // Mock Functions for ReverseCall Tests
@@ -2308,6 +2620,258 @@ extern "C" fn mock_func33(variant: &mut Var) {
 extern "C" fn mock_func_enum(p1: MasterExample, p2: &mut Arr<MasterExample>) -> Arr<MasterExample> {
     p2.set(&[MasterExample::First, MasterExample::Second, MasterExample::Third]);
     Arr::from_slice(&[p1, MasterExample::Forth])
+}
+
+extern "C" fn mock_alias_bool() -> AliasBool { true }
+extern "C" fn mock_alias_char8() -> AliasChar8 { b'A' as i8 }
+extern "C" fn mock_alias_char16() -> AliasChar16 { 'Z' as u16 }
+extern "C" fn mock_alias_int8() -> AliasInt8 { 10 }
+extern "C" fn mock_alias_int16() -> AliasInt16 { 100 }
+extern "C" fn mock_alias_int32() -> AliasInt32 { 1000 }
+extern "C" fn mock_alias_int64() -> AliasInt64 { 10000 }
+extern "C" fn mock_alias_uint8() -> AliasUInt8 { 20 }
+extern "C" fn mock_alias_uint16() -> AliasUInt16 { 200 }
+extern "C" fn mock_alias_uint32() -> AliasUInt32 { 2000 }
+extern "C" fn mock_alias_uint64() -> AliasUInt64 { 20000 }
+extern "C" fn mock_alias_ptr() -> AliasPtr { 0 }
+extern "C" fn mock_alias_float() -> AliasFloat { 3.14 }
+extern "C" fn mock_alias_double() -> AliasDouble { 6.28 }
+//extern "C" fn mock_alias_function() -> AliasFunction { mock_void }
+extern "C" fn mock_alias_string() -> AliasString { Str::from("Test string") }
+extern "C" fn mock_alias_any() -> AliasAny { Var::new(&Any::Char16('A' as u16)) }
+
+extern "C" fn mock_alias_bool_vector() -> AliasBoolVector {
+    Arr::from(vec![true, false])
+}
+
+extern "C" fn mock_alias_char8_vector() -> AliasChar8Vector {
+    Arr::from(vec![b'A' as i8, b'B' as i8])
+}
+
+extern "C" fn mock_alias_char16_vector() -> AliasChar16Vector {
+    Arr::from(vec!['A' as u16, 'B' as u16])
+}
+
+extern "C" fn mock_alias_int8_vector() -> AliasInt8Vector {
+    Arr::from(vec![10, 20])
+}
+
+extern "C" fn mock_alias_int16_vector() -> AliasInt16Vector {
+    Arr::from(vec![100, 200])
+}
+
+extern "C" fn mock_alias_int32_vector() -> AliasInt32Vector {
+    Arr::from(vec![1000, 2000])
+}
+
+extern "C" fn mock_alias_int64_vector() -> AliasInt64Vector {
+    Arr::from(vec![10000, 20000])
+}
+
+extern "C" fn mock_alias_uint8_vector() -> AliasUInt8Vector {
+    Arr::from(vec![20, 30])
+}
+
+extern "C" fn mock_alias_uint16_vector() -> AliasUInt16Vector {
+    Arr::from(vec![200, 300])
+}
+
+extern "C" fn mock_alias_uint32_vector() -> AliasUInt32Vector {
+    Arr::from(vec![2000, 3000])
+}
+
+extern "C" fn mock_alias_uint64_vector() -> AliasUInt64Vector {
+    Arr::from(vec![20000, 30000])
+}
+
+extern "C" fn mock_alias_ptr_vector() -> AliasPtrVector {
+    Arr::from(vec![0, 1])
+}
+
+extern "C" fn mock_alias_float_vector() -> AliasFloatVector {
+    Arr::from(vec![1.1, 2.2])
+}
+
+extern "C" fn mock_alias_double_vector() -> AliasDoubleVector {
+    Arr::from(vec![3.3, 4.4])
+}
+
+extern "C" fn mock_alias_string_vector() -> AliasStringVector {
+    Arr::from(vec![Str::from("Hello"), Str::from("World")])
+}
+
+extern "C" fn mock_alias_any_vector() -> AliasAnyVector {
+    Arr::from(vec![
+        Var::new(&Any::from("Hello")),
+        Var::new(&Any::from(3.14f32)),
+        Var::new(&Any::from(6.28f64)),
+        Var::new(&Any::from(1i32)),
+        Var::new(&Any::from(0xDEADBEAF_usize)),
+    ])
+}
+
+extern "C" fn mock_alias_vec2_vector() -> AliasVec2Vector {
+    Arr::from(vec![
+        Vec2 { x: 0.5, y: -1.2 },
+        Vec2 { x: 3.4, y: 7.8 },
+        Vec2 { x: -6.7, y: 2.3 },
+        Vec2 { x: 8.9, y: -4.5 },
+        Vec2 { x: 0.0, y: 0.0 },
+    ])
+}
+
+extern "C" fn mock_alias_vec3_vector() -> AliasVec3Vector {
+    Arr::from(vec![
+        Vec3 { x: 2.1, y: 3.2, z: 4.3 },
+        Vec3 { x: -5.4, y: 6.5, z: -7.6 },
+        Vec3 { x: 8.7, y: 9.8, z: 0.1 },
+        Vec3 { x: 1.2, y: -3.3, z: 4.4 },
+        Vec3 { x: -5.5, y: 6.6, z: -7.7 },
+    ])
+}
+
+extern "C" fn mock_alias_vec4_vector() -> AliasVec4Vector {
+    Arr::from(vec![
+        Vec4 { x: 0.1, y: 1.2, z: 2.3, w: 3.4 },
+        Vec4 { x: -4.5, y: 5.6, z: 6.7, w: -7.8 },
+        Vec4 { x: 8.9, y: -9.0, z: 10.1, w: -11.2 },
+        Vec4 { x: 12.3, y: 13.4, z: 14.5, w: 15.6 },
+        Vec4 { x: -16.7, y: 17.8, z: 18.9, w: -19.0 },
+    ])
+}
+
+extern "C" fn mock_alias_mat4x4_vector() -> AliasMat4x4Vector {
+    Arr::from(vec![
+        // Identity matrix
+        Mat4x4 {
+            m: [
+                [1.0, 0.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 0.0, 0.0, 1.0],
+            ]
+        },
+        // Random matrix #1
+        Mat4x4 {
+            m: [
+                [0.5, 1.0, 1.5, 2.0],
+                [2.5, 3.0, 3.5, 4.0],
+                [4.5, 5.0, 5.5, 6.0],
+                [6.5, 7.0, 7.5, 8.0],
+            ]
+        },
+        // Random matrix #2
+        Mat4x4 {
+            m: [
+                [-1.0, -2.0, -3.0, -4.0],
+                [-5.0, -6.0, -7.0, -8.0],
+                [-9.0, -10.0, -11.0, -12.0],
+                [-13.0, -14.0, -15.0, -16.0],
+            ]
+        },
+        // Random matrix #3
+        Mat4x4 {
+            m: [
+                [1.1, 2.2, 3.3, 4.4],
+                [5.5, 6.6, 7.7, 8.8],
+                [9.9, 10.0, 11.1, 12.2],
+                [13.3, 14.4, 15.5, 16.6],
+            ]
+        },
+    ])
+}
+
+extern "C" fn mock_alias_vec2() -> AliasVec2 {
+    Vec2 { x: 1.0, y: 2.0 }
+}
+
+extern "C" fn mock_alias_vec3() -> AliasVec3 {
+    Vec3 { x: 1.0, y: 2.0, z: 3.0 }
+}
+
+extern "C" fn mock_alias_vec4() -> AliasVec4 {
+    Vec4 { x: 1.0, y: 2.0, z: 3.0, w: 4.0 }
+}
+
+extern "C" fn mock_alias_mat4x4() -> AliasMat4x4 {
+    Mat4x4 {
+        m: [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+        ]
+    }
+}
+
+#[allow(non_snake_case)]
+extern "C" fn mock_alias_all(
+    aBool: AliasBool,
+    aChar8: AliasChar8,
+    aChar16: AliasChar16,
+    aInt8: AliasInt8,
+    aInt16: AliasInt16,
+    aInt32: AliasInt32,
+    aInt64: AliasInt64,
+    aPtr: AliasPtr,
+    aFloat: AliasFloat,
+    aDouble: AliasDouble,
+    aString: &AliasString,
+    aAny: &AliasAny,
+    aVec2: &AliasVec2,
+    aVec3: &AliasVec3,
+    aVec4: &AliasVec4,
+    aMat4x4: &AliasMat4x4,
+    aBoolVec: &AliasBoolVector,
+    aChar8Vec: &AliasChar8Vector,
+    aChar16Vec: &AliasChar16Vector,
+    aInt8Vec: &AliasInt8Vector,
+    aInt16Vec: &AliasInt16Vector,
+    aInt32Vec: &AliasInt32Vector,
+    aInt64Vec: &AliasInt64Vector,
+    aPtrVec: &AliasPtrVector,
+    aFloatVec: &AliasFloatVector,
+    aDoubleVec: &AliasDoubleVector,
+    aStringVec: &AliasStringVector,
+    aAnyVec: &AliasAnyVector,
+    aVec2Vec: &AliasVec2Vector,
+    aVec3Vec: &AliasVec3Vector,
+    aVec4Vec: &AliasVec4Vector
+) -> Str {
+    Str::from(format!(
+        "{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+        aBool,
+        aChar8,
+        aChar16,
+        aInt8,
+        aInt16,
+        aInt32,
+        aInt64,
+        aPtr,
+        aFloat,
+        aDouble,
+        aString,
+        aAny,
+        aVec2,
+        aVec3,
+        aVec4,
+        aMat4x4,
+        aBoolVec,
+        aChar8Vec,
+        aChar16Vec,
+        aInt8Vec,
+        aInt16Vec,
+        aInt32Vec,
+        aInt64Vec,
+        aPtrVec,
+        aFloatVec,
+        aDoubleVec,
+        aStringVec,
+        aAnyVec,
+        aVec2Vec,
+        aVec3Vec,
+        aVec4Vec
+    ))
 }
 
 #[cfg(feature = "verbose")]
@@ -2938,6 +3502,96 @@ pub extern "C" fn ReverseCall(test: &Str) {
             let result = ParamAllPrimitivesCallback(true, b'%' as i8, 0x2622, -1, -1000, -1000000, -1000000000000, 200, 50000, 3000000000, 9999999999, 0xfedcbaabcdef, 0.001, 987654.456789);
             ReverseReturn(&Str::from(format!("{}", result)));
         }
+        "ParamAllAliases" => {
+            let aBool: AliasBool = true;
+            let aChar8: AliasChar8 = b'A' as i8;
+            let aChar16: AliasChar16 = b'0' as u16;
+            let aInt8: AliasInt8 = 1;
+            let aInt16: AliasInt16 = 2;
+            let aInt32: AliasInt32 = 3;
+            let aInt64: AliasInt64 = 4;
+            let aPtr: AliasPtr = 0;
+            let aFloat: AliasFloat = 5.5;
+            let aDouble: AliasDouble = 6.6;
+            let aString: AliasString = Str::from("seven");
+            let aAny: AliasAny = Var::new(&Any::from("six"));
+            let aVec2 = AliasVec2 { x: 0.1, y: 0.2 };
+            let aVec3 = AliasVec3 { x: 0.3, y: 0.4, z: 0.5 };
+            let aVec4 = AliasVec4 { x: 0.6, y: 0.7, z: 0.8, w: 0.9 };
+            let aMat4x4 = AliasMat4x4 {
+                m: [
+                    [1.4, 1.1, 1.2, 1.3],
+                    [2.4, 2.1, 2.2, 2.3],
+                    [3.4, 3.1, 3.2, 3.3],
+                    [4.4, 4.1, 4.2, 4.3],
+                ],
+            };
+            let aBoolVec: AliasBoolVector = Arr::from(vec![aBool]);
+            let aChar8Vec: AliasChar8Vector = Arr::from(vec![aChar8]);
+            let aChar16Vec: AliasChar16Vector = Arr::from(vec![aChar16]);
+            let aInt8Vec: AliasInt8Vector = Arr::from(vec![aInt8]);
+            let aInt16Vec: AliasInt16Vector = Arr::from(vec![aInt16]);
+            let aInt32Vec: AliasInt32Vector = Arr::from(vec![aInt32]);
+            let aInt64Vec: AliasInt64Vector = Arr::from(vec![aInt64]);
+            let aPtrVec: AliasPtrVector = Arr::from(vec![aPtr]);
+            let aFloatVec: AliasFloatVector = Arr::from(vec![aFloat]);
+            let aDoubleVec: AliasDoubleVector = Arr::from(vec![aDouble]);
+            let aStringVec: AliasStringVector = Arr::from(vec![aString.clone()]);
+            let aAnyVec: AliasAnyVector = Arr::from(vec![aAny.clone()]);
+            let aVec2Vec: AliasVec2Vector = Arr::from(vec![aVec2]);
+            let aVec3Vec: AliasVec3Vector = Arr::from(vec![aVec3]);
+            let aVec4Vec: AliasVec4Vector = Arr::from(vec![aVec4]);
+            let result = ParamAllAliasesCallback(
+                aBool, aChar8, aChar16, aInt8, aInt16, aInt32, aInt64, aPtr, aFloat, aDouble,
+                &aString, &aAny, &aVec2, &aVec3, &aVec4, &aMat4x4, &aBoolVec, &aChar8Vec,
+                &aChar16Vec, &aInt8Vec, &aInt16Vec, &aInt32Vec, &aInt64Vec, &aPtrVec,
+                &aFloatVec, &aDoubleVec, &aStringVec, &aAnyVec, &aVec2Vec, &aVec3Vec,
+                &aVec4Vec
+            );
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "ParamAllRefAliases" => {
+            let mut aBool: AliasBool = false;
+            let mut aChar8: AliasChar8 = 0;
+            let mut aChar16: AliasChar16 = 0;
+            let mut aInt8: AliasInt8 = 0;
+            let mut aInt16: AliasInt16 = 0;
+            let mut aInt32: AliasInt32 = 0;
+            let mut aInt64: AliasInt64 = 0;
+            let mut aPtr: AliasPtr = 0;
+            let mut aFloat: AliasFloat = 0.0;
+            let mut aDouble: AliasDouble = 0.0;
+            let mut aString: AliasString = Str::new();
+            let mut aAny: AliasAny = Var::new(&Any::Invalid);
+            let mut aVec2 = AliasVec2 { x: 0.0, y: 0.0 };
+            let mut aVec3 = AliasVec3 { x: 0.0, y: 0.0, z: 0.0 };
+            let mut aVec4 = AliasVec4 { x: 0.0, y: 0.0, z: 0.0, w: 0.0 };
+            let mut aMat4x4 = AliasMat4x4 { m: [[0.0; 4]; 4] };
+            let mut aBoolVec: AliasBoolVector = Arr::from(vec![aBool]);
+            let mut aChar8Vec: AliasChar8Vector = Arr::from(vec![aChar8]);
+            let mut aChar16Vec: AliasChar16Vector = Arr::from(vec![aChar16]);
+            let mut aInt8Vec: AliasInt8Vector = Arr::from(vec![aInt8]);
+            let mut aInt16Vec: AliasInt16Vector = Arr::from(vec![aInt16]);
+            let mut aInt32Vec: AliasInt32Vector = Arr::from(vec![aInt32]);
+            let mut aInt64Vec: AliasInt64Vector = Arr::from(vec![aInt64]);
+            let mut aPtrVec: AliasPtrVector = Arr::from(vec![aPtr]);
+            let mut aFloatVec: AliasFloatVector = Arr::from(vec![aFloat]);
+            let mut aDoubleVec: AliasDoubleVector = Arr::from(vec![aDouble]);
+            let mut aStringVec: AliasStringVector = Arr::from(vec![aString.clone()]);
+            let mut aAnyVec: AliasAnyVector = Arr::from(vec![Var::new(&Any::Invalid)]);
+            let mut aVec2Vec: AliasVec2Vector = Arr::from(vec![aVec2]);
+            let mut aVec3Vec: AliasVec3Vector = Arr::from(vec![aVec3]);
+            let mut aVec4Vec: AliasVec4Vector = Arr::from(vec![aVec4]);
+            let result = ParamAllRefAliasesCallback(
+                &mut aBool, &mut aChar8, &mut aChar16, &mut aInt8, &mut aInt16, &mut aInt32,
+                &mut aInt64, &mut aPtr, &mut aFloat, &mut aDouble, &mut aString, &mut aAny,
+                &mut aVec2, &mut aVec3, &mut aVec4, &mut aMat4x4, &mut aBoolVec, &mut aChar8Vec,
+                &mut aChar16Vec, &mut aInt8Vec, &mut aInt16Vec, &mut aInt32Vec, &mut aInt64Vec,
+                &mut aPtrVec, &mut aFloatVec, &mut aDoubleVec, &mut aStringVec, &mut aAnyVec,
+                &mut aVec2Vec, &mut aVec3Vec, &mut aVec4Vec
+            );
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
         "ParamEnum" => {
             let p1 = MasterExample::Forth;
             let p2 = Arr::from_slice(&[MasterExample::First, MasterExample::Second, MasterExample::Third]);
@@ -3284,6 +3938,174 @@ pub extern "C" fn ReverseCall(test: &Str) {
         }
         "CallFuncEnum" => {
             let result = CallFuncEnumCallback(mock_func_enum);
+            ReverseReturn(&result);
+        }
+        "CallFuncAliasBool" => {
+            let result = CallFuncAliasBoolCallback(mock_alias_bool);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasChar8" => {
+            let result = CallFuncAliasChar8Callback(mock_alias_char8);
+            ReverseReturn(&Str::from(format!("{}", result as u8)));
+        }
+        "CallFuncAliasChar16" => {
+            let result = CallFuncAliasChar16Callback(mock_alias_char16);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasInt8" => {
+            let result = CallFuncAliasInt8Callback(mock_alias_int8);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasInt16" => {
+            let result = CallFuncAliasInt16Callback(mock_alias_int16);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasInt32" => {
+            let result = CallFuncAliasInt32Callback(mock_alias_int32);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasInt64" => {
+            let result = CallFuncAliasInt64Callback(mock_alias_int64);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasUInt8" => {
+            let result = CallFuncAliasUInt8Callback(mock_alias_uint8);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasUInt16" => {
+            let result = CallFuncAliasUInt16Callback(mock_alias_uint16);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasUInt32" => {
+            let result = CallFuncAliasUInt32Callback(mock_alias_uint32);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasUInt64" => {
+            let result = CallFuncAliasUInt64Callback(mock_alias_uint64);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasPtr" => {
+            let result = CallFuncAliasPtrCallback(mock_alias_ptr);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasFloat" => {
+            let result = CallFuncAliasFloatCallback(mock_alias_float);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        "CallFuncAliasDouble" => {
+            let result = CallFuncAliasDoubleCallback(mock_alias_double);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }
+        /*"CallFuncAliasFunction" => {
+            let result = CallFuncAliasFunctionCallback(mock_alias_function);
+            ReverseReturn(&Str::from(format!("{}", result)));
+        }*/
+        "CallFuncAliasString" => {
+            let result = CallFuncAliasStringCallback(mock_alias_string);
+            ReverseReturn(&result);
+        }
+        "CallFuncAliasAny" => {
+            let result = CallFuncAliasAnyCallback(mock_alias_any);
+            ReverseReturn(&Str::from(format!("{}", format_any(&result))));
+        }
+        "CallFuncAliasBoolVector" => {
+            let result = CallFuncAliasBoolVectorCallback(mock_alias_bool_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasChar8Vector" => {
+            let result = CallFuncAliasChar8VectorCallback(mock_alias_char8_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasChar16Vector" => {
+            let result = CallFuncAliasChar16VectorCallback(mock_alias_char16_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasInt8Vector" => {
+            let result = CallFuncAliasInt8VectorCallback(mock_alias_int8_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasInt16Vector" => {
+            let result = CallFuncAliasInt16VectorCallback(mock_alias_int16_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasInt32Vector" => {
+            let result = CallFuncAliasInt32VectorCallback(mock_alias_int32_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasInt64Vector" => {
+            let result = CallFuncAliasInt64VectorCallback(mock_alias_int64_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasUInt8Vector" => {
+            let result = CallFuncAliasUInt8VectorCallback(mock_alias_uint8_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasUInt16Vector" => {
+            let result = CallFuncAliasUInt16VectorCallback(mock_alias_uint16_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasUInt32Vector" => {
+            let result = CallFuncAliasUInt32VectorCallback(mock_alias_uint32_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasUInt64Vector" => {
+            let result = CallFuncAliasUInt64VectorCallback(mock_alias_uint64_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasPtrVector" => {
+            let result = CallFuncAliasPtrVectorCallback(mock_alias_ptr_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasFloatVector" => {
+            let result = CallFuncAliasFloatVectorCallback(mock_alias_float_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasDoubleVector" => {
+            let result = CallFuncAliasDoubleVectorCallback(mock_alias_double_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasStringVector" => {
+            let result = CallFuncAliasStringVectorCallback(mock_alias_string_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasAnyVector" => {
+            let result = CallFuncAliasAnyVectorCallback(mock_alias_any_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasVec2Vector" => {
+            let result = CallFuncAliasVec2VectorCallback(mock_alias_vec2_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasVec3Vector" => {
+            let result = CallFuncAliasVec3VectorCallback(mock_alias_vec3_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasVec4Vector" => {
+            let result = CallFuncAliasVec4VectorCallback(mock_alias_vec4_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasMat4x4Vector" => {
+            let result = CallFuncAliasMat4x4VectorCallback(mock_alias_mat4x4_vector);
+            ReverseReturn(&Str::from(format!("{}", ArrFormat::format(&result))));
+        }
+        "CallFuncAliasVec2" => {
+            let result = CallFuncAliasVec2Callback(mock_alias_vec2);
+            ReverseReturn(&Str::from(format!("{}", format_vec2(&result))));
+        }
+        "CallFuncAliasVec3" => {
+            let result = CallFuncAliasVec3Callback(mock_alias_vec3);
+            ReverseReturn(&Str::from(format!("{}", format_vec3(&result))));
+        }
+        "CallFuncAliasVec4" => {
+            let result = CallFuncAliasVec4Callback(mock_alias_vec4);
+            ReverseReturn(&Str::from(format!("{}", format_vec4(&result))));
+        }
+        "CallFuncAliasMat4x4" => {
+            let result = CallFuncAliasMat4x4Callback(mock_alias_mat4x4);
+            ReverseReturn(&Str::from(format!("{}", format_mat(&result))));
+        }
+        "CallFuncAliasAll" => {
+            let result = CallFuncAliasAllCallback(mock_alias_all);
             ReverseReturn(&result);
         }
         "ClassBasicLifecycle" => {

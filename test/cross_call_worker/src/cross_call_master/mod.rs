@@ -2,6 +2,7 @@
 // This module re-exports all generated components
 
 pub mod enums;
+pub mod aliases;
 pub mod delegates;
 pub mod core;
 pub mod resource;
@@ -10,10 +11,12 @@ pub mod counter;
 #[allow(unused_imports)]
 pub use enums::*;
 #[allow(unused_imports)]
-pub use delegates::*;
+pub use aliases::*;
 #[allow(unused_imports)]
-pub use core::*;
+pub use delegates::*;
 #[allow(unused_imports)]
 pub use resource::*;
 #[allow(unused_imports)]
 pub use counter::*;
+#[allow(unused_imports)]
+pub use core::*;

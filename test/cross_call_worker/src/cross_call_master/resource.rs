@@ -5,6 +5,8 @@ use std::sync::RwLock;
 #[allow(unused_imports)]
 use super::enums::*;
 #[allow(unused_imports)]
+use super::aliases::*;
+#[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
 use plugify::{get_method_ptr, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
@@ -12,9 +14,6 @@ use plugify::{get_method_ptr, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
 /// # Arguments
 /// * `id` - (int32)
 /// * `name` - (string)
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleCreate(id: i32, name: &Str) -> usize {
     unsafe { __cross_call_master_ResourceHandleCreate.expect("ResourceHandleCreate function was not found")(id, name) }
@@ -24,9 +23,6 @@ pub type _ResourceHandleCreate = unsafe extern "C" fn(i32, &Str) -> usize;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleCreate: Option<_ResourceHandleCreate> = None;
 
-///
-/// # Returns
-/// ptr64
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleCreateDefault() -> usize {
     unsafe { __cross_call_master_ResourceHandleCreateDefault.expect("ResourceHandleCreateDefault function was not found")() }
@@ -49,9 +45,6 @@ pub static mut __cross_call_master_ResourceHandleDestroy: Option<_ResourceHandle
 
 /// # Arguments
 /// * `handle` - (ptr64)
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetId(handle: usize) -> i32 {
     unsafe { __cross_call_master_ResourceHandleGetId.expect("ResourceHandleGetId function was not found")(handle) }
@@ -63,9 +56,6 @@ pub static mut __cross_call_master_ResourceHandleGetId: Option<_ResourceHandleGe
 
 /// # Arguments
 /// * `handle` - (ptr64)
-///
-/// # Returns
-/// string
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetName(handle: usize) -> Str {
     unsafe { __cross_call_master_ResourceHandleGetName.expect("ResourceHandleGetName function was not found")(handle) }
@@ -100,9 +90,6 @@ pub static mut __cross_call_master_ResourceHandleIncrementCounter: Option<_Resou
 
 /// # Arguments
 /// * `handle` - (ptr64)
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetCounter(handle: usize) -> i32 {
     unsafe { __cross_call_master_ResourceHandleGetCounter.expect("ResourceHandleGetCounter function was not found")(handle) }
@@ -126,9 +113,6 @@ pub static mut __cross_call_master_ResourceHandleAddData: Option<_ResourceHandle
 
 /// # Arguments
 /// * `handle` - (ptr64)
-///
-/// # Returns
-/// float[]
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetData(handle: usize) -> Arr<f32> {
     unsafe { __cross_call_master_ResourceHandleGetData.expect("ResourceHandleGetData function was not found")(handle) }
@@ -138,9 +122,6 @@ pub type _ResourceHandleGetData = unsafe extern "C" fn(usize) -> Arr<f32>;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleGetData: Option<_ResourceHandleGetData> = None;
 
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetAliveCount() -> i32 {
     unsafe { __cross_call_master_ResourceHandleGetAliveCount.expect("ResourceHandleGetAliveCount function was not found")() }
@@ -150,9 +131,6 @@ pub type _ResourceHandleGetAliveCount = unsafe extern "C" fn() -> i32;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleGetAliveCount: Option<_ResourceHandleGetAliveCount> = None;
 
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetTotalCreated() -> i32 {
     unsafe { __cross_call_master_ResourceHandleGetTotalCreated.expect("ResourceHandleGetTotalCreated function was not found")() }
@@ -162,9 +140,6 @@ pub type _ResourceHandleGetTotalCreated = unsafe extern "C" fn() -> i32;
 #[unsafe(no_mangle)]
 pub static mut __cross_call_master_ResourceHandleGetTotalCreated: Option<_ResourceHandleGetTotalCreated> = None;
 
-///
-/// # Returns
-/// int32
 #[allow(dead_code, non_snake_case)]
 pub fn ResourceHandleGetTotalDestroyed() -> i32 {
     unsafe { __cross_call_master_ResourceHandleGetTotalDestroyed.expect("ResourceHandleGetTotalDestroyed function was not found")() }
