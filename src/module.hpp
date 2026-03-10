@@ -3,9 +3,29 @@
 #include <plugify/assembly.hpp>
 #include <plugify/callback.hpp>
 #include <plugify/language_module.hpp>
+#include <plugify/logger.hpp>
+#include <plugify/assembly_loader.hpp>
 #include <plugify/extension.hpp>
 
 #include <module_export.h>
+
+struct RustString {
+	const char* p{};
+	size_t n{};
+
+	operator std::string_view() const { return {p, n};  }
+	operator bool() const { return n > 0;  }
+};
+
+struct RustLocation {
+	size_t line{};
+	size_t column{};
+	RustString file;
+	RustString function;
+	RustString module;
+
+	operator plg::source_location() const { return plg::source_location(line, column, file, function, module);  }
+};
 
 using namespace plugify;
 
@@ -50,12 +70,15 @@ namespace rustlm {
 		bool IsDebugBuild() override;
 
 		const std::unique_ptr<Provider>& GetProvider() { return _provider; }
+		const std::shared_ptr<ILogger>& GetLogger() { return _logger; }
 
 	private:
 		std::unique_ptr<Provider> _provider;
+		std::shared_ptr<ILogger> _logger;
+		std::shared_ptr<IAssemblyLoader> _loader;
 		std::vector<std::unique_ptr<AssemblyHolder>> _assemblies;
 
-		static const std::array<void*, 122> _pluginApi;
+		static const std::array<void*, 123> _pluginApi;
 	};
 
 	extern RustLanguageModule g_golm;

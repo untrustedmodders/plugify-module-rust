@@ -1,6 +1,5 @@
 #include "module.hpp"
 
-#include <plugify/logger.hpp>
 #include <plugify/provider.hpp>
 #include <plugify/call.hpp>
 
@@ -9,8 +8,6 @@
 #include <plg/string.hpp>
 #include <plg/numerics.hpp>
 
-#include <plugify/assembly_loader.hpp>
-
 #define LOG_PREFIX "[RUSTLM] "
 
 using namespace rustlm;
@@ -18,14 +15,17 @@ using namespace plugify;
 
 Result<InitData> RustLanguageModule::Initialize(const Provider& provider, [[maybe_unused]] const Extension& module) {
 	_provider = std::make_unique<Provider>(provider);
-
-	_provider->Log(LOG_PREFIX "Inited!", Severity::Debug);
+	_logger = _provider->Resolve<ILogger>();
+	_loader = _provider->Resolve<IAssemblyLoader>();
+	_logger->Log(LOG_PREFIX "Inited!", Severity::Debug);
 
 	return InitData{{ .hasUpdate = false }};
 }
 
 void RustLanguageModule::Shutdown() {
 	_assemblies.clear();
+	_loader.reset();
+	_logger.reset();
 	_provider.reset();
 }
 
@@ -52,7 +52,7 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 	assemblyPath /= std::format("{}" RUSTLM_LIBRARY_SUFFIX, plugin.GetEntry());
 
 	LoadFlag flags = LoadFlag::LazyBinding | LoadFlag::NoUnload;
-	auto assemblyResult = _provider->Resolve<IAssemblyLoader>()->Load(assemblyPath, flags);
+	auto assemblyResult = _loader->Load(assemblyPath, flags);
 	if (!assemblyResult) {
 		return MakeError(std::move(assemblyResult.error()));
 	}
@@ -142,19 +142,6 @@ namespace rustlm {
 	RustLanguageModule g_rustlm;
 }
 
-bool IsExtensionLoaded(const char* nstr, size_t nlen, const char* cstr, size_t clen) {
-	std::string_view name(nstr, nlen);
-	std::string_view constraint(cstr, clen);
-
-	if (constraint.empty()) {
-		return g_rustlm.GetProvider()->IsExtensionLoaded(name);
-	}
-
-	plg::range_set<> range;
-	plg::parse(constraint, range);
-	return g_rustlm.GetProvider()->IsExtensionLoaded(name, std::move(range));
-}
-
 plg::string GetBaseDir() {
 	return plg::as_string(g_rustlm.GetProvider()->GetBaseDir());
 }
@@ -219,6 +206,22 @@ plg::vector<plg::string> GetPluginDependencies(const Extension& plugin) {
 		deps.emplace_back(dependency.GetName());
 	}
 	return deps;
+}
+
+bool IsExtensionLoaded(RustString name, RustString constraint) {
+	if (!constraint) {
+		return g_rustlm.GetProvider()->IsExtensionLoaded(name);
+	}
+
+	plg::range_set<> range;
+	plg::parse(constraint, range);
+	return g_rustlm.GetProvider()->IsExtensionLoaded(name, std::move(range));
+}
+
+void Log(RustString message, Severity severity, const RustLocation& location) {
+	if (const auto& logger = g_rustlm.GetLogger()) {
+		logger->Log(message, severity, location);
+	}
 }
 
 // String Functions
@@ -390,7 +393,7 @@ void AssignVectorVector3(plg::vector<plg::vec3>* ptr, plg::vec3* arr, size_t len
 void AssignVectorVector4(plg::vector<plg::vec4>* ptr, plg::vec4* arr, size_t len) { AssignVector(ptr, arr, len); }
 void AssignVectorMatrix4x4(plg::vector<plg::mat4x4>* ptr, plg::mat4x4* arr, size_t len) { AssignVector(ptr, arr, len); }
 
-const std::array<void*, 122> RustLanguageModule::_pluginApi = {
+const std::array<void*, 123> RustLanguageModule::_pluginApi = {
 		reinterpret_cast<void*>(&::GetBaseDir),
 		reinterpret_cast<void*>(&::GetExtensionsDir),
 		reinterpret_cast<void*>(&::GetConfigsDir),
@@ -398,6 +401,7 @@ const std::array<void*, 122> RustLanguageModule::_pluginApi = {
 		reinterpret_cast<void*>(&::GetLogsDir),
 		reinterpret_cast<void*>(&::GetCacheDir),
 		reinterpret_cast<void*>(&::IsExtensionLoaded),
+		reinterpret_cast<void*>(&::Log),
 
 		reinterpret_cast<void*>(&::GetPluginId),
 		reinterpret_cast<void*>(&::GetPluginName),
