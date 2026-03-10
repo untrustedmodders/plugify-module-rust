@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.0.3...v1.1.0) (2026-03-10)
+
+
+### Features
+
+* add new call logging ([40996f2](https://github.com/untrustedmodders/plugify-module-rust/commit/40996f2da31e5c74dbad2ce24a8126df17886aaf))
+
+
+### Bug Fixes
+
+* add alias tests ([56d3918](https://github.com/untrustedmodders/plugify-module-rust/commit/56d3918887c203691c79da9facb7c31a1393409f))
+
 ## [1.0.3](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.0.2...v1.0.3) (2026-01-03)
 
 
