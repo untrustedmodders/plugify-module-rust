@@ -17,6 +17,8 @@ Result<InitData> RustLanguageModule::Initialize(const Provider& provider, [[mayb
 	_provider = std::make_unique<Provider>(provider);
 	_logger = _provider->Resolve<ILogger>();
 	_loader = _provider->Resolve<IAssemblyLoader>();
+	_profiler = _provider->TryResolve<IProfiler>();
+
 	_logger->Log(LOG_PREFIX "Inited!", Severity::Debug);
 
 	return InitData{{ .hasUpdate = false }};
@@ -24,6 +26,7 @@ Result<InitData> RustLanguageModule::Initialize(const Provider& provider, [[mayb
 
 void RustLanguageModule::Shutdown() {
 	_assemblies.clear();
+	_profiler.reset();
 	_loader.reset();
 	_logger.reset();
 	_provider.reset();
@@ -208,7 +211,7 @@ plg::vector<plg::string> GetPluginDependencies(const Extension& plugin) {
 	return deps;
 }
 
-bool IsExtensionLoaded(RustString name, RustString constraint) {
+bool IsLoaded(RustString name, RustString constraint) {
 	if (!constraint) {
 		return g_rustlm.GetProvider()->IsExtensionLoaded(name);
 	}
@@ -221,6 +224,19 @@ bool IsExtensionLoaded(RustString name, RustString constraint) {
 void Log(RustString message, Severity severity, const RustLocation& location) {
 	if (const auto& logger = g_rustlm.GetLogger()) {
 		logger->Log(message, severity, location);
+	}
+}
+
+ZoneHandle BeginZone(std::string_view name, const RustLocation& location) {
+	if (const auto& profiler = g_rustlm.GetProfiler()) {
+		return profiler->BeginZone(ZoneInfo{name, location.function, location.file, location.line, 0});
+	}
+	return {};
+}
+
+void EndZone(ZoneHandle handle) {
+	if (const auto& profiler = g_rustlm.GetProfiler()) {
+		profiler->EndZone(handle);
 	}
 }
 
@@ -340,10 +356,10 @@ size_t GetVectorSizeInt64(plg::vector<int64_t>* vec) { return GetVectorSize(vec)
 size_t GetVectorSizeUInt8(plg::vector<uint8_t>* vec) { return GetVectorSize(vec); }
 size_t GetVectorSizeUInt16(plg::vector<uint16_t>* vec) { return GetVectorSize(vec); }
 size_t GetVectorSizeUInt32(plg::vector<uint32_t>* vec) { return GetVectorSize(vec); }
-size_t GetVectorSizeUInt64(plg::vector<uint64_t>* vec) { return GetVectorSize(vec); } 
-size_t GetVectorSizePointer(plg::vector<uintptr_t>* vec) { return GetVectorSize(vec); } 
-size_t GetVectorSizeFloat(plg::vector<float>* vec) { return GetVectorSize(vec); } 
-size_t GetVectorSizeDouble(plg::vector<double>* vec) { return GetVectorSize(vec); } 
+size_t GetVectorSizeUInt64(plg::vector<uint64_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizePointer(plg::vector<uintptr_t>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeFloat(plg::vector<float>* vec) { return GetVectorSize(vec); }
+size_t GetVectorSizeDouble(plg::vector<double>* vec) { return GetVectorSize(vec); }
 size_t GetVectorSizeString(plg::vector<plg::string>* vec) { return GetVectorSize(vec); }
 size_t GetVectorSizeVariant(plg::vector<plg::any>* vector) { return GetVectorSize(vector); }
 size_t GetVectorSizeVector2(plg::vector<plg::vec2>* vec) { return GetVectorSize(vec); }
@@ -393,7 +409,7 @@ void AssignVectorVector3(plg::vector<plg::vec3>* ptr, plg::vec3* arr, size_t len
 void AssignVectorVector4(plg::vector<plg::vec4>* ptr, plg::vec4* arr, size_t len) { AssignVector(ptr, arr, len); }
 void AssignVectorMatrix4x4(plg::vector<plg::mat4x4>* ptr, plg::mat4x4* arr, size_t len) { AssignVector(ptr, arr, len); }
 
-const std::array<void*, 123> RustLanguageModule::_pluginApi = {
+const std::array<void*, 125> RustLanguageModule::_pluginApi = {
 		reinterpret_cast<void*>(&::GetBaseDir),
 		reinterpret_cast<void*>(&::GetExtensionsDir),
 		reinterpret_cast<void*>(&::GetConfigsDir),
@@ -402,6 +418,8 @@ const std::array<void*, 123> RustLanguageModule::_pluginApi = {
 		reinterpret_cast<void*>(&::GetCacheDir),
 		reinterpret_cast<void*>(&::IsExtensionLoaded),
 		reinterpret_cast<void*>(&::Log),
+		reinterpret_cast<void*>(&::BeginZone),
+		reinterpret_cast<void*>(&::EndZone),
 
 		reinterpret_cast<void*>(&::GetPluginId),
 		reinterpret_cast<void*>(&::GetPluginName),
