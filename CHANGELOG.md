@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.0...v1.2.1) (2026-05-24)
+
+
+### Bug Fixes
+
+* update plugify ([ab197a1](https://github.com/untrustedmodders/plugify-module-rust/commit/ab197a1c5d29398f442ac9728e1c0c3a44d68b84))
+
 ## [1.2.0](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.1.0...v1.2.0) (2026-05-24)
 
 
