@@ -9,14 +9,14 @@ use super::aliases::*;
 #[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
-use plugify::{trace, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
+use plugify::{scope, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
 
 /// # Arguments
 /// * `returnString` - (string)
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ReverseReturn(returnString: &Str) {
-    trace!("cross_call_master::ReverseReturn");
+    let __scope = scope!("cross_call_master::ReverseReturn");
     unsafe { __cross_call_master_ReverseReturn.expect("ReverseReturn function was not found")(returnString) }
 }
 pub type _ReverseReturn = unsafe extern "C" fn(&Str);
@@ -27,7 +27,7 @@ pub static mut __cross_call_master_ReverseReturn: Option<_ReverseReturn> = None;
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVoidCallback() {
-    trace!("cross_call_master::NoParamReturnVoidCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnVoidCallback");
     unsafe { __cross_call_master_NoParamReturnVoidCallback.expect("NoParamReturnVoidCallback function was not found")() }
 }
 pub type _NoParamReturnVoidCallback = unsafe extern "C" fn();
@@ -38,7 +38,7 @@ pub static mut __cross_call_master_NoParamReturnVoidCallback: Option<_NoParamRet
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnBoolCallback() -> bool {
-    trace!("cross_call_master::NoParamReturnBoolCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnBoolCallback");
     unsafe { __cross_call_master_NoParamReturnBoolCallback.expect("NoParamReturnBoolCallback function was not found")() }
 }
 pub type _NoParamReturnBoolCallback = unsafe extern "C" fn() -> bool;
@@ -49,7 +49,7 @@ pub static mut __cross_call_master_NoParamReturnBoolCallback: Option<_NoParamRet
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar8Callback() -> i8 {
-    trace!("cross_call_master::NoParamReturnChar8Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnChar8Callback");
     unsafe { __cross_call_master_NoParamReturnChar8Callback.expect("NoParamReturnChar8Callback function was not found")() }
 }
 pub type _NoParamReturnChar8Callback = unsafe extern "C" fn() -> i8;
@@ -60,7 +60,7 @@ pub static mut __cross_call_master_NoParamReturnChar8Callback: Option<_NoParamRe
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnChar16Callback() -> u16 {
-    trace!("cross_call_master::NoParamReturnChar16Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnChar16Callback");
     unsafe { __cross_call_master_NoParamReturnChar16Callback.expect("NoParamReturnChar16Callback function was not found")() }
 }
 pub type _NoParamReturnChar16Callback = unsafe extern "C" fn() -> u16;
@@ -71,7 +71,7 @@ pub static mut __cross_call_master_NoParamReturnChar16Callback: Option<_NoParamR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt8Callback() -> i8 {
-    trace!("cross_call_master::NoParamReturnInt8Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnInt8Callback");
     unsafe { __cross_call_master_NoParamReturnInt8Callback.expect("NoParamReturnInt8Callback function was not found")() }
 }
 pub type _NoParamReturnInt8Callback = unsafe extern "C" fn() -> i8;
@@ -82,7 +82,7 @@ pub static mut __cross_call_master_NoParamReturnInt8Callback: Option<_NoParamRet
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt16Callback() -> i16 {
-    trace!("cross_call_master::NoParamReturnInt16Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnInt16Callback");
     unsafe { __cross_call_master_NoParamReturnInt16Callback.expect("NoParamReturnInt16Callback function was not found")() }
 }
 pub type _NoParamReturnInt16Callback = unsafe extern "C" fn() -> i16;
@@ -93,7 +93,7 @@ pub static mut __cross_call_master_NoParamReturnInt16Callback: Option<_NoParamRe
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt32Callback() -> i32 {
-    trace!("cross_call_master::NoParamReturnInt32Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnInt32Callback");
     unsafe { __cross_call_master_NoParamReturnInt32Callback.expect("NoParamReturnInt32Callback function was not found")() }
 }
 pub type _NoParamReturnInt32Callback = unsafe extern "C" fn() -> i32;
@@ -104,7 +104,7 @@ pub static mut __cross_call_master_NoParamReturnInt32Callback: Option<_NoParamRe
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnInt64Callback() -> i64 {
-    trace!("cross_call_master::NoParamReturnInt64Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnInt64Callback");
     unsafe { __cross_call_master_NoParamReturnInt64Callback.expect("NoParamReturnInt64Callback function was not found")() }
 }
 pub type _NoParamReturnInt64Callback = unsafe extern "C" fn() -> i64;
@@ -115,7 +115,7 @@ pub static mut __cross_call_master_NoParamReturnInt64Callback: Option<_NoParamRe
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt8Callback() -> u8 {
-    trace!("cross_call_master::NoParamReturnUInt8Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnUInt8Callback");
     unsafe { __cross_call_master_NoParamReturnUInt8Callback.expect("NoParamReturnUInt8Callback function was not found")() }
 }
 pub type _NoParamReturnUInt8Callback = unsafe extern "C" fn() -> u8;
@@ -126,7 +126,7 @@ pub static mut __cross_call_master_NoParamReturnUInt8Callback: Option<_NoParamRe
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt16Callback() -> u16 {
-    trace!("cross_call_master::NoParamReturnUInt16Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnUInt16Callback");
     unsafe { __cross_call_master_NoParamReturnUInt16Callback.expect("NoParamReturnUInt16Callback function was not found")() }
 }
 pub type _NoParamReturnUInt16Callback = unsafe extern "C" fn() -> u16;
@@ -137,7 +137,7 @@ pub static mut __cross_call_master_NoParamReturnUInt16Callback: Option<_NoParamR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt32Callback() -> u32 {
-    trace!("cross_call_master::NoParamReturnUInt32Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnUInt32Callback");
     unsafe { __cross_call_master_NoParamReturnUInt32Callback.expect("NoParamReturnUInt32Callback function was not found")() }
 }
 pub type _NoParamReturnUInt32Callback = unsafe extern "C" fn() -> u32;
@@ -148,7 +148,7 @@ pub static mut __cross_call_master_NoParamReturnUInt32Callback: Option<_NoParamR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnUInt64Callback() -> u64 {
-    trace!("cross_call_master::NoParamReturnUInt64Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnUInt64Callback");
     unsafe { __cross_call_master_NoParamReturnUInt64Callback.expect("NoParamReturnUInt64Callback function was not found")() }
 }
 pub type _NoParamReturnUInt64Callback = unsafe extern "C" fn() -> u64;
@@ -159,7 +159,7 @@ pub static mut __cross_call_master_NoParamReturnUInt64Callback: Option<_NoParamR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnPointerCallback() -> usize {
-    trace!("cross_call_master::NoParamReturnPointerCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnPointerCallback");
     unsafe { __cross_call_master_NoParamReturnPointerCallback.expect("NoParamReturnPointerCallback function was not found")() }
 }
 pub type _NoParamReturnPointerCallback = unsafe extern "C" fn() -> usize;
@@ -170,7 +170,7 @@ pub static mut __cross_call_master_NoParamReturnPointerCallback: Option<_NoParam
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFloatCallback() -> f32 {
-    trace!("cross_call_master::NoParamReturnFloatCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnFloatCallback");
     unsafe { __cross_call_master_NoParamReturnFloatCallback.expect("NoParamReturnFloatCallback function was not found")() }
 }
 pub type _NoParamReturnFloatCallback = unsafe extern "C" fn() -> f32;
@@ -181,7 +181,7 @@ pub static mut __cross_call_master_NoParamReturnFloatCallback: Option<_NoParamRe
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnDoubleCallback() -> f64 {
-    trace!("cross_call_master::NoParamReturnDoubleCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnDoubleCallback");
     unsafe { __cross_call_master_NoParamReturnDoubleCallback.expect("NoParamReturnDoubleCallback function was not found")() }
 }
 pub type _NoParamReturnDoubleCallback = unsafe extern "C" fn() -> f64;
@@ -192,7 +192,7 @@ pub static mut __cross_call_master_NoParamReturnDoubleCallback: Option<_NoParamR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnFunctionCallback() -> NoParamReturnFunctionCallbackFunc {
-    trace!("cross_call_master::NoParamReturnFunctionCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnFunctionCallback");
     unsafe { __cross_call_master_NoParamReturnFunctionCallback.expect("NoParamReturnFunctionCallback function was not found")() }
 }
 pub type _NoParamReturnFunctionCallback = unsafe extern "C" fn() -> NoParamReturnFunctionCallbackFunc;
@@ -203,7 +203,7 @@ pub static mut __cross_call_master_NoParamReturnFunctionCallback: Option<_NoPara
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnStringCallback() -> Str {
-    trace!("cross_call_master::NoParamReturnStringCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnStringCallback");
     unsafe { __cross_call_master_NoParamReturnStringCallback.expect("NoParamReturnStringCallback function was not found")() }
 }
 pub type _NoParamReturnStringCallback = unsafe extern "C" fn() -> Str;
@@ -214,7 +214,7 @@ pub static mut __cross_call_master_NoParamReturnStringCallback: Option<_NoParamR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnAnyCallback() -> Var {
-    trace!("cross_call_master::NoParamReturnAnyCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnAnyCallback");
     unsafe { __cross_call_master_NoParamReturnAnyCallback.expect("NoParamReturnAnyCallback function was not found")() }
 }
 pub type _NoParamReturnAnyCallback = unsafe extern "C" fn() -> Var;
@@ -225,7 +225,7 @@ pub static mut __cross_call_master_NoParamReturnAnyCallback: Option<_NoParamRetu
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayBoolCallback() -> Arr<bool> {
-    trace!("cross_call_master::NoParamReturnArrayBoolCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayBoolCallback");
     unsafe { __cross_call_master_NoParamReturnArrayBoolCallback.expect("NoParamReturnArrayBoolCallback function was not found")() }
 }
 pub type _NoParamReturnArrayBoolCallback = unsafe extern "C" fn() -> Arr<bool>;
@@ -236,7 +236,7 @@ pub static mut __cross_call_master_NoParamReturnArrayBoolCallback: Option<_NoPar
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar8Callback() -> Arr<i8> {
-    trace!("cross_call_master::NoParamReturnArrayChar8Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayChar8Callback");
     unsafe { __cross_call_master_NoParamReturnArrayChar8Callback.expect("NoParamReturnArrayChar8Callback function was not found")() }
 }
 pub type _NoParamReturnArrayChar8Callback = unsafe extern "C" fn() -> Arr<i8>;
@@ -247,7 +247,7 @@ pub static mut __cross_call_master_NoParamReturnArrayChar8Callback: Option<_NoPa
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayChar16Callback() -> Arr<u16> {
-    trace!("cross_call_master::NoParamReturnArrayChar16Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayChar16Callback");
     unsafe { __cross_call_master_NoParamReturnArrayChar16Callback.expect("NoParamReturnArrayChar16Callback function was not found")() }
 }
 pub type _NoParamReturnArrayChar16Callback = unsafe extern "C" fn() -> Arr<u16>;
@@ -258,7 +258,7 @@ pub static mut __cross_call_master_NoParamReturnArrayChar16Callback: Option<_NoP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt8Callback() -> Arr<i8> {
-    trace!("cross_call_master::NoParamReturnArrayInt8Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayInt8Callback");
     unsafe { __cross_call_master_NoParamReturnArrayInt8Callback.expect("NoParamReturnArrayInt8Callback function was not found")() }
 }
 pub type _NoParamReturnArrayInt8Callback = unsafe extern "C" fn() -> Arr<i8>;
@@ -269,7 +269,7 @@ pub static mut __cross_call_master_NoParamReturnArrayInt8Callback: Option<_NoPar
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt16Callback() -> Arr<i16> {
-    trace!("cross_call_master::NoParamReturnArrayInt16Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayInt16Callback");
     unsafe { __cross_call_master_NoParamReturnArrayInt16Callback.expect("NoParamReturnArrayInt16Callback function was not found")() }
 }
 pub type _NoParamReturnArrayInt16Callback = unsafe extern "C" fn() -> Arr<i16>;
@@ -280,7 +280,7 @@ pub static mut __cross_call_master_NoParamReturnArrayInt16Callback: Option<_NoPa
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt32Callback() -> Arr<i32> {
-    trace!("cross_call_master::NoParamReturnArrayInt32Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayInt32Callback");
     unsafe { __cross_call_master_NoParamReturnArrayInt32Callback.expect("NoParamReturnArrayInt32Callback function was not found")() }
 }
 pub type _NoParamReturnArrayInt32Callback = unsafe extern "C" fn() -> Arr<i32>;
@@ -291,7 +291,7 @@ pub static mut __cross_call_master_NoParamReturnArrayInt32Callback: Option<_NoPa
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayInt64Callback() -> Arr<i64> {
-    trace!("cross_call_master::NoParamReturnArrayInt64Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayInt64Callback");
     unsafe { __cross_call_master_NoParamReturnArrayInt64Callback.expect("NoParamReturnArrayInt64Callback function was not found")() }
 }
 pub type _NoParamReturnArrayInt64Callback = unsafe extern "C" fn() -> Arr<i64>;
@@ -302,7 +302,7 @@ pub static mut __cross_call_master_NoParamReturnArrayInt64Callback: Option<_NoPa
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt8Callback() -> Arr<u8> {
-    trace!("cross_call_master::NoParamReturnArrayUInt8Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayUInt8Callback");
     unsafe { __cross_call_master_NoParamReturnArrayUInt8Callback.expect("NoParamReturnArrayUInt8Callback function was not found")() }
 }
 pub type _NoParamReturnArrayUInt8Callback = unsafe extern "C" fn() -> Arr<u8>;
@@ -313,7 +313,7 @@ pub static mut __cross_call_master_NoParamReturnArrayUInt8Callback: Option<_NoPa
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt16Callback() -> Arr<u16> {
-    trace!("cross_call_master::NoParamReturnArrayUInt16Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayUInt16Callback");
     unsafe { __cross_call_master_NoParamReturnArrayUInt16Callback.expect("NoParamReturnArrayUInt16Callback function was not found")() }
 }
 pub type _NoParamReturnArrayUInt16Callback = unsafe extern "C" fn() -> Arr<u16>;
@@ -324,7 +324,7 @@ pub static mut __cross_call_master_NoParamReturnArrayUInt16Callback: Option<_NoP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt32Callback() -> Arr<u32> {
-    trace!("cross_call_master::NoParamReturnArrayUInt32Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayUInt32Callback");
     unsafe { __cross_call_master_NoParamReturnArrayUInt32Callback.expect("NoParamReturnArrayUInt32Callback function was not found")() }
 }
 pub type _NoParamReturnArrayUInt32Callback = unsafe extern "C" fn() -> Arr<u32>;
@@ -335,7 +335,7 @@ pub static mut __cross_call_master_NoParamReturnArrayUInt32Callback: Option<_NoP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayUInt64Callback() -> Arr<u64> {
-    trace!("cross_call_master::NoParamReturnArrayUInt64Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayUInt64Callback");
     unsafe { __cross_call_master_NoParamReturnArrayUInt64Callback.expect("NoParamReturnArrayUInt64Callback function was not found")() }
 }
 pub type _NoParamReturnArrayUInt64Callback = unsafe extern "C" fn() -> Arr<u64>;
@@ -346,7 +346,7 @@ pub static mut __cross_call_master_NoParamReturnArrayUInt64Callback: Option<_NoP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayPointerCallback() -> Arr<usize> {
-    trace!("cross_call_master::NoParamReturnArrayPointerCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayPointerCallback");
     unsafe { __cross_call_master_NoParamReturnArrayPointerCallback.expect("NoParamReturnArrayPointerCallback function was not found")() }
 }
 pub type _NoParamReturnArrayPointerCallback = unsafe extern "C" fn() -> Arr<usize>;
@@ -357,7 +357,7 @@ pub static mut __cross_call_master_NoParamReturnArrayPointerCallback: Option<_No
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayFloatCallback() -> Arr<f32> {
-    trace!("cross_call_master::NoParamReturnArrayFloatCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayFloatCallback");
     unsafe { __cross_call_master_NoParamReturnArrayFloatCallback.expect("NoParamReturnArrayFloatCallback function was not found")() }
 }
 pub type _NoParamReturnArrayFloatCallback = unsafe extern "C" fn() -> Arr<f32>;
@@ -368,7 +368,7 @@ pub static mut __cross_call_master_NoParamReturnArrayFloatCallback: Option<_NoPa
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayDoubleCallback() -> Arr<f64> {
-    trace!("cross_call_master::NoParamReturnArrayDoubleCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayDoubleCallback");
     unsafe { __cross_call_master_NoParamReturnArrayDoubleCallback.expect("NoParamReturnArrayDoubleCallback function was not found")() }
 }
 pub type _NoParamReturnArrayDoubleCallback = unsafe extern "C" fn() -> Arr<f64>;
@@ -379,7 +379,7 @@ pub static mut __cross_call_master_NoParamReturnArrayDoubleCallback: Option<_NoP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayStringCallback() -> Arr<Str> {
-    trace!("cross_call_master::NoParamReturnArrayStringCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayStringCallback");
     unsafe { __cross_call_master_NoParamReturnArrayStringCallback.expect("NoParamReturnArrayStringCallback function was not found")() }
 }
 pub type _NoParamReturnArrayStringCallback = unsafe extern "C" fn() -> Arr<Str>;
@@ -390,7 +390,7 @@ pub static mut __cross_call_master_NoParamReturnArrayStringCallback: Option<_NoP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayAnyCallback() -> Arr<Var> {
-    trace!("cross_call_master::NoParamReturnArrayAnyCallback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayAnyCallback");
     unsafe { __cross_call_master_NoParamReturnArrayAnyCallback.expect("NoParamReturnArrayAnyCallback function was not found")() }
 }
 pub type _NoParamReturnArrayAnyCallback = unsafe extern "C" fn() -> Arr<Var>;
@@ -401,7 +401,7 @@ pub static mut __cross_call_master_NoParamReturnArrayAnyCallback: Option<_NoPara
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector2Callback() -> Arr<Vec2> {
-    trace!("cross_call_master::NoParamReturnArrayVector2Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayVector2Callback");
     unsafe { __cross_call_master_NoParamReturnArrayVector2Callback.expect("NoParamReturnArrayVector2Callback function was not found")() }
 }
 pub type _NoParamReturnArrayVector2Callback = unsafe extern "C" fn() -> Arr<Vec2>;
@@ -412,7 +412,7 @@ pub static mut __cross_call_master_NoParamReturnArrayVector2Callback: Option<_No
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector3Callback() -> Arr<Vec3> {
-    trace!("cross_call_master::NoParamReturnArrayVector3Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayVector3Callback");
     unsafe { __cross_call_master_NoParamReturnArrayVector3Callback.expect("NoParamReturnArrayVector3Callback function was not found")() }
 }
 pub type _NoParamReturnArrayVector3Callback = unsafe extern "C" fn() -> Arr<Vec3>;
@@ -423,7 +423,7 @@ pub static mut __cross_call_master_NoParamReturnArrayVector3Callback: Option<_No
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayVector4Callback() -> Arr<Vec4> {
-    trace!("cross_call_master::NoParamReturnArrayVector4Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayVector4Callback");
     unsafe { __cross_call_master_NoParamReturnArrayVector4Callback.expect("NoParamReturnArrayVector4Callback function was not found")() }
 }
 pub type _NoParamReturnArrayVector4Callback = unsafe extern "C" fn() -> Arr<Vec4>;
@@ -434,7 +434,7 @@ pub static mut __cross_call_master_NoParamReturnArrayVector4Callback: Option<_No
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnArrayMatrix4x4Callback() -> Arr<Mat4x4> {
-    trace!("cross_call_master::NoParamReturnArrayMatrix4x4Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnArrayMatrix4x4Callback");
     unsafe { __cross_call_master_NoParamReturnArrayMatrix4x4Callback.expect("NoParamReturnArrayMatrix4x4Callback function was not found")() }
 }
 pub type _NoParamReturnArrayMatrix4x4Callback = unsafe extern "C" fn() -> Arr<Mat4x4>;
@@ -445,7 +445,7 @@ pub static mut __cross_call_master_NoParamReturnArrayMatrix4x4Callback: Option<_
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector2Callback() -> Vec2 {
-    trace!("cross_call_master::NoParamReturnVector2Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnVector2Callback");
     unsafe { __cross_call_master_NoParamReturnVector2Callback.expect("NoParamReturnVector2Callback function was not found")() }
 }
 pub type _NoParamReturnVector2Callback = unsafe extern "C" fn() -> Vec2;
@@ -456,7 +456,7 @@ pub static mut __cross_call_master_NoParamReturnVector2Callback: Option<_NoParam
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector3Callback() -> Vec3 {
-    trace!("cross_call_master::NoParamReturnVector3Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnVector3Callback");
     unsafe { __cross_call_master_NoParamReturnVector3Callback.expect("NoParamReturnVector3Callback function was not found")() }
 }
 pub type _NoParamReturnVector3Callback = unsafe extern "C" fn() -> Vec3;
@@ -467,7 +467,7 @@ pub static mut __cross_call_master_NoParamReturnVector3Callback: Option<_NoParam
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnVector4Callback() -> Vec4 {
-    trace!("cross_call_master::NoParamReturnVector4Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnVector4Callback");
     unsafe { __cross_call_master_NoParamReturnVector4Callback.expect("NoParamReturnVector4Callback function was not found")() }
 }
 pub type _NoParamReturnVector4Callback = unsafe extern "C" fn() -> Vec4;
@@ -478,7 +478,7 @@ pub static mut __cross_call_master_NoParamReturnVector4Callback: Option<_NoParam
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn NoParamReturnMatrix4x4Callback() -> Mat4x4 {
-    trace!("cross_call_master::NoParamReturnMatrix4x4Callback");
+    let __scope = scope!("cross_call_master::NoParamReturnMatrix4x4Callback");
     unsafe { __cross_call_master_NoParamReturnMatrix4x4Callback.expect("NoParamReturnMatrix4x4Callback function was not found")() }
 }
 pub type _NoParamReturnMatrix4x4Callback = unsafe extern "C" fn() -> Mat4x4;
@@ -491,7 +491,7 @@ pub static mut __cross_call_master_NoParamReturnMatrix4x4Callback: Option<_NoPar
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param1Callback(a: i32) {
-    trace!("cross_call_master::Param1Callback");
+    let __scope = scope!("cross_call_master::Param1Callback");
     unsafe { __cross_call_master_Param1Callback.expect("Param1Callback function was not found")(a) }
 }
 pub type _Param1Callback = unsafe extern "C" fn(i32);
@@ -505,7 +505,7 @@ pub static mut __cross_call_master_Param1Callback: Option<_Param1Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param2Callback(a: i32, b: f32) {
-    trace!("cross_call_master::Param2Callback");
+    let __scope = scope!("cross_call_master::Param2Callback");
     unsafe { __cross_call_master_Param2Callback.expect("Param2Callback function was not found")(a, b) }
 }
 pub type _Param2Callback = unsafe extern "C" fn(i32, f32);
@@ -520,7 +520,7 @@ pub static mut __cross_call_master_Param2Callback: Option<_Param2Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param3Callback(a: i32, b: f32, c: f64) {
-    trace!("cross_call_master::Param3Callback");
+    let __scope = scope!("cross_call_master::Param3Callback");
     unsafe { __cross_call_master_Param3Callback.expect("Param3Callback function was not found")(a, b, c) }
 }
 pub type _Param3Callback = unsafe extern "C" fn(i32, f32, f64);
@@ -536,7 +536,7 @@ pub static mut __cross_call_master_Param3Callback: Option<_Param3Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param4Callback(a: i32, b: f32, c: f64, d: &Vec4) {
-    trace!("cross_call_master::Param4Callback");
+    let __scope = scope!("cross_call_master::Param4Callback");
     unsafe { __cross_call_master_Param4Callback.expect("Param4Callback function was not found")(a, b, c, d) }
 }
 pub type _Param4Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4);
@@ -553,7 +553,7 @@ pub static mut __cross_call_master_Param4Callback: Option<_Param4Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param5Callback(a: i32, b: f32, c: f64, d: &Vec4, e: &Arr<i64>) {
-    trace!("cross_call_master::Param5Callback");
+    let __scope = scope!("cross_call_master::Param5Callback");
     unsafe { __cross_call_master_Param5Callback.expect("Param5Callback function was not found")(a, b, c, d, e) }
 }
 pub type _Param5Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4, &Arr<i64>);
@@ -571,7 +571,7 @@ pub static mut __cross_call_master_Param5Callback: Option<_Param5Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param6Callback(a: i32, b: f32, c: f64, d: &Vec4, e: &Arr<i64>, f: i8) {
-    trace!("cross_call_master::Param6Callback");
+    let __scope = scope!("cross_call_master::Param6Callback");
     unsafe { __cross_call_master_Param6Callback.expect("Param6Callback function was not found")(a, b, c, d, e, f) }
 }
 pub type _Param6Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4, &Arr<i64>, i8);
@@ -590,7 +590,7 @@ pub static mut __cross_call_master_Param6Callback: Option<_Param6Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param7Callback(a: i32, b: f32, c: f64, d: &Vec4, e: &Arr<i64>, f: i8, g: &Str) {
-    trace!("cross_call_master::Param7Callback");
+    let __scope = scope!("cross_call_master::Param7Callback");
     unsafe { __cross_call_master_Param7Callback.expect("Param7Callback function was not found")(a, b, c, d, e, f, g) }
 }
 pub type _Param7Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4, &Arr<i64>, i8, &Str);
@@ -610,7 +610,7 @@ pub static mut __cross_call_master_Param7Callback: Option<_Param7Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param8Callback(a: i32, b: f32, c: f64, d: &Vec4, e: &Arr<i64>, f: i8, g: &Str, h: u16) {
-    trace!("cross_call_master::Param8Callback");
+    let __scope = scope!("cross_call_master::Param8Callback");
     unsafe { __cross_call_master_Param8Callback.expect("Param8Callback function was not found")(a, b, c, d, e, f, g, h) }
 }
 pub type _Param8Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4, &Arr<i64>, i8, &Str, u16);
@@ -631,7 +631,7 @@ pub static mut __cross_call_master_Param8Callback: Option<_Param8Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param9Callback(a: i32, b: f32, c: f64, d: &Vec4, e: &Arr<i64>, f: i8, g: &Str, h: u16, k: i16) {
-    trace!("cross_call_master::Param9Callback");
+    let __scope = scope!("cross_call_master::Param9Callback");
     unsafe { __cross_call_master_Param9Callback.expect("Param9Callback function was not found")(a, b, c, d, e, f, g, h, k) }
 }
 pub type _Param9Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4, &Arr<i64>, i8, &Str, u16, i16);
@@ -653,7 +653,7 @@ pub static mut __cross_call_master_Param9Callback: Option<_Param9Callback> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn Param10Callback(a: i32, b: f32, c: f64, d: &Vec4, e: &Arr<i64>, f: i8, g: &Str, h: u16, k: i16, l: usize) {
-    trace!("cross_call_master::Param10Callback");
+    let __scope = scope!("cross_call_master::Param10Callback");
     unsafe { __cross_call_master_Param10Callback.expect("Param10Callback function was not found")(a, b, c, d, e, f, g, h, k, l) }
 }
 pub type _Param10Callback = unsafe extern "C" fn(i32, f32, f64, &Vec4, &Arr<i64>, i8, &Str, u16, i16, usize);
@@ -666,7 +666,7 @@ pub static mut __cross_call_master_Param10Callback: Option<_Param10Callback> = N
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef1Callback(a: &mut i32) {
-    trace!("cross_call_master::ParamRef1Callback");
+    let __scope = scope!("cross_call_master::ParamRef1Callback");
     unsafe { __cross_call_master_ParamRef1Callback.expect("ParamRef1Callback function was not found")(a) }
 }
 pub type _ParamRef1Callback = unsafe extern "C" fn(&mut i32);
@@ -680,7 +680,7 @@ pub static mut __cross_call_master_ParamRef1Callback: Option<_ParamRef1Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef2Callback(a: &mut i32, b: &mut f32) {
-    trace!("cross_call_master::ParamRef2Callback");
+    let __scope = scope!("cross_call_master::ParamRef2Callback");
     unsafe { __cross_call_master_ParamRef2Callback.expect("ParamRef2Callback function was not found")(a, b) }
 }
 pub type _ParamRef2Callback = unsafe extern "C" fn(&mut i32, &mut f32);
@@ -695,7 +695,7 @@ pub static mut __cross_call_master_ParamRef2Callback: Option<_ParamRef2Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef3Callback(a: &mut i32, b: &mut f32, c: &mut f64) {
-    trace!("cross_call_master::ParamRef3Callback");
+    let __scope = scope!("cross_call_master::ParamRef3Callback");
     unsafe { __cross_call_master_ParamRef3Callback.expect("ParamRef3Callback function was not found")(a, b, c) }
 }
 pub type _ParamRef3Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64);
@@ -711,7 +711,7 @@ pub static mut __cross_call_master_ParamRef3Callback: Option<_ParamRef3Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef4Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4) {
-    trace!("cross_call_master::ParamRef4Callback");
+    let __scope = scope!("cross_call_master::ParamRef4Callback");
     unsafe { __cross_call_master_ParamRef4Callback.expect("ParamRef4Callback function was not found")(a, b, c, d) }
 }
 pub type _ParamRef4Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4);
@@ -728,7 +728,7 @@ pub static mut __cross_call_master_ParamRef4Callback: Option<_ParamRef4Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef5Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4, e: &mut Arr<i64>) {
-    trace!("cross_call_master::ParamRef5Callback");
+    let __scope = scope!("cross_call_master::ParamRef5Callback");
     unsafe { __cross_call_master_ParamRef5Callback.expect("ParamRef5Callback function was not found")(a, b, c, d, e) }
 }
 pub type _ParamRef5Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4, &mut Arr<i64>);
@@ -746,7 +746,7 @@ pub static mut __cross_call_master_ParamRef5Callback: Option<_ParamRef5Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef6Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4, e: &mut Arr<i64>, f: &mut i8) {
-    trace!("cross_call_master::ParamRef6Callback");
+    let __scope = scope!("cross_call_master::ParamRef6Callback");
     unsafe { __cross_call_master_ParamRef6Callback.expect("ParamRef6Callback function was not found")(a, b, c, d, e, f) }
 }
 pub type _ParamRef6Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4, &mut Arr<i64>, &mut i8);
@@ -765,7 +765,7 @@ pub static mut __cross_call_master_ParamRef6Callback: Option<_ParamRef6Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef7Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4, e: &mut Arr<i64>, f: &mut i8, g: &mut Str) {
-    trace!("cross_call_master::ParamRef7Callback");
+    let __scope = scope!("cross_call_master::ParamRef7Callback");
     unsafe { __cross_call_master_ParamRef7Callback.expect("ParamRef7Callback function was not found")(a, b, c, d, e, f, g) }
 }
 pub type _ParamRef7Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4, &mut Arr<i64>, &mut i8, &mut Str);
@@ -785,7 +785,7 @@ pub static mut __cross_call_master_ParamRef7Callback: Option<_ParamRef7Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef8Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4, e: &mut Arr<i64>, f: &mut i8, g: &mut Str, h: &mut u16) {
-    trace!("cross_call_master::ParamRef8Callback");
+    let __scope = scope!("cross_call_master::ParamRef8Callback");
     unsafe { __cross_call_master_ParamRef8Callback.expect("ParamRef8Callback function was not found")(a, b, c, d, e, f, g, h) }
 }
 pub type _ParamRef8Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4, &mut Arr<i64>, &mut i8, &mut Str, &mut u16);
@@ -806,7 +806,7 @@ pub static mut __cross_call_master_ParamRef8Callback: Option<_ParamRef8Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef9Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4, e: &mut Arr<i64>, f: &mut i8, g: &mut Str, h: &mut u16, k: &mut i16) {
-    trace!("cross_call_master::ParamRef9Callback");
+    let __scope = scope!("cross_call_master::ParamRef9Callback");
     unsafe { __cross_call_master_ParamRef9Callback.expect("ParamRef9Callback function was not found")(a, b, c, d, e, f, g, h, k) }
 }
 pub type _ParamRef9Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4, &mut Arr<i64>, &mut i8, &mut Str, &mut u16, &mut i16);
@@ -828,7 +828,7 @@ pub static mut __cross_call_master_ParamRef9Callback: Option<_ParamRef9Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRef10Callback(a: &mut i32, b: &mut f32, c: &mut f64, d: &mut Vec4, e: &mut Arr<i64>, f: &mut i8, g: &mut Str, h: &mut u16, k: &mut i16, l: &mut usize) {
-    trace!("cross_call_master::ParamRef10Callback");
+    let __scope = scope!("cross_call_master::ParamRef10Callback");
     unsafe { __cross_call_master_ParamRef10Callback.expect("ParamRef10Callback function was not found")(a, b, c, d, e, f, g, h, k, l) }
 }
 pub type _ParamRef10Callback = unsafe extern "C" fn(&mut i32, &mut f32, &mut f64, &mut Vec4, &mut Arr<i64>, &mut i8, &mut Str, &mut u16, &mut i16, &mut usize);
@@ -855,7 +855,7 @@ pub static mut __cross_call_master_ParamRef10Callback: Option<_ParamRef10Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamRefVectorsCallback(p1: &mut Arr<bool>, p2: &mut Arr<i8>, p3: &mut Arr<u16>, p4: &mut Arr<i8>, p5: &mut Arr<i16>, p6: &mut Arr<i32>, p7: &mut Arr<i64>, p8: &mut Arr<u8>, p9: &mut Arr<u16>, p10: &mut Arr<u32>, p11: &mut Arr<u64>, p12: &mut Arr<usize>, p13: &mut Arr<f32>, p14: &mut Arr<f64>, p15: &mut Arr<Str>) {
-    trace!("cross_call_master::ParamRefVectorsCallback");
+    let __scope = scope!("cross_call_master::ParamRefVectorsCallback");
     unsafe { __cross_call_master_ParamRefVectorsCallback.expect("ParamRefVectorsCallback function was not found")(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15) }
 }
 pub type _ParamRefVectorsCallback = unsafe extern "C" fn(&mut Arr<bool>, &mut Arr<i8>, &mut Arr<u16>, &mut Arr<i8>, &mut Arr<i16>, &mut Arr<i32>, &mut Arr<i64>, &mut Arr<u8>, &mut Arr<u16>, &mut Arr<u32>, &mut Arr<u64>, &mut Arr<usize>, &mut Arr<f32>, &mut Arr<f64>, &mut Arr<Str>);
@@ -881,7 +881,7 @@ pub static mut __cross_call_master_ParamRefVectorsCallback: Option<_ParamRefVect
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamAllPrimitivesCallback(p1: bool, p2: i8, p3: u16, p4: i8, p5: i16, p6: i32, p7: i64, p8: u8, p9: u16, p10: u32, p11: u64, p12: usize, p13: f32, p14: f64) -> i64 {
-    trace!("cross_call_master::ParamAllPrimitivesCallback");
+    let __scope = scope!("cross_call_master::ParamAllPrimitivesCallback");
     unsafe { __cross_call_master_ParamAllPrimitivesCallback.expect("ParamAllPrimitivesCallback function was not found")(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14) }
 }
 pub type _ParamAllPrimitivesCallback = unsafe extern "C" fn(bool, i8, u16, i8, i16, i32, i64, u8, u16, u32, u64, usize, f32, f64) -> i64;
@@ -924,7 +924,7 @@ pub static mut __cross_call_master_ParamAllPrimitivesCallback: Option<_ParamAllP
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamAllAliasesCallback(aBool: AliasBool, aChar8: AliasChar8, aChar16: AliasChar16, aInt8: AliasInt8, aInt16: AliasInt16, aInt32: AliasInt32, aInt64: AliasInt64, aPtr: AliasPtr, aFloat: AliasFloat, aDouble: AliasDouble, aString: &AliasString, aAny: &AliasAny, aVec2: &AliasVec2, aVec3: &AliasVec3, aVec4: &AliasVec4, aMat4x4: &AliasMat4x4, aBoolVec: &AliasBoolVector, aChar8Vec: &AliasChar8Vector, aChar16Vec: &AliasChar16Vector, aInt8Vec: &AliasInt8Vector, aInt16Vec: &AliasInt16Vector, aInt32Vec: &AliasInt32Vector, aInt64Vec: &AliasInt64Vector, aPtrVec: &AliasPtrVector, aFloatVec: &AliasFloatVector, aDoubleVec: &AliasDoubleVector, aStringVec: &AliasStringVector, aAnyVec: &AliasAnyVector, aVec2Vec: &AliasVec2Vector, aVec3Vec: &AliasVec3Vector, aVec4Vec: &AliasVec4Vector) -> i32 {
-    trace!("cross_call_master::ParamAllAliasesCallback");
+    let __scope = scope!("cross_call_master::ParamAllAliasesCallback");
     unsafe { __cross_call_master_ParamAllAliasesCallback.expect("ParamAllAliasesCallback function was not found")(aBool, aChar8, aChar16, aInt8, aInt16, aInt32, aInt64, aPtr, aFloat, aDouble, aString, aAny, aVec2, aVec3, aVec4, aMat4x4, aBoolVec, aChar8Vec, aChar16Vec, aInt8Vec, aInt16Vec, aInt32Vec, aInt64Vec, aPtrVec, aFloatVec, aDoubleVec, aStringVec, aAnyVec, aVec2Vec, aVec3Vec, aVec4Vec) }
 }
 pub type _ParamAllAliasesCallback = unsafe extern "C" fn(AliasBool, AliasChar8, AliasChar16, AliasInt8, AliasInt16, AliasInt32, AliasInt64, AliasPtr, AliasFloat, AliasDouble, &AliasString, &AliasAny, &AliasVec2, &AliasVec3, &AliasVec4, &AliasMat4x4, &AliasBoolVector, &AliasChar8Vector, &AliasChar16Vector, &AliasInt8Vector, &AliasInt16Vector, &AliasInt32Vector, &AliasInt64Vector, &AliasPtrVector, &AliasFloatVector, &AliasDoubleVector, &AliasStringVector, &AliasAnyVector, &AliasVec2Vector, &AliasVec3Vector, &AliasVec4Vector) -> i32;
@@ -967,7 +967,7 @@ pub static mut __cross_call_master_ParamAllAliasesCallback: Option<_ParamAllAlia
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamAllRefAliasesCallback(aBool: &mut AliasBool, aChar8: &mut AliasChar8, aChar16: &mut AliasChar16, aInt8: &mut AliasInt8, aInt16: &mut AliasInt16, aInt32: &mut AliasInt32, aInt64: &mut AliasInt64, aPtr: &mut AliasPtr, aFloat: &mut AliasFloat, aDouble: &mut AliasDouble, aString: &mut AliasString, aAny: &mut AliasAny, aVec2: &mut AliasVec2, aVec3: &mut AliasVec3, aVec4: &mut AliasVec4, aMat4x4: &mut AliasMat4x4, aBoolVec: &mut AliasBoolVector, aChar8Vec: &mut AliasChar8Vector, aChar16Vec: &mut AliasChar16Vector, aInt8Vec: &mut AliasInt8Vector, aInt16Vec: &mut AliasInt16Vector, aInt32Vec: &mut AliasInt32Vector, aInt64Vec: &mut AliasInt64Vector, aPtrVec: &mut AliasPtrVector, aFloatVec: &mut AliasFloatVector, aDoubleVec: &mut AliasDoubleVector, aStringVec: &mut AliasStringVector, aAnyVec: &mut AliasAnyVector, aVec2Vec: &mut AliasVec2Vector, aVec3Vec: &mut AliasVec3Vector, aVec4Vec: &mut AliasVec4Vector) -> i64 {
-    trace!("cross_call_master::ParamAllRefAliasesCallback");
+    let __scope = scope!("cross_call_master::ParamAllRefAliasesCallback");
     unsafe { __cross_call_master_ParamAllRefAliasesCallback.expect("ParamAllRefAliasesCallback function was not found")(aBool, aChar8, aChar16, aInt8, aInt16, aInt32, aInt64, aPtr, aFloat, aDouble, aString, aAny, aVec2, aVec3, aVec4, aMat4x4, aBoolVec, aChar8Vec, aChar16Vec, aInt8Vec, aInt16Vec, aInt32Vec, aInt64Vec, aPtrVec, aFloatVec, aDoubleVec, aStringVec, aAnyVec, aVec2Vec, aVec3Vec, aVec4Vec) }
 }
 pub type _ParamAllRefAliasesCallback = unsafe extern "C" fn(&mut AliasBool, &mut AliasChar8, &mut AliasChar16, &mut AliasInt8, &mut AliasInt16, &mut AliasInt32, &mut AliasInt64, &mut AliasPtr, &mut AliasFloat, &mut AliasDouble, &mut AliasString, &mut AliasAny, &mut AliasVec2, &mut AliasVec3, &mut AliasVec4, &mut AliasMat4x4, &mut AliasBoolVector, &mut AliasChar8Vector, &mut AliasChar16Vector, &mut AliasInt8Vector, &mut AliasInt16Vector, &mut AliasInt32Vector, &mut AliasInt64Vector, &mut AliasPtrVector, &mut AliasFloatVector, &mut AliasDoubleVector, &mut AliasStringVector, &mut AliasAnyVector, &mut AliasVec2Vector, &mut AliasVec3Vector, &mut AliasVec4Vector) -> i64;
@@ -981,7 +981,7 @@ pub static mut __cross_call_master_ParamAllRefAliasesCallback: Option<_ParamAllR
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumCallback(p1: Example, p2: &Arr<Example>) -> i32 {
-    trace!("cross_call_master::ParamEnumCallback");
+    let __scope = scope!("cross_call_master::ParamEnumCallback");
     unsafe { __cross_call_master_ParamEnumCallback.expect("ParamEnumCallback function was not found")(p1, p2) }
 }
 pub type _ParamEnumCallback = unsafe extern "C" fn(Example, &Arr<Example>) -> i32;
@@ -995,7 +995,7 @@ pub static mut __cross_call_master_ParamEnumCallback: Option<_ParamEnumCallback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamEnumRefCallback(p1: &mut Example, p2: &mut Arr<Example>) -> i32 {
-    trace!("cross_call_master::ParamEnumRefCallback");
+    let __scope = scope!("cross_call_master::ParamEnumRefCallback");
     unsafe { __cross_call_master_ParamEnumRefCallback.expect("ParamEnumRefCallback function was not found")(p1, p2) }
 }
 pub type _ParamEnumRefCallback = unsafe extern "C" fn(&mut Example, &mut Arr<Example>) -> i32;
@@ -1009,7 +1009,7 @@ pub static mut __cross_call_master_ParamEnumRefCallback: Option<_ParamEnumRefCal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamVariantCallback(p1: &Var, p2: &Arr<Var>) {
-    trace!("cross_call_master::ParamVariantCallback");
+    let __scope = scope!("cross_call_master::ParamVariantCallback");
     unsafe { __cross_call_master_ParamVariantCallback.expect("ParamVariantCallback function was not found")(p1, p2) }
 }
 pub type _ParamVariantCallback = unsafe extern "C" fn(&Var, &Arr<Var>);
@@ -1023,7 +1023,7 @@ pub static mut __cross_call_master_ParamVariantCallback: Option<_ParamVariantCal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn ParamVariantRefCallback(p1: &mut Var, p2: &mut Arr<Var>) {
-    trace!("cross_call_master::ParamVariantRefCallback");
+    let __scope = scope!("cross_call_master::ParamVariantRefCallback");
     unsafe { __cross_call_master_ParamVariantRefCallback.expect("ParamVariantRefCallback function was not found")(p1, p2) }
 }
 pub type _ParamVariantRefCallback = unsafe extern "C" fn(&mut Var, &mut Arr<Var>);
@@ -1036,7 +1036,7 @@ pub static mut __cross_call_master_ParamVariantRefCallback: Option<_ParamVariant
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVoidCallback(func: FuncVoid) {
-    trace!("cross_call_master::CallFuncVoidCallback");
+    let __scope = scope!("cross_call_master::CallFuncVoidCallback");
     unsafe { __cross_call_master_CallFuncVoidCallback.expect("CallFuncVoidCallback function was not found")(func) }
 }
 pub type _CallFuncVoidCallback = unsafe extern "C" fn(FuncVoid);
@@ -1049,7 +1049,7 @@ pub static mut __cross_call_master_CallFuncVoidCallback: Option<_CallFuncVoidCal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolCallback(func: FuncBool) -> bool {
-    trace!("cross_call_master::CallFuncBoolCallback");
+    let __scope = scope!("cross_call_master::CallFuncBoolCallback");
     unsafe { __cross_call_master_CallFuncBoolCallback.expect("CallFuncBoolCallback function was not found")(func) }
 }
 pub type _CallFuncBoolCallback = unsafe extern "C" fn(FuncBool) -> bool;
@@ -1062,7 +1062,7 @@ pub static mut __cross_call_master_CallFuncBoolCallback: Option<_CallFuncBoolCal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8Callback(func: FuncChar8) -> i8 {
-    trace!("cross_call_master::CallFuncChar8Callback");
+    let __scope = scope!("cross_call_master::CallFuncChar8Callback");
     unsafe { __cross_call_master_CallFuncChar8Callback.expect("CallFuncChar8Callback function was not found")(func) }
 }
 pub type _CallFuncChar8Callback = unsafe extern "C" fn(FuncChar8) -> i8;
@@ -1075,7 +1075,7 @@ pub static mut __cross_call_master_CallFuncChar8Callback: Option<_CallFuncChar8C
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16Callback(func: FuncChar16) -> u16 {
-    trace!("cross_call_master::CallFuncChar16Callback");
+    let __scope = scope!("cross_call_master::CallFuncChar16Callback");
     unsafe { __cross_call_master_CallFuncChar16Callback.expect("CallFuncChar16Callback function was not found")(func) }
 }
 pub type _CallFuncChar16Callback = unsafe extern "C" fn(FuncChar16) -> u16;
@@ -1088,7 +1088,7 @@ pub static mut __cross_call_master_CallFuncChar16Callback: Option<_CallFuncChar1
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8Callback(func: FuncInt8) -> i8 {
-    trace!("cross_call_master::CallFuncInt8Callback");
+    let __scope = scope!("cross_call_master::CallFuncInt8Callback");
     unsafe { __cross_call_master_CallFuncInt8Callback.expect("CallFuncInt8Callback function was not found")(func) }
 }
 pub type _CallFuncInt8Callback = unsafe extern "C" fn(FuncInt8) -> i8;
@@ -1101,7 +1101,7 @@ pub static mut __cross_call_master_CallFuncInt8Callback: Option<_CallFuncInt8Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16Callback(func: FuncInt16) -> i16 {
-    trace!("cross_call_master::CallFuncInt16Callback");
+    let __scope = scope!("cross_call_master::CallFuncInt16Callback");
     unsafe { __cross_call_master_CallFuncInt16Callback.expect("CallFuncInt16Callback function was not found")(func) }
 }
 pub type _CallFuncInt16Callback = unsafe extern "C" fn(FuncInt16) -> i16;
@@ -1114,7 +1114,7 @@ pub static mut __cross_call_master_CallFuncInt16Callback: Option<_CallFuncInt16C
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32Callback(func: FuncInt32) -> i32 {
-    trace!("cross_call_master::CallFuncInt32Callback");
+    let __scope = scope!("cross_call_master::CallFuncInt32Callback");
     unsafe { __cross_call_master_CallFuncInt32Callback.expect("CallFuncInt32Callback function was not found")(func) }
 }
 pub type _CallFuncInt32Callback = unsafe extern "C" fn(FuncInt32) -> i32;
@@ -1127,7 +1127,7 @@ pub static mut __cross_call_master_CallFuncInt32Callback: Option<_CallFuncInt32C
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64Callback(func: FuncInt64) -> i64 {
-    trace!("cross_call_master::CallFuncInt64Callback");
+    let __scope = scope!("cross_call_master::CallFuncInt64Callback");
     unsafe { __cross_call_master_CallFuncInt64Callback.expect("CallFuncInt64Callback function was not found")(func) }
 }
 pub type _CallFuncInt64Callback = unsafe extern "C" fn(FuncInt64) -> i64;
@@ -1140,7 +1140,7 @@ pub static mut __cross_call_master_CallFuncInt64Callback: Option<_CallFuncInt64C
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8Callback(func: FuncUInt8) -> u8 {
-    trace!("cross_call_master::CallFuncUInt8Callback");
+    let __scope = scope!("cross_call_master::CallFuncUInt8Callback");
     unsafe { __cross_call_master_CallFuncUInt8Callback.expect("CallFuncUInt8Callback function was not found")(func) }
 }
 pub type _CallFuncUInt8Callback = unsafe extern "C" fn(FuncUInt8) -> u8;
@@ -1153,7 +1153,7 @@ pub static mut __cross_call_master_CallFuncUInt8Callback: Option<_CallFuncUInt8C
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16Callback(func: FuncUInt16) -> u16 {
-    trace!("cross_call_master::CallFuncUInt16Callback");
+    let __scope = scope!("cross_call_master::CallFuncUInt16Callback");
     unsafe { __cross_call_master_CallFuncUInt16Callback.expect("CallFuncUInt16Callback function was not found")(func) }
 }
 pub type _CallFuncUInt16Callback = unsafe extern "C" fn(FuncUInt16) -> u16;
@@ -1166,7 +1166,7 @@ pub static mut __cross_call_master_CallFuncUInt16Callback: Option<_CallFuncUInt1
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32Callback(func: FuncUInt32) -> u32 {
-    trace!("cross_call_master::CallFuncUInt32Callback");
+    let __scope = scope!("cross_call_master::CallFuncUInt32Callback");
     unsafe { __cross_call_master_CallFuncUInt32Callback.expect("CallFuncUInt32Callback function was not found")(func) }
 }
 pub type _CallFuncUInt32Callback = unsafe extern "C" fn(FuncUInt32) -> u32;
@@ -1179,7 +1179,7 @@ pub static mut __cross_call_master_CallFuncUInt32Callback: Option<_CallFuncUInt3
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64Callback(func: FuncUInt64) -> u64 {
-    trace!("cross_call_master::CallFuncUInt64Callback");
+    let __scope = scope!("cross_call_master::CallFuncUInt64Callback");
     unsafe { __cross_call_master_CallFuncUInt64Callback.expect("CallFuncUInt64Callback function was not found")(func) }
 }
 pub type _CallFuncUInt64Callback = unsafe extern "C" fn(FuncUInt64) -> u64;
@@ -1192,7 +1192,7 @@ pub static mut __cross_call_master_CallFuncUInt64Callback: Option<_CallFuncUInt6
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrCallback(func: FuncPtr) -> usize {
-    trace!("cross_call_master::CallFuncPtrCallback");
+    let __scope = scope!("cross_call_master::CallFuncPtrCallback");
     unsafe { __cross_call_master_CallFuncPtrCallback.expect("CallFuncPtrCallback function was not found")(func) }
 }
 pub type _CallFuncPtrCallback = unsafe extern "C" fn(FuncPtr) -> usize;
@@ -1205,7 +1205,7 @@ pub static mut __cross_call_master_CallFuncPtrCallback: Option<_CallFuncPtrCallb
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatCallback(func: FuncFloat) -> f32 {
-    trace!("cross_call_master::CallFuncFloatCallback");
+    let __scope = scope!("cross_call_master::CallFuncFloatCallback");
     unsafe { __cross_call_master_CallFuncFloatCallback.expect("CallFuncFloatCallback function was not found")(func) }
 }
 pub type _CallFuncFloatCallback = unsafe extern "C" fn(FuncFloat) -> f32;
@@ -1218,7 +1218,7 @@ pub static mut __cross_call_master_CallFuncFloatCallback: Option<_CallFuncFloatC
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleCallback(func: FuncDouble) -> f64 {
-    trace!("cross_call_master::CallFuncDoubleCallback");
+    let __scope = scope!("cross_call_master::CallFuncDoubleCallback");
     unsafe { __cross_call_master_CallFuncDoubleCallback.expect("CallFuncDoubleCallback function was not found")(func) }
 }
 pub type _CallFuncDoubleCallback = unsafe extern "C" fn(FuncDouble) -> f64;
@@ -1231,7 +1231,7 @@ pub static mut __cross_call_master_CallFuncDoubleCallback: Option<_CallFuncDoubl
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringCallback(func: FuncString) -> Str {
-    trace!("cross_call_master::CallFuncStringCallback");
+    let __scope = scope!("cross_call_master::CallFuncStringCallback");
     unsafe { __cross_call_master_CallFuncStringCallback.expect("CallFuncStringCallback function was not found")(func) }
 }
 pub type _CallFuncStringCallback = unsafe extern "C" fn(FuncString) -> Str;
@@ -1244,7 +1244,7 @@ pub static mut __cross_call_master_CallFuncStringCallback: Option<_CallFuncStrin
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyCallback(func: FuncAny) -> Var {
-    trace!("cross_call_master::CallFuncAnyCallback");
+    let __scope = scope!("cross_call_master::CallFuncAnyCallback");
     unsafe { __cross_call_master_CallFuncAnyCallback.expect("CallFuncAnyCallback function was not found")(func) }
 }
 pub type _CallFuncAnyCallback = unsafe extern "C" fn(FuncAny) -> Var;
@@ -1257,7 +1257,7 @@ pub static mut __cross_call_master_CallFuncAnyCallback: Option<_CallFuncAnyCallb
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFunctionCallback(func: FuncFunction) -> usize {
-    trace!("cross_call_master::CallFuncFunctionCallback");
+    let __scope = scope!("cross_call_master::CallFuncFunctionCallback");
     unsafe { __cross_call_master_CallFuncFunctionCallback.expect("CallFuncFunctionCallback function was not found")(func) }
 }
 pub type _CallFuncFunctionCallback = unsafe extern "C" fn(FuncFunction) -> usize;
@@ -1270,7 +1270,7 @@ pub static mut __cross_call_master_CallFuncFunctionCallback: Option<_CallFuncFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncBoolVectorCallback(func: FuncBoolVector) -> Arr<bool> {
-    trace!("cross_call_master::CallFuncBoolVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncBoolVectorCallback");
     unsafe { __cross_call_master_CallFuncBoolVectorCallback.expect("CallFuncBoolVectorCallback function was not found")(func) }
 }
 pub type _CallFuncBoolVectorCallback = unsafe extern "C" fn(FuncBoolVector) -> Arr<bool>;
@@ -1283,7 +1283,7 @@ pub static mut __cross_call_master_CallFuncBoolVectorCallback: Option<_CallFuncB
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar8VectorCallback(func: FuncChar8Vector) -> Arr<i8> {
-    trace!("cross_call_master::CallFuncChar8VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncChar8VectorCallback");
     unsafe { __cross_call_master_CallFuncChar8VectorCallback.expect("CallFuncChar8VectorCallback function was not found")(func) }
 }
 pub type _CallFuncChar8VectorCallback = unsafe extern "C" fn(FuncChar8Vector) -> Arr<i8>;
@@ -1296,7 +1296,7 @@ pub static mut __cross_call_master_CallFuncChar8VectorCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncChar16VectorCallback(func: FuncChar16Vector) -> Arr<u16> {
-    trace!("cross_call_master::CallFuncChar16VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncChar16VectorCallback");
     unsafe { __cross_call_master_CallFuncChar16VectorCallback.expect("CallFuncChar16VectorCallback function was not found")(func) }
 }
 pub type _CallFuncChar16VectorCallback = unsafe extern "C" fn(FuncChar16Vector) -> Arr<u16>;
@@ -1309,7 +1309,7 @@ pub static mut __cross_call_master_CallFuncChar16VectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt8VectorCallback(func: FuncInt8Vector) -> Arr<i8> {
-    trace!("cross_call_master::CallFuncInt8VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncInt8VectorCallback");
     unsafe { __cross_call_master_CallFuncInt8VectorCallback.expect("CallFuncInt8VectorCallback function was not found")(func) }
 }
 pub type _CallFuncInt8VectorCallback = unsafe extern "C" fn(FuncInt8Vector) -> Arr<i8>;
@@ -1322,7 +1322,7 @@ pub static mut __cross_call_master_CallFuncInt8VectorCallback: Option<_CallFuncI
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt16VectorCallback(func: FuncInt16Vector) -> Arr<i16> {
-    trace!("cross_call_master::CallFuncInt16VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncInt16VectorCallback");
     unsafe { __cross_call_master_CallFuncInt16VectorCallback.expect("CallFuncInt16VectorCallback function was not found")(func) }
 }
 pub type _CallFuncInt16VectorCallback = unsafe extern "C" fn(FuncInt16Vector) -> Arr<i16>;
@@ -1335,7 +1335,7 @@ pub static mut __cross_call_master_CallFuncInt16VectorCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt32VectorCallback(func: FuncInt32Vector) -> Arr<i32> {
-    trace!("cross_call_master::CallFuncInt32VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncInt32VectorCallback");
     unsafe { __cross_call_master_CallFuncInt32VectorCallback.expect("CallFuncInt32VectorCallback function was not found")(func) }
 }
 pub type _CallFuncInt32VectorCallback = unsafe extern "C" fn(FuncInt32Vector) -> Arr<i32>;
@@ -1348,7 +1348,7 @@ pub static mut __cross_call_master_CallFuncInt32VectorCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncInt64VectorCallback(func: FuncInt64Vector) -> Arr<i64> {
-    trace!("cross_call_master::CallFuncInt64VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncInt64VectorCallback");
     unsafe { __cross_call_master_CallFuncInt64VectorCallback.expect("CallFuncInt64VectorCallback function was not found")(func) }
 }
 pub type _CallFuncInt64VectorCallback = unsafe extern "C" fn(FuncInt64Vector) -> Arr<i64>;
@@ -1361,7 +1361,7 @@ pub static mut __cross_call_master_CallFuncInt64VectorCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt8VectorCallback(func: FuncUInt8Vector) -> Arr<u8> {
-    trace!("cross_call_master::CallFuncUInt8VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncUInt8VectorCallback");
     unsafe { __cross_call_master_CallFuncUInt8VectorCallback.expect("CallFuncUInt8VectorCallback function was not found")(func) }
 }
 pub type _CallFuncUInt8VectorCallback = unsafe extern "C" fn(FuncUInt8Vector) -> Arr<u8>;
@@ -1374,7 +1374,7 @@ pub static mut __cross_call_master_CallFuncUInt8VectorCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt16VectorCallback(func: FuncUInt16Vector) -> Arr<u16> {
-    trace!("cross_call_master::CallFuncUInt16VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncUInt16VectorCallback");
     unsafe { __cross_call_master_CallFuncUInt16VectorCallback.expect("CallFuncUInt16VectorCallback function was not found")(func) }
 }
 pub type _CallFuncUInt16VectorCallback = unsafe extern "C" fn(FuncUInt16Vector) -> Arr<u16>;
@@ -1387,7 +1387,7 @@ pub static mut __cross_call_master_CallFuncUInt16VectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt32VectorCallback(func: FuncUInt32Vector) -> Arr<u32> {
-    trace!("cross_call_master::CallFuncUInt32VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncUInt32VectorCallback");
     unsafe { __cross_call_master_CallFuncUInt32VectorCallback.expect("CallFuncUInt32VectorCallback function was not found")(func) }
 }
 pub type _CallFuncUInt32VectorCallback = unsafe extern "C" fn(FuncUInt32Vector) -> Arr<u32>;
@@ -1400,7 +1400,7 @@ pub static mut __cross_call_master_CallFuncUInt32VectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncUInt64VectorCallback(func: FuncUInt64Vector) -> Arr<u64> {
-    trace!("cross_call_master::CallFuncUInt64VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncUInt64VectorCallback");
     unsafe { __cross_call_master_CallFuncUInt64VectorCallback.expect("CallFuncUInt64VectorCallback function was not found")(func) }
 }
 pub type _CallFuncUInt64VectorCallback = unsafe extern "C" fn(FuncUInt64Vector) -> Arr<u64>;
@@ -1413,7 +1413,7 @@ pub static mut __cross_call_master_CallFuncUInt64VectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncPtrVectorCallback(func: FuncPtrVector) -> Arr<usize> {
-    trace!("cross_call_master::CallFuncPtrVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncPtrVectorCallback");
     unsafe { __cross_call_master_CallFuncPtrVectorCallback.expect("CallFuncPtrVectorCallback function was not found")(func) }
 }
 pub type _CallFuncPtrVectorCallback = unsafe extern "C" fn(FuncPtrVector) -> Arr<usize>;
@@ -1426,7 +1426,7 @@ pub static mut __cross_call_master_CallFuncPtrVectorCallback: Option<_CallFuncPt
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncFloatVectorCallback(func: FuncFloatVector) -> Arr<f32> {
-    trace!("cross_call_master::CallFuncFloatVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncFloatVectorCallback");
     unsafe { __cross_call_master_CallFuncFloatVectorCallback.expect("CallFuncFloatVectorCallback function was not found")(func) }
 }
 pub type _CallFuncFloatVectorCallback = unsafe extern "C" fn(FuncFloatVector) -> Arr<f32>;
@@ -1439,7 +1439,7 @@ pub static mut __cross_call_master_CallFuncFloatVectorCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncDoubleVectorCallback(func: FuncDoubleVector) -> Arr<f64> {
-    trace!("cross_call_master::CallFuncDoubleVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncDoubleVectorCallback");
     unsafe { __cross_call_master_CallFuncDoubleVectorCallback.expect("CallFuncDoubleVectorCallback function was not found")(func) }
 }
 pub type _CallFuncDoubleVectorCallback = unsafe extern "C" fn(FuncDoubleVector) -> Arr<f64>;
@@ -1452,7 +1452,7 @@ pub static mut __cross_call_master_CallFuncDoubleVectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncStringVectorCallback(func: FuncStringVector) -> Arr<Str> {
-    trace!("cross_call_master::CallFuncStringVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncStringVectorCallback");
     unsafe { __cross_call_master_CallFuncStringVectorCallback.expect("CallFuncStringVectorCallback function was not found")(func) }
 }
 pub type _CallFuncStringVectorCallback = unsafe extern "C" fn(FuncStringVector) -> Arr<Str>;
@@ -1465,7 +1465,7 @@ pub static mut __cross_call_master_CallFuncStringVectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAnyVectorCallback(func: FuncAnyVector) -> Arr<Var> {
-    trace!("cross_call_master::CallFuncAnyVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAnyVectorCallback");
     unsafe { __cross_call_master_CallFuncAnyVectorCallback.expect("CallFuncAnyVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAnyVectorCallback = unsafe extern "C" fn(FuncAnyVector) -> Arr<Var>;
@@ -1478,7 +1478,7 @@ pub static mut __cross_call_master_CallFuncAnyVectorCallback: Option<_CallFuncAn
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2VectorCallback(func: FuncVec2Vector) -> Arr<Vec2> {
-    trace!("cross_call_master::CallFuncVec2VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncVec2VectorCallback");
     unsafe { __cross_call_master_CallFuncVec2VectorCallback.expect("CallFuncVec2VectorCallback function was not found")(func) }
 }
 pub type _CallFuncVec2VectorCallback = unsafe extern "C" fn(FuncVec2Vector) -> Arr<Vec2>;
@@ -1491,7 +1491,7 @@ pub static mut __cross_call_master_CallFuncVec2VectorCallback: Option<_CallFuncV
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3VectorCallback(func: FuncVec3Vector) -> Arr<Vec3> {
-    trace!("cross_call_master::CallFuncVec3VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncVec3VectorCallback");
     unsafe { __cross_call_master_CallFuncVec3VectorCallback.expect("CallFuncVec3VectorCallback function was not found")(func) }
 }
 pub type _CallFuncVec3VectorCallback = unsafe extern "C" fn(FuncVec3Vector) -> Arr<Vec3>;
@@ -1504,7 +1504,7 @@ pub static mut __cross_call_master_CallFuncVec3VectorCallback: Option<_CallFuncV
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4VectorCallback(func: FuncVec4Vector) -> Arr<Vec4> {
-    trace!("cross_call_master::CallFuncVec4VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncVec4VectorCallback");
     unsafe { __cross_call_master_CallFuncVec4VectorCallback.expect("CallFuncVec4VectorCallback function was not found")(func) }
 }
 pub type _CallFuncVec4VectorCallback = unsafe extern "C" fn(FuncVec4Vector) -> Arr<Vec4>;
@@ -1517,7 +1517,7 @@ pub static mut __cross_call_master_CallFuncVec4VectorCallback: Option<_CallFuncV
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4VectorCallback(func: FuncMat4x4Vector) -> Arr<Mat4x4> {
-    trace!("cross_call_master::CallFuncMat4x4VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncMat4x4VectorCallback");
     unsafe { __cross_call_master_CallFuncMat4x4VectorCallback.expect("CallFuncMat4x4VectorCallback function was not found")(func) }
 }
 pub type _CallFuncMat4x4VectorCallback = unsafe extern "C" fn(FuncMat4x4Vector) -> Arr<Mat4x4>;
@@ -1530,7 +1530,7 @@ pub static mut __cross_call_master_CallFuncMat4x4VectorCallback: Option<_CallFun
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec2Callback(func: FuncVec2) -> Vec2 {
-    trace!("cross_call_master::CallFuncVec2Callback");
+    let __scope = scope!("cross_call_master::CallFuncVec2Callback");
     unsafe { __cross_call_master_CallFuncVec2Callback.expect("CallFuncVec2Callback function was not found")(func) }
 }
 pub type _CallFuncVec2Callback = unsafe extern "C" fn(FuncVec2) -> Vec2;
@@ -1543,7 +1543,7 @@ pub static mut __cross_call_master_CallFuncVec2Callback: Option<_CallFuncVec2Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec3Callback(func: FuncVec3) -> Vec3 {
-    trace!("cross_call_master::CallFuncVec3Callback");
+    let __scope = scope!("cross_call_master::CallFuncVec3Callback");
     unsafe { __cross_call_master_CallFuncVec3Callback.expect("CallFuncVec3Callback function was not found")(func) }
 }
 pub type _CallFuncVec3Callback = unsafe extern "C" fn(FuncVec3) -> Vec3;
@@ -1556,7 +1556,7 @@ pub static mut __cross_call_master_CallFuncVec3Callback: Option<_CallFuncVec3Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncVec4Callback(func: FuncVec4) -> Vec4 {
-    trace!("cross_call_master::CallFuncVec4Callback");
+    let __scope = scope!("cross_call_master::CallFuncVec4Callback");
     unsafe { __cross_call_master_CallFuncVec4Callback.expect("CallFuncVec4Callback function was not found")(func) }
 }
 pub type _CallFuncVec4Callback = unsafe extern "C" fn(FuncVec4) -> Vec4;
@@ -1569,7 +1569,7 @@ pub static mut __cross_call_master_CallFuncVec4Callback: Option<_CallFuncVec4Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncMat4x4Callback(func: FuncMat4x4) -> Mat4x4 {
-    trace!("cross_call_master::CallFuncMat4x4Callback");
+    let __scope = scope!("cross_call_master::CallFuncMat4x4Callback");
     unsafe { __cross_call_master_CallFuncMat4x4Callback.expect("CallFuncMat4x4Callback function was not found")(func) }
 }
 pub type _CallFuncMat4x4Callback = unsafe extern "C" fn(FuncMat4x4) -> Mat4x4;
@@ -1582,7 +1582,7 @@ pub static mut __cross_call_master_CallFuncMat4x4Callback: Option<_CallFuncMat4x
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasBoolCallback(func: FuncAliasBool) -> AliasBool {
-    trace!("cross_call_master::CallFuncAliasBoolCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasBoolCallback");
     unsafe { __cross_call_master_CallFuncAliasBoolCallback.expect("CallFuncAliasBoolCallback function was not found")(func) }
 }
 pub type _CallFuncAliasBoolCallback = unsafe extern "C" fn(FuncAliasBool) -> AliasBool;
@@ -1595,7 +1595,7 @@ pub static mut __cross_call_master_CallFuncAliasBoolCallback: Option<_CallFuncAl
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasChar8Callback(func: FuncAliasChar8) -> AliasChar8 {
-    trace!("cross_call_master::CallFuncAliasChar8Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasChar8Callback");
     unsafe { __cross_call_master_CallFuncAliasChar8Callback.expect("CallFuncAliasChar8Callback function was not found")(func) }
 }
 pub type _CallFuncAliasChar8Callback = unsafe extern "C" fn(FuncAliasChar8) -> AliasChar8;
@@ -1608,7 +1608,7 @@ pub static mut __cross_call_master_CallFuncAliasChar8Callback: Option<_CallFuncA
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasChar16Callback(func: FuncAliasChar16) -> AliasChar16 {
-    trace!("cross_call_master::CallFuncAliasChar16Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasChar16Callback");
     unsafe { __cross_call_master_CallFuncAliasChar16Callback.expect("CallFuncAliasChar16Callback function was not found")(func) }
 }
 pub type _CallFuncAliasChar16Callback = unsafe extern "C" fn(FuncAliasChar16) -> AliasChar16;
@@ -1621,7 +1621,7 @@ pub static mut __cross_call_master_CallFuncAliasChar16Callback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt8Callback(func: FuncAliasInt8) -> AliasInt8 {
-    trace!("cross_call_master::CallFuncAliasInt8Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt8Callback");
     unsafe { __cross_call_master_CallFuncAliasInt8Callback.expect("CallFuncAliasInt8Callback function was not found")(func) }
 }
 pub type _CallFuncAliasInt8Callback = unsafe extern "C" fn(FuncAliasInt8) -> AliasInt8;
@@ -1634,7 +1634,7 @@ pub static mut __cross_call_master_CallFuncAliasInt8Callback: Option<_CallFuncAl
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt16Callback(func: FuncAliasInt16) -> AliasInt16 {
-    trace!("cross_call_master::CallFuncAliasInt16Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt16Callback");
     unsafe { __cross_call_master_CallFuncAliasInt16Callback.expect("CallFuncAliasInt16Callback function was not found")(func) }
 }
 pub type _CallFuncAliasInt16Callback = unsafe extern "C" fn(FuncAliasInt16) -> AliasInt16;
@@ -1647,7 +1647,7 @@ pub static mut __cross_call_master_CallFuncAliasInt16Callback: Option<_CallFuncA
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt32Callback(func: FuncAliasInt32) -> AliasInt32 {
-    trace!("cross_call_master::CallFuncAliasInt32Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt32Callback");
     unsafe { __cross_call_master_CallFuncAliasInt32Callback.expect("CallFuncAliasInt32Callback function was not found")(func) }
 }
 pub type _CallFuncAliasInt32Callback = unsafe extern "C" fn(FuncAliasInt32) -> AliasInt32;
@@ -1660,7 +1660,7 @@ pub static mut __cross_call_master_CallFuncAliasInt32Callback: Option<_CallFuncA
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt64Callback(func: FuncAliasInt64) -> AliasInt64 {
-    trace!("cross_call_master::CallFuncAliasInt64Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt64Callback");
     unsafe { __cross_call_master_CallFuncAliasInt64Callback.expect("CallFuncAliasInt64Callback function was not found")(func) }
 }
 pub type _CallFuncAliasInt64Callback = unsafe extern "C" fn(FuncAliasInt64) -> AliasInt64;
@@ -1673,7 +1673,7 @@ pub static mut __cross_call_master_CallFuncAliasInt64Callback: Option<_CallFuncA
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt8Callback(func: FuncAliasUInt8) -> AliasUInt8 {
-    trace!("cross_call_master::CallFuncAliasUInt8Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt8Callback");
     unsafe { __cross_call_master_CallFuncAliasUInt8Callback.expect("CallFuncAliasUInt8Callback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt8Callback = unsafe extern "C" fn(FuncAliasUInt8) -> AliasUInt8;
@@ -1686,7 +1686,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt8Callback: Option<_CallFuncA
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt16Callback(func: FuncAliasUInt16) -> AliasUInt16 {
-    trace!("cross_call_master::CallFuncAliasUInt16Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt16Callback");
     unsafe { __cross_call_master_CallFuncAliasUInt16Callback.expect("CallFuncAliasUInt16Callback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt16Callback = unsafe extern "C" fn(FuncAliasUInt16) -> AliasUInt16;
@@ -1699,7 +1699,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt16Callback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt32Callback(func: FuncAliasUInt32) -> AliasUInt32 {
-    trace!("cross_call_master::CallFuncAliasUInt32Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt32Callback");
     unsafe { __cross_call_master_CallFuncAliasUInt32Callback.expect("CallFuncAliasUInt32Callback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt32Callback = unsafe extern "C" fn(FuncAliasUInt32) -> AliasUInt32;
@@ -1712,7 +1712,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt32Callback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt64Callback(func: FuncAliasUInt64) -> AliasUInt64 {
-    trace!("cross_call_master::CallFuncAliasUInt64Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt64Callback");
     unsafe { __cross_call_master_CallFuncAliasUInt64Callback.expect("CallFuncAliasUInt64Callback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt64Callback = unsafe extern "C" fn(FuncAliasUInt64) -> AliasUInt64;
@@ -1725,7 +1725,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt64Callback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasPtrCallback(func: FuncAliasPtr) -> AliasPtr {
-    trace!("cross_call_master::CallFuncAliasPtrCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasPtrCallback");
     unsafe { __cross_call_master_CallFuncAliasPtrCallback.expect("CallFuncAliasPtrCallback function was not found")(func) }
 }
 pub type _CallFuncAliasPtrCallback = unsafe extern "C" fn(FuncAliasPtr) -> AliasPtr;
@@ -1738,7 +1738,7 @@ pub static mut __cross_call_master_CallFuncAliasPtrCallback: Option<_CallFuncAli
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasFloatCallback(func: FuncAliasFloat) -> AliasFloat {
-    trace!("cross_call_master::CallFuncAliasFloatCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasFloatCallback");
     unsafe { __cross_call_master_CallFuncAliasFloatCallback.expect("CallFuncAliasFloatCallback function was not found")(func) }
 }
 pub type _CallFuncAliasFloatCallback = unsafe extern "C" fn(FuncAliasFloat) -> AliasFloat;
@@ -1751,7 +1751,7 @@ pub static mut __cross_call_master_CallFuncAliasFloatCallback: Option<_CallFuncA
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasDoubleCallback(func: FuncAliasDouble) -> AliasDouble {
-    trace!("cross_call_master::CallFuncAliasDoubleCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasDoubleCallback");
     unsafe { __cross_call_master_CallFuncAliasDoubleCallback.expect("CallFuncAliasDoubleCallback function was not found")(func) }
 }
 pub type _CallFuncAliasDoubleCallback = unsafe extern "C" fn(FuncAliasDouble) -> AliasDouble;
@@ -1764,7 +1764,7 @@ pub static mut __cross_call_master_CallFuncAliasDoubleCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasStringCallback(func: FuncAliasString) -> AliasString {
-    trace!("cross_call_master::CallFuncAliasStringCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasStringCallback");
     unsafe { __cross_call_master_CallFuncAliasStringCallback.expect("CallFuncAliasStringCallback function was not found")(func) }
 }
 pub type _CallFuncAliasStringCallback = unsafe extern "C" fn(FuncAliasString) -> AliasString;
@@ -1777,7 +1777,7 @@ pub static mut __cross_call_master_CallFuncAliasStringCallback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasAnyCallback(func: FuncAliasAny) -> AliasAny {
-    trace!("cross_call_master::CallFuncAliasAnyCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasAnyCallback");
     unsafe { __cross_call_master_CallFuncAliasAnyCallback.expect("CallFuncAliasAnyCallback function was not found")(func) }
 }
 pub type _CallFuncAliasAnyCallback = unsafe extern "C" fn(FuncAliasAny) -> AliasAny;
@@ -1790,7 +1790,7 @@ pub static mut __cross_call_master_CallFuncAliasAnyCallback: Option<_CallFuncAli
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasFunctionCallback(func: FuncAliasFunction) -> AliasFunction {
-    trace!("cross_call_master::CallFuncAliasFunctionCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasFunctionCallback");
     unsafe { __cross_call_master_CallFuncAliasFunctionCallback.expect("CallFuncAliasFunctionCallback function was not found")(func) }
 }
 pub type _CallFuncAliasFunctionCallback = unsafe extern "C" fn(FuncAliasFunction) -> AliasFunction;
@@ -1803,7 +1803,7 @@ pub static mut __cross_call_master_CallFuncAliasFunctionCallback: Option<_CallFu
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasBoolVectorCallback(func: FuncAliasBoolVector) -> AliasBoolVector {
-    trace!("cross_call_master::CallFuncAliasBoolVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasBoolVectorCallback");
     unsafe { __cross_call_master_CallFuncAliasBoolVectorCallback.expect("CallFuncAliasBoolVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasBoolVectorCallback = unsafe extern "C" fn(FuncAliasBoolVector) -> AliasBoolVector;
@@ -1816,7 +1816,7 @@ pub static mut __cross_call_master_CallFuncAliasBoolVectorCallback: Option<_Call
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasChar8VectorCallback(func: FuncAliasChar8Vector) -> AliasChar8Vector {
-    trace!("cross_call_master::CallFuncAliasChar8VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasChar8VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasChar8VectorCallback.expect("CallFuncAliasChar8VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasChar8VectorCallback = unsafe extern "C" fn(FuncAliasChar8Vector) -> AliasChar8Vector;
@@ -1829,7 +1829,7 @@ pub static mut __cross_call_master_CallFuncAliasChar8VectorCallback: Option<_Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasChar16VectorCallback(func: FuncAliasChar16Vector) -> AliasChar16Vector {
-    trace!("cross_call_master::CallFuncAliasChar16VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasChar16VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasChar16VectorCallback.expect("CallFuncAliasChar16VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasChar16VectorCallback = unsafe extern "C" fn(FuncAliasChar16Vector) -> AliasChar16Vector;
@@ -1842,7 +1842,7 @@ pub static mut __cross_call_master_CallFuncAliasChar16VectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt8VectorCallback(func: FuncAliasInt8Vector) -> AliasInt8Vector {
-    trace!("cross_call_master::CallFuncAliasInt8VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt8VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasInt8VectorCallback.expect("CallFuncAliasInt8VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasInt8VectorCallback = unsafe extern "C" fn(FuncAliasInt8Vector) -> AliasInt8Vector;
@@ -1855,7 +1855,7 @@ pub static mut __cross_call_master_CallFuncAliasInt8VectorCallback: Option<_Call
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt16VectorCallback(func: FuncAliasInt16Vector) -> AliasInt16Vector {
-    trace!("cross_call_master::CallFuncAliasInt16VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt16VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasInt16VectorCallback.expect("CallFuncAliasInt16VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasInt16VectorCallback = unsafe extern "C" fn(FuncAliasInt16Vector) -> AliasInt16Vector;
@@ -1868,7 +1868,7 @@ pub static mut __cross_call_master_CallFuncAliasInt16VectorCallback: Option<_Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt32VectorCallback(func: FuncAliasInt32Vector) -> AliasInt32Vector {
-    trace!("cross_call_master::CallFuncAliasInt32VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt32VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasInt32VectorCallback.expect("CallFuncAliasInt32VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasInt32VectorCallback = unsafe extern "C" fn(FuncAliasInt32Vector) -> AliasInt32Vector;
@@ -1881,7 +1881,7 @@ pub static mut __cross_call_master_CallFuncAliasInt32VectorCallback: Option<_Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasInt64VectorCallback(func: FuncAliasInt64Vector) -> AliasInt64Vector {
-    trace!("cross_call_master::CallFuncAliasInt64VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasInt64VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasInt64VectorCallback.expect("CallFuncAliasInt64VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasInt64VectorCallback = unsafe extern "C" fn(FuncAliasInt64Vector) -> AliasInt64Vector;
@@ -1894,7 +1894,7 @@ pub static mut __cross_call_master_CallFuncAliasInt64VectorCallback: Option<_Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt8VectorCallback(func: FuncAliasUInt8Vector) -> AliasUInt8Vector {
-    trace!("cross_call_master::CallFuncAliasUInt8VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt8VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasUInt8VectorCallback.expect("CallFuncAliasUInt8VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt8VectorCallback = unsafe extern "C" fn(FuncAliasUInt8Vector) -> AliasUInt8Vector;
@@ -1907,7 +1907,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt8VectorCallback: Option<_Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt16VectorCallback(func: FuncAliasUInt16Vector) -> AliasUInt16Vector {
-    trace!("cross_call_master::CallFuncAliasUInt16VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt16VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasUInt16VectorCallback.expect("CallFuncAliasUInt16VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt16VectorCallback = unsafe extern "C" fn(FuncAliasUInt16Vector) -> AliasUInt16Vector;
@@ -1920,7 +1920,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt16VectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt32VectorCallback(func: FuncAliasUInt32Vector) -> AliasUInt32Vector {
-    trace!("cross_call_master::CallFuncAliasUInt32VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt32VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasUInt32VectorCallback.expect("CallFuncAliasUInt32VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt32VectorCallback = unsafe extern "C" fn(FuncAliasUInt32Vector) -> AliasUInt32Vector;
@@ -1933,7 +1933,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt32VectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasUInt64VectorCallback(func: FuncAliasUInt64Vector) -> AliasUInt64Vector {
-    trace!("cross_call_master::CallFuncAliasUInt64VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasUInt64VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasUInt64VectorCallback.expect("CallFuncAliasUInt64VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasUInt64VectorCallback = unsafe extern "C" fn(FuncAliasUInt64Vector) -> AliasUInt64Vector;
@@ -1946,7 +1946,7 @@ pub static mut __cross_call_master_CallFuncAliasUInt64VectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasPtrVectorCallback(func: FuncAliasPtrVector) -> AliasPtrVector {
-    trace!("cross_call_master::CallFuncAliasPtrVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasPtrVectorCallback");
     unsafe { __cross_call_master_CallFuncAliasPtrVectorCallback.expect("CallFuncAliasPtrVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasPtrVectorCallback = unsafe extern "C" fn(FuncAliasPtrVector) -> AliasPtrVector;
@@ -1959,7 +1959,7 @@ pub static mut __cross_call_master_CallFuncAliasPtrVectorCallback: Option<_CallF
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasFloatVectorCallback(func: FuncAliasFloatVector) -> AliasFloatVector {
-    trace!("cross_call_master::CallFuncAliasFloatVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasFloatVectorCallback");
     unsafe { __cross_call_master_CallFuncAliasFloatVectorCallback.expect("CallFuncAliasFloatVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasFloatVectorCallback = unsafe extern "C" fn(FuncAliasFloatVector) -> AliasFloatVector;
@@ -1972,7 +1972,7 @@ pub static mut __cross_call_master_CallFuncAliasFloatVectorCallback: Option<_Cal
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasDoubleVectorCallback(func: FuncAliasDoubleVector) -> AliasDoubleVector {
-    trace!("cross_call_master::CallFuncAliasDoubleVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasDoubleVectorCallback");
     unsafe { __cross_call_master_CallFuncAliasDoubleVectorCallback.expect("CallFuncAliasDoubleVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasDoubleVectorCallback = unsafe extern "C" fn(FuncAliasDoubleVector) -> AliasDoubleVector;
@@ -1985,7 +1985,7 @@ pub static mut __cross_call_master_CallFuncAliasDoubleVectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasStringVectorCallback(func: FuncAliasStringVector) -> AliasStringVector {
-    trace!("cross_call_master::CallFuncAliasStringVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasStringVectorCallback");
     unsafe { __cross_call_master_CallFuncAliasStringVectorCallback.expect("CallFuncAliasStringVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasStringVectorCallback = unsafe extern "C" fn(FuncAliasStringVector) -> AliasStringVector;
@@ -1998,7 +1998,7 @@ pub static mut __cross_call_master_CallFuncAliasStringVectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasAnyVectorCallback(func: FuncAliasAnyVector) -> AliasAnyVector {
-    trace!("cross_call_master::CallFuncAliasAnyVectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasAnyVectorCallback");
     unsafe { __cross_call_master_CallFuncAliasAnyVectorCallback.expect("CallFuncAliasAnyVectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasAnyVectorCallback = unsafe extern "C" fn(FuncAliasAnyVector) -> AliasAnyVector;
@@ -2011,7 +2011,7 @@ pub static mut __cross_call_master_CallFuncAliasAnyVectorCallback: Option<_CallF
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasVec2VectorCallback(func: FuncAliasVec2Vector) -> AliasVec2Vector {
-    trace!("cross_call_master::CallFuncAliasVec2VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasVec2VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasVec2VectorCallback.expect("CallFuncAliasVec2VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasVec2VectorCallback = unsafe extern "C" fn(FuncAliasVec2Vector) -> AliasVec2Vector;
@@ -2024,7 +2024,7 @@ pub static mut __cross_call_master_CallFuncAliasVec2VectorCallback: Option<_Call
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasVec3VectorCallback(func: FuncAliasVec3Vector) -> AliasVec3Vector {
-    trace!("cross_call_master::CallFuncAliasVec3VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasVec3VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasVec3VectorCallback.expect("CallFuncAliasVec3VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasVec3VectorCallback = unsafe extern "C" fn(FuncAliasVec3Vector) -> AliasVec3Vector;
@@ -2037,7 +2037,7 @@ pub static mut __cross_call_master_CallFuncAliasVec3VectorCallback: Option<_Call
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasVec4VectorCallback(func: FuncAliasVec4Vector) -> AliasVec4Vector {
-    trace!("cross_call_master::CallFuncAliasVec4VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasVec4VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasVec4VectorCallback.expect("CallFuncAliasVec4VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasVec4VectorCallback = unsafe extern "C" fn(FuncAliasVec4Vector) -> AliasVec4Vector;
@@ -2050,7 +2050,7 @@ pub static mut __cross_call_master_CallFuncAliasVec4VectorCallback: Option<_Call
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasMat4x4VectorCallback(func: FuncAliasMat4x4Vector) -> AliasMat4x4Vector {
-    trace!("cross_call_master::CallFuncAliasMat4x4VectorCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasMat4x4VectorCallback");
     unsafe { __cross_call_master_CallFuncAliasMat4x4VectorCallback.expect("CallFuncAliasMat4x4VectorCallback function was not found")(func) }
 }
 pub type _CallFuncAliasMat4x4VectorCallback = unsafe extern "C" fn(FuncAliasMat4x4Vector) -> AliasMat4x4Vector;
@@ -2063,7 +2063,7 @@ pub static mut __cross_call_master_CallFuncAliasMat4x4VectorCallback: Option<_Ca
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasVec2Callback(func: FuncAliasVec2) -> AliasVec2 {
-    trace!("cross_call_master::CallFuncAliasVec2Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasVec2Callback");
     unsafe { __cross_call_master_CallFuncAliasVec2Callback.expect("CallFuncAliasVec2Callback function was not found")(func) }
 }
 pub type _CallFuncAliasVec2Callback = unsafe extern "C" fn(FuncAliasVec2) -> AliasVec2;
@@ -2076,7 +2076,7 @@ pub static mut __cross_call_master_CallFuncAliasVec2Callback: Option<_CallFuncAl
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasVec3Callback(func: FuncAliasVec3) -> AliasVec3 {
-    trace!("cross_call_master::CallFuncAliasVec3Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasVec3Callback");
     unsafe { __cross_call_master_CallFuncAliasVec3Callback.expect("CallFuncAliasVec3Callback function was not found")(func) }
 }
 pub type _CallFuncAliasVec3Callback = unsafe extern "C" fn(FuncAliasVec3) -> AliasVec3;
@@ -2089,7 +2089,7 @@ pub static mut __cross_call_master_CallFuncAliasVec3Callback: Option<_CallFuncAl
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasVec4Callback(func: FuncAliasVec4) -> AliasVec4 {
-    trace!("cross_call_master::CallFuncAliasVec4Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasVec4Callback");
     unsafe { __cross_call_master_CallFuncAliasVec4Callback.expect("CallFuncAliasVec4Callback function was not found")(func) }
 }
 pub type _CallFuncAliasVec4Callback = unsafe extern "C" fn(FuncAliasVec4) -> AliasVec4;
@@ -2102,7 +2102,7 @@ pub static mut __cross_call_master_CallFuncAliasVec4Callback: Option<_CallFuncAl
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasMat4x4Callback(func: FuncAliasMat4x4) -> AliasMat4x4 {
-    trace!("cross_call_master::CallFuncAliasMat4x4Callback");
+    let __scope = scope!("cross_call_master::CallFuncAliasMat4x4Callback");
     unsafe { __cross_call_master_CallFuncAliasMat4x4Callback.expect("CallFuncAliasMat4x4Callback function was not found")(func) }
 }
 pub type _CallFuncAliasMat4x4Callback = unsafe extern "C" fn(FuncAliasMat4x4) -> AliasMat4x4;
@@ -2115,7 +2115,7 @@ pub static mut __cross_call_master_CallFuncAliasMat4x4Callback: Option<_CallFunc
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncAliasAllCallback(func: FuncAliasAll) -> Str {
-    trace!("cross_call_master::CallFuncAliasAllCallback");
+    let __scope = scope!("cross_call_master::CallFuncAliasAllCallback");
     unsafe { __cross_call_master_CallFuncAliasAllCallback.expect("CallFuncAliasAllCallback function was not found")(func) }
 }
 pub type _CallFuncAliasAllCallback = unsafe extern "C" fn(FuncAliasAll) -> Str;
@@ -2128,7 +2128,7 @@ pub static mut __cross_call_master_CallFuncAliasAllCallback: Option<_CallFuncAli
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc1Callback(func: Func1) -> i32 {
-    trace!("cross_call_master::CallFunc1Callback");
+    let __scope = scope!("cross_call_master::CallFunc1Callback");
     unsafe { __cross_call_master_CallFunc1Callback.expect("CallFunc1Callback function was not found")(func) }
 }
 pub type _CallFunc1Callback = unsafe extern "C" fn(Func1) -> i32;
@@ -2141,7 +2141,7 @@ pub static mut __cross_call_master_CallFunc1Callback: Option<_CallFunc1Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc2Callback(func: Func2) -> i8 {
-    trace!("cross_call_master::CallFunc2Callback");
+    let __scope = scope!("cross_call_master::CallFunc2Callback");
     unsafe { __cross_call_master_CallFunc2Callback.expect("CallFunc2Callback function was not found")(func) }
 }
 pub type _CallFunc2Callback = unsafe extern "C" fn(Func2) -> i8;
@@ -2154,7 +2154,7 @@ pub static mut __cross_call_master_CallFunc2Callback: Option<_CallFunc2Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc3Callback(func: Func3) {
-    trace!("cross_call_master::CallFunc3Callback");
+    let __scope = scope!("cross_call_master::CallFunc3Callback");
     unsafe { __cross_call_master_CallFunc3Callback.expect("CallFunc3Callback function was not found")(func) }
 }
 pub type _CallFunc3Callback = unsafe extern "C" fn(Func3);
@@ -2167,7 +2167,7 @@ pub static mut __cross_call_master_CallFunc3Callback: Option<_CallFunc3Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc4Callback(func: Func4) -> Vec4 {
-    trace!("cross_call_master::CallFunc4Callback");
+    let __scope = scope!("cross_call_master::CallFunc4Callback");
     unsafe { __cross_call_master_CallFunc4Callback.expect("CallFunc4Callback function was not found")(func) }
 }
 pub type _CallFunc4Callback = unsafe extern "C" fn(Func4) -> Vec4;
@@ -2180,7 +2180,7 @@ pub static mut __cross_call_master_CallFunc4Callback: Option<_CallFunc4Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc5Callback(func: Func5) -> bool {
-    trace!("cross_call_master::CallFunc5Callback");
+    let __scope = scope!("cross_call_master::CallFunc5Callback");
     unsafe { __cross_call_master_CallFunc5Callback.expect("CallFunc5Callback function was not found")(func) }
 }
 pub type _CallFunc5Callback = unsafe extern "C" fn(Func5) -> bool;
@@ -2193,7 +2193,7 @@ pub static mut __cross_call_master_CallFunc5Callback: Option<_CallFunc5Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc6Callback(func: Func6) -> i64 {
-    trace!("cross_call_master::CallFunc6Callback");
+    let __scope = scope!("cross_call_master::CallFunc6Callback");
     unsafe { __cross_call_master_CallFunc6Callback.expect("CallFunc6Callback function was not found")(func) }
 }
 pub type _CallFunc6Callback = unsafe extern "C" fn(Func6) -> i64;
@@ -2206,7 +2206,7 @@ pub static mut __cross_call_master_CallFunc6Callback: Option<_CallFunc6Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc7Callback(func: Func7) -> f64 {
-    trace!("cross_call_master::CallFunc7Callback");
+    let __scope = scope!("cross_call_master::CallFunc7Callback");
     unsafe { __cross_call_master_CallFunc7Callback.expect("CallFunc7Callback function was not found")(func) }
 }
 pub type _CallFunc7Callback = unsafe extern "C" fn(Func7) -> f64;
@@ -2219,7 +2219,7 @@ pub static mut __cross_call_master_CallFunc7Callback: Option<_CallFunc7Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc8Callback(func: Func8) -> Mat4x4 {
-    trace!("cross_call_master::CallFunc8Callback");
+    let __scope = scope!("cross_call_master::CallFunc8Callback");
     unsafe { __cross_call_master_CallFunc8Callback.expect("CallFunc8Callback function was not found")(func) }
 }
 pub type _CallFunc8Callback = unsafe extern "C" fn(Func8) -> Mat4x4;
@@ -2232,7 +2232,7 @@ pub static mut __cross_call_master_CallFunc8Callback: Option<_CallFunc8Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc9Callback(func: Func9) {
-    trace!("cross_call_master::CallFunc9Callback");
+    let __scope = scope!("cross_call_master::CallFunc9Callback");
     unsafe { __cross_call_master_CallFunc9Callback.expect("CallFunc9Callback function was not found")(func) }
 }
 pub type _CallFunc9Callback = unsafe extern "C" fn(Func9);
@@ -2245,7 +2245,7 @@ pub static mut __cross_call_master_CallFunc9Callback: Option<_CallFunc9Callback>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc10Callback(func: Func10) -> u32 {
-    trace!("cross_call_master::CallFunc10Callback");
+    let __scope = scope!("cross_call_master::CallFunc10Callback");
     unsafe { __cross_call_master_CallFunc10Callback.expect("CallFunc10Callback function was not found")(func) }
 }
 pub type _CallFunc10Callback = unsafe extern "C" fn(Func10) -> u32;
@@ -2258,7 +2258,7 @@ pub static mut __cross_call_master_CallFunc10Callback: Option<_CallFunc10Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc11Callback(func: Func11) -> usize {
-    trace!("cross_call_master::CallFunc11Callback");
+    let __scope = scope!("cross_call_master::CallFunc11Callback");
     unsafe { __cross_call_master_CallFunc11Callback.expect("CallFunc11Callback function was not found")(func) }
 }
 pub type _CallFunc11Callback = unsafe extern "C" fn(Func11) -> usize;
@@ -2271,7 +2271,7 @@ pub static mut __cross_call_master_CallFunc11Callback: Option<_CallFunc11Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc12Callback(func: Func12) -> bool {
-    trace!("cross_call_master::CallFunc12Callback");
+    let __scope = scope!("cross_call_master::CallFunc12Callback");
     unsafe { __cross_call_master_CallFunc12Callback.expect("CallFunc12Callback function was not found")(func) }
 }
 pub type _CallFunc12Callback = unsafe extern "C" fn(Func12) -> bool;
@@ -2284,7 +2284,7 @@ pub static mut __cross_call_master_CallFunc12Callback: Option<_CallFunc12Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc13Callback(func: Func13) -> Str {
-    trace!("cross_call_master::CallFunc13Callback");
+    let __scope = scope!("cross_call_master::CallFunc13Callback");
     unsafe { __cross_call_master_CallFunc13Callback.expect("CallFunc13Callback function was not found")(func) }
 }
 pub type _CallFunc13Callback = unsafe extern "C" fn(Func13) -> Str;
@@ -2297,7 +2297,7 @@ pub static mut __cross_call_master_CallFunc13Callback: Option<_CallFunc13Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc14Callback(func: Func14) -> Arr<Str> {
-    trace!("cross_call_master::CallFunc14Callback");
+    let __scope = scope!("cross_call_master::CallFunc14Callback");
     unsafe { __cross_call_master_CallFunc14Callback.expect("CallFunc14Callback function was not found")(func) }
 }
 pub type _CallFunc14Callback = unsafe extern "C" fn(Func14) -> Arr<Str>;
@@ -2310,7 +2310,7 @@ pub static mut __cross_call_master_CallFunc14Callback: Option<_CallFunc14Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc15Callback(func: Func15) -> i16 {
-    trace!("cross_call_master::CallFunc15Callback");
+    let __scope = scope!("cross_call_master::CallFunc15Callback");
     unsafe { __cross_call_master_CallFunc15Callback.expect("CallFunc15Callback function was not found")(func) }
 }
 pub type _CallFunc15Callback = unsafe extern "C" fn(Func15) -> i16;
@@ -2323,7 +2323,7 @@ pub static mut __cross_call_master_CallFunc15Callback: Option<_CallFunc15Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc16Callback(func: Func16) -> usize {
-    trace!("cross_call_master::CallFunc16Callback");
+    let __scope = scope!("cross_call_master::CallFunc16Callback");
     unsafe { __cross_call_master_CallFunc16Callback.expect("CallFunc16Callback function was not found")(func) }
 }
 pub type _CallFunc16Callback = unsafe extern "C" fn(Func16) -> usize;
@@ -2336,7 +2336,7 @@ pub static mut __cross_call_master_CallFunc16Callback: Option<_CallFunc16Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc17Callback(func: Func17) -> Str {
-    trace!("cross_call_master::CallFunc17Callback");
+    let __scope = scope!("cross_call_master::CallFunc17Callback");
     unsafe { __cross_call_master_CallFunc17Callback.expect("CallFunc17Callback function was not found")(func) }
 }
 pub type _CallFunc17Callback = unsafe extern "C" fn(Func17) -> Str;
@@ -2349,7 +2349,7 @@ pub static mut __cross_call_master_CallFunc17Callback: Option<_CallFunc17Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc18Callback(func: Func18) -> Str {
-    trace!("cross_call_master::CallFunc18Callback");
+    let __scope = scope!("cross_call_master::CallFunc18Callback");
     unsafe { __cross_call_master_CallFunc18Callback.expect("CallFunc18Callback function was not found")(func) }
 }
 pub type _CallFunc18Callback = unsafe extern "C" fn(Func18) -> Str;
@@ -2362,7 +2362,7 @@ pub static mut __cross_call_master_CallFunc18Callback: Option<_CallFunc18Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc19Callback(func: Func19) -> Str {
-    trace!("cross_call_master::CallFunc19Callback");
+    let __scope = scope!("cross_call_master::CallFunc19Callback");
     unsafe { __cross_call_master_CallFunc19Callback.expect("CallFunc19Callback function was not found")(func) }
 }
 pub type _CallFunc19Callback = unsafe extern "C" fn(Func19) -> Str;
@@ -2375,7 +2375,7 @@ pub static mut __cross_call_master_CallFunc19Callback: Option<_CallFunc19Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc20Callback(func: Func20) -> Str {
-    trace!("cross_call_master::CallFunc20Callback");
+    let __scope = scope!("cross_call_master::CallFunc20Callback");
     unsafe { __cross_call_master_CallFunc20Callback.expect("CallFunc20Callback function was not found")(func) }
 }
 pub type _CallFunc20Callback = unsafe extern "C" fn(Func20) -> Str;
@@ -2388,7 +2388,7 @@ pub static mut __cross_call_master_CallFunc20Callback: Option<_CallFunc20Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc21Callback(func: Func21) -> Str {
-    trace!("cross_call_master::CallFunc21Callback");
+    let __scope = scope!("cross_call_master::CallFunc21Callback");
     unsafe { __cross_call_master_CallFunc21Callback.expect("CallFunc21Callback function was not found")(func) }
 }
 pub type _CallFunc21Callback = unsafe extern "C" fn(Func21) -> Str;
@@ -2401,7 +2401,7 @@ pub static mut __cross_call_master_CallFunc21Callback: Option<_CallFunc21Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc22Callback(func: Func22) -> Str {
-    trace!("cross_call_master::CallFunc22Callback");
+    let __scope = scope!("cross_call_master::CallFunc22Callback");
     unsafe { __cross_call_master_CallFunc22Callback.expect("CallFunc22Callback function was not found")(func) }
 }
 pub type _CallFunc22Callback = unsafe extern "C" fn(Func22) -> Str;
@@ -2414,7 +2414,7 @@ pub static mut __cross_call_master_CallFunc22Callback: Option<_CallFunc22Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc23Callback(func: Func23) -> Str {
-    trace!("cross_call_master::CallFunc23Callback");
+    let __scope = scope!("cross_call_master::CallFunc23Callback");
     unsafe { __cross_call_master_CallFunc23Callback.expect("CallFunc23Callback function was not found")(func) }
 }
 pub type _CallFunc23Callback = unsafe extern "C" fn(Func23) -> Str;
@@ -2427,7 +2427,7 @@ pub static mut __cross_call_master_CallFunc23Callback: Option<_CallFunc23Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc24Callback(func: Func24) -> Str {
-    trace!("cross_call_master::CallFunc24Callback");
+    let __scope = scope!("cross_call_master::CallFunc24Callback");
     unsafe { __cross_call_master_CallFunc24Callback.expect("CallFunc24Callback function was not found")(func) }
 }
 pub type _CallFunc24Callback = unsafe extern "C" fn(Func24) -> Str;
@@ -2440,7 +2440,7 @@ pub static mut __cross_call_master_CallFunc24Callback: Option<_CallFunc24Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc25Callback(func: Func25) -> Str {
-    trace!("cross_call_master::CallFunc25Callback");
+    let __scope = scope!("cross_call_master::CallFunc25Callback");
     unsafe { __cross_call_master_CallFunc25Callback.expect("CallFunc25Callback function was not found")(func) }
 }
 pub type _CallFunc25Callback = unsafe extern "C" fn(Func25) -> Str;
@@ -2453,7 +2453,7 @@ pub static mut __cross_call_master_CallFunc25Callback: Option<_CallFunc25Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc26Callback(func: Func26) -> Str {
-    trace!("cross_call_master::CallFunc26Callback");
+    let __scope = scope!("cross_call_master::CallFunc26Callback");
     unsafe { __cross_call_master_CallFunc26Callback.expect("CallFunc26Callback function was not found")(func) }
 }
 pub type _CallFunc26Callback = unsafe extern "C" fn(Func26) -> Str;
@@ -2466,7 +2466,7 @@ pub static mut __cross_call_master_CallFunc26Callback: Option<_CallFunc26Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc27Callback(func: Func27) -> Str {
-    trace!("cross_call_master::CallFunc27Callback");
+    let __scope = scope!("cross_call_master::CallFunc27Callback");
     unsafe { __cross_call_master_CallFunc27Callback.expect("CallFunc27Callback function was not found")(func) }
 }
 pub type _CallFunc27Callback = unsafe extern "C" fn(Func27) -> Str;
@@ -2479,7 +2479,7 @@ pub static mut __cross_call_master_CallFunc27Callback: Option<_CallFunc27Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc28Callback(func: Func28) -> Str {
-    trace!("cross_call_master::CallFunc28Callback");
+    let __scope = scope!("cross_call_master::CallFunc28Callback");
     unsafe { __cross_call_master_CallFunc28Callback.expect("CallFunc28Callback function was not found")(func) }
 }
 pub type _CallFunc28Callback = unsafe extern "C" fn(Func28) -> Str;
@@ -2492,7 +2492,7 @@ pub static mut __cross_call_master_CallFunc28Callback: Option<_CallFunc28Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc29Callback(func: Func29) -> Str {
-    trace!("cross_call_master::CallFunc29Callback");
+    let __scope = scope!("cross_call_master::CallFunc29Callback");
     unsafe { __cross_call_master_CallFunc29Callback.expect("CallFunc29Callback function was not found")(func) }
 }
 pub type _CallFunc29Callback = unsafe extern "C" fn(Func29) -> Str;
@@ -2505,7 +2505,7 @@ pub static mut __cross_call_master_CallFunc29Callback: Option<_CallFunc29Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc30Callback(func: Func30) -> Str {
-    trace!("cross_call_master::CallFunc30Callback");
+    let __scope = scope!("cross_call_master::CallFunc30Callback");
     unsafe { __cross_call_master_CallFunc30Callback.expect("CallFunc30Callback function was not found")(func) }
 }
 pub type _CallFunc30Callback = unsafe extern "C" fn(Func30) -> Str;
@@ -2518,7 +2518,7 @@ pub static mut __cross_call_master_CallFunc30Callback: Option<_CallFunc30Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc31Callback(func: Func31) -> Str {
-    trace!("cross_call_master::CallFunc31Callback");
+    let __scope = scope!("cross_call_master::CallFunc31Callback");
     unsafe { __cross_call_master_CallFunc31Callback.expect("CallFunc31Callback function was not found")(func) }
 }
 pub type _CallFunc31Callback = unsafe extern "C" fn(Func31) -> Str;
@@ -2531,7 +2531,7 @@ pub static mut __cross_call_master_CallFunc31Callback: Option<_CallFunc31Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc32Callback(func: Func32) -> Str {
-    trace!("cross_call_master::CallFunc32Callback");
+    let __scope = scope!("cross_call_master::CallFunc32Callback");
     unsafe { __cross_call_master_CallFunc32Callback.expect("CallFunc32Callback function was not found")(func) }
 }
 pub type _CallFunc32Callback = unsafe extern "C" fn(Func32) -> Str;
@@ -2544,7 +2544,7 @@ pub static mut __cross_call_master_CallFunc32Callback: Option<_CallFunc32Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFunc33Callback(func: Func33) -> Str {
-    trace!("cross_call_master::CallFunc33Callback");
+    let __scope = scope!("cross_call_master::CallFunc33Callback");
     unsafe { __cross_call_master_CallFunc33Callback.expect("CallFunc33Callback function was not found")(func) }
 }
 pub type _CallFunc33Callback = unsafe extern "C" fn(Func33) -> Str;
@@ -2557,7 +2557,7 @@ pub static mut __cross_call_master_CallFunc33Callback: Option<_CallFunc33Callbac
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CallFuncEnumCallback(func: FuncEnum) -> Str {
-    trace!("cross_call_master::CallFuncEnumCallback");
+    let __scope = scope!("cross_call_master::CallFuncEnumCallback");
     unsafe { __cross_call_master_CallFuncEnumCallback.expect("CallFuncEnumCallback function was not found")(func) }
 }
 pub type _CallFuncEnumCallback = unsafe extern "C" fn(FuncEnum) -> Str;

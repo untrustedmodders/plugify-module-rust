@@ -9,14 +9,14 @@ use super::aliases::*;
 #[allow(unused_imports)]
 use super::delegates::*;
 #[allow(unused_imports)]
-use plugify::{trace, log, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
+use plugify::{scope, Str, Arr, Var, Vec2, Vec3, Vec4, Mat4x4};
 
 /// # Arguments
 /// * `initialValue` - (int64)
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCreate(initialValue: i64) -> usize {
-    trace!("cross_call_master::CounterCreate");
+    let __scope = scope!("cross_call_master::CounterCreate");
     unsafe { __cross_call_master_CounterCreate.expect("CounterCreate function was not found")(initialValue) }
 }
 pub type _CounterCreate = unsafe extern "C" fn(i64) -> usize;
@@ -27,7 +27,7 @@ pub static mut __cross_call_master_CounterCreate: Option<_CounterCreate> = None;
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCreateZero() -> usize {
-    trace!("cross_call_master::CounterCreateZero");
+    let __scope = scope!("cross_call_master::CounterCreateZero");
     unsafe { __cross_call_master_CounterCreateZero.expect("CounterCreateZero function was not found")() }
 }
 pub type _CounterCreateZero = unsafe extern "C" fn() -> usize;
@@ -40,7 +40,7 @@ pub static mut __cross_call_master_CounterCreateZero: Option<_CounterCreateZero>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterGetValue(counter: usize) -> i64 {
-    trace!("cross_call_master::CounterGetValue");
+    let __scope = scope!("cross_call_master::CounterGetValue");
     unsafe { __cross_call_master_CounterGetValue.expect("CounterGetValue function was not found")(counter) }
 }
 pub type _CounterGetValue = unsafe extern "C" fn(usize) -> i64;
@@ -54,7 +54,7 @@ pub static mut __cross_call_master_CounterGetValue: Option<_CounterGetValue> = N
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterSetValue(counter: usize, value: i64) {
-    trace!("cross_call_master::CounterSetValue");
+    let __scope = scope!("cross_call_master::CounterSetValue");
     unsafe { __cross_call_master_CounterSetValue.expect("CounterSetValue function was not found")(counter, value) }
 }
 pub type _CounterSetValue = unsafe extern "C" fn(usize, i64);
@@ -67,7 +67,7 @@ pub static mut __cross_call_master_CounterSetValue: Option<_CounterSetValue> = N
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterIncrement(counter: usize) {
-    trace!("cross_call_master::CounterIncrement");
+    let __scope = scope!("cross_call_master::CounterIncrement");
     unsafe { __cross_call_master_CounterIncrement.expect("CounterIncrement function was not found")(counter) }
 }
 pub type _CounterIncrement = unsafe extern "C" fn(usize);
@@ -80,7 +80,7 @@ pub static mut __cross_call_master_CounterIncrement: Option<_CounterIncrement> =
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterDecrement(counter: usize) {
-    trace!("cross_call_master::CounterDecrement");
+    let __scope = scope!("cross_call_master::CounterDecrement");
     unsafe { __cross_call_master_CounterDecrement.expect("CounterDecrement function was not found")(counter) }
 }
 pub type _CounterDecrement = unsafe extern "C" fn(usize);
@@ -94,7 +94,7 @@ pub static mut __cross_call_master_CounterDecrement: Option<_CounterDecrement> =
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterAdd(counter: usize, amount: i64) {
-    trace!("cross_call_master::CounterAdd");
+    let __scope = scope!("cross_call_master::CounterAdd");
     unsafe { __cross_call_master_CounterAdd.expect("CounterAdd function was not found")(counter, amount) }
 }
 pub type _CounterAdd = unsafe extern "C" fn(usize, i64);
@@ -107,7 +107,7 @@ pub static mut __cross_call_master_CounterAdd: Option<_CounterAdd> = None;
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterReset(counter: usize) {
-    trace!("cross_call_master::CounterReset");
+    let __scope = scope!("cross_call_master::CounterReset");
     unsafe { __cross_call_master_CounterReset.expect("CounterReset function was not found")(counter) }
 }
 pub type _CounterReset = unsafe extern "C" fn(usize);
@@ -120,7 +120,7 @@ pub static mut __cross_call_master_CounterReset: Option<_CounterReset> = None;
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterIsPositive(counter: usize) -> bool {
-    trace!("cross_call_master::CounterIsPositive");
+    let __scope = scope!("cross_call_master::CounterIsPositive");
     unsafe { __cross_call_master_CounterIsPositive.expect("CounterIsPositive function was not found")(counter) }
 }
 pub type _CounterIsPositive = unsafe extern "C" fn(usize) -> bool;
@@ -134,7 +134,7 @@ pub static mut __cross_call_master_CounterIsPositive: Option<_CounterIsPositive>
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterCompare(value1: i64, value2: i64) -> i32 {
-    trace!("cross_call_master::CounterCompare");
+    let __scope = scope!("cross_call_master::CounterCompare");
     unsafe { __cross_call_master_CounterCompare.expect("CounterCompare function was not found")(value1, value2) }
 }
 pub type _CounterCompare = unsafe extern "C" fn(i64, i64) -> i32;
@@ -147,7 +147,7 @@ pub static mut __cross_call_master_CounterCompare: Option<_CounterCompare> = Non
 #[track_caller]
 #[allow(dead_code, non_snake_case)]
 pub fn CounterSum(values: &Arr<i64>) -> i64 {
-    trace!("cross_call_master::CounterSum");
+    let __scope = scope!("cross_call_master::CounterSum");
     unsafe { __cross_call_master_CounterSum.expect("CounterSum function was not found")(values) }
 }
 pub type _CounterSum = unsafe extern "C" fn(&Arr<i64>) -> i64;
