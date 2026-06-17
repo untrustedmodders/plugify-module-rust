@@ -13,6 +13,8 @@
 struct RustString {
 	const char* p{};
 	size_t n{};
+	
+	explicit RustString(std::string_view sv) : p(sv.data()), n(sv.size()) {}
 
 	operator std::string_view() const { return {p, n};  }
 	operator bool() const { return n > 0;  }
