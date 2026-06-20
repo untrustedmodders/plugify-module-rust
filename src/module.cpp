@@ -123,14 +123,14 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 		mainFunc();
 	}
 
-	const int resultVersion = initFunc(_pluginApi.data(), _pluginApi.size(), kApiVersion, static_cast<const void *>(&plugin));
+	const int resultVersion = initFunc(_pluginApi.data(), _pluginApi.size(), kApiVersion, &plugin);
 	if (resultVersion != 0) {
 		return MakeError("Not supported plugin api {}, max supported {}", resultVersion, kApiVersion);
 	}
 
 	const auto& [hasUpdate, hasStart, hasEnd] = contextFunc ? *(contextFunc()) : PluginContext{};
 
-	auto data = _assemblies.emplace_back(std::make_unique<AssemblyHolder>(std::move(assembly), updateFunc, startFunc, endFunc, contextFunc)).get();
+	auto data = _assemblies.emplace_back(std::make_unique<AssemblyHolder>(std::move(assembly), updateFunc, startFunc, endFunc)).get();
 	return LoadData{ std::move(methods), data, { hasUpdate, hasStart, hasEnd, !exportedMethods.empty() } };
 }
 
@@ -189,7 +189,7 @@ plg::string GetCacheDir() {
 	return plg::as_string(g_rustlm.GetProvider()->GetCacheDir());
 }
 
-ptrdiff_t GetPluginId(const Extension& plugin) {
+UniqueId::Value GetPluginId(const Extension& plugin) {
 	return plugin.GetId();
 }
 

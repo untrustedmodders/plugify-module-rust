@@ -52,7 +52,7 @@ namespace rustlm {
 	};
 
 	using MainFunc = void (*)();
-	using InitFunc = int (*)(void* const*, size_t, int, const void*);
+	using InitFunc = int (*)(void* const*, size_t, int, const Extension*);
 	using StartFunc = PluginResult (*)();
 	using UpdateFunc = PluginResult (*)(float);
 	using EndFunc = PluginResult (*)();
@@ -60,10 +60,9 @@ namespace rustlm {
 
 	struct AssemblyHolder {
 		std::shared_ptr<IAssembly> assembly;
-		UpdateFunc updateFunc;
-		StartFunc startFunc;
-		EndFunc endFunc;
-		ContextFunc contextFunc;
+		UpdateFunc updateFunc{};
+		StartFunc startFunc{};
+		EndFunc endFunc{};
 	};
 
 	class RustLanguageModule final : public ILanguageModule {
