@@ -47,7 +47,7 @@ Result<void> RustLanguageModule::OnMethodExport(const Extension& plugin) {
 		auto variableName = std::format("__{}_{}", plugin.GetName(), method.GetName());
 		for (const auto& assembly : _assemblies) {
 			if (auto function = assembly->assembly->GetSymbol(variableName)) {
-				*function->RCast<MemAddr*>() = addr;
+				*function->As<Address*>() = addr;
 			}
 		}
 	}
@@ -90,12 +90,12 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 		return MakeError(std::move(contextResult.error()));
 	}
 
-	auto* mainFunc = mainResult ? mainResult->RCast<MainFunc>() : nullptr;
-	auto* initFunc = initResult->RCast<InitFunc>();
-	auto* startFunc = startResult->RCast<StartFunc>();
-	auto* updateFunc = updateResult->RCast<UpdateFunc>();
-	auto* endFunc = endResult->RCast<EndFunc>();
-	auto* contextFunc = contextResult->RCast<ContextFunc>();
+	auto* mainFunc = mainResult ? mainResult->As<MainFunc>() : nullptr;
+	auto* initFunc = initResult->As<InitFunc>();
+	auto* startFunc = startResult->As<StartFunc>();
+	auto* updateFunc = updateResult->As<UpdateFunc>();
+	auto* endFunc = endResult->As<EndFunc>();
+	auto* contextFunc = contextResult->As<ContextFunc>();
 
 	std::vector<std::string> errors;
 
@@ -135,7 +135,7 @@ Result<LoadData> RustLanguageModule::OnPluginLoad(const Extension& plugin) {
 }
 
 Result<void> RustLanguageModule::OnPluginStart(const Extension& plugin) {
-	auto result = plugin.GetUserData().RCast<AssemblyHolder*>()->startFunc();
+	auto result = plugin.GetUserData().As<AssemblyHolder*>()->startFunc();
 	if (!result) {
 		_logger->Log(std::format(LOG_PREFIX "{}: call of 'OnPluginStart' failed\n{}", plugin.GetName(), result.message), Severity::Error);
 		return MakeError(std::string(result));
@@ -144,7 +144,7 @@ Result<void> RustLanguageModule::OnPluginStart(const Extension& plugin) {
 }
 
 Result<void> RustLanguageModule::OnPluginUpdate(const Extension& plugin, std::chrono::milliseconds dt) {
-	auto result = plugin.GetUserData().RCast<AssemblyHolder*>()->updateFunc(std::chrono::duration<float>(dt).count());
+	auto result = plugin.GetUserData().As<AssemblyHolder*>()->updateFunc(std::chrono::duration<float>(dt).count());
 	if (!result) {
 		_logger->Log(std::format(LOG_PREFIX "{}: call of 'OnPluginUpdate' failed\n{}", plugin.GetName(), result.message), Severity::Error);
 		return MakeError(std::string(result));
@@ -153,7 +153,7 @@ Result<void> RustLanguageModule::OnPluginUpdate(const Extension& plugin, std::ch
 }
 
 Result<void> RustLanguageModule::OnPluginEnd(const Extension& plugin) {
-	auto result = plugin.GetUserData().RCast<AssemblyHolder*>()->endFunc();
+	auto result = plugin.GetUserData().As<AssemblyHolder*>()->endFunc();
 	if (!result) {
 		_logger->Log(std::format(LOG_PREFIX "{}: call of 'OnPluginEnd' failed\n{}", plugin.GetName(), result.message), Severity::Error);
 		return MakeError(std::string(result));
@@ -249,7 +249,7 @@ void Log(RustString message, Severity severity, const RustLocation& location) {
 
 ZoneHandle BeginZone(std::string_view name, const RustLocation& location) {
 	if (const auto& profiler = g_rustlm.GetProfiler()) {
-		return profiler->BeginZone(ZoneInfo{name, location.function, location.file, location.line, 0});
+		return profiler->BeginZone(name, location);
 	}
 	return {};
 }
