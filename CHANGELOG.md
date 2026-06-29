@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.2](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.1...v1.2.2) (2026-06-29)
+
+
+### Bug Fixes
+
+* add missing aliases ([a850875](https://github.com/untrustedmodders/plugify-module-rust/commit/a8508759af3e58a6388ff6c3c53a5f9d68630b98))
+* improve name extraction from path ([c87bdca](https://github.com/untrustedmodders/plugify-module-rust/commit/c87bdca63acac690ed478d611ed74eed268c6a94))
+* update plugify ([42eb47a](https://github.com/untrustedmodders/plugify-module-rust/commit/42eb47a8c311b4b57755842e4897e9c18bac05ee))
+* update plugify ([60a6022](https://github.com/untrustedmodders/plugify-module-rust/commit/60a6022b82f944c7dbbf6219f4703461b09a81cb))
+* update profiler ([f2c6553](https://github.com/untrustedmodders/plugify-module-rust/commit/f2c65530e61c9d3626db7e8cb2e39ba5eb6a76f2))
+* update test ([dba119d](https://github.com/untrustedmodders/plugify-module-rust/commit/dba119df29db85e3cc4a002364c39e0f10216ccb))
+
 ## [1.2.1](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.0...v1.2.1) (2026-05-24)
 
 
