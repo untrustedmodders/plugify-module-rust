@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.4...v1.2.5) (2026-10-14)
+
+
+### Bug Fixes
+
+* migrate conda packaging to rattler-build ([15755d3](https://github.com/untrustedmodders/plugify-module-rust/commit/15755d3a2f33a8b1a5ef4b1c006260049fc145e3))
+
 ## [1.2.4](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.3...v1.2.4) (2026-08-16)
 
 
