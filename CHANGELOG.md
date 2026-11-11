@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.5...v1.3.0) (2026-11-11)
+
+
+### Features
+
+* add lib prefix for linux builds ([e12fa80](https://github.com/untrustedmodders/plugify-module-rust/commit/e12fa80da2d8501d767e0b566309d7b52735b4fe))
+
 ## [1.2.5](https://github.com/untrustedmodders/plugify-module-rust/compare/v1.2.4...v1.2.5) (2026-10-14)
 
 
